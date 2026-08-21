@@ -29,7 +29,6 @@ public class panel_reportes extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        panel_paciente1 = new com.mycompany.geriatrico1.vista.panel_paciente();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -60,8 +59,6 @@ public class panel_reportes extends javax.swing.JPanel {
         add(jPanel2, java.awt.BorderLayout.LINE_START);
 
         jPanel3.setLayout(new java.awt.CardLayout());
-        jPanel3.add(panel_paciente1, "card2");
-
         add(jPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -70,6 +67,5 @@ public class panel_reportes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private com.mycompany.geriatrico1.vista.panel_paciente panel_paciente1;
     // End of variables declaration//GEN-END:variables
 }
