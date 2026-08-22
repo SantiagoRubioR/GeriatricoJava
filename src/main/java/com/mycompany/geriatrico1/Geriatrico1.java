@@ -19,9 +19,9 @@ public class Geriatrico1 {
     public static void main(String[] args) {
         System.out.println("Hello World!");
         Dashboard_Medico vista_med = new Dashboard_Medico();
-        Ven_Admin vista_admin = new Ven_Admin();
-        vista_admin.setVisible(true);
-        vista_med.setVisible(false);
+       Ven_Admin vista_admin = new Ven_Admin();
+       vista_admin.setVisible(true);
+        vista_med.setVisible(true);
         
         /*
         Dashboard_Enfermero d_Enf = new Dashboard_Enfermero();
