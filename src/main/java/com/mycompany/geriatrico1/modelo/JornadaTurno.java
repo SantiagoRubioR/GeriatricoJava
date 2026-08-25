@@ -4,6 +4,8 @@
  */
 package com.mycompany.geriatrico1.modelo;
 
+import java.time.LocalTime;
+
 /**
  *
  * @author Mary
@@ -11,10 +13,10 @@ package com.mycompany.geriatrico1.modelo;
 public class JornadaTurno {
     private String Turno_hor;
     private String Nombre_Jortur;
-    private String Hora_ini;
-    private String Hora_fin;
+    private LocalTime Hora_ini;
+    private LocalTime Hora_fin;
 
-    public JornadaTurno(String Turno_hor, String Nombre_Jortur, String Hora_ini, String Hora_fin) {
+    public JornadaTurno(String Turno_hor, String Nombre_Jortur, LocalTime Hora_ini, LocalTime Hora_fin) {
         this.Turno_hor = Turno_hor;
         this.Nombre_Jortur = Nombre_Jortur;
         this.Hora_ini = Hora_ini;
@@ -37,22 +39,21 @@ public class JornadaTurno {
         this.Nombre_Jortur = Nombre_Jortur;
     }
 
-    public String getHora_ini() {
+    public LocalTime getHora_ini() {
         return Hora_ini;
     }
 
-    public void setHora_ini(String Hora_ini) {
+    public void setHora_ini(LocalTime Hora_ini) {
         this.Hora_ini = Hora_ini;
     }
 
-    public String getHora_fin() {
+    public LocalTime getHora_fin() {
         return Hora_fin;
     }
 
-    public void setHora_fin(String Hora_fin) {
+    public void setHora_fin(LocalTime Hora_fin) {
         this.Hora_fin = Hora_fin;
     }
-    
-    
+
     
 }
