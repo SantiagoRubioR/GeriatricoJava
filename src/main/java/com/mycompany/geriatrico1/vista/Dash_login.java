@@ -68,7 +68,6 @@ public class Dash_login extends javax.swing.JFrame {
         jLabel5.setText("Contraseña");
 
         BtnIngresar.setText("INGRESAR");
-        BtnIngresar.addActionListener(this::BtnIngresarActionPerformed);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -185,11 +184,6 @@ public class Dash_login extends javax.swing.JFrame {
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
-
-    private void BtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_BtnIngresarActionPerformed
 
     /**
      * @param args the command line arguments

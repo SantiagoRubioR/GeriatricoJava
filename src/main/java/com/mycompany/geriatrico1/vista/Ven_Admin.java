@@ -75,7 +75,6 @@ public class Ven_Admin extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtNombreAdmin = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
@@ -371,9 +370,6 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
         jLabel11.setText("Hola, ");
 
-        txtNombreAdmin.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
-        txtNombreAdmin.setText("Nom");
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -384,25 +380,20 @@ public class Ven_Admin extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNombreAdmin)))
+                    .addComponent(jLabel11))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txtNombreAdmin))
+                .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
                 .addContainerGap())
         );
 
-        panelInicio.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 380, 80));
+        panelInicio.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 260, 80));
 
         jLabel27.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(102, 102, 102));
@@ -1070,6 +1061,5 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JTextField txtBusPersonal;
     private javax.swing.JTextField txtBuscPaci;
     private javax.swing.JTextField txtBuscTurno;
-    private javax.swing.JLabel txtNombreAdmin;
     // End of variables declaration//GEN-END:variables
 }
