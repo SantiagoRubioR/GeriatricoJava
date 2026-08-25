@@ -1,58 +1,88 @@
 
 package com.mycompany.geriatrico1.dao;
-//Packages Relacionales
-import com.mycompany.geriatrico1.conexion.Conexion;
-import com.mycompany.geriatrico1.modelo.Paciente;
-import com.mycompany.geriatrico1.modelo.Persona;
-import com.mycompany.geriatrico1.modelo.Tutor;
-//Packages BaseDO
 
+import com.mycompany.geriatrico1.conexion.Conexion;
+import com.mycompany.geriatrico1.modelo.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
+public class PacienteDAO {
 
-public class PacienteDao {
-    private static final String INSERTAR_PERSONA = "(Cedula_perso, Nombre_Perso, Apellido1_Perso, Apellido2_Perso, Telefono_Perso, Direccion_Perso, Correo_Elec_Perso, Fecha_Nac_Perso, Genero_Perso, Estado_Civil_Perso) "
-            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\"";
-    private static final String INSERTAR_PACIENTE = "INSERT INTO PACIENTE (ID_Pac, Cedula_Perso_Pac, ID_Tut, Tipo_Sandre_Pac) VALUES (?, ?, ?, ?)";
+    private static final String INSERT_PERSONA = 
+        "INSERT INTO Persona (cedula_Perso, nombre_Perso, apellido1_Perso, apellido2_Perso, telefono_Perso, direccion_Perso, correo_Perso, fecha_nac_Perso, genero_Perso, estado_civil_Perso) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
-    public boolean registrarPacienteTransaccional(Persona abuelo, Persona tutor, Tutor datosTutor, Paciente datosPaciente) {
-        
-        // 2. EL ESTILO DE TU PROFESORA: try-with-resources para la conexión
-        try (Connection conn = Conexion.getConnection()) {
+    private static final String INSERT_TUTOR = 
+        "INSERT INTO Tutor_Paciente (Cedula_Perso_Tut, Parentesco_Tut, Tipo_Tut) VALUES (?, ?, ?) RETURNING ID_Tut";
+    
+    private static final String INSERT_PACIENTE = 
+        "INSERT INTO PACIENTE (Cedula_Perso_Pac, ID_Tut_Pac, Tipo_Sandre_Pac, Grado_Dependencia) VALUES (?, ?, ?, ?)";
+
+    public boolean registrarPacienteCompleto(Persona abuelo, Persona tutor, Tutor datosTutor, Paciente datosPac) {
+        try (Connection con = new Conexion().getConnection()) {
+            con.setAutoCommit(false);
             
-            // 3. LA REGLA DE LA 5FN: Apagamos el autocommit para proteger la base
-            conn.setAutoCommit(false); 
-            
-            try (PreparedStatement psAbuelo = conn.prepareStatement(INSERTAR_PERSONA);
-                 PreparedStatement psPaciente = conn.prepareStatement(INSERTAR_PACIENTE)) {
-                 
-                // Ejecutamos el primer INSERT (Persona)
-                psAbuelo.setString(1, abuelo.getCedula());
-                psAbuelo.setString(2, abuelo.getNombre1());
-                // ... llenar el resto
-                psAbuelo.executeUpdate();
+            try (PreparedStatement psPerAbuelo = con.prepareStatement(INSERT_PERSONA);
+                 PreparedStatement psPerTutor = con.prepareStatement(INSERT_PERSONA);
+                 PreparedStatement psTutor = con.prepareStatement(INSERT_TUTOR);
+                 PreparedStatement psPac = con.prepareStatement(INSERT_PACIENTE)) {
                 
-                // Ejecutamos el INSERT final (Paciente)
-                psPaciente.setString(1, datosPaciente.getIdPaciente());
-                psPaciente.setString(2, abuelo.getCedula());
-                // ... llenar el resto
-                psPaciente.executeUpdate();
+                // 1. Persona Abuelo
+                psPerAbuelo.setString(1, abuelo.getCedula());
+                psPerAbuelo.setString(2, abuelo.getNombre1());
+                psPerAbuelo.setString(3, abuelo.getApellido1());
+                psPerAbuelo.setString(4, abuelo.getApellido2());
+                psPerAbuelo.setString(5, abuelo.getTelefono());
+                psPerAbuelo.setString(6, abuelo.getDireccion());
+                psPerAbuelo.setString(7, abuelo.getCorreo());
+                psPerAbuelo.setDate(8, java.sql.Date.valueOf(abuelo.getFechaNacimiento()));
+                psPerAbuelo.setString(9, abuelo.getGenero());
+                psPerAbuelo.setString(10, abuelo.getEstadoCivil());
+                psPerAbuelo.executeUpdate();
                 
-                // Si llegamos hasta aquí sin errores, guardamos todo de golpe
-                conn.commit(); 
+                // 2. Persona Tutor
+                psPerTutor.setString(1, tutor.getCedula());
+                psPerTutor.setString(2, tutor.getNombre1());
+                psPerTutor.setString(3, tutor.getApellido1());
+                psPerTutor.setString(4, tutor.getApellido2());
+                psPerTutor.setString(5, tutor.getTelefono());
+                psPerTutor.setString(6, tutor.getDireccion());
+                psPerTutor.setString(7, tutor.getCorreo());
+                psPerTutor.setDate(8, java.sql.Date.valueOf(tutor.getFechaNacimiento()));
+                psPerTutor.setString(9, tutor.getGenero());
+                psPerTutor.setString(10, tutor.getEstadoCivil());
+                psPerTutor.executeUpdate();
+                
+                // 3. Registrar Tutor_Paciente y atrapar ID generado
+                psTutor.setString(1, tutor.getCedula());
+                psTutor.setString(2, datosTutor.getParentesco());
+                psTutor.setString(3, datosTutor.getTipoTutor());
+                
+                String idTutorGenerado = "";
+                try (ResultSet rsTut = psTutor.executeQuery()) {
+                    if (rsTut.next()) {
+                        idTutorGenerado = rsTut.getString("ID_Tut");
+                    }
+                }
+                
+                // 4. Registrar Paciente
+                psPac.setString(1, abuelo.getCedula());
+                psPac.setString(2, idTutorGenerado);
+                psPac.setString(3, datosPac.getTipoSangre());
+                psPac.setString(4, datosPac.getGradoDependencia());
+                psPac.executeUpdate();
+                
+                con.commit();
                 return true;
                 
             } catch (SQLException e) {
-                // Si falla CUALQUIER insert, deshacemos todo
-                conn.rollback(); 
-                System.err.println("Error en transacción 5FN: " + e.getMessage());
+                con.rollback();
+                JOptionPane.showMessageDialog(null, "Error en Registro Paciente:\n" + e.getMessage(), "Error SQL", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
-            
         } catch (SQLException ex) {
-            System.err.println("Error de conexión: " + ex.getMessage());
             return false;
         }
     }
