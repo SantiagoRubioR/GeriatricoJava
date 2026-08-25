@@ -125,12 +125,12 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtApellido2" alignment="0" max="32767" attributes="0"/>
                                               <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextField7" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                                              <Component id="txtTelef" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jTextField1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                                          <Component id="txtCedula" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                                           <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -141,37 +141,37 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jTextField2" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                                                  <Component id="txtNombre" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jTextField11" min="-2" pref="232" max="-2" attributes="0"/>
+                                                  <Component id="txtApellido1" min="-2" pref="232" max="-2" attributes="0"/>
                                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Component id="jButton1" min="-2" pref="138" max="-2" attributes="0"/>
+                                              <Component id="btnGuardarFicha" min="-2" pref="138" max="-2" attributes="0"/>
                                               <Group type="102" attributes="0">
                                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                       <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jTextField8" max="32767" attributes="0"/>
+                                                      <Component id="txtDirecc" max="32767" attributes="0"/>
                                                       <Group type="102" alignment="1" attributes="0">
                                                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                                          <Component id="jDateChooser1" min="-2" pref="224" max="-2" attributes="0"/>
+                                                          <Component id="dateNaci" min="-2" pref="224" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jTextField10" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
+                                                      <Component id="txtCorreo" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
                                                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                                               <Group type="102" attributes="0">
-                                                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                                                  <Component id="rbMasc" min="-2" max="-2" attributes="0"/>
                                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                                                  <Component id="rbFeme" min="-2" max="-2" attributes="0"/>
                                                               </Group>
                                                           </Group>
                                                       </Group>
@@ -181,13 +181,13 @@
                                       </Group>
                                   </Group>
                                   <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField6" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                                  <Component id="txtEstCivil" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                                   <Component id="jLabel1" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                                   <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="ComBoxRoles" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
+                          <Component id="CbxRoles" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="107" max="32767" attributes="0"/>
                   </Group>
@@ -201,7 +201,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel16" min="-2" pref="20" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Component id="ComBoxRoles" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="CbxRoles" min="-2" pref="20" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel12" min="-2" pref="20" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -212,9 +212,9 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtApellido1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -225,16 +225,16 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtApellido2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbMasc" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbFeme" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+                          <Component id="dateNaci" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField6" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtEstCivil" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -245,14 +245,14 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTelef" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtDirecc" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="panelDinamico" min="-2" pref="261" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnGuardarFicha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="35" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -264,14 +264,14 @@
                 <Property name="text" type="java.lang.String" value="Nombre"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="txtCedula">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel13">
               <Properties>
                 <Property name="text" type="java.lang.String" value="C&#xe9;dula "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="txtNombre">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
@@ -283,9 +283,9 @@
                 <Property name="text" type="java.lang.String" value="Apellido 2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
+            <Component class="javax.swing.JTextField" name="txtApellido2">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtApellido2ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
@@ -308,7 +308,7 @@
                 <Property name="text" type="java.lang.String" value="Estado civil "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="txtEstCivil">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -325,11 +325,11 @@
                 <Property name="text" type="java.lang.String" value="Correo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="txtTelef">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
+            <Component class="javax.swing.JTextField" name="txtDirecc">
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+            <Component class="javax.swing.JRadioButton" name="rbMasc">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup1"/>
@@ -337,10 +337,10 @@
                 <Property name="text" type="java.lang.String" value="Masculino"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbMascActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+            <Component class="javax.swing.JRadioButton" name="rbFeme">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup1"/>
@@ -348,14 +348,14 @@
                 <Property name="text" type="java.lang.String" value="Feminino"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbFemeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField10">
+            <Component class="javax.swing.JTextField" name="txtCorreo">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField11">
+            <Component class="javax.swing.JTextField" name="txtApellido1">
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+            <Component class="com.toedter.calendar.JDateChooser" name="dateNaci">
             </Component>
             <Container class="javax.swing.JPanel" name="panelDinamico">
 
@@ -375,21 +375,21 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel31" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-                                  <Component id="jComboBox6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbxHoraEnfer" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jTextField14" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtNumLicenEnfer" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jLabel28" alignment="0" pref="188" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jLabel29" max="32767" attributes="0"/>
-                                          <Component id="jComboBox5" max="32767" attributes="0"/>
+                                          <Component id="cbxNivelForma" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel30" min="-2" pref="116" max="-2" attributes="0"/>
-                                          <Component id="jTextField15" min="-2" pref="156" max="-2" attributes="0"/>
+                                          <Component id="txtEspeEnfer" min="-2" pref="156" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -397,11 +397,11 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel26" min="-2" pref="103" max="-2" attributes="0"/>
-                                                  <Component id="jComboBox4" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
+                                                  <Component id="cbxContraEnfer" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jDateChooser4" min="-2" pref="141" max="-2" attributes="0"/>
+                                                  <Component id="DateAsigEnfer" min="-2" pref="141" max="-2" attributes="0"/>
                                                   <Component id="jLabel27" min="-2" pref="116" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -429,8 +429,8 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jDateChooser4" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="DateAsigEnfer" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbxContraEnfer" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabel33" min="-2" pref="108" max="-2" attributes="0"/>
@@ -443,14 +443,14 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNumLicenEnfer" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbxNivelForma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEspeEnfer" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBox6" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbxHoraEnfer" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -470,7 +470,7 @@
                         <Property name="text" type="java.lang.String" value="Tipo de contrato:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox4">
+                    <Component class="javax.swing.JComboBox" name="cbxContraEnfer">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="1">
@@ -487,21 +487,21 @@
                         <Property name="text" type="java.lang.String" value="Fecha de asignaci&#xf3;n:"/>
                       </Properties>
                     </Component>
-                    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser4">
+                    <Component class="com.toedter.calendar.JDateChooser" name="DateAsigEnfer">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel28">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Numero de licencia de enfermo:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField14">
+                    <Component class="javax.swing.JTextField" name="txtNumLicenEnfer">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel29">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Nivel de formaci&#xf3;n:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox5">
+                    <Component class="javax.swing.JComboBox" name="cbxNivelForma">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="5">
@@ -522,9 +522,9 @@
                         <Property name="text" type="java.lang.String" value="Especialidad:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField15">
+                    <Component class="javax.swing.JTextField" name="txtEspeEnfer">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField15ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEspeEnferActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel31">
@@ -532,7 +532,7 @@
                         <Property name="text" type="java.lang.String" value="Horario:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox6">
+                    <Component class="javax.swing.JComboBox" name="cbxHoraEnfer">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -576,10 +576,10 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="jTextField16" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="txtCedulaTutor" alignment="0" max="32767" attributes="0"/>
                                                       <Component id="jLabel34" alignment="0" max="32767" attributes="0"/>
                                                       <Component id="jLabel35" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                                                      <Component id="jDateChooser5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="DateIngrePaci" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" alignment="0" attributes="0">
@@ -589,21 +589,21 @@
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                              <Component id="jComboBox7" min="-2" pref="126" max="-2" attributes="0"/>
+                                                              <Component id="cbxSangre" min="-2" pref="126" max="-2" attributes="0"/>
                                                               <Component id="jLabel40" min="-2" pref="91" max="-2" attributes="0"/>
-                                                              <Component id="jTextField17" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="txtParenTutor" alignment="0" max="32767" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
                                               </Group>
                                               <Component id="jLabel39" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
                                               <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jComboBox8" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
+                                              <Component id="cbxDepen" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel41" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
-                                              <Component id="jComboBox9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="cbxTipoTutor" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -626,8 +626,8 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jDateChooser5" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="DateIngrePaci" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbxSangre" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
@@ -635,7 +635,7 @@
                                   <Component id="jLabel42" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBox8" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbxDepen" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -646,9 +646,9 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCedulaTutor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtParenTutor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbxTipoTutor" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
@@ -669,14 +669,14 @@
                         <Property name="text" type="java.lang.String" value="Fecha de ingreso:"/>
                       </Properties>
                     </Component>
-                    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser5">
+                    <Component class="com.toedter.calendar.JDateChooser" name="DateIngrePaci">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel36">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Tipo de sangre:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox7">
+                    <Component class="javax.swing.JComboBox" name="cbxSangre">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="9">
@@ -701,7 +701,7 @@
                         <Property name="text" type="java.lang.String" value="Grado dependencia:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox8">
+                    <Component class="javax.swing.JComboBox" name="cbxDepen">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -726,16 +726,16 @@
                         <Property name="text" type="java.lang.String" value="Cedula:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField16">
+                    <Component class="javax.swing.JTextField" name="txtCedulaTutor">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel40">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Parentesco:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField17">
+                    <Component class="javax.swing.JTextField" name="txtParenTutor">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField17ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtParenTutorActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel41">
@@ -743,7 +743,7 @@
                         <Property name="text" type="java.lang.String" value="Tipo de tutor:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox9">
+                    <Component class="javax.swing.JComboBox" name="cbxTipoTutor">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="5">
@@ -785,12 +785,12 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel2" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                          <Component id="jDateChooser2" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Component id="DateAsigAdmin" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jLabel17" max="32767" attributes="0"/>
-                                          <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbxContraAdmin" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                                       <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
@@ -815,8 +815,8 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jDateChooser2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DateAsigAdmin" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbxContraAdmin" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="101" max="32767" attributes="0"/>
                           </Group>
@@ -829,7 +829,7 @@
                         <Property name="text" type="java.lang.String" value="Fecha de asignaci&#xf3;n:"/>
                       </Properties>
                     </Component>
-                    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
+                    <Component class="com.toedter.calendar.JDateChooser" name="DateAsigAdmin">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel15">
                       <Properties>
@@ -844,7 +844,7 @@
                         <Property name="text" type="java.lang.String" value="Tipo de contrato:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                    <Component class="javax.swing.JComboBox" name="cbxContraAdmin">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="7">
@@ -887,7 +887,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="jLabel24" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
-                                          <Component id="jTextField13" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                                          <Component id="txtRegisProfMed" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -895,24 +895,24 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="jComboBox3" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="cbxNivelFormaMed" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jLabel20" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel21" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                                                  <Component id="jTextField5" min="-2" pref="146" max="-2" attributes="0"/>
+                                                  <Component id="txtEspeMed" min="-2" pref="146" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Component id="jLabel18" max="32767" attributes="0"/>
-                                                  <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="cbxContraMed" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Component id="jLabel19" max="32767" attributes="0"/>
-                                                  <Component id="jDateChooser3" min="-2" pref="122" max="-2" attributes="0"/>
+                                                  <Component id="DateAsigMed" min="-2" pref="122" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Component id="jLabel23" alignment="0" min="-2" pref="168" max="-2" attributes="0"/>
@@ -939,8 +939,8 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jDateChooser3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbxContraMed" min="-2" max="-2" attributes="0"/>
+                                          <Component id="DateAsigMed" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -949,8 +949,8 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbxNivelFormaMed" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtEspeMed" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                   </Group>
@@ -962,7 +962,7 @@
                               </Group>
                               <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField13" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtRegisProfMed" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -974,7 +974,7 @@
                         <Property name="text" type="java.lang.String" value="Tipo de contrato:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox2">
+                    <Component class="javax.swing.JComboBox" name="cbxContraMed">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -994,14 +994,14 @@
                         <Property name="text" type="java.lang.String" value="Fecha de asignaci&#xf3;n:"/>
                       </Properties>
                     </Component>
-                    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser3">
+                    <Component class="com.toedter.calendar.JDateChooser" name="DateAsigMed">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel20">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Nivel de formacion:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox3">
+                    <Component class="javax.swing.JComboBox" name="cbxNivelFormaMed">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="5">
@@ -1022,7 +1022,7 @@
                         <Property name="text" type="java.lang.String" value="Especialidad:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField5">
+                    <Component class="javax.swing.JTextField" name="txtEspeMed">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel23">
                       <Properties>
@@ -1037,7 +1037,7 @@
                         <Property name="text" type="java.lang.String" value="Registro profesional medico:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField13">
+                    <Component class="javax.swing.JTextField" name="txtRegisProfMed">
                     </Component>
                     <Component class="javax.swing.JLabel" name="FotoMedico">
                       <Properties>
@@ -1050,7 +1050,7 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnGuardarFicha">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
               </Properties>
@@ -1060,7 +1060,7 @@
                 <Property name="text" type="java.lang.String" value="DATOS PERSONALES"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="ComBoxRoles">
+            <Component class="javax.swing.JComboBox" name="CbxRoles">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="5">
@@ -1073,7 +1073,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComBoxRolesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CbxRolesActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

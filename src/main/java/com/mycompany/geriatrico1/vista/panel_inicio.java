@@ -45,7 +45,7 @@ public class panel_inicio extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         txtPaciente = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAgregaCuidado = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -200,10 +200,10 @@ public class panel_inicio extends javax.swing.JPanel {
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/busqueda-de-lupa (1).png"))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 153));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mas.png"))); // NOI18N
-        jButton1.setText("AGREGAR CUIDADO");
+        btnAgregaCuidado.setBackground(new java.awt.Color(0, 153, 153));
+        btnAgregaCuidado.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnAgregaCuidado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mas.png"))); // NOI18N
+        btnAgregaCuidado.setText("AGREGAR CUIDADO");
 
         jPanel4.setBorder(new javax.swing.border.MatteBorder(null));
         jPanel4.setLayout(new java.awt.BorderLayout());
@@ -254,7 +254,7 @@ public class panel_inicio extends javax.swing.JPanel {
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(63, 63, 63)
-                                .addComponent(jButton1)))))
+                                .addComponent(btnAgregaCuidado)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -275,7 +275,7 @@ public class panel_inicio extends javax.swing.JPanel {
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(184, 184, 184)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAgregaCuidado, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                 .addContainerGap())
@@ -291,7 +291,7 @@ public class panel_inicio extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAgregaCuidado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

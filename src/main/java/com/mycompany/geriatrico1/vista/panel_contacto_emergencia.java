@@ -39,15 +39,15 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtTelefTutor = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtTelef2Tutor = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtCorreoTutor = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtPArentes = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtDireccTutor = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
@@ -98,30 +98,30 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
 
         jLabel8.setText("Telefono Principal:");
 
-        jTextField1.setEditable(false);
-        jTextField1.setText("098-7464-823");
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
+        txtTelefTutor.setEditable(false);
+        txtTelefTutor.setText("098-7464-823");
+        txtTelefTutor.addActionListener(this::txtTelefTutorActionPerformed);
 
         jLabel9.setText("Telefono Secundario:");
 
-        jTextField2.setEditable(false);
-        jTextField2.setText("099-4458-789");
+        txtTelef2Tutor.setEditable(false);
+        txtTelef2Tutor.setText("099-4458-789");
 
         jLabel10.setText("Correo Electronico: ");
 
-        jTextField3.setEditable(false);
-        jTextField3.setText("luis.ab.pe@gmail.com");
-        jTextField3.addActionListener(this::jTextField3ActionPerformed);
+        txtCorreoTutor.setEditable(false);
+        txtCorreoTutor.setText("luis.ab.pe@gmail.com");
+        txtCorreoTutor.addActionListener(this::txtCorreoTutorActionPerformed);
 
         jLabel11.setText("Parentesco: ");
 
-        jTextField4.setEditable(false);
-        jTextField4.setText("Hijo");
+        txtPArentes.setEditable(false);
+        txtPArentes.setText("Hijo");
 
         jLabel12.setText("Direccion: ");
 
-        jTextField5.setEditable(false);
-        jTextField5.setText("Vega Muñoz 15-18 Miguel Velez");
+        txtDireccTutor.setEditable(false);
+        txtDireccTutor.setText("Vega Muñoz 15-18 Miguel Velez");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -139,7 +139,7 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
                         .addGap(80, 80, 80)
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtPArentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(29, 29, 29)
@@ -150,10 +150,10 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(42, 42, 42)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))))
+                            .addComponent(txtTelef2Tutor)
+                            .addComponent(txtCorreoTutor)
+                            .addComponent(txtTelefTutor)
+                            .addComponent(txtDireccTutor, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))))
                 .addContainerGap(155, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -168,25 +168,25 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(jLabel6)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPArentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelef2Tutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCorreoTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addGap(44, 44, 44)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -206,13 +206,13 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
         add(jPanel3, java.awt.BorderLayout.SOUTH);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtTelefTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefTutorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtTelefTutorActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtCorreoTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoTutorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtCorreoTutorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -231,10 +231,10 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField txtCorreoTutor;
+    private javax.swing.JTextField txtDireccTutor;
+    private javax.swing.JTextField txtPArentes;
+    private javax.swing.JTextField txtTelef2Tutor;
+    private javax.swing.JTextField txtTelefTutor;
     // End of variables declaration//GEN-END:variables
 }
