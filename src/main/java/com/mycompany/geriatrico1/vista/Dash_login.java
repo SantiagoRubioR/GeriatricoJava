@@ -4,6 +4,9 @@
  */
 package com.mycompany.geriatrico1.vista;
 
+import com.mycompany.geriatrico1.controlador.CtrlLogin;
+import com.mycompany.geriatrico1.dao.UsuarioDAO;
+
 /**
  *
  * @author Santiago
@@ -17,6 +20,11 @@ public class Dash_login extends javax.swing.JFrame {
      */
     public Dash_login() {
         initComponents();
+        this.setLocationRelativeTo(null); // Centra la ventana
+    
+    // Inyectamos la lógica:
+        UsuarioDAO dao = new UsuarioDAO();
+        CtrlLogin controlador = new CtrlLogin(this, dao);
     }
 
     /**
@@ -61,8 +69,6 @@ public class Dash_login extends javax.swing.JFrame {
 
         BtnIngresar.setText("INGRESAR");
         BtnIngresar.addActionListener(this::BtnIngresarActionPerformed);
-
-        txtContra.setText("jPasswordField1");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);

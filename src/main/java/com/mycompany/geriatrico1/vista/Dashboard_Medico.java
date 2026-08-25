@@ -56,6 +56,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private void initComponents() {
 
         PanelMenu = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         btnAlerta = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -205,6 +206,12 @@ public class Dashboard_Medico extends javax.swing.JFrame {
 
         PanelMenu.setBackground(new java.awt.Color(0, 102, 102));
         PanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setBackground(new java.awt.Color(0, 102, 102));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("SALIR");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+        PanelMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 730, -1, -1));
 
         btnAlerta.setBackground(new java.awt.Color(0, 102, 102));
         btnAlerta.setForeground(new java.awt.Color(255, 255, 255));
@@ -848,7 +855,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                         .addComponent(jLabel39)
                         .addGap(18, 18, 18)
                         .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 895, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -1407,6 +1414,14 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+
+        Dash_login lg = new Dash_login();
+        lg.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void seleccionarBoton(javax.swing.JButton botonseleccionado){
         javax.swing.JButton[] botones={btnAlerta,btnHistorial,btnHorario,btnTratamiento, NuevaConsulta};
         
@@ -1472,6 +1487,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dateFinTrata;
     private com.toedter.calendar.JDateChooser dateInicioTrata;
     private com.toedter.calendar.JDateChooser dateRegisHisPaci;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;

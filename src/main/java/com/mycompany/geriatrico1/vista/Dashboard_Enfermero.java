@@ -35,13 +35,14 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
         lblUsuarioActivo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         panelCentral = new javax.swing.JPanel();
-        panel_inicio1 = new com.mycompany.geriatrico1.vista.panel_inicio();
         panel_paciente1 = new com.mycompany.geriatrico1.vista.panel_paciente();
+        panel_inicio1 = new com.mycompany.geriatrico1.vista.panel_inicio();
         jPanel3 = new javax.swing.JPanel();
         btnIniEnfer = new javax.swing.JButton();
         btnPaciEnfer = new javax.swing.JButton();
         btnPendEnfer = new javax.swing.JButton();
         btnReporEnfer = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,8 +95,8 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         panelCentral.setLayout(new java.awt.CardLayout());
-        panelCentral.add(panel_inicio1, "card2");
         panelCentral.add(panel_paciente1, "card3");
+        panelCentral.add(panel_inicio1, "card2");
 
         getContentPane().add(panelCentral, java.awt.BorderLayout.CENTER);
 
@@ -125,6 +126,11 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
         btnReporEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
         btnReporEnfer.addActionListener(this::btnReporEnferActionPerformed);
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 102));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("SALIR");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -136,7 +142,11 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
                     .addComponent(btnPendEnfer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(btnPaciEnfer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(btnIniEnfer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(106, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(97, 97, 97))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +159,9 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
                 .addComponent(btnPendEnfer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(btnReporEnfer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 268, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(24, 24, 24))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.WEST);
@@ -172,6 +184,14 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
     private void btnReporEnferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporEnferActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReporEnferActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        
+        Dash_login lg = new Dash_login();
+        lg.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,6 +223,7 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
     private javax.swing.JButton btnPaciEnfer;
     private javax.swing.JButton btnPendEnfer;
     private javax.swing.JButton btnReporEnfer;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
