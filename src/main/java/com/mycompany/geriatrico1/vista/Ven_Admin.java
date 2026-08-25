@@ -920,6 +920,8 @@ public class Ven_Admin extends javax.swing.JFrame {
 
     private void btnNuevoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoPacienteActionPerformed
         // TODO add your handling code here:
+        FichaNewPaciente nuevoPaci=new FichaNewPaciente();
+        nuevoPaci.setVisible(true);
     }//GEN-LAST:event_btnNuevoPacienteActionPerformed
 
     private void btnNuevoPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoPersonalActionPerformed

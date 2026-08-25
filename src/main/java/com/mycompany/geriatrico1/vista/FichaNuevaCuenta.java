@@ -525,7 +525,7 @@ this.setLocationRelativeTo(null);
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(152, 152, 152))
         );
@@ -535,7 +535,7 @@ this.setLocationRelativeTo(null);
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(jLabel32)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -543,65 +543,68 @@ this.setLocationRelativeTo(null);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1065, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1065, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
+
     private void CbxRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbxRolesActionPerformed
         // TODO add your handling code here:
         String rol = CbxRoles.getSelectedItem().toString();
         java.awt.CardLayout card = (java.awt.CardLayout) panelDinamico.getLayout();
-        
-                panelDinamico.setVisible(true);
+
+        panelDinamico.setVisible(true);
 
         switch (rol) {
-            case "Seleccione uno...":   
-                panelDinamico.setVisible(false);
-                break;
+            case "Seleccione uno...":
+            panelDinamico.setVisible(false);
+            break;
             case "Administrador":
-                card.show(panelDinamico, "Administrador");
-                break;
+            card.show(panelDinamico, "Administrador");
+            break;
             case "Medico":
-                card.show(panelDinamico, "Medico");
-                break;
+            card.show(panelDinamico, "Medico");
+            break;
             case "Enfermero":
-                card.show(panelDinamico, "Enfermero");
-                break;
-    }   
-        
+            card.show(panelDinamico, "Enfermero");
+            break;
+        }
+
     }//GEN-LAST:event_CbxRolesActionPerformed
-
-    private void rbFemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFemeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbFemeActionPerformed
-
-    private void txtApellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellido2ActionPerformed
 
     private void txtEspeEnferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEspeEnferActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEspeEnferActionPerformed
 
+    private void rbFemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFemeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbFemeActionPerformed
+
     private void rbMascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMascActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbMascActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void txtApellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_txtApellido2ActionPerformed
 
     /**
      * @param args the command line arguments
