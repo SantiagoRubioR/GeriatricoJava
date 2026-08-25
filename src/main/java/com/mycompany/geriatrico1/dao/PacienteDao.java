@@ -55,7 +55,7 @@ public class PacienteDao {
                 psPerTutor.setString(10, tutor.getEstadoCivil());
                 psPerTutor.executeUpdate();
                 
-                // 3. Registrar Tutor_Paciente y atrapar ID generado
+                // Registrar 
                 psTutor.setString(1, tutor.getCedula());
                 psTutor.setString(2, datosTutor.getParentesco());
                 psTutor.setString(3, datosTutor.getTipoTutor());
