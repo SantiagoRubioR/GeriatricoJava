@@ -9,7 +9,6 @@ public class Usuario {
     private String idEmpleado;
     private String nombreUsuario;
     private String contrasena;
-    private String estado;
     private LocalDate fechaCreacion;
 
     public Usuario() {
@@ -46,15 +45,7 @@ public class Usuario {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
+    
     public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }

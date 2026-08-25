@@ -5,7 +5,7 @@ package com.mycompany.geriatrico1.modelo;
 public class Administrador {
     private String idAdmin;
     private String idEmpleado;
-    private String estado;
+ 
 
     public Administrador() {
     }
@@ -26,12 +26,6 @@ public class Administrador {
         this.idEmpleado = idEmpleado;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+  
     
 }
