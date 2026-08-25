@@ -35,27 +35,28 @@ public class CtrlLogin implements ActionListener {
             if (acceso != null) {
                 String cargo = acceso[0].toUpperCase();
                 String estado = acceso[1].toUpperCase();
+                String nombreUsuario = acceso[2];
 
                 if (estado.equals("INACTIVO") || estado.equals("SUSPENDIDO")) {
                     JOptionPane.showMessageDialog(vistaLogin, "Usuario inactivo o suspendido. Contacte al administrador.", "Acceso Denegado", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
-                // Cierra la ventana de Login
+                // Cerrar Login
                 vistaLogin.dispose();
 
-                // Abre el Dashboard correspondiente según el Cargo
+                // Abrir el Dashboard asignado
                 switch (cargo) {
                     case "ADMINISTRADOR":
-                        Ven_Admin dashAdmin = new Ven_Admin();
+                        Ven_Admin dashAdmin = new Ven_Admin(nombreUsuario);
                         dashAdmin.setVisible(true);
                         break;
                     case "MEDICO":
-                        Dashboard_Medico dashMed = new Dashboard_Medico();
+                        Dashboard_Medico dashMed = new Dashboard_Medico(nombreUsuario);
                         dashMed.setVisible(true);
                         break;
                     case "ENFERMERA":
-                        Dashboard_Enfermero dashEnf = new Dashboard_Enfermero();
+                        Dashboard_Enfermero dashEnf = new Dashboard_Enfermero(nombreUsuario);
                         dashEnf.setVisible(true);
                         break;
                     default:

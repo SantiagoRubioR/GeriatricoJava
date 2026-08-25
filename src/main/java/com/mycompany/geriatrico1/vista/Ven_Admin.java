@@ -14,7 +14,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     /**
      * Creates new form Ven_Admin
      */
-    public Ven_Admin() {
+    public Ven_Admin(String nombreUsuario) {
         initComponents();
         panelSolicitudAcceso.setVisible(false);
         panelCuentas.setVisible(false);
@@ -23,6 +23,8 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelHorarios.setVisible(false);
         panelReportes.setVisible(false);
         
+        lblUsuario.setText("Admin: " + nombreUsuario);
+        lblSaludo.setText("Hola " + nombreUsuario);
     }
 
     /**
@@ -51,7 +53,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         reportes = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         panelInicio = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -74,7 +76,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblSaludo = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
@@ -264,10 +266,10 @@ public class Ven_Admin extends javax.swing.JFrame {
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 386, 276, -1));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 476, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Poor Richard", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Administrador/a");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 456, 86, -1));
+        lblUsuario.setFont(new java.awt.Font("Poor Richard", 0, 12)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuario.setText("Administrador/a");
+        jPanel1.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 456, 130, -1));
 
         panelInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -367,8 +369,8 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("Jueves, 14 de agosto de 2026");
 
-        jLabel11.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
-        jLabel11.setText("Hola, ");
+        lblSaludo.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
+        lblSaludo.setText("Hola, ");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -380,14 +382,14 @@ public class Ven_Admin extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel11))
+                    .addComponent(lblSaludo))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel11)
+                .addComponent(lblSaludo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
                 .addContainerGap())
@@ -948,27 +950,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Ven_Admin().setVisible(true));
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearCuenta;
@@ -986,8 +968,6 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1048,6 +1028,8 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
+    public javax.swing.JLabel lblSaludo;
+    public javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel pacientes;
     private javax.swing.JPanel panelCuentas;
     private javax.swing.JPanel panelHorarios;

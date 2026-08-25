@@ -12,13 +12,14 @@ public class UsuarioDAO {
     
     // Cruzamos Usuario y Empleado para validar credenciales y obtener el Cargo
     private static final String VALIDAR_LOGIN = 
-        "SELECT e.Cargo_Emp, u.Estado_User FROM Usuario u " +
-        "INNER JOIN Empleado e ON u.ID_Emp_User = e.ID_Emp " +
+        "SELECT e.Cargo_Emp, u.Estado_User, p.nombre_Perso, p.apellido1_Perso FROM usuario u " +
+        "INNER JOIN empleado e ON u.ID_Emp_User = e.ID_Emp " +
+        "INNER JOIN persona p ON e.Cedula_Perso_Emp = p.cedula_Perso " +
         "WHERE u.Nombre_User = ? AND u.Contrasena_User = ?";
-
+    
     public String[] iniciarSesion(String usuarioCedula, String password) {
-        // Retornará un arreglo: [0] = Cargo, [1] = Estado
-        String[] datosAcceso = new String[2];
+        // Retorna un arreglo: [0] = Cargo, [1] = Estado , [2] = nombre
+        String[] datosAcceso = new String[3];
 
         try (Connection con = new Conexion().getConnection();
              PreparedStatement ps = con.prepareStatement(VALIDAR_LOGIN)) {
@@ -30,13 +31,14 @@ public class UsuarioDAO {
                 if (rs.next()) {
                     datosAcceso[0] = rs.getString("Cargo_Emp");
                     datosAcceso[1] = rs.getString("Estado_User");
+                    datosAcceso[2] = rs.getString("nombre_Perso") + " " + rs.getString("apellido1_Perso");
                     return datosAcceso; // Credenciales correctas
                 }
             }
         } catch (SQLException e) {
             System.err.println("Error en Login: " + e.getMessage());
         }
-        return null; // Credenciales incorrectas o error
+        return null; // Error 
     }
 
     

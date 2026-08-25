@@ -17,15 +17,18 @@ import com.mycompany.geriatrico1.vista.Ven_Admin;
 public class Geriatrico1 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("SISTEMA EN EJECUCION");
+        
         Dash_login dashlog=new Dash_login();
         dashlog.setVisible(true);
-        Dashboard_Medico vista_med = new Dashboard_Medico();
+        
+        /*
+        Dashboard_Medico vista_med = new Dashboard_Medico("");
         vista_med.setVisible(false);
-        Ven_Admin vista_admin = new Ven_Admin();
+        Ven_Admin vista_admin = new Ven_Admin("");
         vista_admin.setVisible(false);
         
-        
+        */
         
         
         

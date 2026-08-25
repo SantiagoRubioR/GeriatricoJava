@@ -20,8 +20,11 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     /**
      * Creates new form Medico
      */
-    public Dashboard_Medico() {
+    public Dashboard_Medico(String nombreUsuario) {
         initComponents();
+        
+        lblUsuario_Med.setText(nombreUsuario);
+        //IMAGENES EN AWT
         ImageIcon iconoAlerta=new ImageIcon("C:\\ProyectoIntegrador\\GeriatricoJava\\src\\main\\resources\\Recursos\\alerta.jpg");
         Image imagenAlerta=iconoAlerta.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
         btnAlerta.setIcon(new ImageIcon(imagenAlerta));
@@ -38,7 +41,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         Image imagenTratamiento=iconoTratamiento.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
         btnTratamiento.setIcon(new ImageIcon(imagenTratamiento));
         
-        
+        //PANELES INTERACTIVOS
         PanelAlertas.setVisible(true);
         panel.setVisible(false);
         PanelHistorial.setVisible(false);
@@ -58,8 +61,8 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         PanelMenu = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         btnAlerta = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblUsuario_Med = new javax.swing.JLabel();
+        lblEspecialidad = new javax.swing.JLabel();
         btnHistorial = new javax.swing.JButton();
         btnHorario = new javax.swing.JButton();
         btnTratamiento = new javax.swing.JButton();
@@ -219,13 +222,13 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         btnAlerta.addActionListener(this::btnAlertaActionPerformed);
         PanelMenu.add(btnAlerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 190, -1));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Dr. Marisol Herrera");
-        PanelMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, -1, -1));
+        lblUsuario_Med.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuario_Med.setText("Dr. Marisol Herrera");
+        PanelMenu.add(lblUsuario_Med, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, -1, -1));
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Cardiologa");
-        PanelMenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 37, -1, -1));
+        lblEspecialidad.setForeground(new java.awt.Color(255, 255, 255));
+        lblEspecialidad.setText("Cardiologa");
+        PanelMenu.add(lblEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 37, -1, -1));
 
         btnHistorial.setBackground(new java.awt.Color(0, 102, 102));
         btnHistorial.setForeground(new java.awt.Color(255, 255, 255));
@@ -1437,27 +1440,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Dashboard_Medico().setVisible(true));
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton NuevaConsulta;
@@ -1504,7 +1487,6 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JComboBox<String> jComboBox9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1515,7 +1497,6 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1593,9 +1574,11 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
+    public javax.swing.JLabel lblEspecialidad;
     private javax.swing.JLabel lblSeccion;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUsuarioActivo;
+    public javax.swing.JLabel lblUsuario_Med;
     private javax.swing.JPanel panel;
     private javax.swing.JTextField txtBuscPaci;
     private javax.swing.JTextField txtBuscar;
