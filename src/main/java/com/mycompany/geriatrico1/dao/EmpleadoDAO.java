@@ -24,7 +24,7 @@ public class EmpleadoDAO {
         "INSERT INTO Medico (ID_Emp_Med, Registro_Profesiona_Med, Nivel_Formacion_Med, Especialidad_Med) VALUES (?, ?, ?, ?)";
     
     private static final String INSERT_ENFERMERA = 
-        "INSERT INTO Enfermera (ID_Emp_Enfer, Numero_Licencia_Enfer, Nivel_Formacion_Enfer, Especialidad_Enfer, ID_EncabHistoClin_Enfer) VALUES (?, ?, ?, ?, ?)";
+        "INSERT INTO Enfermera (ID_Emp_Enfer, Numero_Licencia_Enfer, Nivel_Formacion_Enfer, Especialidad_Enfer) VALUES (?, ?, ?, ?)";
 
     public boolean registrarPersonalCompleto(Persona p, Empleado emp, Usuario u, Medico med, Enfermero enf, String rol) {
         try (Connection con = new Conexion().getConnection()) {

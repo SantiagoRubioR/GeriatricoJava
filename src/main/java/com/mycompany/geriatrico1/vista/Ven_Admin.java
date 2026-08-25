@@ -40,6 +40,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         jDialog2 = new javax.swing.JDialog();
         jFrame1 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         pacientes = new javax.swing.JLabel();
         solicitudAcceso = new javax.swing.JLabel();
@@ -184,6 +185,12 @@ public class Ven_Admin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setForeground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton2.setBackground(new java.awt.Color(0, 102, 102));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("SALIR");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -930,6 +937,14 @@ public class Ven_Admin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCrearCuentaActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+
+        Dash_login lg = new Dash_login();
+        lg.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -965,6 +980,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel horarios;
     private javax.swing.JLabel inicio;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JFileChooser jFileChooser1;

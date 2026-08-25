@@ -30,12 +30,6 @@ public class Geriatrico1 {
         
         
         
-        /*
-        Dashboard_Enfermero d_Enf = new Dashboard_Enfermero();
-        Dash_login l = new Dash_login();
-        d_Enf.setVisible(true);
-        l.setVisible(false);
-        */
     }
     
 }
