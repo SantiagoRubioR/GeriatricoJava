@@ -81,22 +81,6 @@ this.setLocationRelativeTo(null);
         jLabel31 = new javax.swing.JLabel();
         cbxHoraEnfer = new javax.swing.JComboBox<>();
         jLabel33 = new javax.swing.JLabel();
-        Paciente = new javax.swing.JPanel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        DateIngrePaci = new com.toedter.calendar.JDateChooser();
-        jLabel36 = new javax.swing.JLabel();
-        cbxSangre = new javax.swing.JComboBox<>();
-        jLabel37 = new javax.swing.JLabel();
-        cbxDepen = new javax.swing.JComboBox<>();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        txtCedulaTutor = new javax.swing.JTextField();
-        jLabel40 = new javax.swing.JLabel();
-        txtParenTutor = new javax.swing.JTextField();
-        jLabel41 = new javax.swing.JLabel();
-        cbxTipoTutor = new javax.swing.JComboBox<>();
-        jLabel42 = new javax.swing.JLabel();
         Administrador = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         DateAsigAdmin = new com.toedter.calendar.JDateChooser();
@@ -127,7 +111,7 @@ this.setLocationRelativeTo(null);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(null));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_login.png"))); // NOI18N
 
@@ -286,107 +270,6 @@ this.setLocationRelativeTo(null);
         );
 
         panelDinamico.add(Enfermero, "Enfermero");
-
-        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel34.setText("NUEVO PACIENTE");
-
-        jLabel35.setText("Fecha de ingreso:");
-
-        jLabel36.setText("Tipo de sangre:");
-
-        cbxSangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" }));
-
-        jLabel37.setText("Grado dependencia:");
-
-        cbxDepen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Independiente", "Dependencia leve", "Dependencia moderada" }));
-
-        jLabel38.setText("DATOS DEL TUTOR");
-
-        jLabel39.setText("Cedula:");
-
-        jLabel40.setText("Parentesco:");
-
-        txtParenTutor.addActionListener(this::txtParenTutorActionPerformed);
-
-        jLabel41.setText("Tipo de tutor:");
-
-        cbxTipoTutor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Tutor Legal", "Acompañante / Cuidador", "Responsable Económico", "Contacto de Emergencia" }));
-
-        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/paciente.png"))); // NOI18N
-
-        javax.swing.GroupLayout PacienteLayout = new javax.swing.GroupLayout(Paciente);
-        Paciente.setLayout(PacienteLayout);
-        PacienteLayout.setHorizontalGroup(
-            PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PacienteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(PacienteLayout.createSequentialGroup()
-                            .addGroup(PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(PacienteLayout.createSequentialGroup()
-                                    .addGroup(PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtCedulaTutor, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(DateIngrePaci, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(PacienteLayout.createSequentialGroup()
-                                            .addGap(21, 21, 21)
-                                            .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(PacienteLayout.createSequentialGroup()
-                                            .addGap(18, 18, 18)
-                                            .addGroup(PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(cbxSangre, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtParenTutor)))))
-                                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel37)
-                                .addComponent(cbxDepen, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
-                            .addGroup(PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbxTipoTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(225, Short.MAX_VALUE))
-        );
-        PacienteLayout.setVerticalGroup(
-            PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PacienteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PacienteLayout.createSequentialGroup()
-                        .addComponent(jLabel34)
-                        .addGap(18, 18, 18)
-                        .addGroup(PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel36))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DateIngrePaci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel37))
-                    .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxDepen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel38)
-                .addGap(18, 18, 18)
-                .addGroup(PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel39)
-                    .addComponent(jLabel40)
-                    .addComponent(jLabel41))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCedulaTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtParenTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxTipoTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
-        );
-
-        panelDinamico.add(Paciente, "Paciente");
 
         jLabel2.setText("Fecha de asignación:");
 
@@ -721,10 +604,6 @@ this.setLocationRelativeTo(null);
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEspeEnferActionPerformed
 
-    private void txtParenTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtParenTutorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtParenTutorActionPerformed
-
     private void rbMascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMascActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbMascActionPerformed
@@ -764,22 +643,17 @@ this.setLocationRelativeTo(null);
     private com.toedter.calendar.JDateChooser DateAsigAdmin;
     private com.toedter.calendar.JDateChooser DateAsigEnfer;
     private com.toedter.calendar.JDateChooser DateAsigMed;
-    private com.toedter.calendar.JDateChooser DateIngrePaci;
     private javax.swing.JPanel Enfermero;
     private javax.swing.JLabel FotoMedico;
     private javax.swing.JPanel Medico;
-    private javax.swing.JPanel Paciente;
     private javax.swing.JButton btnGuardarFicha;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbxContraAdmin;
     private javax.swing.JComboBox<String> cbxContraEnfer;
     private javax.swing.JComboBox<String> cbxContraMed;
-    private javax.swing.JComboBox<String> cbxDepen;
     private javax.swing.JComboBox<String> cbxHoraEnfer;
     private javax.swing.JComboBox<String> cbxNivelForma;
     private javax.swing.JComboBox<String> cbxNivelFormaMed;
-    private javax.swing.JComboBox<String> cbxSangre;
-    private javax.swing.JComboBox<String> cbxTipoTutor;
     private com.toedter.calendar.JDateChooser dateNaci;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -809,16 +683,7 @@ this.setLocationRelativeTo(null);
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -834,14 +699,12 @@ this.setLocationRelativeTo(null);
     private javax.swing.JTextField txtApellido1;
     private javax.swing.JTextField txtApellido2;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtCedulaTutor;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDirecc;
     private javax.swing.JTextField txtEspeEnfer;
     private javax.swing.JTextField txtEspeMed;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumLicenEnfer;
-    private javax.swing.JTextField txtParenTutor;
     private javax.swing.JTextField txtRegisProfMed;
     private javax.swing.JTextField txtTelef;
     // End of variables declaration//GEN-END:variables

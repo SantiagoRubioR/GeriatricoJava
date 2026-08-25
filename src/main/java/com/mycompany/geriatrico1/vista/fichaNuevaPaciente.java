@@ -64,10 +64,9 @@ public class fichaNuevaPaciente extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         cbxDepen = new javax.swing.JComboBox<>();
         jLabel42 = new javax.swing.JLabel();
-        jScrollBar3 = new javax.swing.JScrollBar();
         jPanel2 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -121,7 +120,7 @@ public class fichaNuevaPaciente extends javax.swing.JFrame {
         jPanelPersonaLayout.setHorizontalGroup(
             jPanelPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPersonaLayout.createSequentialGroup()
-                .addGap(1115, 1115, 1115)
+                .addGap(1158, 1158, 1158)
                 .addGroup(jPanelPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelPersonaLayout.createSequentialGroup()
                         .addGroup(jPanelPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,7 +291,7 @@ public class fichaNuevaPaciente extends javax.swing.JFrame {
                         .addComponent(cbxDepen, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(11, 11, 11)
                 .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1628, Short.MAX_VALUE))
+                .addContainerGap(2181, Short.MAX_VALUE))
         );
         PacienteLayout.setVerticalGroup(
             PacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,18 +316,15 @@ public class fichaNuevaPaciente extends javax.swing.JFrame {
 
         jPanelPrincipal.add(Paciente);
 
-        jScrollBar3.setOrientation(javax.swing.JScrollBar.HORIZONTAL);
-        jPanelPrincipal.add(jScrollBar3);
-
         jPanel1.add(jPanelPrincipal, java.awt.BorderLayout.CENTER);
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_login.png"))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(null));
 
         jLabel32.setFont(new java.awt.Font("Monotype Corsiva", 2, 24)); // NOI18N
         jLabel32.setText("\"Cuidando con Amor\"");
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_login.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -336,21 +332,20 @@ public class fichaNuevaPaciente extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel22)
-                .addGap(132, 132, 132)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel32)
-                .addContainerGap(340, Short.MAX_VALUE))
+                .addContainerGap(2172, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel32))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
@@ -432,7 +427,6 @@ public class fichaNuevaPaciente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelPersona;
     private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JScrollBar jScrollBar2;
-    private javax.swing.JScrollBar jScrollBar3;
     private javax.swing.JRadioButton rbFeme;
     private javax.swing.JRadioButton rbMasc;
     private javax.swing.JTextField txtApellido1;
