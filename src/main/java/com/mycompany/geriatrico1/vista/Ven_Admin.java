@@ -42,7 +42,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         jDialog2 = new javax.swing.JDialog();
         jFrame1 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         pacientes = new javax.swing.JLabel();
         solicitudAcceso = new javax.swing.JLabel();
@@ -69,7 +69,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         panelSoliAcceso = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnVertodo = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -188,18 +188,18 @@ public class Ven_Admin extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 102));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("SALIR");
-        jButton2.addActionListener(this::jButton2ActionPerformed);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, -1, -1));
+        btnSalir.setBackground(new java.awt.Color(0, 102, 102));
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("SALIR");
+        btnSalir.addActionListener(this::btnSalirActionPerformed);
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Panel de administración");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        pacientes.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        pacientes.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
         pacientes.setForeground(new java.awt.Color(255, 255, 255));
         pacientes.setText("Pacientes");
         pacientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -207,9 +207,9 @@ public class Ven_Admin extends javax.swing.JFrame {
                 pacientesMouseClicked(evt);
             }
         });
-        jPanel1.add(pacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 246, 70, -1));
+        jPanel1.add(pacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 100, -1));
 
-        solicitudAcceso.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        solicitudAcceso.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
         solicitudAcceso.setForeground(new java.awt.Color(255, 255, 255));
         solicitudAcceso.setText("Solicitudes de acceso");
         solicitudAcceso.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -217,14 +217,14 @@ public class Ven_Admin extends javax.swing.JFrame {
                 solicitudAccesoMouseClicked(evt);
             }
         });
-        jPanel1.add(solicitudAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 136, 165, -1));
+        jPanel1.add(solicitudAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 136, 210, -1));
 
-        jLabel4.setFont(new java.awt.Font("Poor Richard", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Poor Richard", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("GESTIÓN");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 181, 67, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 181, 100, -1));
 
-        inicio.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        inicio.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
         inicio.setForeground(new java.awt.Color(255, 255, 255));
         inicio.setText("Inicio");
         inicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,9 +232,9 @@ public class Ven_Admin extends javax.swing.JFrame {
                 inicioMouseClicked(evt);
             }
         });
-        jPanel1.add(inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 109, 45, -1));
+        jPanel1.add(inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 109, 90, -1));
 
-        cuentas.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        cuentas.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
         cuentas.setForeground(new java.awt.Color(255, 255, 255));
         cuentas.setText("Cuentas");
         cuentas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -242,9 +242,9 @@ public class Ven_Admin extends javax.swing.JFrame {
                 cuentasMouseClicked(evt);
             }
         });
-        jPanel1.add(cuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 213, 70, -1));
+        jPanel1.add(cuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 100, -1));
 
-        horarios.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        horarios.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
         horarios.setForeground(new java.awt.Color(255, 255, 255));
         horarios.setText("Horarios");
         horarios.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -252,9 +252,9 @@ public class Ven_Admin extends javax.swing.JFrame {
                 horariosMouseClicked(evt);
             }
         });
-        jPanel1.add(horarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 285, 70, -1));
+        jPanel1.add(horarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 100, -1));
 
-        reportes.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        reportes.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
         reportes.setForeground(new java.awt.Color(255, 255, 255));
         reportes.setText("Reportes");
         reportes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -262,11 +262,11 @@ public class Ven_Admin extends javax.swing.JFrame {
                 reportesMouseClicked(evt);
             }
         });
-        jPanel1.add(reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 324, 70, -1));
+        jPanel1.add(reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 100, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 386, 276, -1));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 476, -1, -1));
 
-        lblUsuario.setFont(new java.awt.Font("Poor Richard", 0, 12)); // NOI18N
+        lblUsuario.setFont(new java.awt.Font("Poor Richard", 0, 20)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblUsuario.setText("Administrador/a");
         jPanel1.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 456, 130, -1));
@@ -334,11 +334,11 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelSoliAcceso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         panelSoliAcceso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        jButton1.setText("Ver todo");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-        panelSoliAcceso.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 9, 80, -1));
+        btnVertodo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnVertodo.setText("Ver todo");
+        btnVertodo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnVertodo.addActionListener(this::btnVertodoActionPerformed);
+        panelSoliAcceso.add(btnVertodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 9, 80, -1));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
         jLabel21.setText("Solicitudes de acceso  pendientes");
@@ -377,13 +377,10 @@ public class Ven_Admin extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblSaludo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,33 +401,33 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel27.setMinimumSize(new java.awt.Dimension(210, 24));
         jLabel27.setName(""); // NOI18N
         jLabel27.setPreferredSize(new java.awt.Dimension(210, 24));
-        panelInicio.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 630, 250, 20));
+        panelInicio.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 660, 240, 20));
 
         jLabel28.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(102, 102, 102));
         jLabel28.setText("Programa un nuevo turno entre ");
-        panelInicio.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 630, -1, -1));
+        panelInicio.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 660, -1, -1));
 
         jLabel33.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(102, 102, 102));
         jLabel33.setText("paciente y personal");
-        panelInicio.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 650, -1, -1));
+        panelInicio.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 680, -1, -1));
 
         btnGeneTurnoRapi.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 16)); // NOI18N
         btnGeneTurnoRapi.setText("Generar turnos");
         btnGeneTurnoRapi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panelInicio.add(btnGeneTurnoRapi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, 240, 140));
+        panelInicio.add(btnGeneTurnoRapi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, 240, 100));
 
         jLabel35.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(102, 102, 102));
         jLabel35.setText("y nuevos pacientes.");
-        panelInicio.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 650, 193, -1));
+        panelInicio.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 680, 140, -1));
 
         btnCrearCuenta.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 16)); // NOI18N
         btnCrearCuenta.setText("Crear cuenta");
         btnCrearCuenta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCrearCuenta.addActionListener(this::btnCrearCuentaActionPerformed);
-        panelInicio.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 250, 140));
+        panelInicio.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 240, 100));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
         jLabel2.setText("Solicitudes de acceso");
@@ -465,12 +462,9 @@ public class Ven_Admin extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel3))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel3))
+                    .addComponent(jLabel2))
                 .addContainerGap(358, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -837,7 +831,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnVertodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVertodoActionPerformed
         // TODO add your handling code here:
         panelSolicitudAcceso.setVisible(true);
         panelInicio.setVisible(false);
@@ -846,7 +840,7 @@ public class Ven_Admin extends javax.swing.JFrame {
        panelHorarios.setVisible(false);
        panelReportes.setVisible(false);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVertodoActionPerformed
 
     private void reportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportesMouseClicked
         // TODO add your handling code here:
@@ -949,13 +943,13 @@ public class Ven_Admin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCrearCuentaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         this.dispose();
 
         Dash_login lg = new Dash_login();
         lg.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -968,11 +962,11 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnGeneTurnoRapi;
     private javax.swing.JButton btnNuevoPaciente;
     private javax.swing.JButton btnNuevoPersonal;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnVertodo;
     private javax.swing.JLabel cuentas;
     private javax.swing.JLabel horarios;
     private javax.swing.JLabel inicio;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JFileChooser jFileChooser1;

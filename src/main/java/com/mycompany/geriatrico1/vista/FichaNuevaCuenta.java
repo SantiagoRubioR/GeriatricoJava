@@ -57,8 +57,6 @@ this.setLocationRelativeTo(null);
         jLabel8 = new javax.swing.JLabel();
         txtTelef = new javax.swing.JTextField();
         txtDirecc = new javax.swing.JTextField();
-        rbMasc = new javax.swing.JRadioButton();
-        rbFeme = new javax.swing.JRadioButton();
         txtCorreo = new javax.swing.JTextField();
         txtApellido1 = new javax.swing.JTextField();
         dateNaci = new com.toedter.calendar.JDateChooser();
@@ -103,7 +101,8 @@ this.setLocationRelativeTo(null);
         CbxRoles = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbxEstCivCuenNue = new javax.swing.JComboBox<>();
+        cbxGenero = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
@@ -133,14 +132,6 @@ this.setLocationRelativeTo(null);
         jLabel7.setText("Dirección");
 
         jLabel8.setText("Correo");
-
-        buttonGroup1.add(rbMasc);
-        rbMasc.setText("Masculino");
-        rbMasc.addActionListener(this::rbMascActionPerformed);
-
-        buttonGroup1.add(rbFeme);
-        rbFeme.setText("Feminino");
-        rbFeme.addActionListener(this::rbFemeActionPerformed);
 
         panelDinamico.setLayout(new java.awt.CardLayout());
 
@@ -393,7 +384,9 @@ this.setLocationRelativeTo(null);
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
         jLabel1.setText("Nueva cuenta");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxEstCivCuenNue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Soltero", "Casado", "Viudo", "Divorciado", "Union de Hecho" }));
+
+        cbxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Masculino", "Femenino" }));
 
         javax.swing.GroupLayout jPanelPersonaLayout = new javax.swing.GroupLayout(jPanelPersona);
         jPanelPersona.setLayout(jPanelPersonaLayout);
@@ -442,16 +435,13 @@ this.setLocationRelativeTo(null);
                                             .addGap(18, 18, 18)
                                             .addGroup(jPanelPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel10)
-                                                .addGroup(jPanelPersonaLayout.createSequentialGroup()
-                                                    .addComponent(rbMasc)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(rbFeme)))))))))
+                                                .addComponent(cbxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
                     .addComponent(jLabel11)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16)
                     .addComponent(CbxRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxEstCivCuenNue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(353, Short.MAX_VALUE))
         );
         jPanelPersonaLayout.setVerticalGroup(
@@ -482,15 +472,13 @@ this.setLocationRelativeTo(null);
                     .addComponent(jLabel10))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(rbMasc)
-                        .addComponent(rbFeme))
-                    .addComponent(dateNaci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateNaci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addComponent(jLabel11)
                 .addGap(12, 12, 12)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbxEstCivCuenNue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14)
                 .addGap(18, 18, 18)
@@ -525,37 +513,34 @@ this.setLocationRelativeTo(null);
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
+                .addGap(90, 90, 90)
                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(152, 152, 152))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 101, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel32)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1065, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 788, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -593,14 +578,6 @@ this.setLocationRelativeTo(null);
     private void txtEspeEnferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEspeEnferActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEspeEnferActionPerformed
-
-    private void rbFemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFemeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbFemeActionPerformed
-
-    private void rbMascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMascActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbMascActionPerformed
 
     private void txtApellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido2ActionPerformed
         // TODO add your handling code here:
@@ -645,11 +622,12 @@ this.setLocationRelativeTo(null);
     private javax.swing.JComboBox<String> cbxContraAdmin;
     private javax.swing.JComboBox<String> cbxContraEnfer;
     private javax.swing.JComboBox<String> cbxContraMed;
+    private javax.swing.JComboBox<String> cbxEstCivCuenNue;
+    private javax.swing.JComboBox<String> cbxGenero;
     private javax.swing.JComboBox<String> cbxHoraEnfer;
     private javax.swing.JComboBox<String> cbxNivelForma;
     private javax.swing.JComboBox<String> cbxNivelFormaMed;
     private com.toedter.calendar.JDateChooser dateNaci;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -688,8 +666,6 @@ this.setLocationRelativeTo(null);
     private javax.swing.JPanel jPanelPersona;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelDinamico;
-    private javax.swing.JRadioButton rbFeme;
-    private javax.swing.JRadioButton rbMasc;
     private javax.swing.JTextField txtApellido1;
     private javax.swing.JTextField txtApellido2;
     private javax.swing.JTextField txtCedula;
