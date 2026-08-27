@@ -15,6 +15,8 @@ public class Paciente {
     public Paciente() {
     }
 
+
+    
     public String getIdPaciente() {
         return idPaciente;
     }
