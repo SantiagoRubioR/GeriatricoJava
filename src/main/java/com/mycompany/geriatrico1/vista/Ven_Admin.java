@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.geriatrico1.vista;
+
+import com.mycompany.geriatrico1.controlador.CtrlEmpleados;
+import com.mycompany.geriatrico1.dao.EmpleadoDAO;
+
 /**
  *
  * @author USUSRIO_ PC
@@ -584,7 +588,7 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         txtBuscPaci.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         txtBuscPaci.addActionListener(this::txtBuscPaciActionPerformed);
-        jPanel16.add(txtBuscPaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 194, -1));
+        jPanel16.add(txtBuscPaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 194, -1));
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -637,7 +641,7 @@ public class Ven_Admin extends javax.swing.JFrame {
                     .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         jLabel8.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
@@ -938,8 +942,11 @@ public class Ven_Admin extends javax.swing.JFrame {
 
     private void btnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCuentaActionPerformed
         // TODO add your handling code here:
-        FichaNuevaCuenta nuevaCuen=new FichaNuevaCuenta ();
-        nuevaCuen.setVisible(true);
+        FichaNuevaCuenta ventanaPersonal = new FichaNuevaCuenta();
+        EmpleadoDAO daoEmp = new EmpleadoDAO();
+        CtrlEmpleados ctrl = new CtrlEmpleados(ventanaPersonal, daoEmp);
+        ventanaPersonal.setLocationRelativeTo(null);
+        ventanaPersonal.setVisible(true);
         
     }//GEN-LAST:event_btnCrearCuentaActionPerformed
 

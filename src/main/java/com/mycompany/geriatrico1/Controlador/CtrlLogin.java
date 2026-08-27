@@ -55,7 +55,7 @@ public class CtrlLogin implements ActionListener {
                         Dashboard_Medico dashMed = new Dashboard_Medico(nombreUsuario);
                         dashMed.setVisible(true);
                         break;
-                    case "ENFERMERA":
+                    case "ENFERMERO":
                         Dashboard_Enfermero dashEnf = new Dashboard_Enfermero(nombreUsuario);
                         dashEnf.setVisible(true);
                         break;
