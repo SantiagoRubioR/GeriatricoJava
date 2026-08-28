@@ -1324,7 +1324,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTratamiActionPerformed
 
     private void btnAlertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertaActionPerformed
-        // TODO add your handling code here:
+           // TODO add your handling code here:
         lblSeccion.setText("DASHBOARD MEDICO");
         lblTitulo.setText("ALERTAS DE PACIENTES");
         
