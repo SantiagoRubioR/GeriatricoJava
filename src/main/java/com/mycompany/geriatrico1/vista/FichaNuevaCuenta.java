@@ -16,17 +16,34 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
     /**
      * Creates new form FichaNuevaCuenta
      */
-    public FichaNuevaCuenta() {
+ public FichaNuevaCuenta() {
         initComponents();
         panelDinamico.setVisible(false);
-        this.pack();
+        
+        // 1. Quitar límites del diseño visual y fijar BorderLayout
+        this.getContentPane().removeAll();
+        this.getContentPane().setLayout(new java.awt.BorderLayout());
+        
+        // 2. Asignar el panel interior y darle suficiente altura
+        jScrollPane1.setViewportView(jPanelPersona);
+        jPanelPersona.setPreferredSize(new java.awt.Dimension(950, 1200));
+        
+        // 3. Configurar el ScrollPane
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(20);
+        
+        // 4. Agregar el scroll al centro de la ventana
+        this.getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        
+        // 5. Tamaño visible de la ventana y centrado
+        this.setSize(1000, 750);
         this.setLocationRelativeTo(null);
-jPanelPersona.setPreferredSize(new java.awt.Dimension(950, 1100));
-
-jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
-
-this.setSize(1000, 750);
-this.setLocationRelativeTo(null);
+        
+        // 6. Forzar que la barra inicie arriba
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            jScrollPane1.getVerticalScrollBar().setValue(0);
+        });
     }
 
     /**
@@ -122,7 +139,7 @@ this.setLocationRelativeTo(null);
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101))
         );
@@ -206,7 +223,7 @@ this.setLocationRelativeTo(null);
                     .addGroup(EnfermeroLayout.createSequentialGroup()
                         .addGroup(EnfermeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtNumLicenEnfer, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, Short.MAX_VALUE))
+                            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(EnfermeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -548,13 +565,12 @@ this.setLocationRelativeTo(null);
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
