@@ -18,33 +18,33 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
      */
  public FichaNuevaCuenta() {
         initComponents();
+        
+        // Es para que se abra en pantalla completa
+this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+
+        //Es para los paneles del ComboBox
         panelDinamico.setVisible(false);
         
-        // 1. Quitar límites del diseño visual y fijar BorderLayout
+        //Es para que funcione el ScrollBar
         this.getContentPane().removeAll();
         this.getContentPane().setLayout(new java.awt.BorderLayout());
         
-        // 2. Asignar el panel interior y darle suficiente altura
         jScrollPane1.setViewportView(jPanelPersona);
         jPanelPersona.setPreferredSize(new java.awt.Dimension(950, 1200));
         
-        // 3. Configurar el ScrollPane
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.getVerticalScrollBar().setUnitIncrement(20);
         
-        // 4. Agregar el scroll al centro de la ventana
         this.getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
         
-        // 5. Tamaño visible de la ventana y centrado
         this.setSize(1000, 750);
         this.setLocationRelativeTo(null);
         
-        // 6. Forzar que la barra inicie arriba
         javax.swing.SwingUtilities.invokeLater(() -> {
             jScrollPane1.getVerticalScrollBar().setValue(0);
         });
-    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -155,6 +155,8 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
                         .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(749, 749, 749))))
         );
+
+        jPanelPersona.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel3.setText("Nombre");
 
@@ -578,7 +580,7 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 17, Short.MAX_VALUE))
+                .addGap(0, 15, Short.MAX_VALUE))
         );
 
         pack();
