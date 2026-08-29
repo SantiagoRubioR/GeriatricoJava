@@ -19,13 +19,13 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
  public FichaNuevaCuenta() {
         initComponents();
         
-        // Es para que se abra en pantalla completa
-this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
-
-        //Es para los paneles del ComboBox
+        // 1. Evitar que bloquee o mate la ventana principal al cerrarse
+        this.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+        
+        // 2. Ocultar paneles secundarios
         panelDinamico.setVisible(false);
         
-        //Es para que funcione el ScrollBar
+        // 3. Montar el scroll limpio
         this.getContentPane().removeAll();
         this.getContentPane().setLayout(new java.awt.BorderLayout());
         
@@ -38,14 +38,14 @@ this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
         
         this.getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
         
-        this.setSize(1000, 750);
+        // 4. Centrar y fijar tamaño sin congelar
+        this.setSize(1050, 750);
         this.setLocationRelativeTo(null);
         
         javax.swing.SwingUtilities.invokeLater(() -> {
             jScrollPane1.getVerticalScrollBar().setValue(0);
         });
-}
-
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -124,6 +124,7 @@ this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
         btnGuardarFicha = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setEnabled(false);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
