@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.geriatrico1.vista;
-
+//import com.mycompany.geriatrico1.vista.Ven_Admin;
 import com.mycompany.geriatrico1.Controlador.CtrlAdmin;
 import com.mycompany.geriatrico1.controlador.CtrlEmpleados;
 import com.mycompany.geriatrico1.dao.EmpleadoDAO;
