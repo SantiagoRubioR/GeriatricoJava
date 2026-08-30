@@ -24,29 +24,30 @@ public class PacienteDao {
     
      private static final String LISTARPACIENTE = "SELECT p.ID_Pac, per.cedula_Perso, per.nombre_Perso, per.apellido1_Perso, p.Grado_Dependencia, p.Tipo_Sandre_Pac " +
                      "FROM PACIENTE p " +
-                     "INNER JOIN Persona per ON p.Cedula_Perso_Pac = per.cedula_Perso";
+                     "INNER JOIN Persona per ON p.Cedula_Perso_Pac = per.cedula_Perso" + 
+                     "WHERE p.Estado_Pac = 'ACTIVO'";
 
-    public boolean registrarPacienteCompleto(Persona abuelo, Persona tutor, Tutor datosTutor, Paciente datosPac) {
+    public boolean registrarPacienteCompleto(Persona residente, Persona tutor, Tutor datosTutor, Paciente datosPac) {
         try (Connection con = new Conexion().getConnection()) {
             con.setAutoCommit(false);
             
-            try (PreparedStatement psPerAbuelo = con.prepareStatement(INSERT_PERSONA);
+            try (PreparedStatement psPerResidente = con.prepareStatement(INSERT_PERSONA);
                  PreparedStatement psPerTutor = con.prepareStatement(INSERT_PERSONA);
                  PreparedStatement psTutor = con.prepareStatement(INSERT_TUTOR);
                  PreparedStatement psPac = con.prepareStatement(INSERT_PACIENTE)) {
                 
-                // 1. Persona Abuelo
-                psPerAbuelo.setString(1, abuelo.getCedula());
-                psPerAbuelo.setString(2, abuelo.getNombre1());
-                psPerAbuelo.setString(3, abuelo.getApellido1());
-                psPerAbuelo.setString(4, abuelo.getApellido2());
-                psPerAbuelo.setString(5, abuelo.getTelefono());
-                psPerAbuelo.setString(6, abuelo.getDireccion());
-                psPerAbuelo.setString(7, abuelo.getCorreo());
-                psPerAbuelo.setDate(8, java.sql.Date.valueOf(abuelo.getFechaNacimiento()));
-                psPerAbuelo.setString(9, abuelo.getGenero());
-                psPerAbuelo.setString(10, abuelo.getEstadoCivil());
-                psPerAbuelo.executeUpdate();
+                // 1. Persona Residente
+                psPerResidente.setString(1, residente.getCedula());
+                psPerResidente.setString(2, residente.getNombre1());
+                psPerResidente.setString(3, residente.getApellido1());
+                psPerResidente.setString(4, residente.getApellido2());
+                psPerResidente.setString(5, residente.getTelefono());
+                psPerResidente.setString(6, residente.getDireccion());
+                psPerResidente.setString(7, residente.getCorreo());
+                psPerResidente.setDate(8, java.sql.Date.valueOf(residente.getFechaNacimiento()));
+                psPerResidente.setString(9, residente.getGenero());
+                psPerResidente.setString(10, residente.getEstadoCivil());
+                psPerResidente.executeUpdate();
                 
                 // 2. Persona Tutor
                 psPerTutor.setString(1, tutor.getCedula());
@@ -74,7 +75,7 @@ public class PacienteDao {
                 }
                 
                 // 4. Registrar Paciente
-                psPac.setString(1, abuelo.getCedula());
+                psPac.setString(1, residente.getCedula());
                 psPac.setString(2, idTutorGenerado);
                 psPac.setString(3, datosPac.getTipoSangre());
                 psPac.setString(4, datosPac.getGradoDependencia());
@@ -115,6 +116,65 @@ public class PacienteDao {
         }
         return lista;
     }
+    
+    public boolean actualizarPaciente(Persona residente, Paciente ficha) {
+        String sqlPersona = "UPDATE Persona SET nombre_Perso=?, apellido1_Perso=?, apellido2_Perso=?, telefono_Perso=?, direccion_Perso=?, correo_Perso=?, estado_civil_Perso=? WHERE cedula_Perso=?";
+        String sqlPaciente = "UPDATE PACIENTE SET Tipo_Sandre_Pac=?, Grado_Dependencia=? WHERE ID_Pac=?";
+        
+        try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection()) {
+            con.setAutoCommit(false); // Iniciamos transacción
+            
+            try (java.sql.PreparedStatement psPer = con.prepareStatement(sqlPersona);
+                 java.sql.PreparedStatement psPac = con.prepareStatement(sqlPaciente)) {
+                
+                // Actualizar datos de Persona
+                psPer.setString(1, residente.getNombre1());
+                psPer.setString(2, residente.getApellido1());
+                psPer.setString(3, residente.getApellido2());
+                psPer.setString(4, residente.getTelefono());
+                psPer.setString(5, residente.getDireccion());
+                psPer.setString(6, residente.getCorreo());
+                psPer.setString(7, residente.getEstadoCivil());
+                psPer.setString(8, residente.getCedula()); // El WHERE
+                psPer.executeUpdate();
+                
+                // Actualizar datos Clínicos del Paciente
+                psPac.setString(1, ficha.getTipoSangre());
+                psPac.setString(2, ficha.getGradoDependencia());
+                psPac.setString(3, ficha.getIdPaciente()); // El WHERE
+                psPac.executeUpdate();
+                
+                con.commit(); // Confirmamos transacción
+                return true;
+                
+            } catch (java.sql.SQLException e) {
+                con.rollback();
+                javax.swing.JOptionPane.showMessageDialog(null, "Error Transaccional: " + e.getMessage());
+                return false;
+            }
+        } catch (java.sql.SQLException ex) {
+            return false;
+        }
+    }
+    
+    public boolean darDeBajaPaciente(String idPac) {
+        
+            String sql = "UPDATE PACIENTE SET Estado_Pac = 'INACTIVO' WHERE ID_Pac = ?";
+
+            try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
+                 java.sql.PreparedStatement ps = con.prepareStatement(sql)) {
+
+                ps.setString(1, idPac);
+                int filasAfectadas = ps.executeUpdate();
+
+                return filasAfectadas > 0; // Retorna true si se actualizó correctamente
+
+            } catch (java.sql.SQLException e) {
+                System.err.println("Error al dar de baja al paciente: " + e.getMessage());
+                return false;
+            }
+        }
+    
 }   
     
     

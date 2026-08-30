@@ -23,13 +23,40 @@ public class CtrlPaciente implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("🔊 ALERTA: ¡Alguien hizo clic en la interfaz!");
+        
         if (e.getSource() == vista.btnGuardar) {
             
-            System.out.println("✅ ÉXITO: ¡El clic fue en el botón Guardar! Procesando datos...");
-            // ==========================================
+            if (vista.btnGuardar.getText().equalsIgnoreCase("Actualizar Paciente")) {
+                try {
+                    Persona residente = new Persona();
+                    residente.setCedula(vista.txtCedula.getText().trim()); 
+                    residente.setNombre1(vista.txtNombre.getText().trim());
+                    residente.setApellido1(vista.txtApellido1.getText().trim());
+                    residente.setApellido2(vista.txtApellido2.getText().trim());
+                    residente.setTelefono(vista.txtTelef.getText().trim());
+                    residente.setDireccion(vista.txtDireccionTutor.getText().trim());
+                    residente.setCorreo(vista.txtCorreo.getText().trim());
+                    residente.setEstadoCivil(vista.cmbEstadoCivil.getSelectedItem().toString());
+
+                    Paciente ficha = new Paciente();
+                    ficha.setIdPaciente(vista.btnGuardar.getToolTipText()); // Recuperamos el ID oculto
+                    ficha.setGradoDependencia(vista.cmbGradoDependencia.getSelectedItem().toString());
+                    ficha.setTipoSangre(vista.cmbTipoSangre.getSelectedItem().toString());
+
+                    if (dao.actualizarPaciente(residente, ficha)) {
+                        javax.swing.JOptionPane.showMessageDialog(vista, "Paciente actualizado correctamente.");
+                        vista.dispose(); // Cierra y vuelve al Dashboard
+                    } else {
+                        javax.swing.JOptionPane.showMessageDialog(vista, "Error al actualizar en la BD.");
+                    }
+                } catch (Exception ex) {
+                    javax.swing.JOptionPane.showMessageDialog(vista, "Error: " + ex.getMessage());
+                }
+                return; // IMPORTANTE: Corta la ejecución para que no haga un INSERT abajo
+            }
+            
             // 0. EXTRACCIÓN DE TEXTOS PARA VALIDACIÓN
-            // ==========================================
+            
             String cedPac = vista.txtCedula.getText().trim();
             String nomPac = vista.txtNombre.getText().trim();
             String ape1Pac = vista.txtApellido1.getText().trim();
@@ -140,4 +167,6 @@ public class CtrlPaciente implements ActionListener {
             }
         }
     }
+    
+    
 }

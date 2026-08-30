@@ -112,11 +112,13 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
-        txtBuscPaci = new javax.swing.JTextField();
+        txtBuscarPaciente = new javax.swing.JTextField();
         jScrollPane7 = new javax.swing.JScrollPane();
         jScrollPane6 = new javax.swing.JScrollPane();
         tablaPacientes = new javax.swing.JTable();
         btnNuevoPaciente = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         panelHorarios = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -587,21 +589,34 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtBuscPaci.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        txtBuscPaci.addActionListener(this::txtBuscPaciActionPerformed);
-        jPanel16.add(txtBuscPaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 194, -1));
+        txtBuscarPaciente.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txtBuscarPaciente.addActionListener(this::txtBuscarPacienteActionPerformed);
+        txtBuscarPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarPacienteKeyReleased(evt);
+            }
+        });
+        jPanel16.add(txtBuscarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 194, -1));
 
         tablaPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Cedula", "Nombre", "Apellido", "Grado Dep.", "Tipo Sangre"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane6.setViewportView(tablaPacientes);
 
         jScrollPane7.setViewportView(jScrollPane6);
@@ -612,23 +627,43 @@ public class Ven_Admin extends javax.swing.JFrame {
         btnNuevoPaciente.setText("+ Nuevo Paciente");
         btnNuevoPaciente.addActionListener(this::btnNuevoPacienteActionPerformed);
 
+        btnEditar.setText("Editar");
+        btnEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditarMouseClicked(evt);
+            }
+        });
+
+        jButton2.setText("Dar de Baja");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelPacientesLayout = new javax.swing.GroupLayout(panelPacientes);
         panelPacientes.setLayout(panelPacientesLayout);
         panelPacientesLayout.setHorizontalGroup(
             panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPacientesLayout.createSequentialGroup()
-                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelPacientesLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPacientesLayout.createSequentialGroup()
-                                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnNuevoPaciente))
-                            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelPacientesLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnEditar)
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton2))
+                    .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(panelPacientesLayout.createSequentialGroup()
+                            .addGap(27, 27, 27)
+                            .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelPacientesLayout.createSequentialGroup()
+                                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnNuevoPaciente))
+                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panelPacientesLayout.createSequentialGroup()
+                            .addGap(53, 53, 53)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         panelPacientesLayout.setVerticalGroup(
@@ -642,7 +677,11 @@ public class Ven_Admin extends javax.swing.JFrame {
                     .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditar)
+                    .addComponent(jButton2))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jLabel8.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
@@ -926,9 +965,9 @@ public class Ven_Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusPersonalActionPerformed
 
-    private void txtBuscPaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscPaciActionPerformed
+    private void txtBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPacienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscPaciActionPerformed
+    }//GEN-LAST:event_txtBuscarPacienteActionPerformed
 
     private void btnNuevoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoPacienteActionPerformed
         
@@ -972,6 +1011,21 @@ public class Ven_Admin extends javax.swing.JFrame {
         lg.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarMouseClicked
+        CtrlAdmin controlador = new CtrlAdmin(this);
+        controlador.abrirEdicionPaciente();
+    }//GEN-LAST:event_btnEditarMouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    CtrlAdmin controlador = new CtrlAdmin(this);
+    controlador.darDeBajaPaciente();
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void txtBuscarPacienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPacienteKeyReleased
+      CtrlAdmin controlador = new CtrlAdmin(this);
+      controlador.filtrarTablaPacientes(txtBuscarPaciente.getText()); // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarPacienteKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -979,6 +1033,7 @@ public class Ven_Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearCuenta;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGeneTurno;
     private javax.swing.JButton btnGeneTurnoRapi;
     private javax.swing.JButton btnNuevoPaciente;
@@ -988,6 +1043,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel cuentas;
     private javax.swing.JLabel horarios;
     private javax.swing.JLabel inicio;
+    private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JFileChooser jFileChooser1;
@@ -1066,7 +1122,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel solicitudAcceso;
     public javax.swing.JTable tablaPacientes;
     private javax.swing.JTextField txtBusPersonal;
-    private javax.swing.JTextField txtBuscPaci;
     private javax.swing.JTextField txtBuscTurno;
+    private javax.swing.JTextField txtBuscarPaciente;
     // End of variables declaration//GEN-END:variables
 }

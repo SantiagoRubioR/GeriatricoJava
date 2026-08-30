@@ -34,6 +34,91 @@ public class CtrlAdmin {
             modelo.addRow(fila);
         }
     }
+    public void abrirEdicionPaciente() {
+        int fila = vista.tablaPacientes.getSelectedRow();
+        
+        if (fila == -1) {
+            javax.swing.JOptionPane.showMessageDialog(vista, "Seleccione un paciente de la tabla para editar.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // 1. Instanciamos la ventana
+        com.mycompany.geriatrico1.vista.FichaNewPaciente dlg = new com.mycompany.geriatrico1.vista.FichaNewPaciente();
+        
+        // 2. Extraemos datos (Ajusta los índices 0,1,2 según las columnas de tu JTable)
+        String idPac = vista.tablaPacientes.getValueAt(fila, 0).toString();
+        dlg.txtCedula.setText(vista.tablaPacientes.getValueAt(fila, 1).toString());
+        dlg.txtNombre.setText(vista.tablaPacientes.getValueAt(fila, 2).toString());
+        dlg.txtApellido1.setText(vista.tablaPacientes.getValueAt(fila, 3).toString());
+        
+        // 3. Bloqueamos la cédula y preparamos el botón
+        dlg.txtCedula.setEditable(false); 
+        dlg.btnGuardar.setText("Actualizar Paciente"); 
+        dlg.btnGuardar.setToolTipText(idPac); // Escondemos el ID para usarlo luego
+
+        // 4. Encendemos el controlador secundario y mostramos
+        PacienteDao dao = new PacienteDao();
+        com.mycompany.geriatrico1.controlador.CtrlPaciente ctrlPac = new com.mycompany.geriatrico1.controlador.CtrlPaciente(dlg, dao);        
+        dlg.setLocationRelativeTo(vista);
+        dlg.setVisible(true);
+
+        // 5. Al cerrarse la ventana de edición, recargamos la tabla automáticamente
+        cargarTablaPacientes();
+    }
+    
+    public void darDeBajaPaciente() {
+        // 1. Obtenemos la fila que el usuario seleccionó
+        int fila = vista.tablaPacientes.getSelectedRow();
+        
+        // 2. Validamos que haya seleccionado a alguien
+        if (fila == -1) {
+            javax.swing.JOptionPane.showMessageDialog(vista, "Seleccione un paciente de la tabla para dar de baja.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        // 3. Extraemos el ID y el Nombre (Asumiendo ID=columna 0, Nombres=columnas 2 y 3)
+        String idPac = vista.tablaPacientes.getValueAt(fila, 0).toString();
+        String nombreCompleto = vista.tablaPacientes.getValueAt(fila, 2).toString() + " " + vista.tablaPacientes.getValueAt(fila, 3).toString();
+        
+        // 4. Lanzamos el diálogo de confirmación
+        int confirmacion = javax.swing.JOptionPane.showConfirmDialog(vista, 
+                "¿Está seguro que desea dar de baja al paciente:\n" + nombreCompleto + "?\nPasará a estado INACTIVO en el sistema.", 
+                "Confirmar Baja Lógica", 
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+        
+        // 5. Si el usuario presiona "Sí"
+        if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
+            // Llamamos a tu clase Dao (nota: asegúrate de usar PacienteDao o PacienteDAO según como lo tengas nombrado)
+            com.mycompany.geriatrico1.dao.PacienteDao dao = new com.mycompany.geriatrico1.dao.PacienteDao();
+            
+            if (dao.darDeBajaPaciente(idPac)) {
+                javax.swing.JOptionPane.showMessageDialog(vista, "El paciente " + nombreCompleto + " ha sido dado de baja exitosamente.");
+                
+                // Recargamos la tabla al instante para que se vea el cambio
+                cargarTablaPacientes();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(vista, "Error al intentar dar de baja en la base de datos.", "Error SQL", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    
+    public void filtrarTablaPacientes(String textoBusqueda) {
+        // 1. Obtenemos el modelo de la tabla
+        javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) vista.tablaPacientes.getModel();
+        
+        // 2. Creamos el sorter (ordenador/filtrador) y se lo aplicamos a la tabla
+        javax.swing.table.TableRowSorter<javax.swing.table.DefaultTableModel> sorter = new javax.swing.table.TableRowSorter<>(modelo);
+        vista.tablaPacientes.setRowSorter(sorter);
+        
+        // 3. Aplicamos el filtro según el texto
+        if (textoBusqueda.trim().length() == 0) {
+            sorter.setRowFilter(null); // Si está vacío, muestra todo
+        } else {
+            // El "(?i)" hace que la búsqueda ignore mayúsculas/minúsculas
+            sorter.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + textoBusqueda));
+        }
+    }
  }
     
 
