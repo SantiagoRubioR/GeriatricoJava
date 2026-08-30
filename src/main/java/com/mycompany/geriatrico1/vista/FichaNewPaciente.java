@@ -17,27 +17,25 @@ public class FichaNewPaciente extends javax.swing.JFrame {
      */
     public FichaNewPaciente() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        
-// Reemplaza jPanelContenedor por el nombre del panel que agrupa tus campos
-jPanel2.setPreferredSize(new java.awt.Dimension(950, 1100));
+        // Es para que aparezca en pantalla completa
+        this.getContentPane().removeAll();
+        this.getContentPane().setLayout(new java.awt.BorderLayout());
 
-// Activa el desplazamiento suave con la rueda del ratón
-jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
+        //Esto configura el contenido del scroll y su altura
+        jScrollPane1.setViewportView(jPanel2);
+        jPanel2.setPreferredSize(new java.awt.Dimension(950, 1300));
 
-// 1. Vincula explícitamente el panel al scroll
-jScrollPane1.setViewportView(jPanel2);
+        // 4. Configurar el ScrollPane y anclarlo al centro de la ventana
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(20);
+        this.getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-// 2. Dale más altura al contenido interior
-jPanel2.setPreferredSize(new java.awt.Dimension(950, 1300));
-
-// 3. Define el tamaño VISIBLE de la ventana (para que sea menor al contenido)
-this.setSize(1000, 700);
-
-// 4. Centra la ventana y actualiza
-this.setLocationRelativeTo(null);
-this.revalidate();
-this.repaint();
+        // 5. Maximizar la ventana en pantalla completa sin romper el scroll
+        java.awt.EventQueue.invokeLater(() -> {
+            this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+            jScrollPane1.getVerticalScrollBar().setValue(0);
+        });
     }
 
     /**
@@ -112,7 +110,8 @@ this.repaint();
         jLabel22 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setExtendedState(6);
 
         jPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -197,7 +196,7 @@ this.repaint();
                                 .addGap(18, 18, 18)
                                 .addComponent(cmbGeneroTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(cmbEstadoCivilTutor, 0, 1, Short.MAX_VALUE)))
+                                .addComponent(cmbEstadoCivilTutor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(19, 19, 19)
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -211,7 +210,7 @@ this.repaint();
                             .addComponent(txtTelefonoTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCorreoTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -469,13 +468,14 @@ this.repaint();
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1083, Short.MAX_VALUE)
-                        .addComponent(jPanelPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 1083, Short.MAX_VALUE))
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 487, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanelPersona, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 853, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)))
+                .addGap(216, 617, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -507,7 +507,7 @@ this.repaint();
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(167, 167, 167)
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
@@ -527,7 +527,7 @@ this.repaint();
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1134, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 875, Short.MAX_VALUE)
                 .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
@@ -535,7 +535,7 @@ this.repaint();
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 920, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
                 .addGap(16, 16, 16))
         );
 

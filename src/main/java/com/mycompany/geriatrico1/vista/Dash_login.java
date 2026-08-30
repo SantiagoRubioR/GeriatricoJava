@@ -20,6 +20,9 @@ public class Dash_login extends javax.swing.JFrame {
      */
     public Dash_login() {
         initComponents();
+        //Es para que se abra en pantalla completa
+this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+
         this.setLocationRelativeTo(null); // Centra la ventana
     
     // Inyectamos la lógica:
@@ -68,6 +71,8 @@ public class Dash_login extends javax.swing.JFrame {
         jLabel5.setText("Contraseña");
 
         BtnIngresar.setText("INGRESAR");
+
+        txtContra.addActionListener(this::txtContraActionPerformed);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -184,6 +189,11 @@ public class Dash_login extends javax.swing.JFrame {
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
+        // TODO add your handling code here:
+        BtnIngresar.doClick(); // Simula el clic del botón de login
+    }//GEN-LAST:event_txtContraActionPerformed
 
     /**
      * @param args the command line arguments
