@@ -24,6 +24,34 @@ public class CtrlEmpleados implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnGuardarFicha) {
             
+            if (vista.btnGuardarFicha.getText().equalsIgnoreCase("Actualizar Cuenta")) {
+                try {
+                    Persona persona = new Persona();
+                    persona.setCedula(vista.txtCedula.getText().trim()); 
+                    persona.setNombre1(vista.txtNombre.getText().trim());
+                    persona.setApellido1(vista.txtApellido1.getText().trim());
+                    persona.setApellido2(vista.txtApellido2.getText().trim());
+                    persona.setTelefono(vista.txtTelef.getText().trim());
+                    persona.setDireccion(vista.txtDirecc.getText().trim());
+                    persona.setCorreo(vista.txtCorreo.getText().trim());
+                    persona.setEstadoCivil(vista.cmbEstCivCuenNue.getSelectedItem().toString());
+
+
+                    Empleado empleado = new Empleado();
+                    empleado.setIdEmpleado(vista.btnGuardarFicha.getToolTipText()); 
+                    empleado.setCargo(vista.cmbRol.getSelectedItem().toString());
+                    empleado.setTipoContrato(vista.cmbContraMed.getSelectedItem().toString());
+
+                    if (dao.actualizarEmpleadoTransaccional(persona, empleado)) {
+                        javax.swing.JOptionPane.showMessageDialog(vista, "Empleado actualizado con éxito.");
+                        vista.dispose();
+                    }
+                } catch (Exception ex) {
+                    javax.swing.JOptionPane.showMessageDialog(vista, "Error: " + ex.getMessage());
+                }
+                return; // Cortamos para que no intente hacer INSERT
+            }
+            
             // 0. CAPTURA DE TEXTOS BÁSICOS
             String cedula = vista.txtCedula.getText().trim();
             String nombre = vista.txtNombre.getText().trim();

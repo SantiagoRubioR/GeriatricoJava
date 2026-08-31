@@ -34,7 +34,7 @@ public class CtrlPaciente implements ActionListener {
                     residente.setApellido1(vista.txtApellido1.getText().trim());
                     residente.setApellido2(vista.txtApellido2.getText().trim());
                     residente.setTelefono(vista.txtTelef.getText().trim());
-                    residente.setDireccion(vista.txtDireccionTutor.getText().trim());
+                    residente.setDireccion(vista.txtDirecc.getText().trim());
                     residente.setCorreo(vista.txtCorreo.getText().trim());
                     residente.setEstadoCivil(vista.cmbEstadoCivil.getSelectedItem().toString());
 

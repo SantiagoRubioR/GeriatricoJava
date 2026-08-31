@@ -25,7 +25,7 @@ public class PacienteDao {
      private static final String LISTARPACIENTE = "SELECT p.ID_Pac, per.cedula_Perso, per.nombre_Perso, per.apellido1_Perso, p.Grado_Dependencia, p.Tipo_Sandre_Pac " +
                      "FROM PACIENTE p " +
                      "INNER JOIN Persona per ON p.Cedula_Perso_Pac = per.cedula_Perso" + 
-                     "WHERE p.Estado_Pac = 'ACTIVO'";
+                     " WHERE p.Estado_Pac = 'ACTIVO'";
 
     public boolean registrarPacienteCompleto(Persona residente, Persona tutor, Tutor datosTutor, Paciente datosPac) {
         try (Connection con = new Conexion().getConnection()) {

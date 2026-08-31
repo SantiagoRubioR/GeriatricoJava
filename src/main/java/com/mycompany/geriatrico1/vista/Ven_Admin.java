@@ -50,7 +50,6 @@ public class Ven_Admin extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         pacientes = new javax.swing.JLabel();
-        solicitudAcceso = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         inicio = new javax.swing.JLabel();
         cuentas = new javax.swing.JLabel();
@@ -73,11 +72,6 @@ public class Ven_Admin extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        panelSoliAcceso = new javax.swing.JPanel();
-        btnVertodo = new javax.swing.JButton();
-        jLabel21 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel26 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -89,13 +83,6 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         btnCrearCuenta = new javax.swing.JButton();
         panelSolicitudAcceso = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jFileChooser1 = new javax.swing.JFileChooser();
         panelCuentas = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -105,8 +92,10 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tablaEmpleados = new javax.swing.JTable();
         btnNuevoPersonal = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         panelPacientes = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -214,22 +203,12 @@ public class Ven_Admin extends javax.swing.JFrame {
                 pacientesMouseClicked(evt);
             }
         });
-        jPanel1.add(pacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 100, -1));
-
-        solicitudAcceso.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
-        solicitudAcceso.setForeground(new java.awt.Color(255, 255, 255));
-        solicitudAcceso.setText("Solicitudes de acceso");
-        solicitudAcceso.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                solicitudAccesoMouseClicked(evt);
-            }
-        });
-        jPanel1.add(solicitudAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 136, 210, -1));
+        jPanel1.add(pacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("Poor Richard", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("GESTIÓN");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 181, 100, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 100, -1));
 
         inicio.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
         inicio.setForeground(new java.awt.Color(255, 255, 255));
@@ -243,13 +222,13 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         cuentas.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
         cuentas.setForeground(new java.awt.Color(255, 255, 255));
-        cuentas.setText("Cuentas");
+        cuentas.setText("Empleados");
         cuentas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cuentasMouseClicked(evt);
             }
         });
-        jPanel1.add(cuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 100, -1));
+        jPanel1.add(cuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, -1));
 
         horarios.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
         horarios.setForeground(new java.awt.Color(255, 255, 255));
@@ -259,7 +238,7 @@ public class Ven_Admin extends javax.swing.JFrame {
                 horariosMouseClicked(evt);
             }
         });
-        jPanel1.add(horarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 100, -1));
+        jPanel1.add(horarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 100, -1));
 
         reportes.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
         reportes.setForeground(new java.awt.Color(255, 255, 255));
@@ -269,14 +248,14 @@ public class Ven_Admin extends javax.swing.JFrame {
                 reportesMouseClicked(evt);
             }
         });
-        jPanel1.add(reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 100, -1));
+        jPanel1.add(reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 100, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 386, 276, -1));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 476, -1, -1));
 
         lblUsuario.setFont(new java.awt.Font("Poor Richard", 0, 20)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblUsuario.setText("Administrador/a");
-        jPanel1.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 456, 130, -1));
+        jPanel1.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 456, 190, -1));
 
         panelInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -338,39 +317,9 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         panelInicio.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 220, 90));
 
-        panelSoliAcceso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        panelSoliAcceso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnVertodo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        btnVertodo.setText("Ver todo");
-        btnVertodo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        btnVertodo.addActionListener(this::btnVertodoActionPerformed);
-        panelSoliAcceso.add(btnVertodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 9, 80, -1));
-
-        jLabel21.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
-        jLabel21.setText("Solicitudes de acceso  pendientes");
-        panelSoliAcceso.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        panelSoliAcceso.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 750, 130));
-
-        panelInicio.add(panelSoliAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 811, 200));
-
         jLabel26.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
         jLabel26.setText("Acciones rápidas");
-        panelInicio.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, -1));
+        panelInicio.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
@@ -408,99 +357,43 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel27.setMinimumSize(new java.awt.Dimension(210, 24));
         jLabel27.setName(""); // NOI18N
         jLabel27.setPreferredSize(new java.awt.Dimension(210, 24));
-        panelInicio.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 660, 240, 20));
+        panelInicio.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 240, 20));
 
         jLabel28.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(102, 102, 102));
         jLabel28.setText("Programa un nuevo turno entre ");
-        panelInicio.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 660, -1, -1));
+        panelInicio.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 460, -1, -1));
 
         jLabel33.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(102, 102, 102));
         jLabel33.setText("paciente y personal");
-        panelInicio.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 680, -1, -1));
+        panelInicio.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, -1, -1));
 
         btnGeneTurnoRapi.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 16)); // NOI18N
         btnGeneTurnoRapi.setText("Generar turnos");
         btnGeneTurnoRapi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panelInicio.add(btnGeneTurnoRapi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, 240, 100));
+        panelInicio.add(btnGeneTurnoRapi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 240, 100));
 
         jLabel35.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(102, 102, 102));
         jLabel35.setText("y nuevos pacientes.");
-        panelInicio.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 680, 140, -1));
+        panelInicio.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 140, -1));
 
         btnCrearCuenta.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 16)); // NOI18N
         btnCrearCuenta.setText("Crear cuenta");
         btnCrearCuenta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCrearCuenta.addActionListener(this::btnCrearCuentaActionPerformed);
-        panelInicio.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 240, 100));
-
-        jLabel2.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
-        jLabel2.setText("Solicitudes de acceso");
-
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("Aprueba o rechaza las cuentas que esperan acceso al sistema ");
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Nombre", "Apellido", " Rol solicitado", "Fecha", "Acciones"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable2);
-
-        jScrollPane2.setViewportView(jScrollPane3);
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel3))
-                    .addComponent(jLabel2))
-                .addContainerGap(358, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        panelInicio.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 240, 100));
 
         javax.swing.GroupLayout panelSolicitudAccesoLayout = new javax.swing.GroupLayout(panelSolicitudAcceso);
         panelSolicitudAcceso.setLayout(panelSolicitudAccesoLayout);
         panelSolicitudAccesoLayout.setHorizontalGroup(
             panelSolicitudAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelSolicitudAccesoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(744, Short.MAX_VALUE))
+            .addGap(0, 1720, Short.MAX_VALUE)
         );
         panelSolicitudAccesoLayout.setVerticalGroup(
             panelSolicitudAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelSolicitudAccesoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(382, Short.MAX_VALUE))
+            .addGap(0, 774, Short.MAX_VALUE)
         );
 
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -523,18 +416,32 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel24.setText("Buscar: ");
         jPanel11.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 14, -1, -1));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tablaEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"", null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Cedula", "Nombre", "Apellido", "Rol"
             }
-        ));
-        jScrollPane4.setViewportView(jTable3);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tablaEmpleados);
 
         jScrollPane5.setViewportView(jScrollPane4);
 
@@ -543,6 +450,11 @@ public class Ven_Admin extends javax.swing.JFrame {
         btnNuevoPersonal.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevoPersonal.setText("+ Nueva cuenta");
         btnNuevoPersonal.addActionListener(this::btnNuevoPersonalActionPerformed);
+
+        jButton1.setText("Editar");
+
+        jButton3.setText("Dar de Baja");
+        jButton3.addActionListener(this::jButton3ActionPerformed);
 
         javax.swing.GroupLayout panelCuentasLayout = new javax.swing.GroupLayout(panelCuentas);
         panelCuentas.setLayout(panelCuentasLayout);
@@ -561,6 +473,12 @@ public class Ven_Admin extends javax.swing.JFrame {
                             .addGap(12, 12, 12)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(146, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuentasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(54, 54, 54)
+                .addComponent(jButton3)
+                .addGap(159, 159, 159))
         );
         panelCuentasLayout.setVerticalGroup(
             panelCuentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -573,7 +491,11 @@ public class Ven_Admin extends javax.swing.JFrame {
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCuentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -883,17 +805,6 @@ public class Ven_Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVertodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVertodoActionPerformed
-        // TODO add your handling code here:
-        panelSolicitudAcceso.setVisible(true);
-        panelInicio.setVisible(false);
-       panelCuentas.setVisible(false);
-       panelPacientes.setVisible(false);
-       panelHorarios.setVisible(false);
-       panelReportes.setVisible(false);
-        
-    }//GEN-LAST:event_btnVertodoActionPerformed
-
     private void reportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportesMouseClicked
         // TODO add your handling code here:
         panelReportes.setVisible(true);
@@ -913,16 +824,6 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelPacientes.setVisible(false);
         panelReportes.setVisible(false);
     }//GEN-LAST:event_horariosMouseClicked
-
-    private void solicitudAccesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_solicitudAccesoMouseClicked
-        // TODO add your handling code here:
-        panelSolicitudAcceso.setVisible(true);
-        panelInicio.setVisible(false);
-        panelCuentas.setVisible(false);
-        panelPacientes.setVisible(false);
-        panelHorarios.setVisible(false);
-        panelReportes.setVisible(false);
-    }//GEN-LAST:event_solicitudAccesoMouseClicked
 
     private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
         // TODO add your handling code here:
@@ -1026,6 +927,10 @@ public class Ven_Admin extends javax.swing.JFrame {
       controlador.filtrarTablaPacientes(txtBuscarPaciente.getText()); // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarPacienteKeyReleased
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1039,14 +944,14 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevoPaciente;
     private javax.swing.JButton btnNuevoPersonal;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton btnVertodo;
     private javax.swing.JLabel cuentas;
     private javax.swing.JLabel horarios;
     private javax.swing.JLabel inicio;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
-    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -1056,9 +961,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -1067,7 +970,6 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel33;
@@ -1091,12 +993,8 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -1104,9 +1002,6 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable5;
     public javax.swing.JLabel lblSaludo;
     public javax.swing.JLabel lblUsuario;
@@ -1116,10 +1011,9 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JPanel panelInicio;
     private javax.swing.JPanel panelPacientes;
     private javax.swing.JPanel panelReportes;
-    private javax.swing.JPanel panelSoliAcceso;
     private javax.swing.JPanel panelSolicitudAcceso;
     private javax.swing.JLabel reportes;
-    private javax.swing.JLabel solicitudAcceso;
+    public javax.swing.JTable tablaEmpleados;
     public javax.swing.JTable tablaPacientes;
     private javax.swing.JTextField txtBusPersonal;
     private javax.swing.JTextField txtBuscTurno;

@@ -29,6 +29,16 @@ public class EmpleadoDAO {
     // Omitimos intencionalmente el Horario para que el Trigger asuma NULL de forma segura
     private static final String INSERT_ENFERMERA = 
         "INSERT INTO Enfermera (ID_Emp_Enfer, Numero_Licencia_Enfer, Nivel_Formacion_Enfer, Especialidad_Enfer) VALUES (?, ?, ?, ?)";
+    private static final String LISTAR_EMPLEADOS = "SELECT e.ID_Emp, p.cedula_Perso, p.nombre_Perso, p.apellido1_Perso, e.Cargo_Emp, e.Tipo_contrato_Emp " +
+                     "FROM Empleado e " +
+                     "INNER JOIN Persona p ON e.Cedula_Perso_Emp = p.cedula_Perso " +
+                     "WHERE e.Estado_Emp = 'Activo'";
+    
+    private static final String ELIMINAR_EMPLEADO = "UPDATE Empleado SET Estado_Emp = 'Inactivo' WHERE ID_Emp = ?";
+    
+    private static final String ACTUALIZAR_PERSONA = "UPDATE Persona SET nombre_Perso=?, apellido1_Perso=?, apellido2_Perso=?, telefono_Perso=?, direccion_Perso=?, correo_Perso=?, estado_civil_Perso=? WHERE cedula_Perso=?";
+        
+     private static final String ACTUALIZAR_EMPLEADO = "UPDATE Empleado SET Cargo_Emp=?, Tipo_contrato_Emp=? WHERE ID_Emp=?";
 
     public boolean registrarPersonalCompleto(Persona persona, Empleado empleado, Usuario usuario, Administrador admin, Medico medico, Enfermero enfermera, String rol) {
         Connection con = null;
@@ -105,6 +115,86 @@ public class EmpleadoDAO {
             return false;
         } finally {
             try { if (con != null) con.close(); } catch (SQLException e) {}
+        }
+    }
+    
+    public java.util.List<Object[]> listarEmpleadosActivos() {
+        java.util.List<Object[]> lista = new java.util.ArrayList<>();
+        
+        
+        try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
+             java.sql.PreparedStatement ps = con.prepareStatement(LISTAR_EMPLEADOS);
+             java.sql.ResultSet rs = ps.executeQuery()) {
+            
+            while (rs.next()) {
+                Object[] fila = new Object[6];
+                fila[0] = rs.getString("ID_Emp");
+                fila[1] = rs.getString("cedula_Perso");
+                fila[2] = rs.getString("nombre_Perso");
+                fila[3] = rs.getString("apellido1_Perso");
+                fila[4] = rs.getString("Cargo_Emp");
+                fila[5] = rs.getString("Tipo_contrato_Emp");
+                lista.add(fila);
+            }
+        } catch (java.sql.SQLException e) {
+            System.err.println("Error al listar empleados: " + e.getMessage());
+        }
+        return lista;
+    }
+
+    // ==========================================
+    // 2. DAR DE BAJA (ELIMINAR LÓGICO)
+    // ==========================================
+    public boolean darDeBajaEmpleado(String idEmp) {
+        
+        try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
+             java.sql.PreparedStatement ps = con.prepareStatement(ELIMINAR_EMPLEADO)) {
+            
+            ps.setString(1, idEmp);
+            return ps.executeUpdate() > 0;
+            
+        } catch (java.sql.SQLException e) {
+            return false;
+        }
+    }
+
+    // ==========================================
+    // 3. ACTUALIZAR TRANSACCIONAL
+    // ==========================================
+    public boolean actualizarEmpleadoTransaccional(Persona persona, Empleado empleado) {
+        String ACTUALIZAR_PERSONA = "UPDATE Persona SET nombre_Perso=?, apellido1_Perso=?, apellido2_Perso=?, telefono_Perso=?, direccion_Perso=?, correo_Perso=?, estado_civil_Perso=? WHERE cedula_Perso=?";
+        
+        String ACTUALIZAR_EMPLEADO = "UPDATE Empleado SET Cargo_Emp=?, Tipo_contrato_Emp=? WHERE ID_Emp=?";
+        
+        try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection()) {
+            con.setAutoCommit(false);
+            
+            try (java.sql.PreparedStatement psPer = con.prepareStatement(ACTUALIZAR_PERSONA);
+                 java.sql.PreparedStatement psEmp = con.prepareStatement(ACTUALIZAR_EMPLEADO)) {
+                
+                psPer.setString(1, persona.getNombre1());
+                psPer.setString(2, persona.getApellido1());
+                psPer.setString(3, persona.getApellido2());
+                psPer.setString(4, persona.getTelefono());
+                psPer.setString(5, persona.getDireccion());
+                psPer.setString(6, persona.getCorreo());
+                psPer.setString(7, persona.getEstadoCivil());
+                psPer.setString(8, persona.getCedula()); 
+                psPer.executeUpdate();
+                
+                psEmp.setString(1, empleado.getCargo());
+                psEmp.setString(2, empleado.getTipoContrato());
+                psEmp.setString(3, empleado.getIdEmpleado()); 
+                psEmp.executeUpdate();
+                
+                con.commit();
+                return true;
+            } catch (java.sql.SQLException e) {
+                con.rollback();
+                return false;
+            }
+        } catch (java.sql.SQLException ex) {
+            return false;
         }
     }
 }

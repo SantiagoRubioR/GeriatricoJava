@@ -4,6 +4,7 @@
  */
 package com.mycompany.geriatrico1.Controlador;
 
+import com.mycompany.geriatrico1.dao.EmpleadoDAO;
 import com.mycompany.geriatrico1.dao.PacienteDao;
 import com.mycompany.geriatrico1.vista.Ven_Admin;
 import java.util.List;
@@ -118,6 +119,91 @@ public class CtrlAdmin {
             // El "(?i)" hace que la búsqueda ignore mayúsculas/minúsculas
             sorter.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + textoBusqueda));
         }
+    }
+    //--------------------------------EMPLEADOS-------------------------------------
+    public void cargarTablaEmpleados() {
+        // 1. Obtener el modelo de tu tabla (Asegúrate que la variable se llame tablaEmpleados)
+        javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) vista.tablaEmpleados.getModel();
+        
+        // 2. Limpiar la tabla por si ya tenía datos cargados
+        modelo.setRowCount(0);
+        
+        // 3. Llamar al DAO usando el método que filtra los Inactivos
+        com.mycompany.geriatrico1.dao.EmpleadoDAO dao = new com.mycompany.geriatrico1.dao.EmpleadoDAO();
+        java.util.List<Object[]> lista = dao.listarEmpleadosActivos();
+        
+        // 4. Llenar la tabla fila por fila
+        for (Object[] fila : lista) {
+            modelo.addRow(fila);
+        }
+    }
+    public void filtrarTablaEmpleados(String textoBusqueda) {
+        DefaultTableModel modelo = (DefaultTableModel) vista.tablaEmpleados.getModel();
+        javax.swing.table.TableRowSorter<javax.swing.table.DefaultTableModel> sorter = new javax.swing.table.TableRowSorter<>(modelo);
+        vista.tablaEmpleados.setRowSorter(sorter);
+        
+        if (textoBusqueda.trim().length() == 0) {
+            sorter.setRowFilter(null);
+        } else {
+            sorter.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + textoBusqueda));
+        }
+    }
+
+    // ==========================================
+    // DAR DE BAJA
+    // ==========================================
+    public void darDeBajaEmpleado() {
+        int fila = vista.tablaEmpleados.getSelectedRow();
+        if (fila == -1) {
+            javax.swing.JOptionPane.showMessageDialog(vista, "Seleccione un empleado.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        String idEmp = vista.tablaEmpleados.getValueAt(fila, 0).toString();
+        String nombre = vista.tablaEmpleados.getValueAt(fila, 2).toString() + " " + vista.tablaEmpleados.getValueAt(fila, 3).toString();
+        
+        int confirmacion = javax.swing.JOptionPane.showConfirmDialog(vista, "¿Dar de baja a " + nombre + "?", "Confirmar", javax.swing.JOptionPane.YES_NO_OPTION);
+        
+        if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
+            EmpleadoDAO dao = new EmpleadoDAO();
+            if (dao.darDeBajaEmpleado(idEmp)) {
+                // Aquí debes llamar al método que recarga tu tabla de empleados
+                cargarTablaEmpleados(); 
+            }
+        }
+    }
+
+    // ==========================================
+    // ABRIR EDICIÓN (INYECCIÓN DE DATOS)
+    // ==========================================
+    public void abrirEdicionEmpleado() {
+        int fila = vista.tablaEmpleados.getSelectedRow();
+        if (fila == -1) {
+            javax.swing.JOptionPane.showMessageDialog(vista, "Seleccione un empleado para editar.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        com.mycompany.geriatrico1.vista.FichaNuevaCuenta dlg = new com.mycompany.geriatrico1.vista.FichaNuevaCuenta();
+        
+        String idEmp = vista.tablaEmpleados.getValueAt(fila, 0).toString();
+        dlg.txtCedula.setText(vista.tablaEmpleados.getValueAt(fila, 1).toString());
+        dlg.txtNombre.setText(vista.tablaEmpleados.getValueAt(fila, 2).toString());
+        dlg.txtApellido1.setText(vista.tablaEmpleados.getValueAt(fila, 3).toString());
+        // Ajusta los setItem de tus combobox según tus variables:
+        dlg.cmbRol.setSelectedItem(vista.tablaEmpleados.getValueAt(fila, 4).toString());
+        
+        dlg.txtCedula.setEditable(false); 
+        dlg.btnGuardarFicha.setText("Actualizar Cuenta"); 
+        dlg.btnGuardarFicha.setToolTipText(idEmp);
+
+        // Llama al controlador de Empleado (ajusta los nombres de tus clases)
+        com.mycompany.geriatrico1.dao.EmpleadoDAO dao = new com.mycompany.geriatrico1.dao.EmpleadoDAO();
+        com.mycompany.geriatrico1.controlador.CtrlEmpleados ctrl = new com.mycompany.geriatrico1.controlador.CtrlEmpleados(dlg, dao);
+        
+        dlg.setLocationRelativeTo(vista);
+        dlg.setVisible(true);
+
+        cargarTablaEmpleados();
     }
  }
     
