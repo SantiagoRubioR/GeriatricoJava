@@ -131,6 +131,8 @@ public class panel_paciente extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setBackground(new java.awt.Color(238, 242, 246));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel1.setText("MODULO DE PACIENTES - BUSQUEDA Y ALERTAS");
 
@@ -139,12 +141,12 @@ public class panel_paciente extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel3.setText("Grado de Dependencia:");
 
-        cbxGradoDepen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxGradoDepen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Leve", "Moderado", "Critico" }));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel4.setText("Grupo Etario:");
 
-        cbxGrupoEtario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxGrupoEtario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "60 - 69 años", "70 - 79 años", "80 - 89 años", "90+ años" }));
 
         btnAgregaCuidado.setBackground(new java.awt.Color(0, 153, 153));
         btnAgregaCuidado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mas.png"))); // NOI18N
@@ -188,7 +190,7 @@ public class panel_paciente extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cbxGrupoEtario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 326, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
                         .addComponent(btnGeneraAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnActualiEst, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)

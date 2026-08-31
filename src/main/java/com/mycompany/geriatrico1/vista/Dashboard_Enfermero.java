@@ -47,7 +47,7 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(238, 242, 246));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_tiny.png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(200, 150));
@@ -101,33 +101,33 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
 
         getContentPane().add(panelCentral, java.awt.BorderLayout.CENTER);
 
-        jPanel3.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel3.setBackground(new java.awt.Color(0, 128, 128));
 
-        btnIniEnfer.setBackground(new java.awt.Color(0, 102, 102));
+        btnIniEnfer.setBackground(new java.awt.Color(24, 76, 74));
         btnIniEnfer.setForeground(new java.awt.Color(255, 255, 255));
         btnIniEnfer.setText("Inicio");
         btnIniEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
         btnIniEnfer.addActionListener(this::btnIniEnferActionPerformed);
 
-        btnPaciEnfer.setBackground(new java.awt.Color(0, 102, 102));
+        btnPaciEnfer.setBackground(new java.awt.Color(24, 76, 74));
         btnPaciEnfer.setForeground(new java.awt.Color(255, 255, 255));
         btnPaciEnfer.setText("Paciente");
         btnPaciEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
         btnPaciEnfer.addActionListener(this::btnPaciEnferActionPerformed);
 
-        btnPendEnfer.setBackground(new java.awt.Color(0, 102, 102));
+        btnPendEnfer.setBackground(new java.awt.Color(24, 76, 74));
         btnPendEnfer.setForeground(new java.awt.Color(255, 255, 255));
         btnPendEnfer.setText("(Pendiente)");
         btnPendEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
         btnPendEnfer.addActionListener(this::btnPendEnferActionPerformed);
 
-        btnReporEnfer.setBackground(new java.awt.Color(0, 102, 102));
+        btnReporEnfer.setBackground(new java.awt.Color(24, 76, 74));
         btnReporEnfer.setForeground(new java.awt.Color(255, 255, 255));
         btnReporEnfer.setText("Reporte");
         btnReporEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
         btnReporEnfer.addActionListener(this::btnReporEnferActionPerformed);
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 102));
+        jButton1.setBackground(new java.awt.Color(24, 76, 74));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("SALIR");
         jButton1.addActionListener(this::jButton1ActionPerformed);

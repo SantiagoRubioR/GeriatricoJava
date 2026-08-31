@@ -179,6 +179,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(238, 242, 246));
 
         jPanel1.setBackground(new java.awt.Color(0, 128, 128));
         jPanel1.setForeground(new java.awt.Color(0, 102, 102));
@@ -322,6 +323,8 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel26.setText("Acciones rápidas");
         panelInicio.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
 
+        jPanel8.setBackground(new java.awt.Color(238, 242, 246));
+
         jLabel12.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("Jueves, 14 de agosto de 2026");
@@ -349,7 +352,7 @@ public class Ven_Admin extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panelInicio.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 260, 80));
+        panelInicio.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 590, 80));
 
         jLabel27.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(102, 102, 102));
@@ -399,6 +402,7 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         panelCuentas.setBackground(new java.awt.Color(245, 247, 250));
 
+        jPanel12.setBackground(new java.awt.Color(238, 242, 246));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
@@ -503,6 +507,7 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         panelPacientes.setBackground(new java.awt.Color(245, 247, 250));
 
+        jPanel13.setBackground(new java.awt.Color(238, 242, 246));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
@@ -613,6 +618,8 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         panelHorarios.setBackground(new java.awt.Color(245, 247, 250));
 
+        jPanel14.setBackground(new java.awt.Color(238, 242, 246));
+
         jLabel8.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
         jLabel8.setText("Horarios y turnos");
 
@@ -631,7 +638,7 @@ public class Ven_Admin extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jLabel30))
                     .addComponent(jLabel8))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -686,20 +693,19 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelHorariosLayout.setHorizontalGroup(
             panelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHorariosLayout.createSequentialGroup()
-                .addGroup(panelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(panelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHorariosLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(399, 399, 399))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelHorariosLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addGroup(panelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelHorariosLayout.createSequentialGroup()
                                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnGeneTurno)))))
-                .addContainerGap(130, Short.MAX_VALUE))
+                                .addComponent(btnGeneTurno))))
+                    .addGroup(panelHorariosLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         panelHorariosLayout.setVerticalGroup(
             panelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

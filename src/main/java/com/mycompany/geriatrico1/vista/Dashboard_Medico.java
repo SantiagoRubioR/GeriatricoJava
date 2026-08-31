@@ -222,13 +222,14 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         btnAlerta.addActionListener(this::btnAlertaActionPerformed);
         PanelMenu.add(btnAlerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 190, -1));
 
+        lblUsuario_Med.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblUsuario_Med.setForeground(new java.awt.Color(255, 255, 255));
         lblUsuario_Med.setText("Dr. Marisol Herrera");
-        PanelMenu.add(lblUsuario_Med, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, -1, -1));
+        PanelMenu.add(lblUsuario_Med, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         lblEspecialidad.setForeground(new java.awt.Color(255, 255, 255));
         lblEspecialidad.setText("Cardiologa");
-        PanelMenu.add(lblEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 37, -1, -1));
+        PanelMenu.add(lblEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         btnHistorial.setBackground(new java.awt.Color(24, 76, 74));
         btnHistorial.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,6 +249,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         btnTratamiento.addActionListener(this::btnTratamientoActionPerformed);
         PanelMenu.add(btnTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 190, -1));
 
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("Pacientes activos");
         PanelMenu.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
@@ -264,6 +266,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         txtBuscar.addActionListener(this::txtBuscarActionPerformed);
         PanelMenu.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 160, -1));
 
+        jTable4.setBackground(new java.awt.Color(245, 247, 250));
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -277,13 +280,14 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable4);
 
-        PanelMenu.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 170, 200));
+        PanelMenu.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 170, 200));
 
-        PanelContenido.setBackground(new java.awt.Color(204, 204, 204));
+        PanelContenido.setBackground(new java.awt.Color(245, 247, 250));
 
         PanelAlertas.setBackground(new java.awt.Color(245, 247, 250));
         PanelAlertas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.red, null, null));
 
         jLabel3.setText("Elena Vazquez");
@@ -335,6 +339,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
 
         PanelAlertas.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 35, 660, -1));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.orange, null, null));
 
         jLabel29.setText("Juan Rios");
@@ -390,6 +395,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         jLabel5.setText("Alertas generadas automaticamente por signos vitales o reportadas por el paciente ordenadas por urgencia");
         PanelAlertas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 7, -1, -1));
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(51, 255, 102), null, null));
 
         jLabel51.setForeground(new java.awt.Color(51, 255, 51));
@@ -420,7 +426,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(493, Short.MAX_VALUE))))
+                        .addContainerGap(489, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -761,7 +767,8 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(jTable3);
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 255, 153), null, null));
+        jPanel5.setBackground(new java.awt.Color(245, 247, 250));
+        jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 153, 153), null, null));
 
         jLabel36.setText("Cantidad");
 
@@ -976,7 +983,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                     .addGroup(PanelGenerarLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(PanelGenerarLayout.createSequentialGroup()
                 .addGroup(PanelGenerarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelGenerarLayout.createSequentialGroup()
@@ -1136,7 +1143,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel6.setBackground(new java.awt.Color(238, 242, 246));
 
         jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_tiny.png"))); // NOI18N
         jLabel50.setMaximumSize(new java.awt.Dimension(200, 150));
