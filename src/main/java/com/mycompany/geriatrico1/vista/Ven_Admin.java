@@ -533,7 +533,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(102, 102, 102));
         jLabel25.setText("Pacientes registrados en el sistema");
-        jPanel13.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 280, -1));
+        jPanel13.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 290, -1));
 
         jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -607,16 +607,16 @@ public class Ven_Admin extends javax.swing.JFrame {
                         .addComponent(jButton2))
                     .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(panelPacientesLayout.createSequentialGroup()
+                            .addGap(53, 53, 53)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelPacientesLayout.createSequentialGroup()
                             .addGap(27, 27, 27)
                             .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(panelPacientesLayout.createSequentialGroup()
                                     .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnNuevoPaciente))
-                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(panelPacientesLayout.createSequentialGroup()
-                            .addGap(53, 53, 53)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btnNuevoPaciente))))))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         panelPacientesLayout.setVerticalGroup(

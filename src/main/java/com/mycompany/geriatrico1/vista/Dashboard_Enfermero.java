@@ -171,11 +171,14 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniEnferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniEnferActionPerformed
-        // TODO add your handling code here:
+       panel_paciente2.setVisible(false);
+       panel_inicio1.setVisible(true);
     }//GEN-LAST:event_btnIniEnferActionPerformed
 
     private void btnPaciEnferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaciEnferActionPerformed
-        // TODO add your handling code here:
+       panel_paciente2.setVisible(true);
+       panel_inicio1.setVisible(false);
+        
     }//GEN-LAST:event_btnPaciEnferActionPerformed
 
     private void btnPendEnferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPendEnferActionPerformed

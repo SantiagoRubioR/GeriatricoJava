@@ -175,6 +175,25 @@ public class PacienteDao {
             }
         }
     
+    public int contarPacientesActivos() {
+        int totalPacientes = 0;
+        // Cuenta las filas donde el estado sea ACTIVO
+        String sql = "SELECT COUNT(*) FROM Paciente WHERE UPPER(estado_Pac) = 'ACTIVO'";
+        
+        try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
+             java.sql.PreparedStatement ps = con.prepareStatement(sql);
+             java.sql.ResultSet rs = ps.executeQuery()) {
+            
+            if (rs.next()) {
+                totalPacientes = rs.getInt(1); 
+            }
+            
+        } catch (Exception e) {
+            System.err.println("Error al contar pacientes: " + e.getMessage());
+        }
+        return totalPacientes;
+    }
+    
 }   
     
     

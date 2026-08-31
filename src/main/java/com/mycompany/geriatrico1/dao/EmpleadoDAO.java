@@ -249,4 +249,23 @@ public class EmpleadoDAO {
         } catch (Exception e) {}
         return id;
     }
+   
+   public int contarPersonalActivo() {
+        int total = 0;
+        // Cuenta las filas donde el estado del empleado sea Activo
+        String sql = "SELECT COUNT(*) FROM Empleado WHERE UPPER(Estado_Emp) = 'ACTIVO'";
+        
+        try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
+             java.sql.PreparedStatement ps = con.prepareStatement(sql);
+             java.sql.ResultSet rs = ps.executeQuery()) {
+            
+            if (rs.next()) {
+                total = rs.getInt(1); // Atrapa el número que devuelve el COUNT(*)
+            }
+            
+        } catch (Exception e) {
+            System.err.println("Error al contar personal: " + e.getMessage());
+        }
+        return total;
+    }
 }
