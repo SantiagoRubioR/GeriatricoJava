@@ -25,6 +25,7 @@ public class CtrlDashboardEnfermero implements ActionListener {
         
         // 3. Llenamos la tabla al abrir
         cargarTablaPacientes();
+        ocultarColumna(vista.tablaPacientes, 0);
     }
 
     private void cargarTablaPacientes() {
@@ -89,4 +90,10 @@ public class CtrlDashboardEnfermero implements ActionListener {
             }
         }
     }
+    private void ocultarColumna(javax.swing.JTable tabla, int columnaIndex) {
+        tabla.getColumnModel().getColumn(columnaIndex).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(columnaIndex).setMinWidth(0);
+        tabla.getColumnModel().getColumn(columnaIndex).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(columnaIndex).setResizable(false);
+}
 }

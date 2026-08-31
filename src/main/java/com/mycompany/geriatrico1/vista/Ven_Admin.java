@@ -74,7 +74,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
         lblSaludo = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -325,9 +325,9 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(238, 242, 246));
 
-        jLabel12.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel12.setText("Jueves, 14 de agosto de 2026");
+        lblFecha.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(102, 102, 102));
+        lblFecha.setText("Jueves, 14 de agosto de 2026");
 
         lblSaludo.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
         lblSaludo.setText("Hola, ");
@@ -338,7 +338,7 @@ public class Ven_Admin extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -348,7 +348,7 @@ public class Ven_Admin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblSaludo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12)
+                .addComponent(lblFecha)
                 .addContainerGap())
         );
 
@@ -1024,7 +1024,6 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JDialog jDialog2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1073,6 +1072,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable5;
+    public javax.swing.JLabel lblFecha;
     public javax.swing.JLabel lblSaludo;
     public javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel pacientes;

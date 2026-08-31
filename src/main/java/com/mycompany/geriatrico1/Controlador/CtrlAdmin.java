@@ -7,7 +7,10 @@ package com.mycompany.geriatrico1.Controlador;
 import com.mycompany.geriatrico1.dao.EmpleadoDAO;
 import com.mycompany.geriatrico1.dao.PacienteDao;
 import com.mycompany.geriatrico1.vista.Ven_Admin;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,6 +22,7 @@ public class CtrlAdmin {
 
     public CtrlAdmin(Ven_Admin vista) {
         this.vista = vista;
+        configurarFechaActual();
     }
 
     public void cargarTablaPacientes() {
@@ -34,6 +38,7 @@ public class CtrlAdmin {
         for (Object[] fila : lista) {
             modelo.addRow(fila);
         }
+        ocultarColumna(vista.tablaPacientes, 0);
     }
     public void abrirEdicionPaciente() {
         int fila = vista.tablaPacientes.getSelectedRow();
@@ -42,29 +47,32 @@ public class CtrlAdmin {
             javax.swing.JOptionPane.showMessageDialog(vista, "Seleccione un paciente de la tabla para editar.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
-
         // 1. Instanciamos la ventana
         com.mycompany.geriatrico1.vista.FichaNewPaciente dlg = new com.mycompany.geriatrico1.vista.FichaNewPaciente();
-        
-        // 2. Extraemos datos (Ajusta los índices 0,1,2 según las columnas de tu JTable)
-        String idPac = vista.tablaPacientes.getValueAt(fila, 0).toString();
-        dlg.txtCedula.setText(vista.tablaPacientes.getValueAt(fila, 1).toString());
-        dlg.txtNombre.setText(vista.tablaPacientes.getValueAt(fila, 2).toString());
-        dlg.txtApellido1.setText(vista.tablaPacientes.getValueAt(fila, 3).toString());
-        
-        // 3. Bloqueamos la cédula y preparamos el botón
-        dlg.txtCedula.setEditable(false); 
-        dlg.btnGuardar.setText("Actualizar Paciente"); 
+
+        // 2. ¡EL BLINDAJE! Traducimos la fila visual a la fila real de la memoria
+        int filaModelo = vista.tablaPacientes.convertRowIndexToModel(fila);
+
+        // 3. Extraemos datos directo del MODELO (usando getModel(), donde la columna 0 sí existe)
+        String idPac = vista.tablaPacientes.getModel().getValueAt(filaModelo, 0).toString();
+        dlg.txtCedula.setText(vista.tablaPacientes.getModel().getValueAt(filaModelo, 1).toString());
+        dlg.txtNombre.setText(vista.tablaPacientes.getModel().getValueAt(filaModelo, 2).toString());
+        dlg.txtApellido1.setText(vista.tablaPacientes.getModel().getValueAt(filaModelo, 3).toString());
+
+        // 4. Bloqueamos la cédula y preparamos el botón
+        dlg.txtCedula.setEditable(false);
+        dlg.btnGuardar.setText("Actualizar Paciente");
         dlg.btnGuardar.setToolTipText(idPac); // Escondemos el ID para usarlo luego
 
-        // 4. Encendemos el controlador secundario y mostramos
-        PacienteDao dao = new PacienteDao();
-        com.mycompany.geriatrico1.controlador.CtrlPaciente ctrlPac = new com.mycompany.geriatrico1.controlador.CtrlPaciente(dlg, dao);        
+        // 5. Encendemos el controlador secundario y mostramos
+        com.mycompany.geriatrico1.dao.PacienteDao dao = new com.mycompany.geriatrico1.dao.PacienteDao(); // Puesto con ruta completa por si acaso
+        com.mycompany.geriatrico1.controlador.CtrlPaciente ctrlPac = new com.mycompany.geriatrico1.controlador.CtrlPaciente(dlg, dao);
         dlg.setLocationRelativeTo(vista);
         dlg.setVisible(true);
 
-        // 5. Al cerrarse la ventana de edición, recargamos la tabla automáticamente
+        // 6. Al cerrarse la ventana de edición, recargamos la tabla automáticamente
         cargarTablaPacientes();
+        ocultarColumna(vista.tablaPacientes, 0);
     }
     
     public void darDeBajaPaciente() {
@@ -98,6 +106,7 @@ public class CtrlAdmin {
                 
                 // Recargamos la tabla al instante para que se vea el cambio
                 cargarTablaPacientes();
+                ocultarColumna(vista.tablaEmpleados, 0);
             } else {
                 javax.swing.JOptionPane.showMessageDialog(vista, "Error al intentar dar de baja en la base de datos.", "Error SQL", javax.swing.JOptionPane.ERROR_MESSAGE);
             }
@@ -135,6 +144,7 @@ public class CtrlAdmin {
         // 4. Llenar la tabla fila por fila
         for (Object[] fila : lista) {
             modelo.addRow(fila);
+            ocultarColumna(vista.tablaEmpleados, 0);
         } 
     }
     public void filtrarTablaEmpleados(String textoBusqueda) {
@@ -168,7 +178,8 @@ public class CtrlAdmin {
             EmpleadoDAO dao = new EmpleadoDAO();
             if (dao.darDeBajaEmpleado(idEmp)) {
                 // Aquí debes llamar al método que recarga tu tabla de empleados
-                cargarTablaEmpleados(); 
+                cargarTablaEmpleados();
+                ocultarColumna(vista.tablaEmpleados, 0);
             }
         }
     }
@@ -204,6 +215,31 @@ public class CtrlAdmin {
         dlg.setVisible(true);
 
         cargarTablaEmpleados();
+        ocultarColumna(vista.tablaEmpleados, 0);
+    }
+    
+    private void ocultarColumna(javax.swing.JTable tabla, int columnaIndex) {
+        tabla.getColumnModel().getColumn(columnaIndex).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(columnaIndex).setMinWidth(0);
+        tabla.getColumnModel().getColumn(columnaIndex).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(columnaIndex).setResizable(false);
+    }
+    
+    private void configurarFechaActual() {
+        // 1. Obtenemos la fecha exacta del sistema
+        LocalDate fechaHoy = LocalDate.now();
+
+        // 2. Creamos el molde con el formato exacto que quieres, forzando el idioma a Español
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM 'de' yyyy", new Locale("es", "ES"));
+
+        // 3. Traducimos la fecha a texto
+        String fechaTexto = fechaHoy.format(formato);
+
+        // 4. Ponemos la primera letra en mayúscula (porque Java devuelve "jueves" en minúscula)
+        String fechaFinal = fechaTexto.substring(0, 1).toUpperCase() + fechaTexto.substring(1);
+
+        // 5. Lo enviamos a tu Label (¡Asegúrate de cambiar 'lblFecha' por el nombre real de tu variable!)
+        vista.lblFecha.setText(fechaFinal);
     }
  }
     

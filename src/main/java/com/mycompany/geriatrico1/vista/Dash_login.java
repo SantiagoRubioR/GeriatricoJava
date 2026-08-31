@@ -110,7 +110,7 @@ this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
 
         getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(238, 242, 246));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_login.png"))); // NOI18N
