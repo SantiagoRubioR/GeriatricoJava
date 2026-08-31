@@ -885,9 +885,18 @@ public class Ven_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNuevoPacienteActionPerformed
 
     private void btnNuevoPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoPersonalActionPerformed
-        // TODO add your handling code here:
-        FichaNuevaCuenta nuevaCuen=new FichaNuevaCuenta ();
-        nuevaCuen.setVisible(true);
+        com.mycompany.geriatrico1.vista.FichaNuevaCuenta dlg = new com.mycompany.geriatrico1.vista.FichaNuevaCuenta();
+        dlg.btnGuardarFicha.setText("Guardar");
+        
+        com.mycompany.geriatrico1.dao.EmpleadoDAO dao = new com.mycompany.geriatrico1.dao.EmpleadoDAO();
+        CtrlEmpleados ctrl = new CtrlEmpleados(dlg, dao);        // TODO add your handling code here:
+        
+        
+        dlg.setLocationRelativeTo(this);
+         dlg.setVisible(true);
+    
+    // 4. Al cerrar, actualizar la tabla
+        //cargarTablaEmpleados();
     }//GEN-LAST:event_btnNuevoPersonalActionPerformed
 
     private void btnGeneTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneTurnoActionPerformed

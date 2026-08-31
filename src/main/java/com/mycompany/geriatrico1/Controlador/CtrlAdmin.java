@@ -135,7 +135,7 @@ public class CtrlAdmin {
         // 4. Llenar la tabla fila por fila
         for (Object[] fila : lista) {
             modelo.addRow(fila);
-        }
+        } 
     }
     public void filtrarTablaEmpleados(String textoBusqueda) {
         DefaultTableModel modelo = (DefaultTableModel) vista.tablaEmpleados.getModel();

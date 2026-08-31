@@ -28,7 +28,7 @@ public class EmpleadoDAO {
         
     // Omitimos intencionalmente el Horario para que el Trigger asuma NULL de forma segura
     private static final String INSERT_ENFERMERA = 
-        "INSERT INTO Enfermera (ID_Emp_Enfer, Numero_Licencia_Enfer, Nivel_Formacion_Enfer, Especialidad_Enfer) VALUES (?, ?, ?, ?)";
+        "INSERT INTO Enfermera (ID_Emp_Enfer, ID_JorTur_Enfer, Numero_Licencia_Enfer, Nivel_Formacion_Enfer, Especialidad_Enfer) VALUES (?, ?, ?, ?, ?)";
     private static final String LISTAR_EMPLEADOS = "SELECT e.ID_Emp, p.cedula_Perso, p.nombre_Perso, p.apellido1_Perso, e.Cargo_Emp, e.Tipo_contrato_Emp " +
                      "FROM Empleado e " +
                      "INNER JOIN Persona p ON e.Cedula_Perso_Emp = p.cedula_Perso " +
@@ -102,6 +102,7 @@ public class EmpleadoDAO {
                     psEnf.setString(2, enfermera.getNumeroLicencia());
                     psEnf.setString(3, enfermera.getNivelFormacion());
                     psEnf.setString(4, enfermera.getEspecialidad());
+                    psEnf.setString(5, enfermera.getEspecialidad());
                     psEnf.executeUpdate();
                 }
             }
