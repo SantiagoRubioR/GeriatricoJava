@@ -99,9 +99,9 @@ public class EmpleadoDAO {
             } else if (rol.equalsIgnoreCase("ENFERMERO") || rol.equalsIgnoreCase("ENFERMERA")) {
                 try (PreparedStatement psEnf = con.prepareStatement(INSERT_ENFERMERA)) {
                     psEnf.setString(1, idEmpleadoGenerado);
-                    psEnf.setString(2, enfermera.getNumeroLicencia());
-                    psEnf.setString(3, enfermera.getNivelFormacion());
-                    psEnf.setString(4, enfermera.getEspecialidad());
+                    psEnf.setString(2, enfermera.getIdHorario());
+                    psEnf.setString(3, enfermera.getNumeroLicencia());
+                    psEnf.setString(4, enfermera.getNivelFormacion());
                     psEnf.setString(5, enfermera.getEspecialidad());
                     psEnf.executeUpdate();
                 }
@@ -197,5 +197,37 @@ public class EmpleadoDAO {
         } catch (java.sql.SQLException ex) {
             return false;
         }
+    }
+    
+    public java.util.List<Object[]> listarPersonalConHorarios() {
+        java.util.List<Object[]> lista = new java.util.ArrayList<>();
+        
+        // Consulta multi-tabla para extraer nombres, cédula, cargo y el nombre de la jornada (Matutino/Vespertino/Nocturno)
+        String sql = "SELECT e.ID_Emp, per.cedula_Perso, per.nombre_Perso, per.apellido1_Perso, e.Cargo_Emp, " +
+                     "COALESCE(jt.Nombre_JorTur, 'Sin Horario Asignado') AS Horario " +
+                     "FROM Empleado e " +
+                     "INNER JOIN Persona per ON e.Cedula_Perso_Emp = per.cedula_Perso " +
+                     "LEFT JOIN Enfermera enf ON e.ID_Emp = enf.ID_Emp_Enfer " +
+                     "LEFT JOIN Jornada_Turno jt ON enf.ID_JorTur_Enfer = jt.ID_JorTur " +
+                     "WHERE e.Estado_Emp = 'Activo'";
+        
+        try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
+             java.sql.PreparedStatement ps = con.prepareStatement(sql);
+             java.sql.ResultSet rs = ps.executeQuery()) {
+            
+            while (rs.next()) {
+                Object[] fila = new Object[6];
+                fila[0] = rs.getString("ID_Emp");
+                fila[1] = rs.getString("cedula_Perso");
+                fila[2] = rs.getString("nombre_Perso");
+                fila[3] = rs.getString("apellido1_Perso");
+                fila[4] = rs.getString("Cargo_Emp");
+                fila[5] = rs.getString("Horario");
+                lista.add(fila);
+            }
+        } catch (java.sql.SQLException e) {
+            System.err.println("Error al listar horarios del personal: " + e.getMessage());
+        }
+        return lista;
     }
 }

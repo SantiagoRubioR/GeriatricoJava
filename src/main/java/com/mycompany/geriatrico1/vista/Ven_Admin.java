@@ -418,6 +418,11 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         txtBusPersonal.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         txtBusPersonal.addActionListener(this::txtBusPersonalActionPerformed);
+        txtBusPersonal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusPersonalKeyReleased(evt);
+            }
+        });
         jPanel11.add(txtBusPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 196, -1));
 
         jLabel24.setText("Buscar: ");
@@ -459,8 +464,19 @@ public class Ven_Admin extends javax.swing.JFrame {
         btnNuevoPersonal.addActionListener(this::btnNuevoPersonalActionPerformed);
 
         jButton1.setText("Editar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButton3.setText("Dar de Baja");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         jButton3.addActionListener(this::jButton3ActionPerformed);
 
         javax.swing.GroupLayout panelCuentasLayout = new javax.swing.GroupLayout(panelCuentas);
@@ -557,6 +573,11 @@ public class Ven_Admin extends javax.swing.JFrame {
         btnNuevoPaciente.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 14)); // NOI18N
         btnNuevoPaciente.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevoPaciente.setText("+ Nuevo Paciente");
+        btnNuevoPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnNuevoPacienteMouseClicked(evt);
+            }
+        });
         btnNuevoPaciente.addActionListener(this::btnNuevoPacienteActionPerformed);
 
         btnEditar.setText("Editar");
@@ -859,6 +880,8 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelPacientes.setVisible(false);
         panelHorarios.setVisible(false);
         panelReportes.setVisible(false);
+        CtrlAdmin controlador = new CtrlAdmin(this);
+        controlador.cargarTablaEmpleados();
         
     }//GEN-LAST:event_cuentasMouseClicked
 
@@ -958,6 +981,26 @@ public class Ven_Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscTurnoActionPerformed
 
+    private void btnNuevoPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoPacienteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNuevoPacienteMouseClicked
+
+    private void txtBusPersonalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusPersonalKeyReleased
+    new CtrlAdmin(this).filtrarTablaEmpleados(txtBusPersonal.getText()); 
+    }//GEN-LAST:event_txtBusPersonalKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new CtrlAdmin(this).abrirEdicionEmpleado();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        new CtrlAdmin(this).darDeBajaEmpleado();
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        new CtrlAdmin(this).darDeBajaEmpleado();
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1042,7 +1085,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel reportes;
     public javax.swing.JTable tablaEmpleados;
     public javax.swing.JTable tablaPacientes;
-    private javax.swing.JTextField txtBusPersonal;
+    public javax.swing.JTextField txtBusPersonal;
     private javax.swing.JTextField txtBuscTurno;
     private javax.swing.JTextField txtBuscarPaciente;
     // End of variables declaration//GEN-END:variables

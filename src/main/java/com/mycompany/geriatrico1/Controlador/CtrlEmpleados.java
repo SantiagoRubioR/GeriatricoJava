@@ -142,15 +142,16 @@ public class CtrlEmpleados implements ActionListener {
                     enfermera.setEspecialidad(vista.txtEspeEnfer.getText().trim());
                     
                     String textoHorario = vista.cbxHoraEnfer.getSelectedItem().toString();
-                    if (textoHorario.startsWith("Matutino")) {
-                    enfermera.setIdHorario("JTU-0001");
-                    } else if (textoHorario.startsWith("Vespertino")) {
-                    enfermera.setIdHorario("JTU-0002");
-                    } else if (textoHorario.startsWith("Nocturno")) {
-                    enfermera.setIdHorario("JTU-0003");
+                    String idHorarioT = "";
+                    if (textoHorario.startsWith("Matutin")) {
+                    idHorarioT = "JTU-0001";
+                    } else if (textoHorario.startsWith("Vespertin")) {
+                    idHorarioT = "JTU-0002";
+                    } else if (textoHorario.startsWith("Nocturn")) {
+                    idHorarioT = "JTU-0003";
                     }
-                
-                    
+                    enfermera.setIdHorario(idHorarioT);
+                    System.out.println("Enviando a PostgreSQL el código de jornada: [" + idHorarioT + "]");
                 }
 
                 // 6. ENVIAR A LA BASE DE DATOS
