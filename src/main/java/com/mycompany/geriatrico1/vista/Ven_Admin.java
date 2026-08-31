@@ -180,11 +180,11 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 128, 128));
         jPanel1.setForeground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSalir.setBackground(new java.awt.Color(0, 102, 102));
+        btnSalir.setBackground(new java.awt.Color(24, 76, 74));
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("SALIR");
         btnSalir.addActionListener(this::btnSalirActionPerformed);
@@ -257,6 +257,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         lblUsuario.setText("Administrador/a");
         jPanel1.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 456, 190, -1));
 
+        panelInicio.setBackground(new java.awt.Color(245, 247, 250));
         panelInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 0, 153)));
@@ -371,7 +372,7 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         btnGeneTurnoRapi.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 16)); // NOI18N
         btnGeneTurnoRapi.setText("Generar turnos");
-        btnGeneTurnoRapi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGeneTurnoRapi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         panelInicio.add(btnGeneTurnoRapi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 240, 100));
 
         jLabel35.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
@@ -381,7 +382,7 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         btnCrearCuenta.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 16)); // NOI18N
         btnCrearCuenta.setText("Crear cuenta");
-        btnCrearCuenta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCrearCuenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         btnCrearCuenta.addActionListener(this::btnCrearCuentaActionPerformed);
         panelInicio.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 240, 100));
 
@@ -395,6 +396,8 @@ public class Ven_Admin extends javax.swing.JFrame {
             panelSolicitudAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 774, Short.MAX_VALUE)
         );
+
+        panelCuentas.setBackground(new java.awt.Color(245, 247, 250));
 
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -497,6 +500,8 @@ public class Ven_Admin extends javax.swing.JFrame {
                     .addComponent(jButton3))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
+
+        panelPacientes.setBackground(new java.awt.Color(245, 247, 250));
 
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -606,6 +611,8 @@ public class Ven_Admin extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
+        panelHorarios.setBackground(new java.awt.Color(245, 247, 250));
+
         jLabel8.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
         jLabel8.setText("Horarios y turnos");
 
@@ -636,6 +643,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         );
 
         txtBuscTurno.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txtBuscTurno.addActionListener(this::txtBuscTurnoActionPerformed);
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -704,7 +712,7 @@ public class Ven_Admin extends javax.swing.JFrame {
                     .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         jLabel22.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
@@ -939,6 +947,10 @@ public class Ven_Admin extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtBuscTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscTurnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscTurnoActionPerformed
 
     /**
      * @param args the command line arguments

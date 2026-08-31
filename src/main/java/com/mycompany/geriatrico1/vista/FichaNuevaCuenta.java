@@ -156,6 +156,7 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
                         .addGap(749, 749, 749))))
         );
 
+        jPanelPersona.setBackground(new java.awt.Color(245, 247, 250));
         jPanelPersona.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel3.setText("Nombre");
@@ -225,7 +226,7 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
                     .addGroup(EnfermeroLayout.createSequentialGroup()
                         .addGroup(EnfermeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtNumLicenEnfer, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, Short.MAX_VALUE))
+                            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(EnfermeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

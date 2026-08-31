@@ -153,6 +153,8 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
+        jPanel3.setBackground(new java.awt.Color(245, 247, 250));
+
         btnGenerarAlert.setBackground(new java.awt.Color(204, 0, 0));
         btnGenerarAlert.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnGenerarAlert.setText("GENERAR ALERTA");
@@ -185,6 +187,7 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
+        jInternalFrame1.setBackground(new java.awt.Color(245, 247, 250));
         jInternalFrame1.setVisible(true);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
