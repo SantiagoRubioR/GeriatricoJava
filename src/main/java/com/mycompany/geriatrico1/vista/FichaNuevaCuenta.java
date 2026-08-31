@@ -210,7 +210,7 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
 
         jLabel31.setText("Horario:");
 
-        cbxHoraEnfer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Matutino (07:00 - 15:00)", "Vespertino (15:00 - 23:00)", "Nocturno (23:00 - 07:00)" }));
+        cbxHoraEnfer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Matutina (07:00 - 15:00)", "Vespertina (15:00 - 23:00)", "Nocturna (23:00 - 07:00)" }));
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/enfermero.png"))); // NOI18N
 
@@ -226,7 +226,7 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
                     .addGroup(EnfermeroLayout.createSequentialGroup()
                         .addGroup(EnfermeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtNumLicenEnfer, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
+                            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(EnfermeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
