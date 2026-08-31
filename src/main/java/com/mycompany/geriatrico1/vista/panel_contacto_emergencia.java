@@ -52,12 +52,13 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_tiny.png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(200, 150));
         jLabel1.setMinimumSize(new java.awt.Dimension(100, 75));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Sans Serif Collection", 1, 48)); // NOI18N
         jLabel2.setText("CONTACTO DE EMERGENCIA");
 
@@ -70,7 +71,7 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +87,7 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(245, 247, 250));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("RESIDENTE:  Carlos Abril Peralta");
@@ -154,7 +155,7 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
                             .addComponent(txtCorreoTutor)
                             .addComponent(txtTelefTutor)
                             .addComponent(txtDireccTutor, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,11 +193,13 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
 
+        jPanel3.setBackground(new java.awt.Color(245, 247, 250));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 819, Short.MAX_VALUE)
+            .addGap(0, 818, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

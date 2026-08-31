@@ -207,16 +207,16 @@ public class Dashboard_Medico extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PanelMenu.setBackground(new java.awt.Color(0, 102, 102));
+        PanelMenu.setBackground(new java.awt.Color(0, 128, 128));
         PanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 102));
+        jButton1.setBackground(new java.awt.Color(24, 76, 74));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("SALIR");
         jButton1.addActionListener(this::jButton1ActionPerformed);
         PanelMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 730, -1, -1));
 
-        btnAlerta.setBackground(new java.awt.Color(0, 102, 102));
+        btnAlerta.setBackground(new java.awt.Color(24, 76, 74));
         btnAlerta.setForeground(new java.awt.Color(255, 255, 255));
         btnAlerta.setText("Alertas de Pacientes");
         btnAlerta.addActionListener(this::btnAlertaActionPerformed);
@@ -230,19 +230,19 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         lblEspecialidad.setText("Cardiologa");
         PanelMenu.add(lblEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 37, -1, -1));
 
-        btnHistorial.setBackground(new java.awt.Color(0, 102, 102));
+        btnHistorial.setBackground(new java.awt.Color(24, 76, 74));
         btnHistorial.setForeground(new java.awt.Color(255, 255, 255));
         btnHistorial.setText("Historial Clinico");
         btnHistorial.addActionListener(this::btnHistorialActionPerformed);
         PanelMenu.add(btnHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 190, -1));
 
-        btnHorario.setBackground(new java.awt.Color(0, 102, 102));
+        btnHorario.setBackground(new java.awt.Color(24, 76, 74));
         btnHorario.setForeground(new java.awt.Color(255, 255, 255));
         btnHorario.setText("Horario");
         btnHorario.addActionListener(this::btnHorarioActionPerformed);
         PanelMenu.add(btnHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 190, -1));
 
-        btnTratamiento.setBackground(new java.awt.Color(0, 102, 102));
+        btnTratamiento.setBackground(new java.awt.Color(24, 76, 74));
         btnTratamiento.setForeground(new java.awt.Color(255, 255, 255));
         btnTratamiento.setText("Generar Tratamiento");
         btnTratamiento.addActionListener(this::btnTratamientoActionPerformed);
@@ -277,10 +277,11 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable4);
 
-        PanelMenu.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 190, 200));
+        PanelMenu.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 170, 200));
 
         PanelContenido.setBackground(new java.awt.Color(204, 204, 204));
 
+        PanelAlertas.setBackground(new java.awt.Color(245, 247, 250));
         PanelAlertas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.red, null, null));
@@ -385,6 +386,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
 
         PanelAlertas.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 147, 660, -1));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Alertas generadas automaticamente por signos vitales o reportadas por el paciente ordenadas por urgencia");
         PanelAlertas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 7, -1, -1));
 
@@ -409,7 +411,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 338, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel51)
                         .addGap(18, 18, 18)
                         .addComponent(btnAtender2)
@@ -418,7 +420,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(493, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -440,6 +442,9 @@ public class Dashboard_Medico extends javax.swing.JFrame {
 
         PanelAlertas.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 660, -1));
 
+        PanelHistorial.setBackground(new java.awt.Color(245, 247, 250));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Selecciona un paciente para revisar su linea de tiempo clinica, consultas, diagnosticos y tratamientos previos");
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -563,6 +568,8 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                 .addGap(492, 492, 492))
         );
 
+        panel.setBackground(new java.awt.Color(245, 247, 250));
+
         jLabel7.setText("Paciente");
 
         jLabel8.setText("Fecha");
@@ -582,6 +589,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         btnGuardaHisto.setText("Guardar en Historial");
         btnGuardaHisto.addActionListener(this::btnGuardaHistoActionPerformed);
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Registra una nueva entrada en la historia clinica del paciente tras la consulta");
 
         jLabel58.setText("Hora");
@@ -654,11 +662,11 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(txtMotivoConsul, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))
-                        .addContainerGap(153, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel63)
@@ -715,6 +723,8 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                 .addComponent(btnGuardaHisto)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
+
+        PanelGenerar.setBackground(new java.awt.Color(245, 247, 250));
 
         jLabel12.setText("Paciente");
 
@@ -1018,6 +1028,8 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
+        PanelHorario.setBackground(new java.awt.Color(245, 247, 250));
+
         jLabel53.setText("Hora Inicio");
 
         jLabel54.setText("Hora fin");
@@ -1124,7 +1136,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanel6.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_tiny.png"))); // NOI18N
         jLabel50.setMaximumSize(new java.awt.Dimension(200, 150));
@@ -1171,7 +1183,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUsuarioActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 12, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel21)
@@ -1210,24 +1222,18 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblUsuarioActivo)
                                 .addGap(25, 25, 25)))))
-                .addGap(10, 10, 10))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1241,7 +1247,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PanelContenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

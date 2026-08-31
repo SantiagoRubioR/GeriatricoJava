@@ -156,6 +156,7 @@ public class panel_paciente extends javax.swing.JPanel {
         btnGeneraAlerta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Alerta.png"))); // NOI18N
         btnGeneraAlerta.setText("<html>\n<p>Generar<br>Alerta</p>");
         btnGeneraAlerta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        btnGeneraAlerta.addActionListener(this::btnGeneraAlertaActionPerformed);
 
         btnActualiEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repote_logo_tiny.png"))); // NOI18N
         btnActualiEst.setText("<html><p>Actualizar<br>Estado</p>");
@@ -236,6 +237,7 @@ public class panel_paciente extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
+        jTable1.setBackground(new java.awt.Color(245, 247, 250));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -259,6 +261,10 @@ public class panel_paciente extends javax.swing.JPanel {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void btnGeneraAlertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneraAlertaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGeneraAlertaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

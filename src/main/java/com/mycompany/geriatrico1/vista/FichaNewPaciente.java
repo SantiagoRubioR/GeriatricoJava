@@ -111,8 +111,12 @@ public class FichaNewPaciente extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(245, 247, 250));
         setExtendedState(6);
 
+        jPanel2.setBackground(new java.awt.Color(245, 247, 250));
+
+        jPanel.setBackground(new java.awt.Color(245, 247, 250));
         jPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel17.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
@@ -263,6 +267,7 @@ public class FichaNewPaciente extends javax.swing.JFrame {
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
+        jPanel1.setBackground(new java.awt.Color(245, 247, 250));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
@@ -291,7 +296,7 @@ public class FichaNewPaciente extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(849, 849, 849))
+                                .addGap(817, 817, 817))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cmbTipoSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -315,6 +320,7 @@ public class FichaNewPaciente extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        jPanelPersona.setBackground(new java.awt.Color(245, 247, 250));
         jPanelPersona.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel3.setText("Nombre");

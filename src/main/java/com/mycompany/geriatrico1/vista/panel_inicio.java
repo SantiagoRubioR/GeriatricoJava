@@ -51,6 +51,8 @@ public class panel_inicio extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(245, 247, 250));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel1.setText("INICIO - RESUMEN OPERATIVO");
 
@@ -212,7 +214,7 @@ public class panel_inicio extends javax.swing.JPanel {
         jLabel14.setText("Pacientes con tratamientos pendientes");
         jPanel4.add(jLabel14, java.awt.BorderLayout.PAGE_START);
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
+        jTable1.setBackground(new java.awt.Color(245, 247, 250));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
