@@ -932,7 +932,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         dlg.setLocationRelativeTo(this);
          dlg.setVisible(true);
     
-    // 4. Al cerrar, actualizar la tabla
+    
         //cargarTablaEmpleados();
     }//GEN-LAST:event_btnNuevoPersonalActionPerformed
 

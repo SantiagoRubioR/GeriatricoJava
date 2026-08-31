@@ -57,6 +57,8 @@ public class CtrlLogin implements ActionListener {
                         break;
                     case "ENFERMERO":
                         Dashboard_Enfermero dashEnf = new Dashboard_Enfermero(nombreUsuario);
+                        com.mycompany.geriatrico1.Controlador.CtrlDashboardEnfermero ctrlEnfermero = 
+                        new com.mycompany.geriatrico1.Controlador.CtrlDashboardEnfermero(dashEnf.panel_paciente2, nombreUsuario);
                         dashEnf.setVisible(true);
                         break;
                     default:

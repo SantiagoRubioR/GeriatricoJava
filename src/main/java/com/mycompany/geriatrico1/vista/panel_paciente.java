@@ -43,13 +43,13 @@ public class panel_paciente extends javax.swing.JPanel {
         cbxGradoDepen = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         cbxGrupoEtario = new javax.swing.JComboBox<>();
-        btnAgregaCuidado = new javax.swing.JButton();
+        btnAgregarCuidado = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        btnGeneraAlerta = new javax.swing.JButton();
+        btnGenerarAlerta = new javax.swing.JButton();
         btnActualiEst = new javax.swing.JButton();
         btnVerFichaClini = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaPacientes = new javax.swing.JTable();
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -148,17 +148,17 @@ public class panel_paciente extends javax.swing.JPanel {
 
         cbxGrupoEtario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "60 - 69 años", "70 - 79 años", "80 - 89 años", "90+ años" }));
 
-        btnAgregaCuidado.setBackground(new java.awt.Color(0, 153, 153));
-        btnAgregaCuidado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mas.png"))); // NOI18N
-        btnAgregaCuidado.setText("AGREGAR CUIDADO");
-        btnAgregaCuidado.addActionListener(this::btnAgregaCuidadoActionPerformed);
+        btnAgregarCuidado.setBackground(new java.awt.Color(0, 153, 153));
+        btnAgregarCuidado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mas.png"))); // NOI18N
+        btnAgregarCuidado.setText("AGREGAR CUIDADO");
+        btnAgregarCuidado.addActionListener(this::btnAgregarCuidadoActionPerformed);
 
         jSeparator1.setBackground(new java.awt.Color(0, 153, 153));
 
-        btnGeneraAlerta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Alerta.png"))); // NOI18N
-        btnGeneraAlerta.setText("<html>\n<p>Generar<br>Alerta</p>");
-        btnGeneraAlerta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
-        btnGeneraAlerta.addActionListener(this::btnGeneraAlertaActionPerformed);
+        btnGenerarAlerta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Alerta.png"))); // NOI18N
+        btnGenerarAlerta.setText("<html>\n<p>Generar<br>Alerta</p>");
+        btnGenerarAlerta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        btnGenerarAlerta.addActionListener(this::btnGenerarAlertaActionPerformed);
 
         btnActualiEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repote_logo_tiny.png"))); // NOI18N
         btnActualiEst.setText("<html><p>Actualizar<br>Estado</p>");
@@ -191,7 +191,7 @@ public class panel_paciente extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cbxGrupoEtario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
-                        .addComponent(btnGeneraAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGenerarAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnActualiEst, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -200,7 +200,7 @@ public class panel_paciente extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cbxGradoDepen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAgregaCuidado)
+                        .addComponent(btnAgregarCuidado)
                         .addGap(82, 82, 82))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -221,16 +221,16 @@ public class panel_paciente extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel3)
                                     .addComponent(cbxGradoDepen, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnAgregaCuidado))
+                                    .addComponent(btnAgregarCuidado))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnActualiEst, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                        .addComponent(btnActualiEst)
                                         .addComponent(btnVerFichaClini))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel4)
                                         .addComponent(cbxGrupoEtario, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnGeneraAlerta))))
+                                    .addComponent(btnGenerarAlerta))))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -239,42 +239,50 @@ public class panel_paciente extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jTable1.setBackground(new java.awt.Color(245, 247, 250));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPacientes.setBackground(new java.awt.Color(245, 247, 250));
+        tablaPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Cedula", "Nombre", "Apellido", "Grado Dep.", "Tipo Sangre"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablaPacientes);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregaCuidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregaCuidadoActionPerformed
+    private void btnAgregarCuidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCuidadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregaCuidadoActionPerformed
+    }//GEN-LAST:event_btnAgregarCuidadoActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void btnGeneraAlertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneraAlertaActionPerformed
+    private void btnGenerarAlertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarAlertaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGeneraAlertaActionPerformed
+    }//GEN-LAST:event_btnGenerarAlertaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CrearCuidadoPanel;
-    private javax.swing.JButton btnActualiEst;
-    private javax.swing.JButton btnAgregaCuidado;
-    private javax.swing.JButton btnGeneraAlerta;
-    private javax.swing.JButton btnVerFichaClini;
+    public javax.swing.JButton btnActualiEst;
+    public javax.swing.JButton btnAgregarCuidado;
+    public javax.swing.JButton btnGenerarAlerta;
+    public javax.swing.JButton btnVerFichaClini;
     private javax.swing.JComboBox<String> cbxGradoDepen;
     private javax.swing.JComboBox<String> cbxGrupoEtario;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -290,9 +298,9 @@ public class panel_paciente extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
+    public javax.swing.JTable tablaPacientes;
     private javax.swing.JTextField txtBuscaPaciAler;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,7 +36,7 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
         lblUsuarioActivo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         panelCentral = new javax.swing.JPanel();
-        panel_paciente1 = new com.mycompany.geriatrico1.vista.panel_paciente();
+        panel_paciente2 = new com.mycompany.geriatrico1.vista.panel_paciente();
         panel_inicio1 = new com.mycompany.geriatrico1.vista.panel_inicio();
         jPanel3 = new javax.swing.JPanel();
         btnIniEnfer = new javax.swing.JButton();
@@ -96,8 +96,8 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         panelCentral.setLayout(new java.awt.CardLayout());
-        panelCentral.add(panel_paciente1, "card3");
-        panelCentral.add(panel_inicio1, "card2");
+        panelCentral.add(panel_paciente2, "card2");
+        panelCentral.add(panel_inicio1, "card3");
 
         getContentPane().add(panelCentral, java.awt.BorderLayout.CENTER);
 
@@ -211,8 +211,8 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblUsuarioActivo;
-    private javax.swing.JPanel panelCentral;
-    private com.mycompany.geriatrico1.vista.panel_inicio panel_inicio1;
-    private com.mycompany.geriatrico1.vista.panel_paciente panel_paciente1;
+    public javax.swing.JPanel panelCentral;
+    public com.mycompany.geriatrico1.vista.panel_inicio panel_inicio1;
+    public com.mycompany.geriatrico1.vista.panel_paciente panel_paciente2;
     // End of variables declaration//GEN-END:variables
 }

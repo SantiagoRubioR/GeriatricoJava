@@ -38,7 +38,11 @@ public class EmpleadoDAO {
     
     private static final String ACTUALIZAR_PERSONA = "UPDATE Persona SET nombre_Perso=?, apellido1_Perso=?, apellido2_Perso=?, telefono_Perso=?, direccion_Perso=?, correo_Perso=?, estado_civil_Perso=? WHERE cedula_Perso=?";
         
-     private static final String ACTUALIZAR_EMPLEADO = "UPDATE Empleado SET Cargo_Emp=?, Tipo_contrato_Emp=? WHERE ID_Emp=?";
+    private static final String ACTUALIZAR_EMPLEADO = "UPDATE Empleado SET Cargo_Emp=?, Tipo_contrato_Emp=? WHERE ID_Emp=?";
+     
+    private static final String OBTENER_ID_ENF = "SELECT enf.ID_Enfer FROM Enfermera enf " +
+                     "INNER JOIN Empleado emp ON enf.ID_Emp_Enfer = emp.ID_Emp " +
+                     "WHERE emp.Cedula_Perso_Emp = ?";
 
     public boolean registrarPersonalCompleto(Persona persona, Empleado empleado, Usuario usuario, Administrador admin, Medico medico, Enfermero enfermera, String rol) {
         Connection con = null;
@@ -229,5 +233,20 @@ public class EmpleadoDAO {
             System.err.println("Error al listar horarios del personal: " + e.getMessage());
         }
         return lista;
+    }
+    
+   public String obtenerIdEnfermeraPorCedula(String cedulaUsuario) {
+        String id = null;
+        String sql = "SELECT enf.ID_Enfer FROM Enfermera enf " +
+                     "INNER JOIN Empleado emp ON enf.ID_Emp_Enfer = emp.ID_Emp " +
+                     "WHERE emp.Cedula_Perso_Emp = ?";
+        try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
+             java.sql.PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, cedulaUsuario);
+            try (java.sql.ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) id = rs.getString("ID_Enfer");
+            }
+        } catch (Exception e) {}
+        return id;
     }
 }
