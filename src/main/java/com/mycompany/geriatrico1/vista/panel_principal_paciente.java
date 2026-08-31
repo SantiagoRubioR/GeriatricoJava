@@ -53,7 +53,7 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(238, 242, 246));
 
         jLabel1.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -153,7 +153,7 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jPanel3.setBackground(new java.awt.Color(245, 247, 250));
+        jPanel3.setBackground(new java.awt.Color(238, 242, 246));
 
         btnGenerarAlert.setBackground(new java.awt.Color(204, 0, 0));
         btnGenerarAlert.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

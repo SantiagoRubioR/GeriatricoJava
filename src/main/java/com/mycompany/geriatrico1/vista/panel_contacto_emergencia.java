@@ -52,7 +52,7 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(238, 242, 246));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_tiny.png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(200, 150));
