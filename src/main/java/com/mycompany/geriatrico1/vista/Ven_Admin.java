@@ -636,6 +636,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         );
 
         txtBuscTurno.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txtBuscTurno.addActionListener(this::txtBuscTurnoActionPerformed);
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -930,6 +931,10 @@ public class Ven_Admin extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtBuscTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscTurnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscTurnoActionPerformed
 
     /**
      * @param args the command line arguments
