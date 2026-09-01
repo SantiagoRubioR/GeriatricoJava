@@ -501,10 +501,10 @@ public class FichaNewPaciente extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(238, 242, 246));
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_login.png"))); // NOI18N
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_kury_care.png"))); // NOI18N
         jLabel22.setText("jLabel22");
 
-        jLabel29.setFont(new java.awt.Font("Monotype Corsiva", 2, 24)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Monotype Corsiva", 3, 36)); // NOI18N
         jLabel29.setText("\"Cuidando con Amor\"");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -515,7 +515,7 @@ public class FichaNewPaciente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(84, 84, 84))
         );
         jPanel4Layout.setVerticalGroup(

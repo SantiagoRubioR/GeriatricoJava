@@ -127,9 +127,10 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(238, 242, 246));
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_login.png"))); // NOI18N
+        jLabel22.setBackground(new java.awt.Color(238, 242, 246));
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo_kury_care.png"))); // NOI18N
 
-        jLabel32.setFont(new java.awt.Font("Monotype Corsiva", 2, 24)); // NOI18N
+        jLabel32.setFont(new java.awt.Font("Monotype Corsiva", 3, 36)); // NOI18N
         jLabel32.setText("\"Cuidando con Amor\"");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -138,9 +139,9 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(121, 121, 121))
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,7 +185,10 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
 
         dateNaci.setDateFormatString("yyyy-MM-dd");
 
+        panelDinamico.setBackground(new java.awt.Color(245, 247, 250));
         panelDinamico.setLayout(new java.awt.CardLayout());
+
+        Enfermero.setBackground(new java.awt.Color(245, 247, 250));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel25.setText("NUEVO ENFERMERO/A");
@@ -284,6 +288,8 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
 
         panelDinamico.add(Enfermero, "Enfermero");
 
+        Administrador.setBackground(new java.awt.Color(245, 247, 250));
+
         jLabel2.setText("Fecha de asignación:");
 
         DateAsigAdmin.setDateFormatString("yyyy-MM-dd");
@@ -336,6 +342,8 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
         );
 
         panelDinamico.add(Administrador, "Administrador");
+
+        Medico.setBackground(new java.awt.Color(245, 247, 250));
 
         jLabel18.setText("Tipo de contrato:");
 

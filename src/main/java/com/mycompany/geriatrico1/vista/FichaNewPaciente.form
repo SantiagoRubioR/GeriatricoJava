@@ -880,7 +880,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel22" min="-2" pref="391" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel29" min="-2" pref="254" max="-2" attributes="0"/>
+                  <Component id="jLabel29" min="-2" pref="299" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -902,7 +902,7 @@
         <Component class="javax.swing.JLabel" name="jLabel22">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/logo_login.png"/>
+              <Image iconType="3" name="/Recursos/logo_kury_care.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel22"/>
           </Properties>
@@ -910,7 +910,7 @@
         <Component class="javax.swing.JLabel" name="jLabel29">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Monotype Corsiva" size="24" style="2"/>
+              <Font name="Monotype Corsiva" size="36" style="3"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&quot;Cuidando con Amor&quot;"/>
           </Properties>

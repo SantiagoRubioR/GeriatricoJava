@@ -149,6 +149,7 @@ public class panel_paciente extends javax.swing.JPanel {
         cbxGrupoEtario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "60 - 69 años", "70 - 79 años", "80 - 89 años", "90+ años" }));
 
         btnAgregarCuidado.setBackground(new java.awt.Color(0, 153, 153));
+        btnAgregarCuidado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregarCuidado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mas.png"))); // NOI18N
         btnAgregarCuidado.setText("AGREGAR CUIDADO");
         btnAgregarCuidado.addActionListener(this::btnAgregarCuidadoActionPerformed);
@@ -156,7 +157,7 @@ public class panel_paciente extends javax.swing.JPanel {
         jSeparator1.setBackground(new java.awt.Color(0, 153, 153));
 
         btnGenerarAlerta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Alerta.png"))); // NOI18N
-        btnGenerarAlerta.setText("<html>\n<p>Generar<br>Alerta</p>");
+        btnGenerarAlerta.setText("<html> <p>Generar<br>Alerta</p>");
         btnGenerarAlerta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
         btnGenerarAlerta.addActionListener(this::btnGenerarAlertaActionPerformed);
 
