@@ -1330,7 +1330,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JButton NuevaConsulta;
     public javax.swing.JPanel PanelAlertas;
     public javax.swing.JPanel PanelContenido;
-    private javax.swing.JPanel PanelGenerar;
+    public javax.swing.JPanel PanelGenerar;
     private javax.swing.JPanel PanelHistorial;
     private javax.swing.JPanel PanelMenu;
     private javax.swing.JButton btnActuali;
@@ -1409,7 +1409,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel5;
+    public javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1441,7 +1441,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUsuarioActivo;
     public javax.swing.JLabel lblUsuario_Med;
-    private javax.swing.JPanel panel;
+    public javax.swing.JPanel panel;
     public javax.swing.JPanel panelAlerta1;
     public javax.swing.JPanel panelAlerta2;
     public javax.swing.JPanel panelAlerta3;

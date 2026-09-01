@@ -110,4 +110,21 @@ public class AlertaDAO {
             return false;
         }
     }
+    
+    public int contarAlertasPendientes() {
+    int totalAlertas = 0;
+    String sql = "SELECT COUNT(*) FROM detalle_alerta WHERE estado = 'Pendiente'";
+    
+    try (java.sql.Connection con = com.mycompany.geriatrico1.conexion.Conexion.getConnection();
+         java.sql.PreparedStatement ps = con.prepareStatement(sql);
+         java.sql.ResultSet rs = ps.executeQuery()) {
+        
+        if (rs.next()) {
+            totalAlertas = rs.getInt(1);
+        }
+    } catch (Exception e) {
+        System.err.println("Error al contar alertas: " + e.getMessage());
+    }
+    return totalAlertas;
+}
 }
