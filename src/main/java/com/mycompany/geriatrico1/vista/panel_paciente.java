@@ -167,7 +167,7 @@ public class panel_paciente extends javax.swing.JPanel {
         btnActualiEst.addActionListener(this::btnActualiEstActionPerformed);
 
         btnVerFichaClini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/file-and-folder.png"))); // NOI18N
-        btnVerFichaClini.setText("<html><p>Ver Ficha<br>Clinica</p>");
+        btnVerFichaClini.setText("<html><p>Ver Ficha<br>Residente</p>");
         btnVerFichaClini.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255)));
         btnVerFichaClini.addActionListener(this::btnVerFichaCliniActionPerformed);
 

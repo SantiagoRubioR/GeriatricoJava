@@ -33,21 +33,19 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblResidente = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblContactoPrincipal = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtTelefTutor = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtTelef2Tutor = new javax.swing.JTextField();
+        txtTelefonoPrincipal = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtCorreoTutor = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txtPArentes = new javax.swing.JTextField();
+        txtParentesco = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        txtDireccTutor = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
@@ -89,40 +87,35 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(245, 247, 250));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setText("RESIDENTE:  Carlos Abril Peralta");
+        lblResidente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblResidente.setText("RESIDENTE:  Carlos Abril Peralta");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("CONTACTO PRINCIPAL DE EMERGENCIA:");
 
-        jLabel6.setText("Luis Abril Gonzalez ");
+        lblContactoPrincipal.setText("Luis Abril Gonzalez ");
 
         jLabel8.setText("Telefono Principal:");
 
-        txtTelefTutor.setEditable(false);
-        txtTelefTutor.setText("098-7464-823");
-        txtTelefTutor.addActionListener(this::txtTelefTutorActionPerformed);
-
-        jLabel9.setText("Telefono Secundario:");
-
-        txtTelef2Tutor.setEditable(false);
-        txtTelef2Tutor.setText("099-4458-789");
+        txtTelefonoPrincipal.setEditable(false);
+        txtTelefonoPrincipal.setText("098-7464-823");
+        txtTelefonoPrincipal.addActionListener(this::txtTelefonoPrincipalActionPerformed);
 
         jLabel10.setText("Correo Electronico: ");
 
-        txtCorreoTutor.setEditable(false);
-        txtCorreoTutor.setText("luis.ab.pe@gmail.com");
-        txtCorreoTutor.addActionListener(this::txtCorreoTutorActionPerformed);
+        txtCorreo.setEditable(false);
+        txtCorreo.setText("luis.ab.pe@gmail.com");
+        txtCorreo.addActionListener(this::txtCorreoActionPerformed);
 
         jLabel11.setText("Parentesco: ");
 
-        txtPArentes.setEditable(false);
-        txtPArentes.setText("Hijo");
+        txtParentesco.setEditable(false);
+        txtParentesco.setText("Hijo");
 
         jLabel12.setText("Direccion: ");
 
-        txtDireccTutor.setEditable(false);
-        txtDireccTutor.setText("Vega Muñoz 15-18 Miguel Velez");
+        txtDireccion.setEditable(false);
+        txtDireccion.setText("Vega Muñoz 15-18 Miguel Velez");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -132,63 +125,57 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+                    .addComponent(lblResidente)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
+                        .addComponent(lblContactoPrincipal)
                         .addGap(80, 80, 80)
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
-                        .addComponent(txtPArentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(29, 29, 29)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
                         .addGap(42, 42, 42)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtTelef2Tutor)
-                            .addComponent(txtCorreoTutor)
-                            .addComponent(txtTelefTutor)
-                            .addComponent(txtDireccTutor, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))))
-                .addContainerGap(184, Short.MAX_VALUE))
+                            .addComponent(txtCorreo)
+                            .addComponent(txtTelefonoPrincipal)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jLabel3)
+                .addComponent(lblResidente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel6)
+                    .addComponent(lblContactoPrincipal)
                     .addComponent(jLabel11)
-                    .addComponent(txtPArentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtTelefTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                    .addComponent(txtTelefonoPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtTelef2Tutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCorreoTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(44, 44, 44)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel12)
-                    .addComponent(txtDireccTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -209,13 +196,13 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
         add(jPanel3, java.awt.BorderLayout.SOUTH);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtTelefTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefTutorActionPerformed
+    private void txtTelefonoPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoPrincipalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefTutorActionPerformed
+    }//GEN-LAST:event_txtTelefonoPrincipalActionPerformed
 
-    private void txtCorreoTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoTutorActionPerformed
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoTutorActionPerformed
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -224,20 +211,18 @@ public class panel_contacto_emergencia extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField txtCorreoTutor;
-    private javax.swing.JTextField txtDireccTutor;
-    private javax.swing.JTextField txtPArentes;
-    private javax.swing.JTextField txtTelef2Tutor;
-    private javax.swing.JTextField txtTelefTutor;
+    public javax.swing.JLabel lblContactoPrincipal;
+    public javax.swing.JLabel lblResidente;
+    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtDireccion;
+    public javax.swing.JTextField txtParentesco;
+    public javax.swing.JTextField txtTelefonoPrincipal;
     // End of variables declaration//GEN-END:variables
 }

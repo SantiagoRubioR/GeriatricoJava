@@ -69,25 +69,25 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         jTable4 = new javax.swing.JTable();
         PanelContenido = new javax.swing.JPanel();
         PanelAlertas = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        btnAtender = new javax.swing.JButton();
-        jLabel32 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        panelAlerta1 = new javax.swing.JPanel();
+        lblNombrePaciente1 = new javax.swing.JLabel();
+        lblHora1 = new javax.swing.JLabel();
+        lblObservacion1 = new javax.swing.JLabel();
         btnAtender1 = new javax.swing.JButton();
+        jLabel32 = new javax.swing.JLabel();
+        panelAlerta2 = new javax.swing.JPanel();
+        lblNombrePaciente2 = new javax.swing.JLabel();
+        lblObservacion2 = new javax.swing.JLabel();
+        lblHora2 = new javax.swing.JLabel();
+        btnAtender2 = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        panelAlerta3 = new javax.swing.JPanel();
         jLabel51 = new javax.swing.JLabel();
-        btnAtender2 = new javax.swing.JButton();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        btnAtender3 = new javax.swing.JButton();
+        lblNombrePaciente3 = new javax.swing.JLabel();
+        lblObservacion3 = new javax.swing.JLabel();
+        lblHora3 = new javax.swing.JLabel();
         PanelHistorial = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -268,166 +268,170 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         PanelAlertas.setBackground(new java.awt.Color(245, 247, 250));
         PanelAlertas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.red, null, null));
+        panelAlerta1.setBackground(new java.awt.Color(255, 255, 255));
+        panelAlerta1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.red, null, null));
 
-        jLabel3.setText("Elena Vazquez");
+        lblNombrePaciente1.setText("Elena Vazquez");
 
-        jLabel28.setText("Hoy 10:24");
+        lblHora1.setText("Hoy 10:24");
 
-        jLabel27.setText("Paciente reporta frecuencia cardiaca elevada(135) reportada por monitor");
-
-        btnAtender.setText("Atender");
-        btnAtender.addActionListener(this::btnAtenderActionPerformed);
-
-        jLabel32.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel32.setText("Dependencia moderada");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel28)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel27)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAtender)
-                        .addGap(17, 17, 17))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addGap(15, 15, 15)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(btnAtender)
-                    .addComponent(jLabel32))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel28)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        PanelAlertas.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 35, 660, -1));
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.orange, null, null));
-
-        jLabel29.setText("Juan Rios");
-
-        jLabel30.setText("Paciente reporta dolor toraxico leve al esfuerzo");
-
-        jLabel31.setText("Hoy 8:47");
+        lblObservacion1.setText("Paciente reporta frecuencia cardiaca elevada(135) reportada por monitor");
 
         btnAtender1.setText("Atender");
         btnAtender1.addActionListener(this::btnAtender1ActionPerformed);
 
+        jLabel32.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel32.setText("Dependencia moderada");
+
+        javax.swing.GroupLayout panelAlerta1Layout = new javax.swing.GroupLayout(panelAlerta1);
+        panelAlerta1.setLayout(panelAlerta1Layout);
+        panelAlerta1Layout.setHorizontalGroup(
+            panelAlerta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAlerta1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(panelAlerta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAlerta1Layout.createSequentialGroup()
+                        .addComponent(lblHora1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelAlerta1Layout.createSequentialGroup()
+                        .addComponent(lblNombrePaciente1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelAlerta1Layout.createSequentialGroup()
+                        .addComponent(lblObservacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addComponent(jLabel32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAtender1)
+                        .addGap(17, 17, 17))))
+        );
+        panelAlerta1Layout.setVerticalGroup(
+            panelAlerta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAlerta1Layout.createSequentialGroup()
+                .addComponent(lblNombrePaciente1)
+                .addGap(15, 15, 15)
+                .addGroup(panelAlerta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblObservacion1)
+                    .addComponent(btnAtender1)
+                    .addComponent(jLabel32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblHora1)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        PanelAlertas.add(panelAlerta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 35, 660, -1));
+
+        panelAlerta2.setBackground(new java.awt.Color(255, 255, 255));
+        panelAlerta2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.orange, null, null));
+
+        lblNombrePaciente2.setText("Juan Rios");
+
+        lblObservacion2.setText("Paciente reporta dolor toraxico leve al esfuerzo");
+
+        lblHora2.setText("Hoy 8:47");
+
+        btnAtender2.setText("Atender");
+        btnAtender2.addActionListener(this::btnAtender2ActionPerformed);
+
         jLabel33.setForeground(new java.awt.Color(255, 204, 0));
         jLabel33.setText("Dependencia leve");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelAlerta2Layout = new javax.swing.GroupLayout(panelAlerta2);
+        panelAlerta2.setLayout(panelAlerta2Layout);
+        panelAlerta2Layout.setHorizontalGroup(
+            panelAlerta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAlerta2Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel31)
-                            .addComponent(jLabel29))
+                .addGroup(panelAlerta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAlerta2Layout.createSequentialGroup()
+                        .addGroup(panelAlerta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblHora2)
+                            .addComponent(lblNombrePaciente2))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel30)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                    .addGroup(panelAlerta2Layout.createSequentialGroup()
+                        .addComponent(lblObservacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addComponent(jLabel33)
                         .addGap(18, 18, 18)
-                        .addComponent(btnAtender1)
+                        .addComponent(btnAtender2)
                         .addGap(16, 16, 16))))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        panelAlerta2Layout.setVerticalGroup(
+            panelAlerta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAlerta2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel29)
+                .addComponent(lblNombrePaciente2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(btnAtender1)
+                .addGroup(panelAlerta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblObservacion2)
+                    .addComponent(btnAtender2)
                     .addComponent(jLabel33))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel31)
+                .addComponent(lblHora2)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        PanelAlertas.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 147, 660, -1));
+        PanelAlertas.add(panelAlerta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 147, 660, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Alertas generadas automaticamente por signos vitales o reportadas por el paciente ordenadas por urgencia");
         PanelAlertas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 7, -1, -1));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(51, 255, 102), null, null));
+        panelAlerta3.setBackground(new java.awt.Color(255, 255, 255));
+        panelAlerta3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(51, 255, 102), null, null));
 
         jLabel51.setForeground(new java.awt.Color(51, 255, 51));
         jLabel51.setText("Independiente");
 
-        btnAtender2.setText("Atender");
-        btnAtender2.addActionListener(this::btnAtender2ActionPerformed);
+        btnAtender3.setText("Atender");
+        btnAtender3.addActionListener(this::btnAtender3ActionPerformed);
 
-        jTextField9.addActionListener(this::jTextField9ActionPerformed);
+        lblNombrePaciente3.setText("Juan Rios");
 
-        jTextField11.addActionListener(this::jTextField11ActionPerformed);
+        lblObservacion3.setText("  ");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        lblHora3.setText("Juan Rios");
+
+        javax.swing.GroupLayout panelAlerta3Layout = new javax.swing.GroupLayout(panelAlerta3);
+        panelAlerta3.setLayout(panelAlerta3Layout);
+        panelAlerta3Layout.setHorizontalGroup(
+            panelAlerta3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAlerta3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelAlerta3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAlerta3Layout.createSequentialGroup()
+                        .addComponent(lblObservacion3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
                         .addComponent(jLabel51)
                         .addGap(18, 18, 18)
-                        .addComponent(btnAtender2)
+                        .addComponent(btnAtender3)
                         .addGap(15, 15, 15))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(489, Short.MAX_VALUE))))
+                    .addGroup(panelAlerta3Layout.createSequentialGroup()
+                        .addComponent(lblNombrePaciente3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelAlerta3Layout.createSequentialGroup()
+                        .addComponent(lblHora3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        panelAlerta3Layout.setVerticalGroup(
+            panelAlerta3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAlerta3Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(lblNombrePaciente3)
+                .addGroup(panelAlerta3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAlerta3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelAlerta3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel51)
-                            .addComponent(btnAtender2)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnAtender3)))
+                    .addGroup(panelAlerta3Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(lblObservacion3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblHora3)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        PanelAlertas.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 660, -1));
+        PanelAlertas.add(panelAlerta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 660, -1));
 
         PanelHistorial.setBackground(new java.awt.Color(245, 247, 250));
 
@@ -1290,13 +1294,10 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         PanelGenerar.setVisible(false);
     }//GEN-LAST:event_NuevaConsultaActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void btnAtender3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtender3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+        btnAtender3.setText("Atendido");
+    }//GEN-LAST:event_btnAtender3ActionPerformed
 
     private void btnAtender2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtender2ActionPerformed
         // TODO add your handling code here:
@@ -1307,11 +1308,6 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnAtender1.setText("Atendido");
     }//GEN-LAST:event_btnAtender1ActionPerformed
-
-    private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
-        // TODO add your handling code here:
-        btnAtender.setText("Atendido");
-    }//GEN-LAST:event_btnAtenderActionPerformed
 
     private void seleccionarBoton(javax.swing.JButton botonseleccionado){
         javax.swing.JButton[] botones={btnAlerta,btnHistorial,btnTratamiento, NuevaConsulta};
@@ -1332,16 +1328,16 @@ public class Dashboard_Medico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton NuevaConsulta;
-    private javax.swing.JPanel PanelAlertas;
-    private javax.swing.JPanel PanelContenido;
+    public javax.swing.JPanel PanelAlertas;
+    public javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelGenerar;
     private javax.swing.JPanel PanelHistorial;
     private javax.swing.JPanel PanelMenu;
     private javax.swing.JButton btnActuali;
     private javax.swing.JButton btnAlerta;
-    private javax.swing.JButton btnAtender;
-    private javax.swing.JButton btnAtender1;
-    private javax.swing.JButton btnAtender2;
+    public javax.swing.JButton btnAtender1;
+    public javax.swing.JButton btnAtender2;
+    public javax.swing.JButton btnAtender3;
     private javax.swing.JButton btnGenerarTrata;
     private javax.swing.JButton btnGuardaHisto;
     private javax.swing.JButton btnHistorial;
@@ -1378,12 +1374,6 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -1419,9 +1409,6 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1436,19 +1423,28 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
     public javax.swing.JLabel lblEspecialidad;
+    public javax.swing.JLabel lblHora1;
+    public javax.swing.JLabel lblHora2;
+    public javax.swing.JLabel lblHora3;
+    public javax.swing.JLabel lblNombrePaciente1;
+    public javax.swing.JLabel lblNombrePaciente2;
+    public javax.swing.JLabel lblNombrePaciente3;
+    public javax.swing.JLabel lblObservacion1;
+    public javax.swing.JLabel lblObservacion2;
+    public javax.swing.JLabel lblObservacion3;
     private javax.swing.JLabel lblSeccion;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUsuarioActivo;
     public javax.swing.JLabel lblUsuario_Med;
     private javax.swing.JPanel panel;
+    public javax.swing.JPanel panelAlerta1;
+    public javax.swing.JPanel panelAlerta2;
+    public javax.swing.JPanel panelAlerta3;
     private javax.swing.JTextField txtBuscPaci;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtBusquedaPAciente;
