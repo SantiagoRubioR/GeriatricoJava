@@ -30,14 +30,12 @@ public class panel_principal_paciente extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        txtFechaDeIngreso = new javax.swing.JLabel();
+        txtEdad = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabel6 = new javax.swing.JLabel();
-        txtAlergias = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
-        btnContaEmer = new javax.swing.JButton();
+        btnContactoEmergencia = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnGenerarAlert = new javax.swing.JButton();
@@ -63,23 +61,19 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/second.png"))); // NOI18N
 
-        jLabel2.setText("Fecha de Ingreso:");
+        txtFechaDeIngreso.setText("Fecha de Ingreso:");
 
-        jLabel4.setText("Edad:");
+        txtEdad.setText("Edad:");
 
-        jLabel5.setText("Nombre:");
+        txtNombre.setText("Nombre:");
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel6.setText("Alergias");
-
-        txtAlergias.setEditable(false);
-
         jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
 
-        btnContaEmer.setBackground(new java.awt.Color(0, 153, 153));
-        btnContaEmer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnContaEmer.setText("<html><p>CONTACTO<br>DE EMERGENCIA</p>");
+        btnContactoEmergencia.setBackground(new java.awt.Color(0, 153, 153));
+        btnContactoEmergencia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnContactoEmergencia.setText("<html><p>CONTACTO<br>DE EMERGENCIA</p>");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,11 +85,6 @@ public class panel_principal_paciente extends javax.swing.JPanel {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator2)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                                .addComponent(txtAlergias, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69))
                             .addComponent(jSeparator3)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,19 +95,19 @@ public class panel_principal_paciente extends javax.swing.JPanel {
                                     .addComponent(jSeparator1)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel4)
+                                            .addComponent(txtEdad)
                                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(10, 10, 10))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(49, 49, 49)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5))))
+                                    .addComponent(txtFechaDeIngreso)
+                                    .addComponent(txtNombre))))
                         .addGap(0, 105, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
-                .addComponent(btnContaEmer, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnContactoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -132,20 +121,16 @@ public class panel_principal_paciente extends javax.swing.JPanel {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4))
+                    .addComponent(txtNombre)
+                    .addComponent(txtEdad))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addComponent(txtFechaDeIngreso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtAlergias, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(104, 104, 104)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnContaEmer, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnContactoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(106, Short.MAX_VALUE))
         );
 
@@ -295,7 +280,7 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnContaEmer;
+    public javax.swing.JButton btnContactoEmergencia;
     private javax.swing.JButton btnGenerarAlert;
     private javax.swing.JButton btnGenerarReport;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -303,11 +288,7 @@ public class panel_principal_paciente extends javax.swing.JPanel {
     private javax.swing.JInternalFrame jInternalFrame3;
     private javax.swing.JInternalFrame jInternalFrame4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -318,6 +299,8 @@ public class panel_principal_paciente extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtAlergias;
+    public javax.swing.JLabel txtEdad;
+    public javax.swing.JLabel txtFechaDeIngreso;
+    public javax.swing.JLabel txtNombre;
     // End of variables declaration//GEN-END:variables
 }

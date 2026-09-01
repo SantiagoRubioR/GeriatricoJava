@@ -33,10 +33,10 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         PanelAlerta = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbEstadoAlerta = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        txtObservacionesAlerta = new javax.swing.JTextField();
+        btnGuardarAlerta = new javax.swing.JToggleButton();
         PanelEstado = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
@@ -48,9 +48,11 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
         jComboBox5 = new javax.swing.JComboBox<>();
         jToggleButton2 = new javax.swing.JToggleButton();
         PanelCuidados = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbTipoCuidado = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jToggleButton3 = new javax.swing.JToggleButton();
+        btnGuardarCuidado = new javax.swing.JToggleButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtObservaciones = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(245, 247, 250));
@@ -87,11 +89,11 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
 
         jLabel3.setText("Estado de alerta");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbEstadoAlerta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Alta", "Media", "Baja" }));
 
         jLabel4.setText("Observaciones");
 
-        jToggleButton1.setText("Guardar");
+        btnGuardarAlerta.setText("Guardar");
 
         javax.swing.GroupLayout PanelAlertaLayout = new javax.swing.GroupLayout(PanelAlerta);
         PanelAlerta.setLayout(PanelAlertaLayout);
@@ -100,16 +102,16 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
             .addGroup(PanelAlertaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelAlertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbEstadoAlerta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(43, 43, 43)
                 .addGroup(PanelAlertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtObservacionesAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAlertaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardarAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
         );
         PanelAlertaLayout.setVerticalGroup(
@@ -121,10 +123,10 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelAlertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbEstadoAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtObservacionesAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(jToggleButton1)
+                .addComponent(btnGuardarAlerta)
                 .addGap(20, 20, 20))
         );
 
@@ -164,13 +166,13 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(PanelEstadoLayout.createSequentialGroup()
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(80, 80, 80)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(54, 54, 54)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(18, 18, 18)
                             .addGroup(PanelEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         PanelEstadoLayout.setVerticalGroup(
@@ -197,11 +199,14 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
 
         PanelCuidados.setBackground(new java.awt.Color(245, 247, 250));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Administración de Medicamentos", "Higiene y Aseo Personal", "Cambio Postural", "Asistencia en Alimentación e Hidratación", "Curación de Heridas", "Terapia Física y Movilización Asistida", "Control de Diuresis y Eliminación", "Acompañamiento y Estimulación Cognitiva", "Nebulización" }));
+        cmbTipoCuidado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Administración de Medicamentos", "Higiene y Aseo Personal", "Cambio Postural", "Asistencia en Alimentación e Hidratación", "Curación de Heridas", "Terapia Física y Movilización Asistida", "Control de Diuresis y Eliminación", "Acompañamiento y Estimulación Cognitiva", "Nebulizacion", "Otros" }));
+        cmbTipoCuidado.addActionListener(this::cmbTipoCuidadoActionPerformed);
 
         jLabel6.setText("Tipo de Cuidado");
 
-        jToggleButton3.setText("Guardar");
+        btnGuardarCuidado.setText("Guardar");
+
+        jLabel10.setText("Observaciones");
 
         javax.swing.GroupLayout PanelCuidadosLayout = new javax.swing.GroupLayout(PanelCuidados);
         PanelCuidados.setLayout(PanelCuidadosLayout);
@@ -210,24 +215,36 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
             .addGroup(PanelCuidadosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelCuidadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCuidadosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                    .addGroup(PanelCuidadosLayout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCuidadosLayout.createSequentialGroup()
+                        .addGroup(PanelCuidadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGuardarCuidado, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))
+                    .addGroup(PanelCuidadosLayout.createSequentialGroup()
+                        .addComponent(cmbTipoCuidado, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         PanelCuidadosLayout.setVerticalGroup(
             PanelCuidadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelCuidadosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jToggleButton3)
+                .addContainerGap(178, Short.MAX_VALUE)
+                .addComponent(btnGuardarCuidado)
                 .addGap(22, 22, 22))
+            .addGroup(PanelCuidadosLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cmbTipoCuidado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -258,6 +275,10 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmbTipoCuidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoCuidadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbTipoCuidadoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -284,15 +305,18 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PanelAlerta;
-    private javax.swing.JPanel PanelCuidados;
+    public javax.swing.JPanel PanelAlerta;
+    public javax.swing.JPanel PanelCuidados;
     private javax.swing.JPanel PanelEstado;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    public javax.swing.JToggleButton btnGuardarAlerta;
+    public javax.swing.JToggleButton btnGuardarCuidado;
+    public javax.swing.JComboBox<String> cmbEstadoAlerta;
+    public javax.swing.JComboBox<String> cmbTipoCuidado;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -302,10 +326,9 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
+    public javax.swing.JTextField txtObservaciones;
+    public javax.swing.JTextField txtObservacionesAlerta;
     // End of variables declaration//GEN-END:variables
 }

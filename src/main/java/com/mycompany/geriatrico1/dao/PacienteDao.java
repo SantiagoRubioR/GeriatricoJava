@@ -26,6 +26,13 @@ public class PacienteDao {
                      "FROM PACIENTE p " +
                      "INNER JOIN Persona per ON p.Cedula_Perso_Pac = per.cedula_Perso" + 
                      " WHERE p.Estado_Pac = 'ACTIVO'";
+     
+    private static final String GET_PERFIL_PACIENTE = "SELECT p.nombre_Perso || ' ' || p.apellido1_Perso AS nombre, " +
+                     "pac.Fecha_ingreso_Pac, " +
+                     "DATE_PART('year', age(p.fecha_nac_Perso)) AS edad " +
+                     "FROM Paciente pac " +
+                     "INNER JOIN Persona p ON pac.Cedula_Perso_Pac = p.cedula_Perso " +
+                     "WHERE pac.ID_Pac = ?";
 
     public boolean registrarPacienteCompleto(Persona residente, Persona tutor, Tutor datosTutor, Paciente datosPac) {
         try (Connection con = new Conexion().getConnection()) {
@@ -192,6 +199,63 @@ public class PacienteDao {
             System.err.println("Error al contar pacientes: " + e.getMessage());
         }
         return totalPacientes;
+    }
+    
+    public String[] obtenerPerfilPaciente(String idPaciente) {
+        String[] datos = new String[3];
+        try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
+             java.sql.PreparedStatement ps = con.prepareStatement(GET_PERFIL_PACIENTE)) {
+            
+            ps.setString(1, idPaciente);
+            try (java.sql.ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    datos[0] = rs.getString("nombre");
+                    datos[1] = rs.getString("Fecha_ingreso_Pac");
+                    datos[2] = rs.getString("edad");
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Error al cargar perfil: " + e.getMessage());
+        }
+        return datos;
+    }
+    
+    // OBTENER CONTACTO DE EMERGENCIA (TUTOR)
+    // ========================================================
+    public String[] obtenerContactoEmergencia(String idPaciente) {
+        // Arreglo para: [0]Residente, [1]NombreTutor, [2]Parentesco, [3]Telefono, [4]Correo, [5]Direccion
+        String[] datos = new String[6];
+        
+        String sql = "SELECT p_pac.nombre_Perso || ' ' || p_pac.apellido1_Perso AS residente, " +
+                     "p_tut.nombre_Perso || ' ' || p_tut.apellido1_Perso AS contacto, " +
+                     "t.Parentesco_Tut, " +
+                     "p_tut.telefono_Perso, " +
+                     "p_tut.correo_Perso, " +
+                     "p_tut.direccion_Perso " +
+                     "FROM Paciente pac " +
+                     "INNER JOIN Persona p_pac ON pac.Cedula_Perso_Pac = p_pac.cedula_Perso " +
+                     "INNER JOIN Tutor_Paciente t ON pac.ID_Tut_Pac = t.ID_Tut " +
+                     "INNER JOIN Persona p_tut ON t.Cedula_Perso_Tut = p_tut.cedula_Perso " +
+                     "WHERE pac.ID_Pac = ?";
+                     
+        try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
+             java.sql.PreparedStatement ps = con.prepareStatement(sql)) {
+            
+            ps.setString(1, idPaciente);
+            try (java.sql.ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    datos[0] = rs.getString("residente");
+                    datos[1] = rs.getString("contacto");
+                    datos[2] = rs.getString("Parentesco_Tut");
+                    datos[3] = rs.getString("telefono_Perso");
+                    datos[4] = rs.getString("correo_Perso");
+                    datos[5] = rs.getString("direccion_Perso");
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Error al cargar contacto de emergencia: " + e.getMessage());
+        }
+        return datos;
     }
     
 }   
