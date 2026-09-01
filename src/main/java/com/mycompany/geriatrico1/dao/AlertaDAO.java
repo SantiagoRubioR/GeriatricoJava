@@ -113,7 +113,7 @@ public class AlertaDAO {
     
     public int contarAlertasPendientes() {
     int totalAlertas = 0;
-    String sql = "SELECT COUNT(*) FROM detalle_alerta WHERE estado = 'Pendiente'";
+    String sql = "SELECT COUNT(*) FROM Detalle_Alerta WHERE UPPER(Estado_DetAler) = 'PENDIENTE'";
     
     try (java.sql.Connection con = com.mycompany.geriatrico1.conexion.Conexion.getConnection();
          java.sql.PreparedStatement ps = con.prepareStatement(sql);
