@@ -941,7 +941,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGeneTurnoActionPerformed
 
     private void btnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCuentaActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
         FichaNuevaCuenta ventanaPersonal = new FichaNuevaCuenta();
         EmpleadoDAO daoEmp = new EmpleadoDAO();
         CtrlEmpleados ctrl = new CtrlEmpleados(ventanaPersonal, daoEmp);

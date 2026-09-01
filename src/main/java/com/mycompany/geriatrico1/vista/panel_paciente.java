@@ -269,6 +269,10 @@ public class panel_paciente extends javax.swing.JPanel {
 
     private void btnAgregarCuidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCuidadoActionPerformed
         // TODO add your handling code here:
+        Ficha_Alerta_Estado_FichaClinica v = new Ficha_Alerta_Estado_FichaClinica();
+        v.mostrarSoloPanel("cuidados");
+        v.setLocationRelativeTo(null);
+        v.setVisible(true);
     }//GEN-LAST:event_btnAgregarCuidadoActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -277,10 +281,18 @@ public class panel_paciente extends javax.swing.JPanel {
 
     private void btnGenerarAlertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarAlertaActionPerformed
         // TODO add your handling code here:
+        Ficha_Alerta_Estado_FichaClinica v = new Ficha_Alerta_Estado_FichaClinica();
+        v.mostrarSoloPanel("alerta");
+        v.setLocationRelativeTo(null);
+        v.setVisible(true);
     }//GEN-LAST:event_btnGenerarAlertaActionPerformed
 
     private void btnActualiEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualiEstActionPerformed
         // TODO add your handling code here:
+        Ficha_Alerta_Estado_FichaClinica v = new Ficha_Alerta_Estado_FichaClinica();
+        v.mostrarSoloPanel("estado");
+        v.setLocationRelativeTo(null);
+        v.setVisible(true);
     }//GEN-LAST:event_btnActualiEstActionPerformed
 
     private void btnVerFichaCliniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerFichaCliniActionPerformed
