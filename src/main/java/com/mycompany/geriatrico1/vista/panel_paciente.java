@@ -141,7 +141,7 @@ public class panel_paciente extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel3.setText("Grado de Dependencia:");
 
-        cbxGradoDepen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Leve", "Moderado", "Critico" }));
+        cbxGradoDepen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Independiente", "Dependencia leve", "Dependencia moderada" }));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel4.setText("Grupo Etario:");
@@ -164,10 +164,12 @@ public class panel_paciente extends javax.swing.JPanel {
         btnActualiEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repote_logo_tiny.png"))); // NOI18N
         btnActualiEst.setText("<html><p>Actualizar<br>Estado</p>");
         btnActualiEst.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 0)));
+        btnActualiEst.addActionListener(this::btnActualiEstActionPerformed);
 
         btnVerFichaClini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/file-and-folder.png"))); // NOI18N
         btnVerFichaClini.setText("<html><p>Ver Ficha<br>Clinica</p>");
         btnVerFichaClini.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255)));
+        btnVerFichaClini.addActionListener(this::btnVerFichaCliniActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -276,6 +278,14 @@ public class panel_paciente extends javax.swing.JPanel {
     private void btnGenerarAlertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarAlertaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGenerarAlertaActionPerformed
+
+    private void btnActualiEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualiEstActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualiEstActionPerformed
+
+    private void btnVerFichaCliniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerFichaCliniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerFichaCliniActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
