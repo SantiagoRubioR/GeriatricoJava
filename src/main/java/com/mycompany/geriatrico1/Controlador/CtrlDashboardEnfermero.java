@@ -24,6 +24,7 @@ public class CtrlDashboardEnfermero implements ActionListener {
         
         this.vista.btnAgregarCuidado.addActionListener(this);
         this.vista.btnGenerarAlerta.addActionListener(this);
+        this.vista.btnCargarPaciente.addActionListener(this);
         
         this.vista.btnVerFichaClini.addActionListener(this);
         // 3. Llenamos la tabla al abrir
@@ -128,6 +129,10 @@ public class CtrlDashboardEnfermero implements ActionListener {
         // 3. ¡Lo mostramos!
         dialogoEmergente.setVisible(true);
     }
+       if (e.getSource() == vista.btnCargarPaciente) {
+        cargarTablaPacientes(); 
+}
+       
     }
     private void ocultarColumna(javax.swing.JTable tabla, int columnaIndex) {
         tabla.getColumnModel().getColumn(columnaIndex).setMaxWidth(0);
