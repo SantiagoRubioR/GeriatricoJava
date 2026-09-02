@@ -111,6 +111,9 @@ public class AlertaDAO {
         }
     }
     
+     // ========================================================
+    // CONTADOR ALERTAS GEENERALES Y SOLO CRITICAS
+    // ========================================================
     public int contarAlertasPendientes() {
     int totalAlertas = 0;
     String sql = "SELECT COUNT(*) FROM Detalle_Alerta WHERE UPPER(Estado_DetAler) = 'PENDIENTE'";
@@ -127,4 +130,26 @@ public class AlertaDAO {
     }
     return totalAlertas;
 }
+    
+    public int contarAlertasCriticasPendientes() {
+    int totalCriticas = 0;
+    String sql = "SELECT COUNT(*) " +
+             "FROM Detalle_Alerta da " +
+             "INNER JOIN Encabezado_Alerta ea ON da.ID_EncabAler_DetAler = ea.ID_EncabAler " +
+             "WHERE UPPER(da.Estado_DetAler) = 'PENDIENTE' " +
+             "AND ea.ID_Prioridad_EncabAler = 'PRI-0001'";
+    
+    try (java.sql.Connection con = com.mycompany.geriatrico1.conexion.Conexion.getConnection();
+         java.sql.PreparedStatement ps = con.prepareStatement(sql);
+         java.sql.ResultSet rs = ps.executeQuery()) {
+        
+        if (rs.next()) {
+            totalCriticas = rs.getInt(1);
+        }
+    } catch (Exception e) {
+        System.err.println("Error al contar alertas críticas: " + e.getMessage());
+    }
+    return totalCriticas;
+}
+    
 }
