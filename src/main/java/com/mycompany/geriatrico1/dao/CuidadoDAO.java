@@ -27,4 +27,22 @@ public class CuidadoDAO {
             return false;
         }
     }
+    
+    public int contarCuidadosRegistrados() {
+    int totalCuidados = 0;
+    // Asegúrate de que el nombre de la tabla sea exactamente el de tu base de datos (ej. 'cuidado')
+    String sql = "SELECT COUNT(*) FROM cuidado";
+    
+    try (java.sql.Connection con = com.mycompany.geriatrico1.conexion.Conexion.getConnection();
+         java.sql.PreparedStatement ps = con.prepareStatement(sql);
+         java.sql.ResultSet rs = ps.executeQuery()) {
+        
+        if (rs.next()) {
+            totalCuidados = rs.getInt(1);
+        }
+    } catch (Exception e) {
+        System.err.println("Error al contar cuidados: " + e.getMessage());
+    }
+    return totalCuidados;
+    }
 }

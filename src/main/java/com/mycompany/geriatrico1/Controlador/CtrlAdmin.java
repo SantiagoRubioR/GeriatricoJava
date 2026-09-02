@@ -23,6 +23,8 @@ public class CtrlAdmin {
     public CtrlAdmin(Ven_Admin vista) {
         this.vista = vista;
         configurarFechaActual();
+        
+        cargarEstadisticasDashboard();
     }
 
     public void cargarTablaPacientes() {
@@ -241,6 +243,30 @@ public class CtrlAdmin {
         // 5. Lo enviamos a tu Label (¡Asegúrate de cambiar 'lblFecha' por el nombre real de tu variable!)
         vista.lblFecha.setText(fechaFinal);
     }
+    
+    private void cargarEstadisticasDashboard() {
+        try {
+    
+        com.mycompany.geriatrico1.dao.PacienteDao pacienteDao = new com.mycompany.geriatrico1.dao.PacienteDao();
+        int totalPacientes = pacienteDao.contarPacientesActivos();
+        
+        
+        com.mycompany.geriatrico1.dao.EmpleadoDAO empleadoDao = new com.mycompany.geriatrico1.dao.EmpleadoDAO();
+        int totalPersonal = empleadoDao.contarPersonalActivo();
+        
+        com.mycompany.geriatrico1.dao.AlertaDAO alertaDao = new com.mycompany.geriatrico1.dao.AlertaDAO();
+        int totalAlertas = alertaDao.contarAlertasPendientes();
+        
+        com.mycompany.geriatrico1.dao.CuidadoDAO cuidadoDao = new com.mycompany.geriatrico1.dao.CuidadoDAO();
+        int totalCuidados = cuidadoDao.contarCuidadosRegistrados();
+
+        // Aqui se envia los datos a la vista
+        vista.actualizarContadoresVista(totalPacientes, totalPersonal, totalAlertas, totalCuidados);
+
+        } catch (Exception e) {
+        System.err.println("Error al cargar estadísticas en el dashboard: " + e.getMessage());
+    }
+}
  }
     
 

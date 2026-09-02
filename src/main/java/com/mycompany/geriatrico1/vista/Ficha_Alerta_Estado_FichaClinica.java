@@ -6,7 +6,7 @@ package com.mycompany.geriatrico1.vista;
 
 /**
  *
- * @author DANIEL CABRERA
+ * @author JOHN CABRERA
  */
 public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
     
@@ -17,8 +17,22 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
      */
     public Ficha_Alerta_Estado_FichaClinica() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
+    public void mostrarSoloPanel(String opcion) {
+        PanelAlerta.setVisible(false);
+        PanelEstado.setVisible(false);
+        PanelCuidados.setVisible(false);
+        
+        if (opcion.equalsIgnoreCase("alerta")) {
+            PanelAlerta.setVisible(true);
+        } else if (opcion.equalsIgnoreCase("estado")) {
+            PanelEstado.setVisible(true);
+        } else if (opcion.equalsIgnoreCase("cuidados")) {
+            PanelCuidados.setVisible(true);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,7 +60,7 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox<>();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        btnGuardarEstado = new javax.swing.JToggleButton();
         PanelCuidados = new javax.swing.JPanel();
         cmbTipoCuidado = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -94,6 +108,7 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
         jLabel4.setText("Observaciones");
 
         btnGuardarAlerta.setText("Guardar");
+        btnGuardarAlerta.addActionListener(this::btnGuardarAlertaActionPerformed);
 
         javax.swing.GroupLayout PanelAlertaLayout = new javax.swing.GroupLayout(PanelAlerta);
         PanelAlerta.setLayout(PanelAlertaLayout);
@@ -146,7 +161,8 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Normal / Normocárdico (60 - 100 lpm)", "Bradicardia (< 60 lpm)", "Taquicardia (> 100 lpm)", "Dificultad respiratoria / Taquipnea" }));
 
-        jToggleButton2.setText("Guardar");
+        btnGuardarEstado.setText("Guardar");
+        btnGuardarEstado.addActionListener(this::btnGuardarEstadoActionPerformed);
 
         javax.swing.GroupLayout PanelEstadoLayout = new javax.swing.GroupLayout(PanelEstado);
         PanelEstado.setLayout(PanelEstadoLayout);
@@ -158,7 +174,7 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGuardarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(PanelEstadoLayout.createSequentialGroup()
                             .addGroup(PanelEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(PanelEstadoLayout.createSequentialGroup()
@@ -178,7 +194,7 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
         PanelEstadoLayout.setVerticalGroup(
             PanelEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelEstadoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(28, 28, 28)
                 .addGroup(PanelEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel7)
@@ -188,12 +204,12 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addComponent(jToggleButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addComponent(btnGuardarEstado)
                 .addGap(23, 23, 23))
         );
 
@@ -205,6 +221,7 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
         jLabel6.setText("Tipo de Cuidado");
 
         btnGuardarCuidado.setText("Guardar");
+        btnGuardarCuidado.addActionListener(this::btnGuardarCuidadoActionPerformed);
 
         jLabel10.setText("Observaciones");
 
@@ -269,7 +286,7 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
                     .addComponent(PanelAlerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(PanelEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 32, Short.MAX_VALUE))
+                .addGap(0, 38, Short.MAX_VALUE))
         );
 
         pack();
@@ -278,6 +295,18 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
     private void cmbTipoCuidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoCuidadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbTipoCuidadoActionPerformed
+
+    private void btnGuardarAlertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarAlertaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarAlertaActionPerformed
+
+    private void btnGuardarCuidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCuidadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarCuidadoActionPerformed
+
+    private void btnGuardarEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarEstadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,6 +339,7 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
     private javax.swing.JPanel PanelEstado;
     public javax.swing.JToggleButton btnGuardarAlerta;
     public javax.swing.JToggleButton btnGuardarCuidado;
+    private javax.swing.JToggleButton btnGuardarEstado;
     public javax.swing.JComboBox<String> cmbEstadoAlerta;
     public javax.swing.JComboBox<String> cmbTipoCuidado;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -327,7 +357,6 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JToggleButton jToggleButton2;
     public javax.swing.JTextField txtObservaciones;
     public javax.swing.JTextField txtObservacionesAlerta;
     // End of variables declaration//GEN-END:variables

@@ -113,7 +113,7 @@ public class PacienteDao {
                     fila[0] = rs.getString("ID_Pac");
                     fila[1] = rs.getString("cedula_Perso");
                     fila[2] = rs.getString("nombre_Perso");
-                    fila[3] = rs.getString("apellido1_Perso");
+                    fila[3] = rs.getString("apellido1_Perso");  
                     fila[4] = rs.getString("Grado_Dependencia");
                     fila[5] = rs.getString("Tipo_Sandre_Pac");
                 lista.add(fila);

@@ -20,7 +20,7 @@ public class Ven_Admin extends javax.swing.JFrame {
      * Creates new form Ven_Admin
      */
     public Ven_Admin(String nombreUsuario) {
-        initComponents();
+        initComponents();          
         panelSolicitudAcceso.setVisible(false);
         panelCuentas.setVisible(false);
         panelInicio.setVisible(true);
@@ -30,6 +30,13 @@ public class Ven_Admin extends javax.swing.JFrame {
         
         lblUsuario.setText("Admin: " + nombreUsuario);
         lblSaludo.setText("Hola " + nombreUsuario);
+
+    }
+    public void actualizarContadoresVista(int pacientes, int personal, int alertas, int cuidados) {
+        lblPacientes.setText(String.valueOf(pacientes));
+        lblCuentasPer.setText(String.valueOf(personal));
+        lblAlertas.setText(String.valueOf(alertas));
+        lblCuidados.setText(String.valueOf(cuidados));
     }
 
     /**
@@ -61,17 +68,17 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelInicio = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
+        lblPacientes = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        lblCuentasPer = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        lblAlertas = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        lblCuidados = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         lblFecha = new javax.swing.JLabel();
@@ -269,9 +276,9 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel15.setText("Pacientes activos");
         jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        jLabel29.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
-        jLabel29.setText("0");
-        jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        lblPacientes.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
+        lblPacientes.setText("0");
+        jPanel3.add(lblPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 30, 30));
 
         panelInicio.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, 90));
@@ -284,9 +291,9 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel13.setText(" Cuentas del Personal");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 70, 150, -1));
 
-        jLabel19.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
-        jLabel19.setText("0");
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        lblCuentasPer.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
+        lblCuentasPer.setText("0");
+        jPanel2.add(lblCuentasPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         panelInicio.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 160, 90));
 
@@ -295,12 +302,12 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel17.setText("Solicitudes pendientes");
+        jLabel17.setText("Alertas pendientes");
         jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
-        jLabel14.setText("0");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        lblAlertas.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
+        lblAlertas.setText("0");
+        jPanel4.add(lblAlertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         panelInicio.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 170, 90));
 
@@ -310,14 +317,14 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         jLabel18.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel18.setText("Turnos porgramados para hoy");
+        jLabel18.setText("Cuidados Registrados");
         jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        jLabel20.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
-        jLabel20.setText("0");
-        jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        lblCuidados.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
+        lblCuidados.setText("0");
+        jPanel5.add(lblCuidados, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        panelInicio.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 220, 90));
+        panelInicio.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 170, 90));
 
         jLabel26.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
         jLabel26.setText("Acciones rápidas");
@@ -941,7 +948,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGeneTurnoActionPerformed
 
     private void btnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCuentaActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
         FichaNuevaCuenta ventanaPersonal = new FichaNuevaCuenta();
         EmpleadoDAO daoEmp = new EmpleadoDAO();
         CtrlEmpleados ctrl = new CtrlEmpleados(ventanaPersonal, daoEmp);
@@ -1025,12 +1032,9 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -1038,7 +1042,6 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel33;
@@ -1058,10 +1061,10 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    public javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel jPanel3;
+    public javax.swing.JPanel jPanel4;
+    public javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1072,7 +1075,11 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable5;
+    private javax.swing.JLabel lblAlertas;
+    private javax.swing.JLabel lblCuentasPer;
+    private javax.swing.JLabel lblCuidados;
     public javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblPacientes;
     public javax.swing.JLabel lblSaludo;
     public javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel pacientes;
