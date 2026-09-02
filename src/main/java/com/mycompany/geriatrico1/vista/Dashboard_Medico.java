@@ -718,6 +718,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         jLabel17.setText("Fecha de fin");
 
         btnGenerarTrata.setText("Generar Tratamiento");
+        btnGenerarTrata.addActionListener(this::btnGenerarTrataActionPerformed);
 
         jLabel19.setText("Genera un plan de tratamiento a partir del diagnostico actual del paciente.");
 
@@ -1294,6 +1295,10 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         btnAtender1.setText("Atendido");
     }//GEN-LAST:event_btnAtender1ActionPerformed
 
+    private void btnGenerarTrataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarTrataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGenerarTrataActionPerformed
+
     public void seleccionarBoton(javax.swing.JButton botonseleccionado){
         javax.swing.JButton[] botones={btnAlerta,btnHistorial,btnTratamiento, NuevaConsulta};
         
@@ -1392,7 +1397,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel5;
+    public javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

@@ -290,7 +290,7 @@
                 <Container class="javax.swing.JInternalFrame" name="jInternalFrame1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="fa" green="f7" red="f5" type="rgb"/>
+                      <Color blue="f6" green="f2" red="ee" type="rgb"/>
                     </Property>
                     <Property name="visible" type="boolean" value="true"/>
                   </Properties>
@@ -348,6 +348,9 @@
                 </Container>
                 <Container class="javax.swing.JInternalFrame" name="jInternalFrame2">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f6" green="f2" red="ee" type="rgb"/>
+                    </Property>
                     <Property name="visible" type="boolean" value="true"/>
                   </Properties>
                   <Constraints>
@@ -373,6 +376,9 @@
                 </Container>
                 <Container class="javax.swing.JInternalFrame" name="jInternalFrame3">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f6" green="f2" red="ee" type="rgb"/>
+                    </Property>
                     <Property name="visible" type="boolean" value="true"/>
                   </Properties>
                   <Constraints>
@@ -398,6 +404,9 @@
                 </Container>
                 <Container class="javax.swing.JInternalFrame" name="jInternalFrame4">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f6" green="f2" red="ee" type="rgb"/>
+                    </Property>
                     <Property name="visible" type="boolean" value="true"/>
                   </Properties>
                   <Constraints>

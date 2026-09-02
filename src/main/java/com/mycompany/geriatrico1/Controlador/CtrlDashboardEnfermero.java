@@ -1,6 +1,8 @@
 package com.mycompany.geriatrico1.Controlador;
 //import com.mycompany.geriatrico1.vista.Dashboard_Enfermero;
 import com.mycompany.geriatrico1.controlador.CtrlFichaPaciente;
+import com.mycompany.geriatrico1.dao.AlertaDAO;
+import com.mycompany.geriatrico1.dao.EmpleadoDAO;
 import com.mycompany.geriatrico1.vista.panel_paciente;
 import com.mycompany.geriatrico1.vista.panel_principal_paciente;
 //import com.mycompany.geriatrico1.vista.*;
@@ -17,7 +19,6 @@ public class CtrlDashboardEnfermero implements ActionListener {
 
     public CtrlDashboardEnfermero(panel_paciente vista, String cedulaUsuario) {
         this.vista = vista;
-        
         // 1. Convertimos la cédula del login en el ID de la enfermera
         com.mycompany.geriatrico1.dao.EmpleadoDAO empDao = new com.mycompany.geriatrico1.dao.EmpleadoDAO();
         this.idEnfermeraActual = empDao.obtenerIdEnfermeraPorCedula(cedulaUsuario);
@@ -30,6 +31,7 @@ public class CtrlDashboardEnfermero implements ActionListener {
         // 3. Llenamos la tabla al abrir
         cargarTablaPacientes();
         ocultarColumna(vista.tablaPacientes, 0);
+  
     }
 
     private void cargarTablaPacientes() {
@@ -167,5 +169,9 @@ public class CtrlDashboardEnfermero implements ActionListener {
         dialogoEmergente.pack();
         dialogoEmergente.setLocationRelativeTo(vista);
         dialogoEmergente.setVisible(true);
+        
+        EmpleadoDAO empDao = new EmpleadoDAO();
+        empDao.rellenarComboEnfermeros(vista.jComboBoxEnfermeros);
     }
+    
 }

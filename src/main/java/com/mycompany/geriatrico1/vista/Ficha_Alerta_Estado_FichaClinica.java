@@ -103,7 +103,8 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
 
         jLabel3.setText("Estado de alerta");
 
-        cmbEstadoAlerta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Alta", "Media", "Baja" }));
+        cmbEstadoAlerta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Leve", "Moderada", "Critica" }));
+        cmbEstadoAlerta.addActionListener(this::cmbEstadoAlertaActionPerformed);
 
         jLabel4.setText("Observaciones");
 
@@ -307,6 +308,10 @@ public class Ficha_Alerta_Estado_FichaClinica extends javax.swing.JFrame {
     private void btnGuardarEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarEstadoActionPerformed
+
+    private void cmbEstadoAlertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoAlertaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbEstadoAlertaActionPerformed
 
     /**
      * @param args the command line arguments
