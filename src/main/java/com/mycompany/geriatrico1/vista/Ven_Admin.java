@@ -11,6 +11,7 @@ import com.mycompany.geriatrico1.dao.EmpleadoDAO;
 import com.mycompany.geriatrico1.dao.ReporteDAO;
 import com.mycompany.geriatrico1.modelo.Reporte;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.Date;
 import java.util.List;
@@ -38,7 +39,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelCuentas.setVisible(false);
         panelInicio.setVisible(true);
         panelPacientes.setVisible(false);
-        panelHorarios.setVisible(false);
+       
         panelReportes.setVisible(false);
         
         
@@ -427,35 +428,10 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         inicio = new javax.swing.JLabel();
         cuentas = new javax.swing.JLabel();
-        horarios = new javax.swing.JLabel();
         reportes = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
-        panelInicio = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        lblPacientes = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        lblCuentasPer = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        lblAlertas = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        lblCuidados = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        lblFecha = new javax.swing.JLabel();
-        lblSaludo = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        btnGeneTurnoRapi = new javax.swing.JButton();
-        jLabel35 = new javax.swing.JLabel();
-        btnCrearCuenta = new javax.swing.JButton();
         panelSolicitudAcceso = new javax.swing.JPanel();
         panelCuentas = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -482,16 +458,6 @@ public class Ven_Admin extends javax.swing.JFrame {
         btnNuevoPaciente = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        panelHorarios = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jPanel17 = new javax.swing.JPanel();
-        txtBuscTurno = new javax.swing.JTextField();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
-        btnGeneTurno = new javax.swing.JButton();
         panelReportes = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
@@ -508,6 +474,30 @@ public class Ven_Admin extends javax.swing.JFrame {
         txtFechaIni = new javax.swing.JTextField();
         txtFechaFin = new javax.swing.JTextField();
         panelGraficas = new javax.swing.JPanel();
+        panelInicio = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        lblPacientes = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        lblCuentasPer = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        lblAlertas = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        lblCuidados = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        lblFecha = new javax.swing.JLabel();
+        lblSaludo = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        btnGeneTurnoRapi = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        btnCrearCuenta = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -590,7 +580,7 @@ public class Ven_Admin extends javax.swing.JFrame {
                 pacientesMouseClicked(evt);
             }
         });
-        jPanel1.add(pacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, -1));
+        jPanel1.add(pacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("Poor Richard", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -617,16 +607,6 @@ public class Ven_Admin extends javax.swing.JFrame {
         });
         jPanel1.add(cuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, -1));
 
-        horarios.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
-        horarios.setForeground(new java.awt.Color(255, 255, 255));
-        horarios.setText("Horarios");
-        horarios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                horariosMouseClicked(evt);
-            }
-        });
-        jPanel1.add(horarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 100, -1));
-
         reportes.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
         reportes.setForeground(new java.awt.Color(255, 255, 255));
         reportes.setText("Reportes");
@@ -644,146 +624,15 @@ public class Ven_Admin extends javax.swing.JFrame {
         lblUsuario.setText("Administrador/a");
         jPanel1.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 456, 190, -1));
 
-        panelInicio.setBackground(new java.awt.Color(245, 247, 250));
-        panelInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 0, 153)));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel15.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel15.setText("Pacientes activos");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
-
-        lblPacientes.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
-        lblPacientes.setText("0");
-        jPanel3.add(lblPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 30, 30));
-
-        panelInicio.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, 90));
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel13.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel13.setText(" Cuentas del Personal");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 70, 150, -1));
-
-        lblCuentasPer.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
-        lblCuentasPer.setText("0");
-        jPanel2.add(lblCuentasPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
-
-        panelInicio.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 160, 90));
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 51, 0)));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel17.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel17.setText("Alertas pendientes");
-        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
-
-        lblAlertas.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
-        lblAlertas.setText("0");
-        jPanel4.add(lblAlertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
-
-        panelInicio.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 170, 90));
-
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 0)));
-        jPanel5.setForeground(new java.awt.Color(102, 102, 102));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel18.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel18.setText("Cuidados Registrados");
-        jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
-
-        lblCuidados.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
-        lblCuidados.setText("0");
-        jPanel5.add(lblCuidados, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
-
-        panelInicio.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 170, 90));
-
-        jLabel26.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
-        jLabel26.setText("Acciones rápidas");
-        panelInicio.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
-
-        jPanel8.setBackground(new java.awt.Color(238, 242, 246));
-
-        lblFecha.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
-        lblFecha.setForeground(new java.awt.Color(102, 102, 102));
-        lblFecha.setText("Jueves, 14 de agosto de 2026");
-
-        lblSaludo.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
-        lblSaludo.setText("Hola, ");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblSaludo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblFecha)
-                .addContainerGap())
-        );
-
-        panelInicio.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 590, 80));
-
-        jLabel27.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel27.setText(" Registra enfermeros /as y médicos");
-        jLabel27.setMaximumSize(new java.awt.Dimension(210, 24));
-        jLabel27.setMinimumSize(new java.awt.Dimension(210, 24));
-        jLabel27.setName(""); // NOI18N
-        jLabel27.setPreferredSize(new java.awt.Dimension(210, 24));
-        panelInicio.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 240, 20));
-
-        jLabel28.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel28.setText("Programa un nuevo turno entre ");
-        panelInicio.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 460, -1, -1));
-
-        jLabel33.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel33.setText("paciente y personal");
-        panelInicio.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, -1, -1));
-
-        btnGeneTurnoRapi.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 16)); // NOI18N
-        btnGeneTurnoRapi.setText("Generar turnos");
-        btnGeneTurnoRapi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        panelInicio.add(btnGeneTurnoRapi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 240, 100));
-
-        jLabel35.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel35.setText("y nuevos pacientes.");
-        panelInicio.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 140, -1));
-
-        btnCrearCuenta.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 16)); // NOI18N
-        btnCrearCuenta.setText("Crear cuenta");
-        btnCrearCuenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        btnCrearCuenta.addActionListener(this::btnCrearCuentaActionPerformed);
-        panelInicio.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 240, 100));
-
         javax.swing.GroupLayout panelSolicitudAccesoLayout = new javax.swing.GroupLayout(panelSolicitudAcceso);
         panelSolicitudAcceso.setLayout(panelSolicitudAccesoLayout);
         panelSolicitudAccesoLayout.setHorizontalGroup(
             panelSolicitudAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1720, Short.MAX_VALUE)
+            .addGap(0, 4148, Short.MAX_VALUE)
         );
         panelSolicitudAccesoLayout.setVerticalGroup(
             panelSolicitudAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 774, Short.MAX_VALUE)
+            .addGap(0, 2042, Short.MAX_VALUE)
         );
 
         panelCuentas.setBackground(new java.awt.Color(245, 247, 250));
@@ -1023,111 +872,6 @@ public class Ven_Admin extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        panelHorarios.setBackground(new java.awt.Color(245, 247, 250));
-
-        jPanel14.setBackground(new java.awt.Color(238, 242, 246));
-
-        jLabel8.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
-        jLabel8.setText("Horarios y turnos");
-
-        jLabel30.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel30.setText("Turnos programados entre pacientes y el personal ");
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel30))
-                    .addComponent(jLabel8))
-                .addContainerGap(252, Short.MAX_VALUE))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel30))
-        );
-
-        txtBuscTurno.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        txtBuscTurno.addActionListener(this::txtBuscTurnoActionPerformed);
-
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(txtBuscTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 27, Short.MAX_VALUE))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
-                .addGap(0, 24, Short.MAX_VALUE)
-                .addComponent(txtBuscTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane8.setViewportView(jTable5);
-
-        jScrollPane9.setViewportView(jScrollPane8);
-
-        btnGeneTurno.setBackground(new java.awt.Color(0, 102, 102));
-        btnGeneTurno.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 14)); // NOI18N
-        btnGeneTurno.setForeground(new java.awt.Color(255, 255, 255));
-        btnGeneTurno.setText("+ Generar Turno");
-        btnGeneTurno.addActionListener(this::btnGeneTurnoActionPerformed);
-
-        javax.swing.GroupLayout panelHorariosLayout = new javax.swing.GroupLayout(panelHorarios);
-        panelHorarios.setLayout(panelHorariosLayout);
-        panelHorariosLayout.setHorizontalGroup(
-            panelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelHorariosLayout.createSequentialGroup()
-                .addGroup(panelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelHorariosLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(panelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelHorariosLayout.createSequentialGroup()
-                                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnGeneTurno))))
-                    .addGroup(panelHorariosLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(144, Short.MAX_VALUE))
-        );
-        panelHorariosLayout.setVerticalGroup(
-            panelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelHorariosLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnGeneTurno)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(212, Short.MAX_VALUE))
-        );
-
         panelReportes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel29.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
@@ -1227,6 +971,140 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         panelReportes.add(panelGraficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 390, 370));
 
+        panelInicio.setBackground(new java.awt.Color(245, 247, 250));
+        panelInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 0, 153)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel15.setText("Pacientes activos");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        lblPacientes.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
+        lblPacientes.setText("0");
+        jPanel3.add(lblPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 30, 30));
+
+        panelInicio.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, 90));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel13.setText(" Cuentas del Personal");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 70, 150, -1));
+
+        lblCuentasPer.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
+        lblCuentasPer.setText("0");
+        jPanel2.add(lblCuentasPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        panelInicio.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 160, 90));
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 51, 0)));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel17.setText("Alertas pendientes");
+        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        lblAlertas.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
+        lblAlertas.setText("0");
+        jPanel4.add(lblAlertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        panelInicio.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 170, 90));
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 0)));
+        jPanel5.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel18.setText("Cuidados Registrados");
+        jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        lblCuidados.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 22)); // NOI18N
+        lblCuidados.setText("0");
+        jPanel5.add(lblCuidados, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        panelInicio.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 170, 90));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
+        jLabel26.setText("Acciones rápidas");
+        panelInicio.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        jPanel8.setBackground(new java.awt.Color(238, 242, 246));
+
+        lblFecha.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(102, 102, 102));
+        lblFecha.setText("Jueves, 14 de agosto de 2026");
+
+        lblSaludo.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
+        lblSaludo.setText("Hola, ");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblSaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 103, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addComponent(lblSaludo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(lblFecha)
+                .addContainerGap())
+        );
+
+        panelInicio.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 590, 80));
+
+        jLabel27.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel27.setText(" Registra enfermeros /as y médicos");
+        jLabel27.setMaximumSize(new java.awt.Dimension(210, 24));
+        jLabel27.setMinimumSize(new java.awt.Dimension(210, 24));
+        jLabel27.setName(""); // NOI18N
+        jLabel27.setPreferredSize(new java.awt.Dimension(210, 24));
+        panelInicio.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 240, 20));
+
+        jLabel28.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel28.setText("Programa un nuevo turno entre ");
+        panelInicio.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 460, -1, -1));
+
+        jLabel33.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel33.setText("paciente y personal");
+        panelInicio.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, -1, -1));
+
+        btnGeneTurnoRapi.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 16)); // NOI18N
+        btnGeneTurnoRapi.setText("Generar turnos");
+        btnGeneTurnoRapi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        panelInicio.add(btnGeneTurnoRapi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 240, 100));
+
+        jLabel35.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel35.setText("y nuevos pacientes.");
+        panelInicio.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 140, -1));
+
+        btnCrearCuenta.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 16)); // NOI18N
+        btnCrearCuenta.setText("Crear cuenta");
+        btnCrearCuenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        btnCrearCuenta.addActionListener(this::btnCrearCuentaActionPerformed);
+        panelInicio.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 240, 100));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1237,19 +1115,14 @@ public class Ven_Admin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(panelSolicitudAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(panelReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(66, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(294, 294, 294))))
+                .addComponent(panelPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(632, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1257,23 +1130,21 @@ public class Ven_Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(panelHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(panelPacientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(panelReportes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(panelCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(panelInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 1884, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(panelInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 1884, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(136, 136, 136)
-                                .addComponent(panelSolicitudAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 273, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                                .addComponent(panelSolicitudAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(panelCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(panelPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(panelReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 622, Short.MAX_VALUE))))
         );
 
         pack();
@@ -1282,22 +1153,14 @@ public class Ven_Admin extends javax.swing.JFrame {
     private void reportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportesMouseClicked
         // TODO add your handling code here:
         panelReportes.setVisible(true);
-        panelHorarios.setVisible(false);
+       
         panelSolicitudAcceso.setVisible(false);
         panelInicio.setVisible(false);
         panelCuentas.setVisible(false);
         panelPacientes.setVisible(false);
+        
+        seleccionarLabel(reportes);
     }//GEN-LAST:event_reportesMouseClicked
-
-    private void horariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horariosMouseClicked
-        // TODO add your handling code here:
-        panelHorarios.setVisible(true);
-        panelSolicitudAcceso.setVisible(false);
-        panelInicio.setVisible(false);
-        panelCuentas.setVisible(false);
-        panelPacientes.setVisible(false);
-        panelReportes.setVisible(false);
-    }//GEN-LAST:event_horariosMouseClicked
 
     private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
         // TODO add your handling code here:
@@ -1306,9 +1169,10 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelCuentas.setVisible(false);
         panelSolicitudAcceso.setVisible(false);
         panelPacientes.setVisible(false);
-        panelHorarios.setVisible(false);
+        
         panelReportes.setVisible(false);
         
+        seleccionarLabel(inicio);
     }//GEN-LAST:event_inicioMouseClicked
 
     private void cuentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cuentasMouseClicked
@@ -1317,10 +1181,12 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelInicio.setVisible(false);
         panelSolicitudAcceso.setVisible(false);
         panelPacientes.setVisible(false);
-        panelHorarios.setVisible(false);
+       
         panelReportes.setVisible(false);
         CtrlAdmin controlador = new CtrlAdmin(this);
         controlador.cargarTablaEmpleados();
+        
+        seleccionarLabel(cuentas);
         
     }//GEN-LAST:event_cuentasMouseClicked
 
@@ -1330,14 +1196,34 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelCuentas.setVisible(false);
         panelInicio.setVisible(false);
         panelSolicitudAcceso.setVisible(false);
-        panelHorarios.setVisible(false);
+        
         panelReportes.setVisible(false);
         
         CtrlAdmin controladorAdmin = new CtrlAdmin(this);
         controladorAdmin.cargarTablaPacientes();
         
+        seleccionarLabel(pacientes);
+        
     }//GEN-LAST:event_pacientesMouseClicked
 
+    public void seleccionarLabel(javax.swing.JLabel labelSeleccionado) {
+
+    javax.swing.JLabel[] labels = {inicio, cuentas, pacientes, reportes};
+
+    for (javax.swing.JLabel label : labels) {
+
+        if (label == labelSeleccionado) {
+            label.setOpaque(true);
+            label.setBackground(new Color(51, 153, 153));
+        } else {
+            label.setOpaque(true);
+            label.setBackground(null);
+        }
+    }
+}
+    
+    
+    
     private void txtBusPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusPersonalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusPersonalActionPerformed
@@ -1375,10 +1261,6 @@ public class Ven_Admin extends javax.swing.JFrame {
         //cargarTablaEmpleados();
     }//GEN-LAST:event_btnNuevoPersonalActionPerformed
 
-    private void btnGeneTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneTurnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGeneTurnoActionPerformed
-
     private void btnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCuentaActionPerformed
             // TODO add your handling code here:
         FichaNuevaCuenta ventanaPersonal = new FichaNuevaCuenta();
@@ -1415,10 +1297,6 @@ public class Ven_Admin extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void txtBuscTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscTurnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscTurnoActionPerformed
 
     private void btnNuevoPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoPacienteMouseClicked
         // TODO add your handling code here:
@@ -1597,7 +1475,6 @@ public class Ven_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearCuenta;
     private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnGeneTurno;
     private javax.swing.JButton btnGeneTurnoRapi;
     private javax.swing.JButton btnNuevoPaciente;
     private javax.swing.JButton btnNuevoPersonal;
@@ -1606,7 +1483,6 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboxPeriodo;
     private javax.swing.JComboBox<String> comboxTipGrafica;
     private javax.swing.JLabel cuentas;
-    private javax.swing.JLabel horarios;
     private javax.swing.JLabel inicio;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1631,7 +1507,6 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel35;
@@ -1639,16 +1514,13 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     public javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
@@ -1660,10 +1532,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable5;
     private javax.swing.JLabel lblAlertas;
     private javax.swing.JLabel lblCuentasPer;
     private javax.swing.JLabel lblCuidados;
@@ -1674,7 +1543,6 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel pacientes;
     private javax.swing.JPanel panelCuentas;
     private javax.swing.JPanel panelGraficas;
-    private javax.swing.JPanel panelHorarios;
     private javax.swing.JPanel panelInicio;
     private javax.swing.JPanel panelPacientes;
     private javax.swing.JPanel panelPersonalizado;
@@ -1684,7 +1552,6 @@ public class Ven_Admin extends javax.swing.JFrame {
     public javax.swing.JTable tablaEmpleados;
     public javax.swing.JTable tablaPacientes;
     public javax.swing.JTextField txtBusPersonal;
-    private javax.swing.JTextField txtBuscTurno;
     private javax.swing.JTextField txtBuscarPaciente;
     private javax.swing.JTextField txtFechaFin;
     private javax.swing.JTextField txtFechaIni;
