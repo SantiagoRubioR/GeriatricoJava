@@ -257,7 +257,34 @@ public class PacienteDao {
         }
         return datos;
     }
-    
+    // ========================================================
+    // LISTAR PACIENTES ACTIVOS (Para el buscador del Médico)
+    // ========================================================
+    public java.util.List<String[]> listarPacientesActivos() {
+        java.util.List<String[]> lista = new java.util.ArrayList<>();
+        
+        // Unimos Paciente y Persona para tener ID, Cédula y Nombre completo
+        String sql = "SELECT p.ID_Pac, per.cedula_Perso, per.nombre_Perso || ' ' || per.apellido1_Perso AS NombreCompleto " +
+                     "FROM Paciente p " +
+                     "INNER JOIN Persona per ON p.Cedula_Perso_Pac = per.cedula_Perso " +
+                     "WHERE UPPER(p.estado_Pac) = 'ACTIVO'"; 
+                     
+        try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
+             java.sql.PreparedStatement ps = con.prepareStatement(sql);
+             java.sql.ResultSet rs = ps.executeQuery()) {
+            
+            while (rs.next()) {
+                String[] paciente = new String[3];
+                paciente[0] = rs.getString("ID_Pac");           // Oculto (o visible, según tu diseño)
+                paciente[1] = rs.getString("cedula_Perso");     // Cédula
+                paciente[2] = rs.getString("NombreCompleto");   // Nombre y Apellido
+                lista.add(paciente);
+            }
+        } catch (Exception e) {
+            System.err.println("Error al cargar pacientes activos: " + e.getMessage());
+        }
+        return lista;
+    }
 }   
     
     

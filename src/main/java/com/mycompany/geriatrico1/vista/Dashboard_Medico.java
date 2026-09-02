@@ -66,7 +66,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tablaPacientesActivos = new javax.swing.JTable();
         PanelContenido = new javax.swing.JPanel();
         PanelAlertas = new javax.swing.JPanel();
         panelAlerta1 = new javax.swing.JPanel();
@@ -74,20 +74,18 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         lblHora1 = new javax.swing.JLabel();
         lblObservacion1 = new javax.swing.JLabel();
         btnAtender1 = new javax.swing.JButton();
-        jLabel32 = new javax.swing.JLabel();
         panelAlerta2 = new javax.swing.JPanel();
         lblNombrePaciente2 = new javax.swing.JLabel();
         lblObservacion2 = new javax.swing.JLabel();
         lblHora2 = new javax.swing.JLabel();
         btnAtender2 = new javax.swing.JButton();
-        jLabel33 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         panelAlerta3 = new javax.swing.JPanel();
-        jLabel51 = new javax.swing.JLabel();
         btnAtender3 = new javax.swing.JButton();
         lblNombrePaciente3 = new javax.swing.JLabel();
         lblObservacion3 = new javax.swing.JLabel();
         lblHora3 = new javax.swing.JLabel();
+        btnCargarAlertas = new javax.swing.JButton();
         PanelHistorial = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -102,7 +100,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         jTextPane2 = new javax.swing.JTextPane();
         jLabel26 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaPacientesHistorial = new javax.swing.JTable();
         jLabel34 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         txtBuscPaci = new javax.swing.JTextField();
@@ -247,8 +245,8 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         txtBuscar.addActionListener(this::txtBuscarActionPerformed);
         PanelMenu.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 160, -1));
 
-        jTable4.setBackground(new java.awt.Color(245, 247, 250));
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPacientesActivos.setBackground(new java.awt.Color(245, 247, 250));
+        tablaPacientesActivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -259,7 +257,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                 "Cedula", "Nombre"
             }
         ));
-        jScrollPane1.setViewportView(jTable4);
+        jScrollPane1.setViewportView(tablaPacientesActivos);
 
         PanelMenu.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 170, 200));
 
@@ -280,9 +278,6 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         btnAtender1.setText("Atender");
         btnAtender1.addActionListener(this::btnAtender1ActionPerformed);
 
-        jLabel32.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel32.setText("Dependencia moderada");
-
         javax.swing.GroupLayout panelAlerta1Layout = new javax.swing.GroupLayout(panelAlerta1);
         panelAlerta1.setLayout(panelAlerta1Layout);
         panelAlerta1Layout.setHorizontalGroup(
@@ -298,9 +293,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelAlerta1Layout.createSequentialGroup()
                         .addComponent(lblObservacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                        .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                         .addComponent(btnAtender1)
                         .addGap(17, 17, 17))))
         );
@@ -311,8 +304,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(panelAlerta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblObservacion1)
-                    .addComponent(btnAtender1)
-                    .addComponent(jLabel32))
+                    .addComponent(btnAtender1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblHora1)
                 .addContainerGap(14, Short.MAX_VALUE))
@@ -332,9 +324,6 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         btnAtender2.setText("Atender");
         btnAtender2.addActionListener(this::btnAtender2ActionPerformed);
 
-        jLabel33.setForeground(new java.awt.Color(255, 204, 0));
-        jLabel33.setText("Dependencia leve");
-
         javax.swing.GroupLayout panelAlerta2Layout = new javax.swing.GroupLayout(panelAlerta2);
         panelAlerta2.setLayout(panelAlerta2Layout);
         panelAlerta2Layout.setHorizontalGroup(
@@ -349,9 +338,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelAlerta2Layout.createSequentialGroup()
                         .addComponent(lblObservacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                        .addComponent(jLabel33)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
                         .addComponent(btnAtender2)
                         .addGap(16, 16, 16))))
         );
@@ -363,8 +350,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelAlerta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblObservacion2)
-                    .addComponent(btnAtender2)
-                    .addComponent(jLabel33))
+                    .addComponent(btnAtender2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblHora2)
                 .addContainerGap(16, Short.MAX_VALUE))
@@ -378,9 +364,6 @@ public class Dashboard_Medico extends javax.swing.JFrame {
 
         panelAlerta3.setBackground(new java.awt.Color(255, 255, 255));
         panelAlerta3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(51, 255, 102), null, null));
-
-        jLabel51.setForeground(new java.awt.Color(51, 255, 51));
-        jLabel51.setText("Independiente");
 
         btnAtender3.setText("Atender");
         btnAtender3.addActionListener(this::btnAtender3ActionPerformed);
@@ -400,9 +383,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                 .addGroup(panelAlerta3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAlerta3Layout.createSequentialGroup()
                         .addComponent(lblObservacion3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
-                        .addComponent(jLabel51)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 418, Short.MAX_VALUE)
                         .addComponent(btnAtender3)
                         .addGap(15, 15, 15))
                     .addGroup(panelAlerta3Layout.createSequentialGroup()
@@ -420,9 +401,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                 .addGroup(panelAlerta3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAlerta3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelAlerta3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel51)
-                            .addComponent(btnAtender3)))
+                        .addComponent(btnAtender3))
                     .addGroup(panelAlerta3Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(lblObservacion3)))
@@ -432,6 +411,9 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         );
 
         PanelAlertas.add(panelAlerta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 660, -1));
+
+        btnCargarAlertas.setText("Cargar ALERTAS");
+        PanelAlertas.add(btnCargarAlertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 150, -1));
 
         PanelHistorial.setBackground(new java.awt.Color(245, 247, 250));
 
@@ -466,7 +448,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
 
         jLabel26.setText("Antecedentes");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPacientesHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -485,7 +467,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tablaPacientesHistorial);
 
         jLabel34.setText("Pacientes");
 
@@ -1029,9 +1011,11 @@ public class Dashboard_Medico extends javax.swing.JFrame {
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PanelGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(PanelHistorial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PanelAlertas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(PanelAlertas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1255, Short.MAX_VALUE)
+                        .addGroup(PanelContenidoLayout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelContenidoLayout.setVerticalGroup(
@@ -1285,13 +1269,14 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMotivoConsulActionPerformed
 
     private void NuevaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevaConsultaActionPerformed
-        // TODO add your handling code here:
+        /*/ TODO add your handling code here:
         seleccionarBoton(NuevaConsulta);
         panel.setVisible(true);
 
         PanelAlertas.setVisible(false);
         PanelHistorial.setVisible(false);
         PanelGenerar.setVisible(false);
+        */
     }//GEN-LAST:event_NuevaConsultaActionPerformed
 
     private void btnAtender3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtender3ActionPerformed
@@ -1309,7 +1294,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
         btnAtender1.setText("Atendido");
     }//GEN-LAST:event_btnAtender1ActionPerformed
 
-    private void seleccionarBoton(javax.swing.JButton botonseleccionado){
+    public void seleccionarBoton(javax.swing.JButton botonseleccionado){
         javax.swing.JButton[] botones={btnAlerta,btnHistorial,btnTratamiento, NuevaConsulta};
         
         for(javax.swing.JButton btn:botones){
@@ -1327,17 +1312,18 @@ public class Dashboard_Medico extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton NuevaConsulta;
+    public javax.swing.JButton NuevaConsulta;
     public javax.swing.JPanel PanelAlertas;
     public javax.swing.JPanel PanelContenido;
     public javax.swing.JPanel PanelGenerar;
-    private javax.swing.JPanel PanelHistorial;
+    public javax.swing.JPanel PanelHistorial;
     private javax.swing.JPanel PanelMenu;
     private javax.swing.JButton btnActuali;
     private javax.swing.JButton btnAlerta;
     public javax.swing.JButton btnAtender1;
     public javax.swing.JButton btnAtender2;
     public javax.swing.JButton btnAtender3;
+    public javax.swing.JButton btnCargarAlertas;
     private javax.swing.JButton btnGenerarTrata;
     private javax.swing.JButton btnGuardaHisto;
     private javax.swing.JButton btnHistorial;
@@ -1374,8 +1360,6 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
@@ -1395,7 +1379,6 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
@@ -1409,7 +1392,7 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1418,10 +1401,8 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField8;
@@ -1445,8 +1426,10 @@ public class Dashboard_Medico extends javax.swing.JFrame {
     public javax.swing.JPanel panelAlerta1;
     public javax.swing.JPanel panelAlerta2;
     public javax.swing.JPanel panelAlerta3;
+    public javax.swing.JTable tablaPacientesActivos;
+    public javax.swing.JTable tablaPacientesHistorial;
     private javax.swing.JTextField txtBuscPaci;
-    private javax.swing.JTextField txtBuscar;
+    public javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtBusquedaPAciente;
     private javax.swing.JTextField txtCantidadMed;
     private javax.swing.JTextField txtCodigoMed;
