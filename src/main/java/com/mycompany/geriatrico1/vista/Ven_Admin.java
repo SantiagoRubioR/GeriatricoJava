@@ -11,6 +11,7 @@ import com.mycompany.geriatrico1.dao.EmpleadoDAO;
 import com.mycompany.geriatrico1.dao.ReporteDAO;
 import com.mycompany.geriatrico1.modelo.Reporte;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.Date;
 import java.util.List;
@@ -1287,6 +1288,8 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelInicio.setVisible(false);
         panelCuentas.setVisible(false);
         panelPacientes.setVisible(false);
+        
+        seleccionarLabel(reportes);
     }//GEN-LAST:event_reportesMouseClicked
 
     private void horariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horariosMouseClicked
@@ -1297,6 +1300,8 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelCuentas.setVisible(false);
         panelPacientes.setVisible(false);
         panelReportes.setVisible(false);
+        
+        seleccionarLabel(horarios);
     }//GEN-LAST:event_horariosMouseClicked
 
     private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
@@ -1309,6 +1314,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelHorarios.setVisible(false);
         panelReportes.setVisible(false);
         
+        seleccionarLabel(inicio);
     }//GEN-LAST:event_inicioMouseClicked
 
     private void cuentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cuentasMouseClicked
@@ -1321,6 +1327,8 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelReportes.setVisible(false);
         CtrlAdmin controlador = new CtrlAdmin(this);
         controlador.cargarTablaEmpleados();
+        
+        seleccionarLabel(cuentas);
         
     }//GEN-LAST:event_cuentasMouseClicked
 
@@ -1336,8 +1344,28 @@ public class Ven_Admin extends javax.swing.JFrame {
         CtrlAdmin controladorAdmin = new CtrlAdmin(this);
         controladorAdmin.cargarTablaPacientes();
         
+        seleccionarLabel(pacientes);
+        
     }//GEN-LAST:event_pacientesMouseClicked
 
+    public void seleccionarLabel(javax.swing.JLabel labelSeleccionado) {
+
+    javax.swing.JLabel[] labels = {inicio, cuentas, pacientes, horarios, reportes};
+
+    for (javax.swing.JLabel label : labels) {
+
+        if (label == labelSeleccionado) {
+            label.setOpaque(true);
+            label.setBackground(new Color(51, 153, 153));
+        } else {
+            label.setOpaque(true);
+            label.setBackground(null);
+        }
+    }
+}
+    
+    
+    
     private void txtBusPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusPersonalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusPersonalActionPerformed
