@@ -16,20 +16,20 @@ public class panel_inicio extends javax.swing.JPanel {
     public panel_inicio() {
         initComponents();
 
-    // El panel se da la orden a sí mismo de recargar sus datos apenas nace
-    recargarDatosInicio(); 
+    
+    // Carga inicial y Timer de 5 segundos
     javax.swing.Timer timer = new javax.swing.Timer(5000, new java.awt.event.ActionListener() {
         @Override
         public void actionPerformed(java.awt.event.ActionEvent e) {
-            // Llama a tu método para actualizar el número y el ComboBox sin parpadear
-            recargarDatosInicio(); 
+            actualizarContadores(); 
         }
     });
     
     
     // Encendemos el motor
     timer.start();
-    // Agregamos el evento al ComboBox de enfermeros (ajusta el nombre si tu combo se llama diferente)
+
+    // Agregamos el evento al ComboBox de enfermeros
     jComboBoxEnfermeros.addActionListener(new java.awt.event.ActionListener() {
     public void actionPerformed(java.awt.event.ActionEvent evt) {
         String seleccionado = (String) jComboBoxEnfermeros.getSelectedItem();
@@ -43,6 +43,8 @@ public class panel_inicio extends javax.swing.JPanel {
         }
     }
 });
+    
+    
         txtPaciente.putClientProperty("JTextField.placeholderText", "Buscar Paciente...");
         try {
     com.mycompany.geriatrico1.dao.AlertaDAO alertaDao = new com.mycompany.geriatrico1.dao.AlertaDAO();
@@ -54,6 +56,25 @@ public class panel_inicio extends javax.swing.JPanel {
         System.out.println("Error cargando alertas en inicio: " + e.getMessage());
 }
     }
+    public void actualizarContadores() {
+    // 1. Actualizar Alertas Críticas
+    try {
+        com.mycompany.geriatrico1.dao.AlertaDAO alertaDao = new com.mycompany.geriatrico1.dao.AlertaDAO();
+        int totalCriticas = alertaDao.contarAlertasCriticasPendientes();
+        lblAlertasCriticas.setText(String.valueOf(totalCriticas)); // Cambia por el nombre real de tu JLabel
+    } catch (Exception e) {
+        System.out.println("Error cargando alertas en inicio: " + e.getMessage());
+    }
+    
+    // 2. ¡Actualizar Cuidados Pendientes del Enfermero!
+    try {
+        com.mycompany.geriatrico1.dao.CuidadoDAO cuidadoDao = new com.mycompany.geriatrico1.dao.CuidadoDAO();
+        int totalCuidados = cuidadoDao.contarCuidadosPendientesEnfermero(); // O como hayas llamado al método en tu DAO
+        lblCuidadoPen.setText(String.valueOf(totalCuidados)); // Cambia por el nombre real de tu JLabel del cero
+    } catch (Exception e) {
+        System.out.println("Error cargando cuidados en inicio: " + e.getMessage());
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
