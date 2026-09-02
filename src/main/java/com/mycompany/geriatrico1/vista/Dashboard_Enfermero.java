@@ -19,6 +19,7 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
         initComponents();
         
         lblUsuarioActivo.setText("Enfermer@: " + nombreUsuario);
+        panel_inicio1.setDatosEnfermero(nombreUsuario);
     }
 
     /**

@@ -30,6 +30,7 @@ public class panel_inicio extends javax.swing.JPanel {
     timer.start();
     
     
+    
         txtPaciente.putClientProperty("JTextField.placeholderText", "Buscar Paciente...");
         try {
     com.mycompany.geriatrico1.dao.AlertaDAO alertaDao = new com.mycompany.geriatrico1.dao.AlertaDAO();
@@ -60,6 +61,20 @@ public class panel_inicio extends javax.swing.JPanel {
         System.out.println("Error cargando cuidados en inicio: " + e.getMessage());
     }
 }
+    public void setDatosEnfermero(String nombreEnfermero) {
+    // 1. Colocamos el nombre en el label (Asegúrate de haberle puesto este nombre al label en tu vista Design)
+    lblNombreEnfermero.setText(nombreEnfermero); 
+    
+    // 2. Traemos su horario
+    try {
+        com.mycompany.geriatrico1.dao.HorarioDAO horarioDao = new com.mycompany.geriatrico1.dao.HorarioDAO();
+        String[] datos = horarioDao.obtenerTurnoYHorarioEnfermero(nombreEnfermero);
+        
+        lblHorario.setText(datos[0] + " (" + datos[1] + ")"); 
+    } catch (Exception e) {
+        System.out.println("Error al cargar el turno: " + e.getMessage());
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,7 +91,7 @@ public class panel_inicio extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         lblHorario = new javax.swing.JLabel();
-        lblEnfermeroActual = new javax.swing.JLabel();
+        lblNombreEnfermero = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         lblAlertasCriticas = new javax.swing.JLabel();
@@ -110,8 +125,8 @@ public class panel_inicio extends javax.swing.JPanel {
         lblHorario.setText("  ");
         lblHorario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lblEnfermeroActual.setText("l");
-        lblEnfermeroActual.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblNombreEnfermero.setText("l");
+        lblNombreEnfermero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,7 +145,7 @@ public class panel_inicio extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblHorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblEnfermeroActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(lblNombreEnfermero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -140,7 +155,7 @@ public class panel_inicio extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(lblEnfermeroActual))
+                    .addComponent(lblNombreEnfermero))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHorario)
@@ -322,20 +337,8 @@ public class panel_inicio extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     public javax.swing.JLabel lblAlertasCriticas;
     private javax.swing.JLabel lblCuidadoPen;
-    private javax.swing.JLabel lblEnfermeroActual;
     private javax.swing.JLabel lblHorario;
+    private javax.swing.JLabel lblNombreEnfermero;
     private javax.swing.JTextField txtPaciente;
     // End of variables declaration//GEN-END:variables
-
-  public void recargarDatosInicio() {
-    try {
-        // --- RECARGA ALERTAS CRÍTICAS ---
-        com.mycompany.geriatrico1.dao.AlertaDAO alertaDao = new com.mycompany.geriatrico1.dao.AlertaDAO();
-        int alertas = alertaDao.contarAlertasCriticasPendientes();
-        lblAlertasCriticas.setText(String.valueOf(alertas));
-        
-    } catch (Exception e) {
-        System.out.println("Error recargando inicio: " + e.getMessage());
-    }
-}
 }
