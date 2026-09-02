@@ -450,6 +450,7 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Masculino", "Femenino" }));
 
         btnGuardarFicha.setText("Guardar");
+        btnGuardarFicha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanelPersonaLayout = new javax.swing.GroupLayout(jPanelPersona);
         jPanelPersona.setLayout(jPanelPersonaLayout);

@@ -83,7 +83,8 @@ public class AlertaDAO {
                 alerta[0] = rs.getString("ID_EncabAler"); 
                 alerta[1] = rs.getString("Paciente");
                 alerta[2] = rs.getString("Observaciones_DetAler"); 
-                alerta[3] = rs.getString("Hora_EncabAler");
+                String horaCruda = rs.getString("Hora_EncabAler");
+                alerta[3] = (horaCruda != null && horaCruda.length() >= 5) ? horaCruda.substring(0, 5) : horaCruda;
                 lista.add(alerta);
             }
         } catch (Exception e) {
