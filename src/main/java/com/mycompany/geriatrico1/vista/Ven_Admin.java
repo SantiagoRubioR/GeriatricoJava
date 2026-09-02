@@ -5,8 +5,16 @@
 package com.mycompany.geriatrico1.vista;
 //import com.mycompany.geriatrico1.vista.Ven_Admin;
 import com.mycompany.geriatrico1.Controlador.CtrlAdmin;
+import com.mycompany.geriatrico1.conexion.Conexion;
 import com.mycompany.geriatrico1.controlador.CtrlEmpleados;
 import com.mycompany.geriatrico1.dao.EmpleadoDAO;
+import com.mycompany.geriatrico1.dao.ReporteDAO;
+import com.mycompany.geriatrico1.modelo.Reporte;
+import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,12 +23,17 @@ import com.mycompany.geriatrico1.dao.EmpleadoDAO;
 public class Ven_Admin extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Ven_Admin.class.getName());
-
+    private panelGrafica panelGraficaChart;
+    private boolean formularioListo = false;
     /**
      * Creates new form Ven_Admin
      */
     public Ven_Admin(String nombreUsuario) {
-        initComponents();          
+        initComponents();      
+        cargarConsultas();
+        cargarPeriodos();
+        cargarGraficas();
+        configurarFechas();
         panelSolicitudAcceso.setVisible(false);
         panelCuentas.setVisible(false);
         panelInicio.setVisible(true);
@@ -28,8 +41,12 @@ public class Ven_Admin extends javax.swing.JFrame {
         panelHorarios.setVisible(false);
         panelReportes.setVisible(false);
         
+        
         lblUsuario.setText("Admin: " + nombreUsuario);
         lblSaludo.setText("Hola " + nombreUsuario);
+        
+        formularioListo = true;
+
 
     }
     public void actualizarContadoresVista(int pacientes, int personal, int alertas, int cuidados) {
@@ -37,6 +54,356 @@ public class Ven_Admin extends javax.swing.JFrame {
         lblCuentasPer.setText(String.valueOf(personal));
         lblAlertas.setText(String.valueOf(alertas));
         lblCuidados.setText(String.valueOf(cuidados));
+    }
+    
+    //METODOS PARA REPORTE
+    private void cargarConsultas() {
+
+    comboxConsulta.removeAllItems();
+
+    comboxConsulta.addItem(
+        "Pacientes por tipo de sangre"
+    );
+
+    comboxConsulta.addItem(
+        "Pacientes por grado de dependencia"
+    );
+
+    comboxConsulta.addItem(
+        "Empleados por cargo"
+    );
+
+    comboxConsulta.addItem(
+        "Empleados por estado"
+    );
+
+    comboxConsulta.addItem(
+        "Médicos por especialidad"
+    );
+
+    comboxConsulta.addItem(
+        "Enfermeras por especialidad"
+    );
+
+    comboxConsulta.addItem(
+        "Personas por género"
+    );
+
+    comboxConsulta.addItem(
+        "Alertas por prioridad"
+    );
+
+    comboxConsulta.addItem(
+        "Alertas por estado"
+    );
+
+    comboxConsulta.addItem(
+        "Diagnósticos más frecuentes"
+    );
+
+    comboxConsulta.addItem(
+        "Presión arterial"
+    );
+
+    comboxConsulta.addItem(
+        "Cuidados por tipo"
+    );
+
+    comboxConsulta.addItem(
+        "Cuidados por enfermera"
+    );
+
+    comboxConsulta.addItem(
+        "Medicamentos por vía"
+    );
+
+    comboxConsulta.addItem(
+        "Medicamentos por fabricante"
+    );
+
+    comboxConsulta.addItem(
+        "Medicamentos próximos a caducar"
+    );
+
+    comboxConsulta.addItem(
+        "Recetas por mes"
+    );
+
+    comboxConsulta.addItem(
+        "Medicamentos más recetados"
+    );
+
+    comboxConsulta.addItem(
+        "Tratamientos por estado"
+    );
+
+    comboxConsulta.addItem(
+        "Tratamientos por tipo"
+    );
+
+    comboxConsulta.addItem("Tratamientos por médico");
+
+    comboxConsulta.addItem( "Historiales clínicos por mes");
+
+    comboxConsulta.addItem("Horarios por día");
+
+    comboxConsulta.addItem("Usuarios creados");
+}
+    
+    private void cargarPeriodos() {
+
+    comboxPeriodo.removeAllItems();
+
+    comboxPeriodo.addItem("Todos");
+    comboxPeriodo.addItem("Hoy");
+    comboxPeriodo.addItem("Este mes");
+    comboxPeriodo.addItem("Últimos 3 meses");
+    comboxPeriodo.addItem("Últimos 4 meses");
+    comboxPeriodo.addItem("Últimos 6 meses");
+    comboxPeriodo.addItem("Este año");
+    comboxPeriodo.addItem("Personalizado");
+}
+    
+    private void cargarGraficas() {
+
+    comboxTipGrafica.removeAllItems();
+
+    comboxTipGrafica.addItem(
+        "Gráfica de barras"
+    );
+
+    comboxTipGrafica.addItem(
+        "Gráfica circular"
+    );
+    
+}
+    private void configurarFechas() {
+
+    txtFechaIni.setEnabled(false);
+    txtFechaFin.setEnabled(false);
+
+    txtFechaIni.setText("");
+    txtFechaFin.setText("");
+}
+    private Date[] obtenerFechas() {
+
+    String periodo =
+            comboxPeriodo.getSelectedItem().toString();
+
+    Date fechaIni = null;
+    Date fechaFin = null;
+
+    java.time.LocalDate hoy =
+            java.time.LocalDate.now();
+
+    switch (periodo) {
+
+        case "Todos":
+
+            break;
+
+        case "Hoy":
+
+            fechaIni =
+                    Date.valueOf(hoy);
+
+            fechaFin =
+                    Date.valueOf(hoy);
+
+            break;
+
+        case "Este mes":
+
+            fechaIni =
+                    Date.valueOf(
+                        hoy.withDayOfMonth(1)
+                    );
+
+            fechaFin =
+                    Date.valueOf(hoy);
+
+            break;
+
+        case "Últimos 3 meses":
+
+            fechaIni =
+                    Date.valueOf(
+                        hoy.minusMonths(3)
+                    );
+
+            fechaFin =
+                    Date.valueOf(hoy);
+
+            break;
+
+        case "Últimos 4 meses":
+
+            fechaIni =
+                    Date.valueOf(
+                        hoy.minusMonths(4)
+                    );
+
+            fechaFin =
+                    Date.valueOf(hoy);
+
+            break;
+
+        case "Últimos 6 meses":
+
+            fechaIni =
+                    Date.valueOf(
+                        hoy.minusMonths(6)
+                    );
+
+            fechaFin =
+                    Date.valueOf(hoy);
+
+            break;
+
+        case "Este año":
+
+            fechaIni=
+                    Date.valueOf(
+                        hoy.withDayOfYear(1)
+                    );
+
+            fechaFin =
+                    Date.valueOf(hoy);
+
+            break;
+
+        case "Personalizado":
+
+            try {
+
+                fechaIni =
+                    Date.valueOf(
+                        txtFechaIni
+                            .getText()
+                            .trim()
+                    );
+
+                fechaFin =
+                    Date.valueOf(
+                        txtFechaFin
+                            .getText()
+                            .trim()
+                    );
+
+            } catch (IllegalArgumentException e) {
+
+                JOptionPane.showMessageDialog(
+                    this,
+                    "Ingrese las fechas correctamente.\n"
+                    + "Formato: YYYY-MM-DD"
+                );
+
+                return null;
+            }
+
+            break;
+    }
+
+    return new Date[]{
+        fechaIni,
+        fechaFin
+    };
+}
+
+    private boolean validarFechas(
+        Date fechaIni,
+        Date fechaFin) {
+
+    if (fechaIni == null ||
+        fechaFin == null) {
+
+        return true;
+    }
+
+    if (fechaIni.after(fechaFin)) {
+
+        JOptionPane.showMessageDialog(
+            this,
+            "La fecha inicial no puede ser "
+            + "mayor que la fecha final."
+        );
+
+        return false;
+    }
+
+    return true;
+}
+    
+    private boolean consultaPermiteFecha(
+        int tipoConsulta) {
+
+    switch (tipoConsulta) {
+
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 8:
+        case 9:
+        case 10:
+        case 12:
+        case 13:
+        case 17:
+        case 18:
+        case 19:
+        case 21:
+        case 22:
+        case 24:
+
+            return true;
+
+        default:
+
+            return false;
+    }
+}
+    
+    
+    //GRAFICAS
+
+    private void generarGraficaBarras(List<Reporte> resultados) {
+
+        String titulo =
+                comboxConsulta.getSelectedItem().toString();
+
+        if (panelGraficaChart == null) {
+
+            panelGraficaChart = new panelGrafica();
+            panelGraficaChart.setPreferredSize(new java.awt.Dimension(340, 300));
+
+            panelGraficas.setLayout(new BorderLayout());
+            panelGraficas.add(panelGraficaChart, BorderLayout.CENTER);
+        }
+
+        panelGraficaChart.mostrarBarras(resultados, titulo);
+
+        panelGraficas.revalidate();
+        panelGraficas.repaint();
+    }
+
+    private void generarGraficaCircular(List<Reporte> resultados) {
+
+        String titulo =
+                comboxConsulta.getSelectedItem().toString();
+
+        if (panelGraficaChart == null) {
+
+            panelGraficaChart = new panelGrafica();
+            panelGraficaChart.setPreferredSize(new java.awt.Dimension(340, 300));
+
+            panelGraficas.setLayout(new BorderLayout());
+            panelGraficas.add(panelGraficaChart, BorderLayout.CENTER);
+        }
+
+        panelGraficaChart.mostrarCircular(resultados, titulo);
+
+        panelGraficas.revalidate();
+        panelGraficas.repaint();
     }
 
     /**
@@ -126,9 +493,21 @@ public class Ven_Admin extends javax.swing.JFrame {
         jTable5 = new javax.swing.JTable();
         btnGeneTurno = new javax.swing.JButton();
         panelReportes = new javax.swing.JPanel();
-        jPanel15 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        comboxConsulta = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        comboxTipGrafica = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        comboxPeriodo = new javax.swing.JComboBox<>();
+        panelPersonalizado = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        txtFechaIni = new javax.swing.JTextField();
+        txtFechaFin = new javax.swing.JTextField();
+        panelGraficas = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -749,49 +1128,104 @@ public class Ven_Admin extends javax.swing.JFrame {
                 .addContainerGap(212, Short.MAX_VALUE))
         );
 
-        jLabel22.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
-        jLabel22.setText("Reportes");
+        panelReportes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel31.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel31.setText("Resumen general de la actividad del sistema");
+        jLabel29.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
+        jLabel29.setText("Reportes");
 
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
+        jLabel32.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel32.setText("Resumen general de la actividad del sistema");
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel22))
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel32)
+                    .addComponent(jLabel29))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel22)
+                .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jLabel31))
+                .addComponent(jLabel32))
         );
 
-        javax.swing.GroupLayout panelReportesLayout = new javax.swing.GroupLayout(panelReportes);
-        panelReportes.setLayout(panelReportesLayout);
-        panelReportesLayout.setHorizontalGroup(
-            panelReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelReportesLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(566, Short.MAX_VALUE))
+        panelReportes.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 54, -1, -1));
+
+        jLabel2.setText("Consulta: ");
+        panelReportes.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 201, -1, -1));
+
+        comboxConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboxConsulta.addActionListener(this::comboxConsultaActionPerformed);
+        panelReportes.add(comboxConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 198, -1, -1));
+
+        jLabel3.setText("Tipo de gráfica: ");
+        panelReportes.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 425, -1, -1));
+
+        comboxTipGrafica.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelReportes.add(comboxTipGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 422, -1, -1));
+
+        jLabel10.setText("Periodo");
+        panelReportes.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 255, -1, -1));
+
+        comboxPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboxPeriodo.addActionListener(this::comboxPeriodoActionPerformed);
+        panelReportes.add(comboxPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 252, -1, -1));
+
+        jLabel11.setText("Fecha incial: ");
+
+        jLabel16.setText("Fecha final: ");
+
+        javax.swing.GroupLayout panelPersonalizadoLayout = new javax.swing.GroupLayout(panelPersonalizado);
+        panelPersonalizado.setLayout(panelPersonalizadoLayout);
+        panelPersonalizadoLayout.setHorizontalGroup(
+            panelPersonalizadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPersonalizadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelPersonalizadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel16))
+                .addGap(48, 48, 48)
+                .addGroup(panelPersonalizadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtFechaIni)
+                    .addComponent(txtFechaFin, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
-        panelReportesLayout.setVerticalGroup(
-            panelReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelReportesLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(390, Short.MAX_VALUE))
+        panelPersonalizadoLayout.setVerticalGroup(
+            panelPersonalizadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPersonalizadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelPersonalizadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtFechaIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelPersonalizadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(txtFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
+
+        panelReportes.add(panelPersonalizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 302, -1, -1));
+
+        javax.swing.GroupLayout panelGraficasLayout = new javax.swing.GroupLayout(panelGraficas);
+        panelGraficas.setLayout(panelGraficasLayout);
+        panelGraficasLayout.setHorizontalGroup(
+            panelGraficasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 390, Short.MAX_VALUE)
+        );
+        panelGraficasLayout.setVerticalGroup(
+            panelGraficasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 370, Short.MAX_VALUE)
+        );
+
+        panelReportes.add(panelGraficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 390, 370));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -812,7 +1246,7 @@ public class Ven_Admin extends javax.swing.JFrame {
                         .addComponent(panelHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(panelReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(66, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(294, 294, 294))))
@@ -827,10 +1261,8 @@ public class Ven_Admin extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(panelHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(14, 14, 14)
-                                        .addComponent(panelReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(panelPacientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(panelPacientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(panelReportes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(panelCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1008,6 +1440,155 @@ public class Ven_Admin extends javax.swing.JFrame {
         new CtrlAdmin(this).darDeBajaEmpleado();
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void comboxConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxConsultaActionPerformed
+        // TODO add your handling code here:
+        if (!formularioListo) {
+            return;
+        }
+
+        int tipoConsulta =
+        comboxConsulta.getSelectedIndex() + 1;
+
+        boolean permiteFecha =
+        consultaPermiteFecha(
+            tipoConsulta
+        );
+
+        comboxPeriodo.setEnabled(
+            permiteFecha
+        );
+
+        txtFechaIni.setEnabled(false);
+        txtFechaFin.setEnabled(false);
+
+        generarReporteYGrafica();
+    }//GEN-LAST:event_comboxConsultaActionPerformed
+
+    private void comboxPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxPeriodoActionPerformed
+        // TODO add your handling code here:
+        
+        if (comboxPeriodo.getSelectedItem() == null) {
+            return;
+        }
+
+        String periodo = comboxPeriodo.getSelectedItem().toString();
+
+        if (periodo.equals("Personalizado")) {
+            panelPersonalizado.setVisible(true);
+
+            txtFechaIni.setEnabled(true);
+            txtFechaFin.setEnabled(true);
+
+        } else {
+
+            txtFechaIni.setEnabled(false);
+            txtFechaFin.setEnabled(false);
+
+            txtFechaIni.setText("");
+            txtFechaFin.setText("");
+        }
+
+        if (!formularioListo) {
+            return;
+        }
+
+        generarReporteYGrafica();
+    }//GEN-LAST:event_comboxPeriodoActionPerformed
+    private void generarReporteYGrafica() {
+
+        // 1. OBTENER CONSULTA
+        int tipoConsulta =
+               comboxConsulta.getSelectedIndex() + 1;
+
+        // 2. OBTENER FECHAS
+        Date[] fechas =
+                obtenerFechas();
+
+        if (fechas == null) {
+            return;
+        }
+
+        Date fechaIni = fechas[0];
+        Date fechaFin = fechas[1];
+
+        // 3. VALIDAR FECHAS
+        if (!validarFechas(
+                fechaIni,
+                fechaFin)) {
+
+            return;
+        }
+
+        // 4. OBTENER TIPO DE GRÁFICA
+        int tipoGrafica =
+                comboxTipGrafica.getSelectedIndex();
+
+        // 5. CONECTAR A POSTGRESQL Y EJECUTAR
+        try {
+
+            Connection cn =
+                    Conexion.getConnection();
+
+            ReporteDAO dao =
+                    new ReporteDAO(cn);
+
+            List<Reporte> resultados =
+                    dao.ejecutarReporte(
+                        tipoConsulta,
+                        fechaIni,
+                        fechaFin
+                    );
+
+            // 6. COMPROBAR RESULTADOS
+            if (resultados.isEmpty()) {
+
+                JOptionPane.showMessageDialog(
+                    this,
+                    "No existen datos para "
+                    + "el período seleccionado."
+                );
+
+                return;
+            }
+
+            // 7. MOSTRAR GRÁFICA
+            if (tipoGrafica == 0) {
+
+                generarGraficaBarras(
+                    resultados
+                );
+
+            } else {
+
+                generarGraficaCircular(
+                    resultados
+                );
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(
+                this,
+                "Error al generar reporte:\n"
+                + e.getMessage()
+            );
+
+            e.printStackTrace();
+        }
+    }
+
+    private void comboxTipGraficaActionPerformed(java.awt.event.ActionEvent evt) {
+
+        if (comboxTipGrafica.getSelectedItem() == null) {
+            return;
+        }
+
+        if (!formularioListo) {
+            return;
+        }
+
+        generarReporteYGrafica();
+    }
     /**
      * @param args the command line arguments
      */
@@ -1021,6 +1602,9 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevoPaciente;
     private javax.swing.JButton btnNuevoPersonal;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JComboBox<String> comboxConsulta;
+    private javax.swing.JComboBox<String> comboxPeriodo;
+    private javax.swing.JComboBox<String> comboxTipGrafica;
     private javax.swing.JLabel cuentas;
     private javax.swing.JLabel horarios;
     private javax.swing.JLabel inicio;
@@ -1031,19 +1615,24 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JDialog jDialog2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
@@ -1058,9 +1647,9 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     public javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanel4;
@@ -1084,9 +1673,11 @@ public class Ven_Admin extends javax.swing.JFrame {
     public javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel pacientes;
     private javax.swing.JPanel panelCuentas;
+    private javax.swing.JPanel panelGraficas;
     private javax.swing.JPanel panelHorarios;
     private javax.swing.JPanel panelInicio;
     private javax.swing.JPanel panelPacientes;
+    private javax.swing.JPanel panelPersonalizado;
     private javax.swing.JPanel panelReportes;
     private javax.swing.JPanel panelSolicitudAcceso;
     private javax.swing.JLabel reportes;
@@ -1095,5 +1686,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     public javax.swing.JTextField txtBusPersonal;
     private javax.swing.JTextField txtBuscTurno;
     private javax.swing.JTextField txtBuscarPaciente;
+    private javax.swing.JTextField txtFechaFin;
+    private javax.swing.JTextField txtFechaIni;
     // End of variables declaration//GEN-END:variables
 }
