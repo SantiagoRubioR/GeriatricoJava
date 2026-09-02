@@ -218,4 +218,5 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
     public com.mycompany.geriatrico1.vista.panel_inicio panel_inicio1;
     public com.mycompany.geriatrico1.vista.panel_paciente panel_paciente2;
     // End of variables declaration//GEN-END:variables
+
 }
