@@ -14,6 +14,7 @@ public class CtrlDashboardMedico implements ActionListener {
     private AlertaDAO alertaDao;
     private java.util.List<String[]> listaPacientesActivos;
     private String nombrePacienteSeleccionado = "";
+    private java.util.List<Object[]> antecedentesMemoria;
 
     public CtrlDashboardMedico(Dashboard_Medico vista) {
         this.vista = vista;
@@ -24,9 +25,14 @@ public class CtrlDashboardMedico implements ActionListener {
         this.vista.btnAtender2.addActionListener(this);
         this.vista.btnAtender3.addActionListener(this);
         this.vista.btnCargarAlertas.addActionListener(this);
+        this.vista.NuevaConsulta.addActionListener(this);
+        this.vista.NuevaConsulta.addActionListener(this);
+        this.vista.btnGuardarHistorial.addActionListener(this);
+        inicializarComboBoxesTratamiento();
         // 2. Cargamos las alertas al iniciar
         cargarPanelAlertas();
         cargarTablaPacientesActivos();
+        this.vista.btnGenerarTratamiento.addActionListener(this);
         this.vista.tablaPacientesActivos.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
@@ -103,15 +109,73 @@ public class CtrlDashboardMedico implements ActionListener {
                 break;
             }
         }
+    
 
         // --- LLENAR LA TABLA SUPERIOR DEL HISTORIAL (Como está en tu diseño) ---
         javax.swing.table.DefaultTableModel modeloHistorial = (javax.swing.table.DefaultTableModel) vista.tablaPacientesHistorial.getModel(); // ¡Ajusta el nombre de la tabla!
         modeloHistorial.setRowCount(0); 
         modeloHistorial.addRow(new Object[]{cedula, nombrePacienteSeleccionado}); 
         
-        // (Opcional) Si quieres cargar la tabla de Antecedentes, iría aquí...
-    }
+        cargarTablaAntecedentes();
 
+        vista.txtDiagnosticoAntecedentes.setText("");
+        vista.txtObservacionesAntecedentes.setText("");
+        // Poner "oreja" a la tabla de Antecedentes
+        this.vista.tablaAntecedentes.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                mostrarDetalleAntecedente();
+            }
+        });
+        vista.txtPaciente.setText(nombrePacienteSeleccionado); 
+        vista.txtPaciente.setEditable(false);
+    }
+    
+    private void cargarTablaAntecedentes() {
+        javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) vista.tablaAntecedentes.getModel(); // Ajusta el nombre de tu tabla
+        modelo.setRowCount(0);
+        
+        com.mycompany.geriatrico1.dao.HistorialDAO histDao = new com.mycompany.geriatrico1.dao.HistorialDAO();
+        antecedentesMemoria = histDao.obtenerAntecedentesPaciente(idPacienteSeleccionado);
+        
+        for (Object[] ant : antecedentesMemoria) {
+            // Solo metemos a la tabla lo que cabe visualmente (índices 0 al 6)
+            modelo.addRow(new Object[]{ant[0], ant[1], ant[2], ant[3], ant[4], ant[5], ant[6]}); 
+        }
+    }
+    
+    private void mostrarDetalleAntecedente() {
+        int filaVisual = vista.tablaAntecedentes.getSelectedRow();
+        if (filaVisual == -1) return;
+
+        int filaModelo = vista.tablaAntecedentes.convertRowIndexToModel(filaVisual);
+        
+        // Recuperamos los datos de nuestra lista en memoria (donde guardamos todo)
+        if (antecedentesMemoria != null && filaModelo < antecedentesMemoria.size()) {
+            Object[] datosFila = antecedentesMemoria.get(filaModelo);
+            
+            String diagnostico = datosFila[7] != null ? datosFila[7].toString() : "";
+            String observaciones = datosFila[8] != null ? datosFila[8].toString() : "";
+            
+           
+            vista.txtDiagnosticoAntecedentes.setText(diagnostico); 
+            vista.txtObservacionesAntecedentes.setText(observaciones); 
+        }
+    }
+    
+    private void inicializarComboBoxesTratamiento() {
+        com.mycompany.geriatrico1.dao.TratamientoDAO traDao = new com.mycompany.geriatrico1.dao.TratamientoDAO();
+        
+        vista.cmbNombreTratamiento.removeAllItems(); // Ajusta el nombre de tu JComboBox
+        for (String tipo : traDao.listarTiposTratamiento()) {
+            vista.cmbNombreTratamiento.addItem(tipo);
+        }
+        
+        vista.cmbNombreMedicamento.removeAllItems(); // Ajusta el nombre de tu JComboBox
+        for (String med : traDao.listarMedicamentos()) {
+            vista.cmbNombreMedicamento.addItem(med);
+        }
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         // ==========================================================
@@ -144,25 +208,164 @@ public class CtrlDashboardMedico implements ActionListener {
             cargarPanelAlertas(); 
         }
         
-        if (e.getSource() == vista.NuevaConsulta) { // Usa el nombre exacto del botón de tu imagen
+        if (e.getSource() == vista.NuevaConsulta) {
             
             // 1. Validamos que haya dado clic en la tabla primero
             if (idPacienteSeleccionado.isEmpty()) {
                 javax.swing.JOptionPane.showMessageDialog(vista, "Primero seleccione un paciente de la lista lateral.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
-                return; // Cortamos la ejecución para que no cambie de panel
+                return; 
             }
 
-            // 2. Llenamos el nombre en el TextField del panel verde
-            // (Ajusta 'txtPacienteNuevaEntrada' al nombre real que tenga esa caja en NetBeans)
+            
             vista.txtBuscar.setText(nombrePacienteSeleccionado); 
             vista.txtBuscar.setEditable(false);
 
-            // 3. Ejecutamos la navegación exacta que hizo María en tu captura
+            // 3. Ejecutamos la navegación 
             vista.seleccionarBoton(vista.NuevaConsulta);
             vista.panel.setVisible(true); // El panel verde
             vista.PanelAlertas.setVisible(false);
             vista.PanelHistorial.setVisible(false);
             vista.PanelGenerar.setVisible(false);
+        }
+        
+        if (e.getSource() == vista.btnGuardarHistorial) { // Ajusta el nombre de tu botón
+            
+            // 1. Verificamos que el ID oculto esté cargado
+            if (idPacienteSeleccionado.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(vista, "Seleccione un paciente de la lista lateral primero.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            try {
+                // 2. Extraemos los datos de la interfaz
+                double peso = Double.parseDouble(vista.txtPeso.getText().trim());
+                double temp = Double.parseDouble(vista.txtTemp.getText().trim());
+                int frec = Integer.parseInt(vista.txtFrec.getText().trim());
+                
+                // Presión separada (Asegúrate de haber puesto dos TextFields)
+                double sis = Double.parseDouble(vista.txtPresionSis.getText().trim());
+                double dias = Double.parseDouble(vista.txtPresionDias.getText().trim());
+                
+                String diagnostico = vista.txtDiagnostico.getText().trim();
+                String motivo = vista.txtMotivo.getText().trim();
+                String obs = vista.txtObservaciones.getText().trim();
+
+                if (diagnostico.isEmpty()) {
+                    javax.swing.JOptionPane.showMessageDialog(vista, "El diagnóstico es obligatorio.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
+                // Unimos el motivo a las observaciones para que la base de datos lo acepte
+                String observacionesFinales = "Motivo: " + motivo + " | " + obs;
+                
+                // El ID del Médico que está usando el sistema (Salvavidas MVP)
+                String idMedicoActual = "MED-0001"; 
+
+                // 3. Enviamos todo a la base de datos (Usando el HistorialDAO que te di antes)
+                com.mycompany.geriatrico1.dao.HistorialDAO histDao = new com.mycompany.geriatrico1.dao.HistorialDAO();
+                
+                if (histDao.registrarConsulta(idPacienteSeleccionado, idMedicoActual, peso, sis, dias, temp, frec, diagnostico, observacionesFinales)) {
+                    
+                    javax.swing.JOptionPane.showMessageDialog(vista, "Consulta guardada exitosamente en el expediente.");
+                    
+                    // 4. Limpiamos las cajas de texto
+                    vista.txtPeso.setText("");
+                    vista.txtTemp.setText("");
+                    vista.txtFrec.setText("");
+                    vista.txtPresionSis.setText("");
+                    vista.txtPresionDias.setText("");
+                    vista.txtDiagnostico.setText("");
+                    vista.txtMotivo.setText("");
+                    vista.txtObservaciones.setText("");
+                    
+                    // 5. ¡VOLVEMOS A CARGAR LA TABLA DE ANTECEDENTES PARA QUE APAREZCA EL NUEVO REGISTRO!
+                    cargarTablaAntecedentes(); 
+                    
+                    // 6. Lógica automática de alertas de emergencia
+                    if (sis > 140 || dias > 90 || temp > 38.5 || frec > 100) {
+                        com.mycompany.geriatrico1.dao.AlertaDAO alertaDao = new com.mycompany.geriatrico1.dao.AlertaDAO();
+                        String detalleAlerta = "SISTEMA AUTOMÁTICO: Signos vitales alterados registrados en consulta. T:" + temp + " FC:" + frec;
+                        alertaDao.registrarAlerta(idPacienteSeleccionado, "PRI-0001", idMedicoActual, detalleAlerta);
+                        
+                        javax.swing.JOptionPane.showMessageDialog(vista, "¡ALERTA AUTOMÁTICA EMITIDA AL SISTEMA!\nSignos vitales del paciente fuera de rango normal.", "Alerta Crítica", javax.swing.JOptionPane.WARNING_MESSAGE);
+                    }
+                    
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(vista, "Error al guardar la consulta.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                }
+
+            } catch (NumberFormatException ex) {
+                javax.swing.JOptionPane.showMessageDialog(vista, "Error: Los campos de Peso, Presión, Temperatura y Frecuencia deben ser únicamente numéricos.", "Error de Formato", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        
+        if (e.getSource() == vista.btnGenerarTratamiento) { // Ajusta tu botón
+            
+            if (idPacienteSeleccionado.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(vista, "Seleccione un paciente de la lista lateral primero.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            // Validamos que hayan elegido opciones válidas en los combos
+            if (vista.cmbNombreTratamiento.getSelectedIndex() <= 0 || vista.cmbNombreMedicamento.getSelectedIndex() <= 0) {
+                javax.swing.JOptionPane.showMessageDialog(vista, "Debe seleccionar un Tratamiento y un Medicamento.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            try {
+                // Truco: Extraer solo el ID de los Combos (Ej: "TTR-0001 - Tratamiento..." -> "TTR-0001")
+                String comboTratamiento = vista.cmbNombreTratamiento.getSelectedItem().toString();
+                String idTipoTratamiento = comboTratamiento.split(" - ")[0]; 
+                
+                String comboMedicamento = vista.cmbNombreMedicamento.getSelectedItem().toString();
+                String idMedicamento = comboMedicamento.split(" - ")[0];
+
+                // Extraer fechas de los JDateChooser (Ajusta los nombres jdFechaInicio / jdFechaFin)
+                if (vista.dateInicioTrata.getDate() == null || vista.dateFinTrata.getDate() == null) {
+                    javax.swing.JOptionPane.showMessageDialog(vista, "Las fechas de inicio y fin son obligatorias.");
+                    return;
+                }
+                java.sql.Date fechaIni = new java.sql.Date(vista.dateInicioTrata.getDate().getTime());
+                java.sql.Date fechaFin = new java.sql.Date(vista.dateFinTrata.getDate().getTime());
+
+                // Datos de la receta
+                int cantidad = Integer.parseInt(vista.txtCantidadMed.getText().trim());
+                String dosis = vista.txtDosisMed.getText().trim();
+                String frecuencia = vista.cmbFrecuencia.getSelectedItem().toString();
+                String duracionReceta = vista.cmbDuracion.getSelectedItem().toString();
+                
+                // Unimos las observaciones para no perder nada
+                String obsTratamiento = vista.txtObservacionesTratamiento.getText().trim();
+                String obsReceta = vista.txtObservacionesReceta.getText().trim();
+                String observacionesFinales = "Tratamiento: " + obsTratamiento + " | Receta: " + obsReceta;
+
+                String idMedicoActual = "MED-0001"; // El doc logueado
+
+                com.mycompany.geriatrico1.dao.TratamientoDAO traDao = new com.mycompany.geriatrico1.dao.TratamientoDAO();
+                
+                if (traDao.registrarTratamientoCompleto(idPacienteSeleccionado, idMedicoActual, idTipoTratamiento, fechaIni, fechaFin, observacionesFinales, idMedicamento, cantidad, dosis, frecuencia, duracionReceta)) {
+                    
+                    javax.swing.JOptionPane.showMessageDialog(vista, "¡Tratamiento y Receta generados exitosamente!");
+                    
+                    // Limpieza visual
+                    vista.cmbNombreTratamiento.setSelectedIndex(0);
+                    vista.cmbNombreMedicamento.setSelectedIndex(0);
+                    vista.dateInicioTrata.setDate(null);
+                    vista.dateFinTrata.setDate(null);
+                    vista.txtCantidadMed.setText("");
+                    vista.txtDosisMed.setText("");
+                    vista.txtObservacionesTratamiento.setText("");
+                    vista.txtObservacionesReceta.setText("");
+                    vista.cmbFrecuencia.setSelectedIndex(0);
+                    vista.cmbDuracion.setSelectedIndex(0);
+                    
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(vista, "Error al generar el tratamiento. Revise los datos.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                }
+
+            } catch (NumberFormatException ex) {
+                javax.swing.JOptionPane.showMessageDialog(vista, "Error: La cantidad de medicamentos debe ser un número entero.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
     
