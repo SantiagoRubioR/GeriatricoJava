@@ -91,14 +91,16 @@ public class CtrlDashboardEnfermero implements ActionListener {
             // Encendemos el controlador para que escuche el botón "Guardar" de esa ventana
             com.mycompany.geriatrico1.controlador.CtrlEnfermero ctrl = new com.mycompany.geriatrico1.controlador.CtrlEnfermero(vistaCompleta, idPaciente, idEnfermeraActual);
 
-            // Truco Ninja: Extraemos SOLO el PanelAlertas
+            // Extraemos SOLO el PanelAlertas
+            // Truco Ninja: Extraemos SOLO el PanelAlertas metido en un JDialog seguro
             javax.swing.JDialog ventanita = new javax.swing.JDialog();
             ventanita.setTitle("Emitir Alerta Médica");
             ventanita.setModal(true);
-            ventanita.setContentPane(vistaCompleta.PanelAlerta); // ¡Ajusta este nombre al de tu panel izquierdo!
-            ventanita.pack(); 
-            ventanita.setLocationRelativeTo(vista);
-            ventanita.setVisible(true); 
+            ventanita.setContentPane(vistaCompleta.PanelAlerta);
+            ventanita.pack();
+            ventanita.setLocationRelativeTo(vista); // Lo centra perfecto respecto al enfermero
+            ventanita.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); // Cierra solo esta ventanita de forma segura
+            ventanita.setVisible(true);
         
         }
         
@@ -113,11 +115,11 @@ public class CtrlDashboardEnfermero implements ActionListener {
         int filaModelo = vista.tablaPacientes.convertRowIndexToModel(filaVisual);
         String idPaciente = vista.tablaPacientes.getModel().getValueAt(filaModelo, 0).toString();
         
-        // 1. Instanciamos tu panel y su controlador
+        // Instanciamos tu panel y su controlador
         com.mycompany.geriatrico1.vista.panel_principal_paciente vistaFicha = new com.mycompany.geriatrico1.vista.panel_principal_paciente();
         com.mycompany.geriatrico1.controlador.CtrlFichaPaciente ctrlFicha = new com.mycompany.geriatrico1.controlador.CtrlFichaPaciente(vistaFicha, idPaciente);
         
-        // 2. EL TRUCO NINJA: Envolvemos el Panel en un JDialog para que se abra como ventana
+        // Envolvemos el Panel en un JDialog para que se abra como ventana
         javax.swing.JDialog dialogoEmergente = new javax.swing.JDialog();
         dialogoEmergente.setTitle("Expediente Clínico del Paciente");
         dialogoEmergente.setModal(true); // Bloquea la ventana de atrás hasta que cierres esta
@@ -125,7 +127,7 @@ public class CtrlDashboardEnfermero implements ActionListener {
         dialogoEmergente.pack(); // Ajusta el tamaño automáticamente a tu diseño
         dialogoEmergente.setLocationRelativeTo(vista); // Lo centra en la pantalla
         
-        // 3. ¡Lo mostramos!
+        // Lo mostramos
         dialogoEmergente.setVisible(true);
     }
     }
