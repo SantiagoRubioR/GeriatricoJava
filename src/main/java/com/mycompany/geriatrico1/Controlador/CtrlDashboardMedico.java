@@ -39,7 +39,7 @@ public class CtrlDashboardMedico implements ActionListener {
                 seleccionarPacienteParaConsulta();
             }
         });
-  }
+    }
     
     private void cargarTablaPacientesActivos() {
         javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) vista.tablaPacientesActivos.getModel();
@@ -368,5 +368,5 @@ public class CtrlDashboardMedico implements ActionListener {
             }
         }
     }
-        
-    }
+    
+}

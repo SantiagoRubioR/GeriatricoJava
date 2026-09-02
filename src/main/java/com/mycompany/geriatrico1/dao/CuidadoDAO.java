@@ -45,23 +45,4 @@ public class CuidadoDAO {
     }
     return totalCuidados;
     }
-    
-    public int contarCuidadosPendientesEnfermero() {
-    int totalPendientes = 0;
-    // Ajusta la consulta según el criterio de "pendiente" que maneje tu tabla Cuidado
-    String sql = "SELECT COUNT(*) FROM Cuidado"; 
-    
-    try (java.sql.Connection con = com.mycompany.geriatrico1.conexion.Conexion.getConnection();
-         java.sql.PreparedStatement ps = con.prepareStatement(sql);
-         java.sql.ResultSet rs = ps.executeQuery()) {
-         
-        if (rs.next()) {
-            totalPendientes = rs.getInt(1);
-        }
-    } catch (Exception e) {
-        System.out.println("Error al contar cuidados pendientes del enfermero: " + e.getMessage());
-    }
-    
-    return totalPendientes;
-}
 }

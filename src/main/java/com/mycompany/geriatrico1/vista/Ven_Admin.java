@@ -198,7 +198,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         btnSalir.addActionListener(this::btnSalirActionPerformed);
         jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Panel de administración");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
@@ -213,7 +213,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         });
         jPanel1.add(pacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, -1));
 
-        jLabel4.setFont(new java.awt.Font("Poor Richard", 1, 20)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Poor Richard", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("GESTIÓN");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 100, -1));
@@ -260,7 +260,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 386, 276, -1));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 476, -1, -1));
 
-        lblUsuario.setFont(new java.awt.Font("Poor Richard", 1, 20)); // NOI18N
+        lblUsuario.setFont(new java.awt.Font("Poor Richard", 0, 20)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblUsuario.setText("Administrador/a");
         jPanel1.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 456, 190, -1));

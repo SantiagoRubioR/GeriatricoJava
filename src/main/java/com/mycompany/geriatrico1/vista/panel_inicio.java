@@ -15,66 +15,8 @@ public class panel_inicio extends javax.swing.JPanel {
      */
     public panel_inicio() {
         initComponents();
-
-    
-    // Carga inicial y Timer de 5 segundos
-    javax.swing.Timer timer = new javax.swing.Timer(5000, new java.awt.event.ActionListener() {
-        @Override
-        public void actionPerformed(java.awt.event.ActionEvent e) {
-            actualizarContadores(); 
-        }
-    });
-    
-    
-    // Encendemos el motor
-    timer.start();
-
-    // Agregamos el evento al ComboBox de enfermeros
-    jComboBoxEnfermeros.addActionListener(new java.awt.event.ActionListener() {
-    public void actionPerformed(java.awt.event.ActionEvent evt) {
-        String seleccionado = (String) jComboBoxEnfermeros.getSelectedItem();
-        if (seleccionado != null && !seleccionado.equals("Seleccione uno...")) {
-            com.mycompany.geriatrico1.dao.HorarioDAO dao = new com.mycompany.geriatrico1.dao.HorarioDAO();
-            String[] datos = dao.obtenerTurnoYHorarioEnfermero(seleccionado);
-            
-            // Inyectamos a tus JLabels del turno y horario
-            lblTurno.setText(datos[0]);   
-            lblHorario.setText(datos[1]); 
-        }
-    }
-});
-    
-    
         txtPaciente.putClientProperty("JTextField.placeholderText", "Buscar Paciente...");
-        try {
-    com.mycompany.geriatrico1.dao.AlertaDAO alertaDao = new com.mycompany.geriatrico1.dao.AlertaDAO();
-    int alertasCriticas = alertaDao.contarAlertasCriticasPendientes();
-    
-        // Aquí el panel se habla a sí mismo sin rodeos
-        lblAlertasCriticas.setText(String.valueOf(alertasCriticas));
-    } catch (Exception e) {
-        System.out.println("Error cargando alertas en inicio: " + e.getMessage());
-}
     }
-    public void actualizarContadores() {
-    // 1. Actualizar Alertas Críticas
-    try {
-        com.mycompany.geriatrico1.dao.AlertaDAO alertaDao = new com.mycompany.geriatrico1.dao.AlertaDAO();
-        int totalCriticas = alertaDao.contarAlertasCriticasPendientes();
-        lblAlertasCriticas.setText(String.valueOf(totalCriticas)); // Cambia por el nombre real de tu JLabel
-    } catch (Exception e) {
-        System.out.println("Error cargando alertas en inicio: " + e.getMessage());
-    }
-    
-    // 2. ¡Actualizar Cuidados Pendientes del Enfermero!
-    try {
-        com.mycompany.geriatrico1.dao.CuidadoDAO cuidadoDao = new com.mycompany.geriatrico1.dao.CuidadoDAO();
-        int totalCuidados = cuidadoDao.contarCuidadosPendientesEnfermero(); // O como hayas llamado al método en tu DAO
-        lblCuidadoPen.setText(String.valueOf(totalCuidados)); // Cambia por el nombre real de tu JLabel del cero
-    } catch (Exception e) {
-        System.out.println("Error cargando cuidados en inicio: " + e.getMessage());
-    }
-}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,18 +33,19 @@ public class panel_inicio extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        lblTurno = new javax.swing.JLabel();
-        lblHorario = new javax.swing.JLabel();
-        jComboBoxEnfermeros = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        lblAlertasCriticas = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        lblCuidadoPen = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         txtPaciente = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
+        btnAgregaCuidado = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -125,15 +68,17 @@ public class panel_inicio extends javax.swing.JPanel {
 
         jLabel5.setText("Horario");
 
-        lblTurno.setBackground(new java.awt.Color(204, 204, 204));
-        lblTurno.setText("  ");
-        lblTurno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel6.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel6.setText("  ");
+        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lblHorario.setBackground(new java.awt.Color(204, 204, 204));
-        lblHorario.setText("  ");
-        lblHorario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel7.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel7.setText("  ");
+        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jComboBoxEnfermeros.addActionListener(this::jComboBoxEnfermerosActionPerformed);
+        jLabel8.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel8.setText("  ");
+        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -144,7 +89,7 @@ public class panel_inicio extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 132, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -152,10 +97,10 @@ public class panel_inicio extends javax.swing.JPanel {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTurno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblHorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBoxEnfermeros, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(74, 74, 74))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,14 +109,14 @@ public class panel_inicio extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBoxEnfermeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(lblTurno))
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHorario)
+                    .addComponent(jLabel8)
                     .addComponent(jLabel5))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -184,9 +129,9 @@ public class panel_inicio extends javax.swing.JPanel {
         jLabel9.setText("Alertas Criticas");
         jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
-        lblAlertasCriticas.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        lblAlertasCriticas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAlertasCriticas.setText("0");
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("0");
 
         jLabel11.setText("Ultima Alerta");
 
@@ -199,7 +144,7 @@ public class panel_inicio extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblAlertasCriticas, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -212,7 +157,7 @@ public class panel_inicio extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblAlertasCriticas, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel11)))
@@ -222,9 +167,9 @@ public class panel_inicio extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(218, 224, 233)));
 
-        lblCuidadoPen.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        lblCuidadoPen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCuidadoPen.setText("0");
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("1");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel12.setText("Pacientes con cuidado pendiente");
@@ -235,7 +180,7 @@ public class panel_inicio extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addComponent(lblCuidadoPen, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
@@ -246,7 +191,7 @@ public class panel_inicio extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(lblCuidadoPen, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -256,6 +201,11 @@ public class panel_inicio extends javax.swing.JPanel {
         txtPaciente.addActionListener(this::txtPacienteActionPerformed);
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/busqueda-de-lupa (1).png"))); // NOI18N
+
+        btnAgregaCuidado.setBackground(new java.awt.Color(0, 153, 153));
+        btnAgregaCuidado.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnAgregaCuidado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mas.png"))); // NOI18N
+        btnAgregaCuidado.setText("AGREGAR CUIDADO");
 
         jPanel4.setBorder(new javax.swing.border.MatteBorder(null));
         jPanel4.setLayout(new java.awt.BorderLayout());
@@ -293,15 +243,20 @@ public class panel_inicio extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
                                 .addGap(79, 79, 79)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(74, 74, 74)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(74, 74, 74)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addComponent(btnAgregaCuidado)))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -309,16 +264,21 @@ public class panel_inicio extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(184, 184, 184)
+                        .addComponent(btnAgregaCuidado, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -331,50 +291,30 @@ public class panel_inicio extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPacienteActionPerformed
 
-    private void jComboBoxEnfermerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEnfermerosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxEnfermerosActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBoxEnfermeros;
+    private javax.swing.JButton btnAgregaCuidado;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    public javax.swing.JLabel lblAlertasCriticas;
-    private javax.swing.JLabel lblCuidadoPen;
-    private javax.swing.JLabel lblHorario;
-    private javax.swing.JLabel lblTurno;
     private javax.swing.JTextField txtPaciente;
     // End of variables declaration//GEN-END:variables
-
-  public void recargarDatosInicio() {
-    try {
-        // --- RECARGA ALERTAS CRÍTICAS ---
-        com.mycompany.geriatrico1.dao.AlertaDAO alertaDao = new com.mycompany.geriatrico1.dao.AlertaDAO();
-        int alertas = alertaDao.contarAlertasCriticasPendientes();
-        lblAlertasCriticas.setText(String.valueOf(alertas));
-        
-        // --- RECARGA COMBOBOX DE ENFERMEROS ---
-        com.mycompany.geriatrico1.dao.EmpleadoDAO empDao = new com.mycompany.geriatrico1.dao.EmpleadoDAO();
-        
-        empDao.rellenarComboEnfermeros(jComboBoxEnfermeros); 
-        
-    } catch (Exception e) {
-        System.out.println("Error recargando inicio: " + e.getMessage());
-    }
-}
 }

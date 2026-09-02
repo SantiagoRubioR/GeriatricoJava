@@ -268,27 +268,4 @@ public class EmpleadoDAO {
         }
         return total;
     }
-   
-   public void rellenarComboEnfermeros(javax.swing.JComboBox<String> comboBox) {
-    comboBox.removeAllItems(); // Limpiamos por si acaso
-    
-    String sql = "SELECT per.nombre_Perso, per.apellido1_Perso " +
-                 "FROM Empleado e " +
-                 "INNER JOIN Persona per ON e.Cedula_Perso_Emp = per.cedula_Perso " +
-                 "LEFT JOIN Enfermera enf ON e.ID_Emp = enf.ID_Emp_Enfer " +
-                 "WHERE e.Estado_Emp = 'Activo' AND e.Cargo_Emp = 'ENFERMERO'";
-                 
-    try (java.sql.Connection con = com.mycompany.geriatrico1.conexion.Conexion.getConnection();
-         java.sql.PreparedStatement ps = con.prepareStatement(sql);
-         java.sql.ResultSet rs = ps.executeQuery()) {
-        
-        while (rs.next()) {
-            String nombreCompleto = rs.getString("nombre_Perso") + " " + rs.getString("apellido1_Perso");
-            comboBox.addItem(nombreCompleto); // Agregamos cada enfermero al combo
-        }
-        
-    } catch (Exception e) {
-        System.err.println("Error al llenar combo de enfermeros: " + e.getMessage());
-    }
-}
 }

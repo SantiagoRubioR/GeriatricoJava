@@ -4,15 +4,11 @@
  */
 package com.mycompany.geriatrico1.vista;
 
-import javax.swing.JComboBox;
-
 /**
  *
  * @author Santiago
  */
 public class panel_paciente extends javax.swing.JPanel {
-
-    public JComboBox<String> jComboBoxEnfermeros;
 
     /**
      * Creates new form panel_paciente
@@ -339,4 +335,4 @@ public class panel_paciente extends javax.swing.JPanel {
     public javax.swing.JTable tablaPacientes;
     private javax.swing.JTextField txtBuscaPaciAler;
     // End of variables declaration//GEN-END:variables
-    }
+}

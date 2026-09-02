@@ -74,9 +74,9 @@ public class CtrlEnfermero implements ActionListener {
             // Mapeo estándar para los reportes
             String idPrioridad = "";
             switch (seleccionPrioridad) {
-                case "Critica": idPrioridad = "PRI-0001"; break;
-                case "Moderada":        idPrioridad = "PRI-0002"; break;
-                case "Leve":         idPrioridad = "PRI-0003"; break;
+                case "Alta": idPrioridad = "PRI-0001"; break;
+                case "Media":        idPrioridad = "PRI-0002"; break;
+                case "Baja":         idPrioridad = "PRI-0003"; break;
             }
 
             String observaciones = vistaEnf.txtObservacionesAlerta.getText().trim();

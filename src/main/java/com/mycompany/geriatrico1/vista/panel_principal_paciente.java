@@ -172,7 +172,7 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
-        jInternalFrame1.setBackground(new java.awt.Color(238, 242, 246));
+        jInternalFrame1.setBackground(new java.awt.Color(245, 247, 250));
         jInternalFrame1.setVisible(true);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -207,7 +207,6 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("DATOS GENERALES", jInternalFrame1);
 
-        jInternalFrame2.setBackground(new java.awt.Color(238, 242, 246));
         jInternalFrame2.setVisible(true);
 
         javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
@@ -223,7 +222,6 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("TRATAMIENTO", jInternalFrame2);
 
-        jInternalFrame3.setBackground(new java.awt.Color(238, 242, 246));
         jInternalFrame3.setVisible(true);
 
         javax.swing.GroupLayout jInternalFrame3Layout = new javax.swing.GroupLayout(jInternalFrame3.getContentPane());
@@ -239,7 +237,6 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("CUIDADOS", jInternalFrame3);
 
-        jInternalFrame4.setBackground(new java.awt.Color(238, 242, 246));
         jInternalFrame4.setVisible(true);
 
         javax.swing.GroupLayout jInternalFrame4Layout = new javax.swing.GroupLayout(jInternalFrame4.getContentPane());
