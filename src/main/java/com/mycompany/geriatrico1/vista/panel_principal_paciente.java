@@ -73,7 +73,9 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
         btnContactoEmergencia.setBackground(new java.awt.Color(0, 153, 153));
         btnContactoEmergencia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnContactoEmergencia.setForeground(new java.awt.Color(255, 255, 255));
         btnContactoEmergencia.setText("<html><p>CONTACTO<br>DE EMERGENCIA</p>");
+        btnContactoEmergencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -142,12 +144,16 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
         btnGenerarAlert.setBackground(new java.awt.Color(204, 0, 0));
         btnGenerarAlert.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnGenerarAlert.setForeground(new java.awt.Color(255, 255, 255));
         btnGenerarAlert.setText("GENERAR ALERTA");
+        btnGenerarAlert.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGenerarAlert.addActionListener(this::btnGenerarAlertActionPerformed);
 
         btnGenerarReport.setBackground(new java.awt.Color(0, 153, 0));
         btnGenerarReport.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnGenerarReport.setForeground(new java.awt.Color(255, 255, 255));
         btnGenerarReport.setText("GENERAR REPORTE");
+        btnGenerarReport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -171,6 +177,8 @@ public class panel_principal_paciente extends javax.swing.JPanel {
         );
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_END);
+
+        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jInternalFrame1.setBackground(new java.awt.Color(245, 247, 250));
         jInternalFrame1.setVisible(true);

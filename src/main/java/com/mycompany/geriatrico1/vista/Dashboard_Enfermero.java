@@ -59,6 +59,7 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Sans Serif Collection", 1, 48)); // NOI18N
         jLabel2.setText("DASHBOARD ENFERMERO");
 
+        lblUsuarioActivo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblUsuarioActivo.setText("Usuario:");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/i-inpatient.png"))); // NOI18N
@@ -109,30 +110,35 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
         btnIniEnfer.setBackground(new java.awt.Color(24, 76, 74));
         btnIniEnfer.setForeground(new java.awt.Color(255, 255, 255));
         btnIniEnfer.setText("Inicio");
+        btnIniEnfer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIniEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
         btnIniEnfer.addActionListener(this::btnIniEnferActionPerformed);
 
         btnPaciEnfer.setBackground(new java.awt.Color(24, 76, 74));
         btnPaciEnfer.setForeground(new java.awt.Color(255, 255, 255));
         btnPaciEnfer.setText("Paciente");
+        btnPaciEnfer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPaciEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
         btnPaciEnfer.addActionListener(this::btnPaciEnferActionPerformed);
 
         btnPendEnfer.setBackground(new java.awt.Color(24, 76, 74));
         btnPendEnfer.setForeground(new java.awt.Color(255, 255, 255));
         btnPendEnfer.setText("(Pendiente)");
+        btnPendEnfer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPendEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
         btnPendEnfer.addActionListener(this::btnPendEnferActionPerformed);
 
         btnReporEnfer.setBackground(new java.awt.Color(24, 76, 74));
         btnReporEnfer.setForeground(new java.awt.Color(255, 255, 255));
         btnReporEnfer.setText("Reporte");
+        btnReporEnfer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReporEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
         btnReporEnfer.addActionListener(this::btnReporEnferActionPerformed);
 
         jButton1.setBackground(new java.awt.Color(24, 76, 74));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("SALIR");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(this::jButton1ActionPerformed);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

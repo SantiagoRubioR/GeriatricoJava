@@ -71,6 +71,7 @@ this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
         jLabel5.setText("Contraseña");
 
         BtnIngresar.setText("INGRESAR");
+        BtnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         txtContra.addActionListener(this::txtContraActionPerformed);
 
