@@ -29,41 +29,33 @@ public class CtrlAdmin {
         this.vista.btnRegistrarPacienteRapido.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                // 1. Instanciamos la ventana y el DAO
                 com.mycompany.geriatrico1.vista.FichaNewPaciente dlg = new com.mycompany.geriatrico1.vista.FichaNewPaciente();
                 com.mycompany.geriatrico1.dao.PacienteDao dao = new com.mycompany.geriatrico1.dao.PacienteDao();
                 
-                // 2. Le pasamos el control al CtrlPaciente
+                
                 com.mycompany.geriatrico1.controlador.CtrlPaciente ctrl = new com.mycompany.geriatrico1.controlador.CtrlPaciente(dlg, dao);
                 
-                // 3. Mostramos la ventana
-                dlg.setLocationRelativeTo(null); // Centrado en la pantalla
+                
+                dlg.setLocationRelativeTo(null); 
                 dlg.setVisible(true);
             }
         });
         this.vista.btnfichaPaciente.addActionListener(new java.awt.event.ActionListener() {
     @Override
     public void actionPerformed(java.awt.event.ActionEvent e) {
-        // 1. Validamos selección
+
         int fila = vista.tablaPacientes.getSelectedRow();
         if (fila == -1) {
             javax.swing.JOptionPane.showMessageDialog(null, "¡Seleccione un paciente!", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        // 2. Capturamos el ID oculto de la primera columna (posición 0)
         String idSeleccionado = vista.tablaPacientes.getValueAt(fila, 0).toString();
 
-        // 3. Instanciamos la vista (el panel)
         com.mycompany.geriatrico1.vista.panel_principal_paciente panel = new com.mycompany.geriatrico1.vista.panel_principal_paciente();
         
-        // =======================================================
-        // 4. ¡LA MAGIA DEL MVC QUE FALTABA! 
-        // Instanciamos el DAO y el Controlador de ese panel para que busque los datos.
-        // OJO: Cambia "PacienteDao" y "CtrlFichaPaciente" por los nombres reales que uses para ese panel.
         com.mycompany.geriatrico1.controlador.CtrlFichaPaciente ctrl = new com.mycompany.geriatrico1.controlador.CtrlFichaPaciente(panel, idSeleccionado);
 
-        // 5. Mostramos la ventana flotante
         javax.swing.JDialog dialog = new javax.swing.JDialog();
         dialog.setTitle("Ficha del Paciente: " + idSeleccionado);
         dialog.setModal(true);
@@ -85,7 +77,6 @@ public class CtrlAdmin {
         PacienteDao dao = new PacienteDao();
         List<Object[]> lista = dao.listarPacientes();
         
-        // 4. Llenar la tabla fila por fila
         for (Object[] fila : lista) {
             modelo.addRow(fila);
         }
@@ -99,16 +90,12 @@ public class CtrlAdmin {
             return;
         }
 
-        // 1. Instanciamos la ventana
         com.mycompany.geriatrico1.vista.FichaNewPaciente dip = new com.mycompany.geriatrico1.vista.FichaNewPaciente();
 
-        // 2. EL BLINDAJE: Traducimos la fila visual a la fila real de la memoria
         int filaModelo = vista.tablaPacientes.convertRowIndexToModel(fila);
 
-        // 3. Extraemos SOLO el ID desde el MODELO
-        String idPac = vista.tablaPacientes.getModel().getValueAt(filaModelo, 0).toString();
+            String idPac = vista.tablaPacientes.getModel().getValueAt(filaModelo, 0).toString();
 
-        // 4. SÚPER PRE-CARGA DESDE LA BASE DE DATOS (Evita el error character varying 15)
         try {
             java.sql.Connection con = com.mycompany.geriatrico1.conexion.Conexion.getConnection();
             String sql = "SELECT p.cedula_perso, p.nombre_perso, p.apellido1_perso, p.apellido2_perso, " +
@@ -121,7 +108,6 @@ public class CtrlAdmin {
             java.sql.ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                // Llenamos todos los TextFields
                 dip.txtCedula.setText(rs.getString("cedula_perso"));
                 dip.txtNombre.setText(rs.getString("nombre_perso"));
                 dip.txtApellido1.setText(rs.getString("apellido1_perso"));
@@ -130,7 +116,6 @@ public class CtrlAdmin {
                 dip.txtCorreo.setText(rs.getString("correo_perso"));
                 dip.txtDirecc.setText(rs.getString("direccion_perso"));
 
-                // Llenamos los Combos (Esto es lo que salva tu CRUD)
                 String estadoC = rs.getString("estado_civil_perso");
                 if (estadoC != null) dip.cmbEstadoCivil.setSelectedItem(estadoC);
 
@@ -153,12 +138,8 @@ public class CtrlAdmin {
             javax.swing.JOptionPane.showMessageDialog(null, "Error al pre-cargar datos del paciente: " + e.getMessage());
         }
 
-        // 5. Bloqueamos la cédula y preparamos el botón
         dip.txtCedula.setEditable(false);
         dip.btnGuardar.setText("Actualizar Paciente");
-        //dip.(idPac); // Excedente o ID para usarlo luego
-
-        // 6. Encendemos el controlador secundario y mostramos
         com.mycompany.geriatrico1.dao.PacienteDao daoSecundario = new com.mycompany.geriatrico1.dao.PacienteDao();
         com.mycompany.geriatrico1.controlador.CtrlPaciente ctrlSecundario = new com.mycompany.geriatrico1.controlador.CtrlPaciente(dip, daoSecundario);
         
@@ -166,35 +147,28 @@ public class CtrlAdmin {
     }
     
     public void darDeBajaPaciente() {
-        // 1. Obtenemos la fila que el usuario seleccionó
         int fila = vista.tablaPacientes.getSelectedRow();
         
-        // 2. Validamos que haya seleccionado a alguien
         if (fila == -1) {
             javax.swing.JOptionPane.showMessageDialog(vista, "Seleccione un paciente de la tabla para dar de baja.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
         
-        // 3. Extraemos el ID y el Nombre (Asumiendo ID=columna 0, Nombres=columnas 2 y 3)
         String idPac = vista.tablaPacientes.getValueAt(fila, 0).toString();
         String nombreCompleto = vista.tablaPacientes.getValueAt(fila, 2).toString() + " " + vista.tablaPacientes.getValueAt(fila, 3).toString();
         
-        // 4. Lanzamos el diálogo de confirmación
         int confirmacion = javax.swing.JOptionPane.showConfirmDialog(vista, 
                 "¿Está seguro que desea dar de baja al paciente:\n" + nombreCompleto + "?\nPasará a estado INACTIVO en el sistema.", 
                 "Confirmar Baja Lógica", 
                 javax.swing.JOptionPane.YES_NO_OPTION,
                 javax.swing.JOptionPane.WARNING_MESSAGE);
         
-        // 5. Si el usuario presiona "Sí"
         if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
-            // Llamamos a tu clase Dao (nota: asegúrate de usar PacienteDao o PacienteDAO según como lo tengas nombrado)
             com.mycompany.geriatrico1.dao.PacienteDao dao = new com.mycompany.geriatrico1.dao.PacienteDao();
             
             if (dao.darDeBajaPaciente(idPac)) {
                 javax.swing.JOptionPane.showMessageDialog(vista, "El paciente " + nombreCompleto + " ha sido dado de baja exitosamente.");
                 
-                // Recargamos la tabla al instante para que se vea el cambio
                 cargarTablaPacientes();
                 ocultarColumna(vista.tablaEmpleados, 0);
             } else {
@@ -204,34 +178,26 @@ public class CtrlAdmin {
     }
     
     public void filtrarTablaPacientes(String textoBusqueda) {
-        // 1. Obtenemos el modelo de la tabla
         javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) vista.tablaPacientes.getModel();
         
-        // 2. Creamos el sorter (ordenador/filtrador) y se lo aplicamos a la tabla
         javax.swing.table.TableRowSorter<javax.swing.table.DefaultTableModel> sorter = new javax.swing.table.TableRowSorter<>(modelo);
         vista.tablaPacientes.setRowSorter(sorter);
         
-        // 3. Aplicamos el filtro según el texto
         if (textoBusqueda.trim().length() == 0) {
-            sorter.setRowFilter(null); // Si está vacío, muestra todo
+            sorter.setRowFilter(null); 
         } else {
-            // El "(?i)" hace que la búsqueda ignore mayúsculas/minúsculas
             sorter.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + textoBusqueda));
         }
     }
     //--------------------------------EMPLEADOS-------------------------------------
     public void cargarTablaEmpleados() {
-        // 1. Obtener el modelo de tu tabla (Asegúrate que la variable se llame tablaEmpleados)
         javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) vista.tablaEmpleados.getModel();
         
-        // 2. Limpiar la tabla por si ya tenía datos cargados
         modelo.setRowCount(0);
         
-        // 3. Llamar al DAO usando el método que filtra los Inactivos
         com.mycompany.geriatrico1.dao.EmpleadoDAO dao = new com.mycompany.geriatrico1.dao.EmpleadoDAO();
         java.util.List<Object[]> lista = dao.listarEmpleadosActivos();
         
-        // 4. Llenar la tabla fila por fila
         for (Object[] fila : lista) {
             modelo.addRow(fila);
             ocultarColumna(vista.tablaEmpleados, 0);
@@ -249,9 +215,7 @@ public class CtrlAdmin {
         }
     }
 
-    // ==========================================
-    // DAR DE BAJA
-    // ==========================================
+
     public void darDeBajaEmpleado() {
         int fila = vista.tablaEmpleados.getSelectedRow();
         if (fila == -1) {
@@ -274,9 +238,7 @@ public class CtrlAdmin {
         }
     }
 
-    // ==========================================
-    // ABRIR EDICIÓN (INYECCIÓN DE DATOS)
-    // ==========================================
+
     public void abrirEdicionEmpleado() {
         int fila = vista.tablaEmpleados.getSelectedRow();
         if (fila == -1) {
@@ -286,10 +248,8 @@ public class CtrlAdmin {
 
         com.mycompany.geriatrico1.vista.FichaNuevaCuenta dlg = new com.mycompany.geriatrico1.vista.FichaNuevaCuenta();
 
-        // Extraemos el ID del empleado (Columna 0 según tu código)
         String idEmp = vista.tablaEmpleados.getValueAt(fila, 0).toString();
 
-        // --- SÚPER PRE-CARGA DESDE LA BASE DE DATOS ---
         try {
             java.sql.Connection con = com.mycompany.geriatrico1.conexion.Conexion.getConnection();
             String sql = "SELECT p.cedula_perso, p.nombre_perso, p.apellido1_perso, p.apellido2_perso, " +
@@ -303,7 +263,6 @@ public class CtrlAdmin {
             java.sql.ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                // Llenamos los TextFields
                 dlg.txtCedula.setText(rs.getString("cedula_perso"));
                 dlg.txtNombre.setText(rs.getString("nombre_perso"));
                 dlg.txtApellido1.setText(rs.getString("apellido1_perso"));
@@ -312,7 +271,6 @@ public class CtrlAdmin {
                 dlg.txtCorreo.setText(rs.getString("correo_perso"));
                 dlg.txtDirecc.setText(rs.getString("direccion_perso"));
 
-                // Llenamos los JComboBox para evitar el error de los 15 caracteres
                 String estadoC = rs.getString("estado_civil_perso");
                 if (estadoC != null) dlg.cmbEstCivCuenNue.setSelectedItem(estadoC);
 
@@ -335,12 +293,10 @@ public class CtrlAdmin {
             javax.swing.JOptionPane.showMessageDialog(null, "Error al pre-cargar datos del empleado: " + e.getMessage());
         }
 
-        // Configuración final de la ventana
         dlg.txtCedula.setEditable(false);
         dlg.btnGuardarFicha.setText("Actualizar Cuenta");
         dlg.btnGuardarFicha.setToolTipText(idEmp); // Usas el tooltip para guardar el ID. ¡Es un buen truco!
 
-        // Llamamos al controlador
         com.mycompany.geriatrico1.dao.EmpleadoDAO dao = new com.mycompany.geriatrico1.dao.EmpleadoDAO();
         com.mycompany.geriatrico1.controlador.CtrlEmpleados ctrl = new com.mycompany.geriatrico1.controlador.CtrlEmpleados(dlg, dao);
 
@@ -359,19 +315,14 @@ public class CtrlAdmin {
     }
     
     private void configurarFechaActual() {
-        // 1. Obtenemos la fecha exacta del sistema
         LocalDate fechaHoy = LocalDate.now();
 
-        // 2. Creamos el molde con el formato exacto que quieres, forzando el idioma a Español
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM 'de' yyyy", new Locale("es", "ES"));
 
-        // 3. Traducimos la fecha a texto
         String fechaTexto = fechaHoy.format(formato);
 
-        // 4. Ponemos la primera letra en mayúscula (porque Java devuelve "jueves" en minúscula)
         String fechaFinal = fechaTexto.substring(0, 1).toUpperCase() + fechaTexto.substring(1);
 
-        // 5. Lo enviamos a tu Label (¡Asegúrate de cambiar 'lblFecha' por el nombre real de tu variable!)
         vista.lblFecha.setText(fechaFinal);
     }
     
@@ -391,7 +342,6 @@ public class CtrlAdmin {
         com.mycompany.geriatrico1.dao.CuidadoDAO cuidadoDao = new com.mycompany.geriatrico1.dao.CuidadoDAO();
         int totalCuidados = cuidadoDao.contarCuidadosRegistrados();
 
-        // Aqui se envia los datos a la vista
         vista.actualizarContadoresVista(totalPacientes, totalPersonal, totalAlertas, totalCuidados);
 
         } catch (Exception e) {

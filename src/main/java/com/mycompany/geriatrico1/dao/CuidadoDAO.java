@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 public class CuidadoDAO {
 
-    //SENTENCIAS
     private static final String INSERTAR_CUIDADO = "INSERT INTO Cuidado (ID_Enfer_Cui, ID_Pac_Cui, Tipo_Cui, Observaciones_Cui) VALUES (?, ?, ?, ?)";
     
     public boolean registrarCuidado(String idEnfermera, String idPaciente, String tipoCuidado, String observaciones) {
@@ -30,7 +29,6 @@ public class CuidadoDAO {
     
     public int contarCuidadosRegistrados() {
     int totalCuidados = 0;
-    // Asegúrate de que el nombre de la tabla sea exactamente el de tu base de datos (ej. 'cuidado')
     String sql = "SELECT COUNT(*) FROM cuidado";
     
     try (java.sql.Connection con = com.mycompany.geriatrico1.conexion.Conexion.getConnection();
@@ -48,7 +46,6 @@ public class CuidadoDAO {
     
     public int contarCuidadosPendientesEnfermero() {
     int totalPendientes = 0;
-    // Ajusta la consulta según el criterio de "pendiente" que maneje tu tabla Cuidado
     String sql = "SELECT COUNT(*) FROM Cuidado"; 
     
     try (java.sql.Connection con = com.mycompany.geriatrico1.conexion.Conexion.getConnection();

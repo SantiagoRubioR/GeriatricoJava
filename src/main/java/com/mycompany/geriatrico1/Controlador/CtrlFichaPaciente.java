@@ -26,23 +26,19 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
         this.vista.btnFinalizarTratamiento.addActionListener(this);
         this.vista.btnGenerarReporte.addActionListener(this);
         
-        // Ejecutamos la carga del perfil apenas nace el controlador
         cargarDatosPerfil();
         cargarExpedienteCompleto(this.idPaciente);
         this.vista.btnContactoEmergencia.addActionListener(this);
     }
 
     private void cargarDatosPerfil() {
-        // Pedimos los 3 datos al DAO
         String[] datos = pacDao.obtenerPerfilPaciente(idPaciente);
         
         if (datos[0] != null) { 
-            // ¡AJUSTA ESTOS NOMBRES SEGÚN TU DISEÑO EN NETBEANS!
             
-            vista.txtNombre.setText(datos[0]); // Nombre y Apellido
-            vista.txtFechaDeIngreso.setText(datos[1]); // Fecha de ingreso
+            vista.txtNombre.setText(datos[0]); 
+            vista.txtFechaDeIngreso.setText(datos[1]); 
             
-            // Le quitamos los decimales a la edad por si Postgres nos devuelve "75.0"
             String edadLimpia = datos[2].replace(".0", ""); 
             vista.txtEdad.setText(edadLimpia + " años");
         }
@@ -53,10 +49,8 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
     }
     
     public void cargarExpedienteCompleto(String idPaciente) {
-        // 1. Instanciar el DAO
-        PacienteDao modelo = new PacienteDao(); // Ajusta al nombre real de tu DAO
+        PacienteDao modelo = new PacienteDao();
         
-        // 2. Cargar textos en la Vista
         Object[] datosGenerales = modelo.obtenerDatosGeneralesPaciente(idPaciente);
         if (datosGenerales[0] != null) {
             vista.lblCedula.setText("Cédula: " + datosGenerales[0].toString());
@@ -65,7 +59,6 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
             vista.lblDependencia.setText("Grado de Dependencia: " + datosGenerales[3].toString());
         }
 
-        // 3. Generar el Gráfico de Evolución
         List<Object[]> datosEvolucion = modelo.obtenerEvolucionVital(idPaciente);
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         
@@ -79,12 +72,11 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
                 dataset.addValue(peso, "Peso (kg)", fecha);
             }
             
-            // Construir el gráfico
             JFreeChart chart = ChartFactory.createLineChart(
-                "Evolución de Signos Vitales", // Título
-                "Fechas de Consulta",          // Eje X
-                "Valores",                     // Eje Y
-                dataset,                       // Datos
+                "Evolución de Signos Vitales", 
+                "Fechas de Consulta",          
+                "Valores",                     
+                dataset,                       
                 PlotOrientation.VERTICAL,
                 true, true, false
             );
@@ -92,72 +84,62 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
             org.jfree.chart.renderer.category.LineAndShapeRenderer renderer = 
                 (org.jfree.chart.renderer.category.LineAndShapeRenderer) chart.getCategoryPlot().getRenderer();
             renderer.setDefaultShapesVisible(true);
-            // Empaquetar e inyectar en la vista
             ChartPanel chartPanel = new ChartPanel(chart);
             vista.panelGraficoEvolucion.removeAll();
             vista.panelGraficoEvolucion.add(chartPanel, BorderLayout.CENTER);
             vista.panelGraficoEvolucion.validate();
         } else {
-            // Si el paciente es nuevo y no tiene historial, limpiamos el panel
             vista.panelGraficoEvolucion.removeAll();
             vista.panelGraficoEvolucion.repaint();
         }
     }
     
     public void cargarTablaTratamientos(String idPaciente) {
-        // Definimos las columnas
         String[] columnas = {"ID Oculto", "Tipo de Tratamiento", "Inicio", "Fin", "Estado", "Indicaciones Médicas"};
         DefaultTableModel modeloTabla = new DefaultTableModel(null, columnas) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; // Evita que editen la tabla dando doble clic
+                return false;
             }
         };
         
-        // Pedimos los datos al DAO y llenamos el modelo
-        List<Object[]> tratamientos = pacDao.obtenerTratamientos(idPaciente); // Ajusta 'pacDao' al nombre de tu variable
+        List<Object[]> tratamientos = pacDao.obtenerTratamientos(idPaciente); 
         for (Object[] fila : tratamientos) {
             modeloTabla.addRow(fila);
         }
         
-        // Se lo pegamos a la vista
         vista.tablaTratamientos.setModel(modeloTabla);
         
-        // Ocultamos la columna 0 (el ID de la base de datos) para que no se vea feo, pero podamos usarlo
         vista.tablaTratamientos.getColumnModel().getColumn(0).setMinWidth(0);
         vista.tablaTratamientos.getColumnModel().getColumn(0).setMaxWidth(0);
         vista.tablaTratamientos.getColumnModel().getColumn(0).setWidth(0);
     }
     
     public void cargarTablaCuidados(String idPaciente) {
-        // Definimos las columnas de la bitácora
         String[] columnas = {"Fecha", "Hora", "Enfermero/a a cargo", "Tipo de Cuidado", "Observaciones y Notas"};
         
         javax.swing.table.DefaultTableModel modeloTabla = new javax.swing.table.DefaultTableModel(null, columnas) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; // Bloqueamos la edición manual
+                return false;
             }
         };
         
-        // Llamamos al DAO y vaciamos los datos
         java.util.List<Object[]> cuidados = pacDao.obtenerHistorialCuidados(idPaciente); // Ajusta pacDao si se llama distinto
         for (Object[] fila : cuidados) {
             modeloTabla.addRow(fila);
         }
         
-        // Se lo pegamos a la vista
         vista.tablaCuidados.setModel(modeloTabla);
     }
     
     public void cargarTablaHistoriaClinica(String idPaciente) {
-        // Son muchos datos, así que definimos las columnas precisas
         String[] columnas = {"Fecha", "Hora", "Médico", "Diagnóstico", "Peso (kg)", "Temp (°C)", "FC (lpm)", "P. Arterial", "Estado"};
         
         javax.swing.table.DefaultTableModel modeloTabla = new javax.swing.table.DefaultTableModel(null, columnas) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; // Bloqueamos la edición
+                return false; 
             }
         };
         
@@ -168,7 +150,6 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
         
         vista.tablaHistoriaClinica.setModel(modeloTabla);
         
-        // Pequeño truco para que la columna "Diagnóstico" sea más ancha que las demás
         vista.tablaHistoriaClinica.getColumnModel().getColumn(3).setPreferredWidth(250);
     }
     
@@ -178,7 +159,6 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
     public void actionPerformed(java.awt.event.ActionEvent e) {
         
         if (e.getSource() == vista.btnContactoEmergencia) {
-            // 1. Pedimos los datos a la base
             String[] datos = pacDao.obtenerContactoEmergencia(idPaciente);
             
             if (datos[0] == null) {
@@ -186,10 +166,8 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
                 return;
             }
 
-            // 2. Instanciamos tu panel de emergencia
             com.mycompany.geriatrico1.vista.panel_contacto_emergencia panelCE = new com.mycompany.geriatrico1.vista.panel_contacto_emergencia();
             
-            // 3. Llenamos las cajas de texto (Ajusta los nombres a como los tengas en NetBeans, recuerda ponerlos public)
             panelCE.lblResidente.setText(datos[0]);
             panelCE.lblContactoPrincipal.setText(datos[1]);
             panelCE.txtParentesco.setText(datos[2]);
@@ -197,13 +175,11 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
             panelCE.txtCorreo.setText(datos[4]);
             panelCE.txtDireccion.setText(datos[5]);
             
-            // 4. Bloqueamos todo para que sea de solo lectura
             panelCE.txtParentesco.setEditable(false);
             panelCE.txtTelefonoPrincipal.setEditable(false);
             panelCE.txtCorreo.setEditable(false);
             panelCE.txtDireccion.setEditable(false);
 
-            // 5. Truco Ninja para abrirlo encima
             javax.swing.JDialog dialogoEmerg = new javax.swing.JDialog();
             dialogoEmerg.setTitle("Contacto de Emergencia");
             dialogoEmerg.setModal(true); // Bloquea lo de atrás
@@ -219,7 +195,6 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
          if (filaSeleccionada == -1) {
              javax.swing.JOptionPane.showMessageDialog(null, "Por favor, seleccione un tratamiento de la tabla.");
          } else {
-             // Sacamos el ID oculto de la columna 0
              String idDetalle = vista.tablaTratamientos.getValueAt(filaSeleccionada, 0).toString();
              String estadoActual = vista.tablaTratamientos.getValueAt(filaSeleccionada, 4).toString();
 
@@ -228,31 +203,26 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
                  return;
              }
 
-             // Confirmación y ejecución
              int respuesta = javax.swing.JOptionPane.showConfirmDialog(null, "¿Confirma que el tratamiento se ha completado?", "Confirmar", javax.swing.JOptionPane.YES_NO_OPTION);
              if(respuesta == javax.swing.JOptionPane.YES_OPTION) {
                  if(pacDao.finalizarTratamiento(idDetalle)) {
                      javax.swing.JOptionPane.showMessageDialog(null, "¡Tratamiento marcado como Terminado!");
-                     cargarTablaTratamientos(this.idPaciente); // Recargamos la tabla para ver el cambio
+                     cargarTablaTratamientos(this.idPaciente); 
                  }
              }
          }
      }
         
         if (e.getSource() == vista.btnGenerarReporte) {
-        // 1. Obtenemos el texto estructurado del paciente actual usando su ID
         String contenidoReporte = pacDao.obtenerTextoReporteGeneral(this.idPaciente);
         
-        // 2. Creamos un área de texto temporal para la impresión
         javax.swing.JTextArea areaImpresion = new javax.swing.JTextArea(contenidoReporte);
         areaImpresion.setFont(new java.awt.Font("Monospaced", java.awt.Font.PLAIN, 12));
         
         try {
-            // 3. Encabezado y pie de página del reporte en PDF
             java.text.MessageFormat header = new java.text.MessageFormat("KURY-CARE - Expediente Oficial");
             java.text.MessageFormat footer = new java.text.MessageFormat("Pagina {0}");
             
-            // 4. Lanzamos el asistente nativo de impresión a PDF
             boolean impuesto = areaImpresion.print(header, footer);
             
             if (impuesto) {

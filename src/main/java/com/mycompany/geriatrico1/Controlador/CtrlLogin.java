@@ -29,7 +29,6 @@ public class CtrlLogin implements ActionListener {
                 return;
             }
 
-            // Llamamos al DAO
             String[] acceso = dao.iniciarSesion(usuario, password);
 
             if (acceso != null) {
@@ -42,10 +41,8 @@ public class CtrlLogin implements ActionListener {
                     return;
                 }
 
-                // Cerrar Login
                 vistaLogin.dispose();
 
-                // Abrir el Dashboard asignado
                 switch (cargo) {
                     case "ADMINISTRADOR":
                         Ven_Admin dashAdmin = new Ven_Admin(nombreUsuario);

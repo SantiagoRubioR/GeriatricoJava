@@ -28,7 +28,6 @@ public class CtrlDashboardEnfermero implements ActionListener {
             filtrarTablaPacientes();
         }
         });
-        // 1. Convertimos la cédula del login en el ID de la enfermera
         com.mycompany.geriatrico1.dao.EmpleadoDAO empDao = new com.mycompany.geriatrico1.dao.EmpleadoDAO();
         this.idEnfermeraActual = empDao.obtenerIdEnfermeraPorCedula(cedulaUsuario);
         
@@ -37,7 +36,6 @@ public class CtrlDashboardEnfermero implements ActionListener {
         this.vista.btnCargarPaciente.addActionListener(this);
         
         this.vista.btnVerFichaClini.addActionListener(this);
-        // 3. Llenamos la tabla al abrir
         cargarTablaPacientes();
         ocultarColumna(vista.tablaPacientes, 0);
   
@@ -58,9 +56,7 @@ public class CtrlDashboardEnfermero implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        // ===========================================
-        // BOTÓN: REGISTRAR CUIDADO
-        // ===========================================
+
         if (e.getSource() == vista.btnAgregarCuidado) {
            int filaVisual = vista.tablaPacientes.getSelectedRow();
             if (filaVisual == -1) {
@@ -70,7 +66,6 @@ public class CtrlDashboardEnfermero implements ActionListener {
             int filaModelo = vista.tablaPacientes.convertRowIndexToModel(filaVisual);
             String idPaciente = vista.tablaPacientes.getModel().getValueAt(filaModelo, 0).toString();
 
-            // 2. Instanciamos la ventana gigante, PERO NO LA MOSTRAMOS
             com.mycompany.geriatrico1.vista.Ficha_Alerta_Estado_FichaClinica vistaCompleta = new com.mycompany.geriatrico1.vista.Ficha_Alerta_Estado_FichaClinica();
 
         
@@ -78,10 +73,10 @@ public class CtrlDashboardEnfermero implements ActionListener {
 
             javax.swing.JDialog ventanaCuidado = new javax.swing.JDialog();
             ventanaCuidado.setTitle("Registrar Nuevo Cuidado");
-            ventanaCuidado.setModal(true); // Bloquea lo de atrás
-            ventanaCuidado.setContentPane(vistaCompleta.PanelCuidados); // ¡Extraemos solo el panel!
-            ventanaCuidado.pack(); // Se encoge al tamaño exacto de tu panel chiquito
-            ventanaCuidado.setLocationRelativeTo(vista); // Lo centra
+            ventanaCuidado.setModal(true); 
+            ventanaCuidado.setContentPane(vistaCompleta.PanelCuidados); 
+            ventanaCuidado.pack();
+            ventanaCuidado.setLocationRelativeTo(vista);
             ventanaCuidado.setVisible(true);
         }
 
@@ -95,37 +90,31 @@ public class CtrlDashboardEnfermero implements ActionListener {
                 return;
             }
             
-            // Blindaje del ID oculto
             int filaModelo = vista.tablaPacientes.convertRowIndexToModel(filaVisual);
             String idPaciente = vista.tablaPacientes.getModel().getValueAt(filaModelo, 0).toString();
 
-            // Instanciamos la vista completa pero NO la mostramos
             com.mycompany.geriatrico1.vista.Ficha_Alerta_Estado_FichaClinica vistaCompleta = new com.mycompany.geriatrico1.vista.Ficha_Alerta_Estado_FichaClinica();
             
-            // Encendemos el controlador para que escuche el botón "Guardar" de esa ventana
             com.mycompany.geriatrico1.controlador.CtrlEnfermero ctrl = new com.mycompany.geriatrico1.controlador.CtrlEnfermero(vistaCompleta, idPaciente, idEnfermeraActual);
 
-            // Extraemos SOLO el PanelAlertas
-            // Truco Ninja: Extraemos SOLO el PanelAlertas metido en un JDialog seguro
             javax.swing.JDialog ventanita = new javax.swing.JDialog();
             ventanita.setTitle("Emitir Alerta Médica");
             ventanita.setModal(true);
             ventanita.setContentPane(vistaCompleta.PanelAlerta);
             ventanita.pack();
-            ventanita.setLocationRelativeTo(vista); // Lo centra perfecto respecto al enfermero
-            ventanita.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); // Cierra solo esta ventanita de forma segura
+            ventanita.setLocationRelativeTo(vista); 
+            ventanita.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
             ventanita.setVisible(true);
         
         }
         
-       if (e.getSource() == vista.btnVerFichaClini) { // Ajusta el nombre de tu botón
+       if (e.getSource() == vista.btnVerFichaClini) { 
         int filaVisual = vista.tablaPacientes.getSelectedRow();
         if (filaVisual == -1) {
             javax.swing.JOptionPane.showMessageDialog(vista, "Seleccione un paciente de la tabla.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
         
-        // Blindaje para sacar el ID oculto de la columna 0
         int filaModelo = vista.tablaPacientes.convertRowIndexToModel(filaVisual);
         String idPaciente = vista.tablaPacientes.getModel().getValueAt(filaModelo, 0).toString();
         
@@ -133,15 +122,13 @@ public class CtrlDashboardEnfermero implements ActionListener {
         com.mycompany.geriatrico1.vista.panel_principal_paciente vistaFicha = new com.mycompany.geriatrico1.vista.panel_principal_paciente();
         com.mycompany.geriatrico1.controlador.CtrlFichaPaciente ctrlFicha = new com.mycompany.geriatrico1.controlador.CtrlFichaPaciente(vistaFicha, idPaciente);
         
-        // Envolvemos el Panel en un JDialog para que se abra como ventana
         javax.swing.JDialog dialogoEmergente = new javax.swing.JDialog();
         dialogoEmergente.setTitle("Expediente Clínico del Paciente");
-        dialogoEmergente.setModal(true); // Bloquea la ventana de atrás hasta que cierres esta
-        dialogoEmergente.setContentPane(vistaFicha); // Metemos tu panel aquí adentro
-        dialogoEmergente.pack(); // Ajusta el tamaño automáticamente a tu diseño
-        dialogoEmergente.setLocationRelativeTo(vista); // Lo centra en la pantalla
+        dialogoEmergente.setModal(true);
+        dialogoEmergente.setContentPane(vistaFicha); 
+        dialogoEmergente.pack(); 
+        dialogoEmergente.setLocationRelativeTo(vista); 
         
-        // Lo mostramos
         dialogoEmergente.setVisible(true);
     }
        if (e.getSource() == vista.btnCargarPaciente) {
@@ -164,15 +151,12 @@ public class CtrlDashboardEnfermero implements ActionListener {
             return;
         }
         
-        // Blindaje para el ID oculto
         int filaModelo = vista.tablaPacientes.convertRowIndexToModel(filaVisual);
         String idPaciente = vista.tablaPacientes.getModel().getValueAt(filaModelo, 0).toString();
         
-        // Instanciamos panel y controlador
         com.mycompany.geriatrico1.vista.panel_principal_paciente vistaFicha = new com.mycompany.geriatrico1.vista.panel_principal_paciente();
         com.mycompany.geriatrico1.controlador.CtrlFichaPaciente ctrlFicha = new com.mycompany.geriatrico1.controlador.CtrlFichaPaciente(vistaFicha, idPaciente);
         
-        // Truco Ninja del JDialog
         javax.swing.JDialog dialogoEmergente = new javax.swing.JDialog();
         dialogoEmergente.setTitle("Expediente Clínico del Paciente");
         dialogoEmergente.setModal(true);
@@ -185,15 +169,12 @@ public class CtrlDashboardEnfermero implements ActionListener {
     }
     
     private void filtrarTablaPacientes() {
-        // Capturamos lo que el enfermero escribe en el panel
         String texto = vista.txtBuscaPaciAler.getText().trim();
         
-        // Evitamos que explote si el sorter aún no está listo
         if (sorterPacientes != null) {
             if (texto.isEmpty()) {
-                sorterPacientes.setRowFilter(null); // Muestra todo
+                sorterPacientes.setRowFilter(null); 
             } else {
-                // Filtra ignorando mayúsculas/minúsculas en cualquier columna
                 sorterPacientes.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + texto));
             }
         }

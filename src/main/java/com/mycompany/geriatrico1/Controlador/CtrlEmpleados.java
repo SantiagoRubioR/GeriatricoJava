@@ -22,14 +22,12 @@ public class CtrlEmpleados implements ActionListener {
         activarAlertaRojaLongitud(vista.txtCedula, 10);
         activarAlertaRojaLongitud(vista.txtTelef, 10);
 
-        // 2. Formato Enfermeros: ENF-2026- seguido de 5 números
-        // CAMBIA "txtLicenciaEnfermeria" por tu variable real
+
         if(vista.txtNumLicenEnfer != null){
             activarAlertaRojaFormato(vista.txtNumLicenEnfer, "^ENF-2026-\\d{5}$");
         }
 
-        // 3. Formato Médicos: REG-MED- seguido de 4 números
-        // CAMBIA "txtRegistroMedico" por tu variable real
+
         if(vista.txtRegisProfMed != null){
             activarAlertaRojaFormato(vista.txtRegisProfMed, "^REG-MED-\\d{4}$");
         }
@@ -49,12 +47,10 @@ public class CtrlEmpleados implements ActionListener {
         });
     }
 
-    // 2. Método para los códigos locos de Daniela (Expresiones Regulares)
     private void activarAlertaRojaFormato(javax.swing.JTextField campoTexto, String patronRegex) {
         campoTexto.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
             public void keyReleased(java.awt.event.KeyEvent e) {
-                // Si el texto NO cumple el patrón de Daniela, va en rojo
                 if (!campoTexto.getText().trim().matches(patronRegex)) {
                     campoTexto.setForeground(java.awt.Color.RED);
                 } else {
@@ -75,7 +71,7 @@ public class CtrlEmpleados implements ActionListener {
 
                 if (estadoC.contains("Seleccione") || rol.contains("Seleccione") || contrato.contains("Seleccione")) {
                     javax.swing.JOptionPane.showMessageDialog(vista, "Por favor, seleccione valores válidos en Estado Civil, Rol y Tipo de Contrato.");
-            return; // Detiene la ejecución y salva a la BD
+            return;
         }
                 try {
                     Persona persona = new Persona();
@@ -101,10 +97,10 @@ public class CtrlEmpleados implements ActionListener {
                 } catch (Exception ex) {
                     javax.swing.JOptionPane.showMessageDialog(vista, "Error: " + ex.getMessage());
                 }
-                return; // Cortamos para que no intente hacer INSERT
+                return;
             }
             
-            // 0. CAPTURA DE TEXTOS BÁSICOS
+
             String cedula = vista.txtCedula.getText().trim();
             String nombre = vista.txtNombre.getText().trim();
             String apellido1 = vista.txtApellido1.getText().trim();
@@ -113,44 +109,38 @@ public class CtrlEmpleados implements ActionListener {
             String correo = vista.txtCorreo.getText().trim();
             String rol = vista.cmbRol.getSelectedItem().toString().toUpperCase();
 
-           // 1.1 Validar Cédula
+           
             if (!Validador.esCedulaValida(cedula)) {
                 JOptionPane.showMessageDialog(vista, "La cédula ingresada es inválida o no cumple el formato ecuatoriano.", "Validación de Cédula", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             
-            // 1.2 Validar Nombres y Apellidos (No vacíos, sin números, sin letras repetidas)
             if (!Validador.esNombreValido(nombre) || !Validador.esNombreValido(apellido1) || !Validador.esNombreValido(apellido2)) {
                 JOptionPane.showMessageDialog(vista, "Los nombres y apellidos son obligatorios, no pueden contener números ni caracteres repetidos en exceso.", "Validación de Texto", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             
-            // 1.3 Validar Teléfono
             if (!Validador.esTelefonoValido(telefono)) {
                 JOptionPane.showMessageDialog(vista, "El teléfono debe tener exactamente 10 dígitos y empezar con '09'.", "Validación de Teléfono", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             
-            // 1.4 Validar Correo
             if (!Validador.esCorreoValido(correo)) {
                 JOptionPane.showMessageDialog(vista, "El formato del correo electrónico es incorrecto (Ej: usuario@dominio.com).", "Validación de Correo", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             
-            // 1.5 Validar Dirección vacía
             if (vista.txtDirecc.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(vista, "La dirección es obligatoria.", "Campos Incompletos", JOptionPane.WARNING_MESSAGE);
                 return;
             }
             
-            // 1.6 Validar que se haya seleccionado una fecha de nacimiento
             if (vista.dateNaci.getDate() == null) {
                 JOptionPane.showMessageDialog(vista, "Debe seleccionar una fecha de nacimiento válida.", "Campos Incompletos", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
             try {
-                // 2. DATOS PERSONALES
                 Persona persona = new Persona();
                 persona.setCedula(cedula);
                 persona.setNombre1(nombre);
@@ -162,22 +152,16 @@ public class CtrlEmpleados implements ActionListener {
                 persona.setGenero(vista.cmbGenero.getSelectedItem().toString().substring(0, 1));
                 persona.setEstadoCivil(vista.cmbEstCivCuenNue.getSelectedItem().toString());
                 
-                // Extraer fecha del JDateChooser
                 java.util.Date fecha = vista.dateNaci.getDate();
                 persona.setFechaNacimiento(new java.sql.Date(fecha.getTime()).toLocalDate());
 
-                // 3. DATOS LABORALES
                 Empleado empleado = new Empleado();
                 empleado.setCargo(rol);
-                // NOTA: Ajusta "cmbContratoAdmin" al nombre real de tu combobox de contrato según el panel activo
                 empleado.setTipoContrato(vista.cmbContraMed.getSelectedItem().toString());
 
-                // 4. USUARIO Y CONTRASEÑA AUTOMÁTICOS
                 Usuario usuario = new Usuario();
-                // El Trigger de la BD crea el username. Nosotros enviamos la cédula como contraseña por defecto.
                 usuario.setContrasena(cedula); 
 
-                // 5. DATOS ESPECÍFICOS DE ROL
                 Administrador admin = new Administrador();
                 Medico medico = new Medico();
                 Enfermero enfermera = new Enfermero();
@@ -206,7 +190,6 @@ public class CtrlEmpleados implements ActionListener {
                     System.out.println("Enviando a PostgreSQL el código de jornada: [" + idHorarioT + "]");
                 }
 
-                // 6. ENVIAR A LA BASE DE DATOS
                 if (dao.registrarPersonalCompleto(persona, empleado, usuario, admin, medico, enfermera, rol)) {
                     JOptionPane.showMessageDialog(vista, "Personal registrado.\nUsuario: " + cedula + "\nContraseña Temporal: " + cedula, "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     vista.dispose();

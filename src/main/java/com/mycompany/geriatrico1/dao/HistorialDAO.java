@@ -6,9 +6,7 @@ import java.sql.ResultSet;
 
 public class HistorialDAO {
 
-    // ========================================================
-    // REGISTRAR HISTORIAL CLÍNICO (Transacción)
-    // ========================================================
+
     public boolean registrarHistorial(String idPaciente, String idMedico, String diagnostico, 
                                       double peso, double temperatura, int frecuencia, String observaciones) {
         Connection con = null;
@@ -16,7 +14,6 @@ public class HistorialDAO {
             con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
             con.setAutoCommit(false); // Iniciamos transacción
 
-            // 1. Insertamos Encabezado y atrapamos el ID (EHC-XXXX)
             String sqlEncab = "INSERT INTO Encabezado_Historial_Clinico (ID_Pac_EncabHistoClin) " +
                               "VALUES (?) RETURNING ID_EncabHistoClin";
             
@@ -29,8 +26,6 @@ public class HistorialDAO {
                 idGeneradoEHC = rs.getString(1);
             }
 
-            // 2. Insertamos el Detalle
-            // Nota: Excluimos ID_PresArt_DetHisto para el MVP (quedará NULL)
             String sqlDetalle = "INSERT INTO Detalle_Historial_Clinico " +
                                 "(ID_EncabHistoClin_DetHisto, ID_Med_DetHisto, Diagnostico_DetHisto, " +
                                 "Peso_DetHisto, Temperatura_DetHisto, Frecuencia_Cardiaca_DetHisto, Observaciones_DetHisto) " +
@@ -47,7 +42,7 @@ public class HistorialDAO {
             
             psDetalle.executeUpdate();
 
-            con.commit(); // Guardamos los cambios de ambas tablas
+            con.commit(); 
             return true;
             
         } catch (Exception e) {
@@ -86,7 +81,7 @@ public class HistorialDAO {
                     fila[4] = rs.getDouble("Temperatura_DetHisto");
                     fila[5] = rs.getInt("Frecuencia_Cardiaca_DetHisto");
                     fila[6] = rs.getString("Estado_DetHisto");
-                    fila[7] = rs.getString("Diagnostico_DetHisto"); // Oculto en la tabla, lo usaremos para los textfields
+                    fila[7] = rs.getString("Diagnostico_DetHisto"); 
                     fila[8] = rs.getString("Observaciones_DetHisto") != null ? rs.getString("Observaciones_DetHisto") : "";
                     lista.add(fila);
                 }
@@ -101,9 +96,8 @@ public class HistorialDAO {
         Connection con = null;
         try {
             con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
-            con.setAutoCommit(false); // Blindaje de la transacción
+            con.setAutoCommit(false); 
 
-            // 1. Guardar Presión Arterial y atrapar su ID
             String sqlPresion = "INSERT INTO Presion_Arterial (Presion_Sistolica_PresArt, Presion_Diastolica_PresArt) VALUES (?, ?) RETURNING ID_PresArt";
             PreparedStatement psPresion = con.prepareStatement(sqlPresion);
             psPresion.setDouble(1, presionSis);

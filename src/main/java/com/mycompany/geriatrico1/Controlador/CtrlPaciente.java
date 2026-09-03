@@ -2,8 +2,8 @@ package com.mycompany.geriatrico1.controlador;
 
 import com.mycompany.geriatrico1.dao.PacienteDao;
 import com.mycompany.geriatrico1.modelo.*;
-import com.mycompany.geriatrico1.controlador.Validador; // Tu clase de validaciones
-import com.mycompany.geriatrico1.vista.FichaNewPaciente; // Tu vista real
+import com.mycompany.geriatrico1.controlador.Validador; 
+import com.mycompany.geriatrico1.vista.FichaNewPaciente; 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
@@ -19,7 +19,6 @@ public class CtrlPaciente implements ActionListener {
         this.dao = dao;
         activarAlertaRojaLongitud(vista.txtCedula, 10);
         activarAlertaRojaLongitud(vista.txtTelef, 10);
-        // Escuchamos el clic del botón GUARDAR
         this.vista.btnGuardar.addActionListener(this);
     }
 
@@ -55,14 +54,14 @@ public class CtrlPaciente implements ActionListener {
 
                     if (dao.actualizarPaciente(residente, ficha)) {
                         javax.swing.JOptionPane.showMessageDialog(vista, "Paciente actualizado correctamente.");
-                        vista.dispose(); // Cierra y vuelve al Dashboard
+                        vista.dispose();
                     } else {
                         javax.swing.JOptionPane.showMessageDialog(vista, "Error al actualizar en la BD.");
                     }
                 } catch (Exception ex) {
                     javax.swing.JOptionPane.showMessageDialog(vista, "Error: " + ex.getMessage());
                 }
-                return; // IMPORTANTE: Corta la ejecución para que no haga un INSERT abajo
+                return; 
             }
             
             // 0. EXTRACCIÓN DE TEXTOS PARA VALIDACIÓN

@@ -9,11 +9,9 @@ import java.sql.SQLException;
 
 public class EmpleadoDAO {
 
-    // Consultas SQL adaptadas exactamente a tu script de base de datos
     private static final String INSERT_PERSONA = 
         "INSERT INTO Persona (cedula_Perso, nombre_Perso, apellido1_Perso, apellido2_Perso, telefono_Perso, direccion_Perso, correo_Perso, fecha_nac_Perso, genero_Perso, estado_civil_Perso) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
-    // Usamos RETURNING ID_Emp para atrapar el ID que genera tu Trigger
     private static final String INSERT_EMPLEADO = 
         "INSERT INTO Empleado (Cedula_Perso_Emp, Cargo_Emp, Tipo_contrato_Emp, Estado_Emp) VALUES (?, ?, ?, 'Activo') RETURNING ID_Emp";
     
@@ -26,7 +24,6 @@ public class EmpleadoDAO {
     private static final String INSERT_MEDICO = 
         "INSERT INTO Medico (ID_Emp_Med, Registro_Profesiona_Med, Nivel_Formacion_Med, Especialidad_Med) VALUES (?, ?, ?, ?)";
         
-    // Omitimos intencionalmente el Horario para que el Trigger asuma NULL de forma segura
     private static final String INSERT_ENFERMERA = 
         "INSERT INTO Enfermera (ID_Emp_Enfer, ID_JorTur_Enfer, Numero_Licencia_Enfer, Nivel_Formacion_Enfer, Especialidad_Enfer) VALUES (?, ?, ?, ?, ?)";
     private static final String LISTAR_EMPLEADOS = "SELECT e.ID_Emp, p.cedula_Perso, p.nombre_Perso, p.apellido1_Perso, e.Cargo_Emp, e.Tipo_contrato_Emp " +
@@ -48,9 +45,8 @@ public class EmpleadoDAO {
         Connection con = null;
         try {
             con = new Conexion().getConnection();
-            con.setAutoCommit(false); // Inicia Transacción
+            con.setAutoCommit(false); 
 
-            // 1. Guardar Persona
             try (PreparedStatement psPer = con.prepareStatement(INSERT_PERSONA)) {
                 psPer.setString(1, persona.getCedula());
                 psPer.setString(2, persona.getNombre1());
@@ -65,7 +61,6 @@ public class EmpleadoDAO {
                 psPer.executeUpdate();
             }
 
-            // 2. Guardar Empleado y recuperar su ID generado por el Trigger
             String idEmpleadoGenerado = "";
             try (PreparedStatement psEmp = con.prepareStatement(INSERT_EMPLEADO)) {
                 psEmp.setString(1, persona.getCedula());
@@ -79,14 +74,12 @@ public class EmpleadoDAO {
                 }
             }
 
-            // 3. Guardar Usuario vinculado al Empleado
             try (PreparedStatement psUser = con.prepareStatement(INSERT_USUARIO)) {
                 psUser.setString(1, idEmpleadoGenerado);
                 psUser.setString(2, usuario.getContrasena());
                 psUser.executeUpdate();
             }
 
-            // 4. Derivar a la tabla del Rol Específico
             if (rol.equalsIgnoreCase("ADMINISTRADOR")) {
                 try (PreparedStatement psAdm = con.prepareStatement(INSERT_ADMIN)) {
                     psAdm.setString(1, idEmpleadoGenerado);
@@ -111,7 +104,7 @@ public class EmpleadoDAO {
                 }
             }
 
-            con.commit(); // Si todo sale bien, guardar definitivamente
+            con.commit(); 
             return true;
 
         } catch (SQLException e) {
@@ -147,9 +140,6 @@ public class EmpleadoDAO {
         return lista;
     }
 
-    // ==========================================
-    // 2. DAR DE BAJA (ELIMINAR LÓGICO)
-    // ==========================================
     public boolean darDeBajaEmpleado(String idEmp) {
         
         try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
@@ -163,9 +153,6 @@ public class EmpleadoDAO {
         }
     }
 
-    // ==========================================
-    // 3. ACTUALIZAR TRANSACCIONAL
-    // ==========================================
     public boolean actualizarEmpleadoTransaccional(Persona persona, Empleado empleado) {
         String ACTUALIZAR_PERSONA = "UPDATE Persona SET nombre_Perso=?, apellido1_Perso=?, apellido2_Perso=?, telefono_Perso=?, direccion_Perso=?, correo_Perso=?, estado_civil_Perso=? WHERE cedula_Perso=?";
         
@@ -206,7 +193,6 @@ public class EmpleadoDAO {
     public java.util.List<Object[]> listarPersonalConHorarios() {
         java.util.List<Object[]> lista = new java.util.ArrayList<>();
         
-        // Consulta multi-tabla para extraer nombres, cédula, cargo y el nombre de la jornada (Matutino/Vespertino/Nocturno)
         String sql = "SELECT e.ID_Emp, per.cedula_Perso, per.nombre_Perso, per.apellido1_Perso, e.Cargo_Emp, " +
                      "COALESCE(jt.Nombre_JorTur, 'Sin Horario Asignado') AS Horario " +
                      "FROM Empleado e " +
@@ -252,7 +238,6 @@ public class EmpleadoDAO {
    
    public int contarPersonalActivo() {
         int total = 0;
-        // Cuenta las filas donde el estado del empleado sea Activo
         String sql = "SELECT COUNT(*) FROM Empleado WHERE UPPER(Estado_Emp) = 'ACTIVO'";
         
         try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
@@ -260,7 +245,7 @@ public class EmpleadoDAO {
              java.sql.ResultSet rs = ps.executeQuery()) {
             
             if (rs.next()) {
-                total = rs.getInt(1); // Atrapa el número que devuelve el COUNT(*)
+                total = rs.getInt(1); 
             }
             
         } catch (Exception e) {
@@ -270,7 +255,7 @@ public class EmpleadoDAO {
     }
    
    public void rellenarComboEnfermeros(javax.swing.JComboBox<String> comboBox) {
-    comboBox.removeAllItems(); // Limpiamos por si acaso
+    comboBox.removeAllItems(); 
     
     String sql = "SELECT per.nombre_Perso, per.apellido1_Perso " +
                  "FROM Empleado e " +
@@ -284,7 +269,7 @@ public class EmpleadoDAO {
         
         while (rs.next()) {
             String nombreCompleto = rs.getString("nombre_Perso") + " " + rs.getString("apellido1_Perso");
-            comboBox.addItem(nombreCompleto); // Agregamos cada enfermero al combo
+            comboBox.addItem(nombreCompleto); 
         }
         
     } catch (Exception e) {

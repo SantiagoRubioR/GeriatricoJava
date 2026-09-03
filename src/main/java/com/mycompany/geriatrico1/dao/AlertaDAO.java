@@ -8,17 +8,13 @@ import java.util.List;
 
 public class AlertaDAO {
 
-    // ========================================================
-    // REGISTRAR ALERTA (Transacción Maestro-Detalle)
-    // ========================================================
+
     public boolean registrarAlerta(String idPaciente, String idPrioridad, String idMedico, String observaciones) {
         Connection con = null;
         try {
             con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
-            // ¡Desactivamos el autoguardado para asegurar que ambas tablas se llenen o ninguna!
             con.setAutoCommit(false); 
 
-            // 1. Insertamos el Encabezado y pedimos que Postgres nos devuelva el ID generado
             String sqlEncab = "INSERT INTO Encabezado_Alerta (ID_Pac_EncabAler, ID_Prioridad_EncabAler, ID_Med_EncabAler) " +
                               "VALUES (?, ?, ?) RETURNING ID_EncabAler";
             
@@ -30,25 +26,23 @@ public class AlertaDAO {
             ResultSet rs = psEncab.executeQuery();
             String idGeneradoEAL = "";
             if (rs.next()) {
-                idGeneradoEAL = rs.getString(1); // Atrapamos el EAL-XXXX
+                idGeneradoEAL = rs.getString(1); 
             }
 
-            // 2. Insertamos el Detalle usando el ID que acabamos de atrapar
             String sqlDetalle = "INSERT INTO Detalle_Alerta (ID_EncabAler_DetAler, Estado_DetAler, Observaciones_DetAler) " +
                                 "VALUES (?, ?, ?)";
             PreparedStatement psDetalle = con.prepareStatement(sqlDetalle);
             psDetalle.setString(1, idGeneradoEAL);
-            psDetalle.setString(2, "Pendiente"); // Estado inicial
+            psDetalle.setString(2, "Pendiente"); 
             psDetalle.setString(3, observaciones);
             
             psDetalle.executeUpdate();
 
-            // Si todo salió bien, guardamos los cambios
             con.commit();
             return true;
             
         } catch (Exception e) {
-            try { if (con != null) con.rollback(); } catch (Exception ex) {} // Si algo falla, deshacemos todo
+            try { if (con != null) con.rollback(); } catch (Exception ex) {} 
             System.err.println("Error en transacción de alerta: " + e.getMessage());
             return false;
         } finally {
@@ -56,13 +50,11 @@ public class AlertaDAO {
         }
     }
 
-    // ========================================================
-    // OBTENER ALERTAS PENDIENTES 
-    // ========================================================
+
     public List<String[]> obtenerAlertasPendientes() {
         List<String[]> lista = new ArrayList<>();
         
-        // Cruzamos el Encabezado con el Detalle para sacar las observaciones reales
+        
         String sql = "SELECT a.ID_EncabAler, " +
                      "p.nombre_Perso || ' ' || p.apellido1_Perso AS Paciente, " +
                      "d.Observaciones_DetAler, " +
@@ -93,11 +85,8 @@ public class AlertaDAO {
         return lista;
     }
 
-    // ========================================================
-    // ATENDER ALERTA 
-    // ========================================================
+
     public boolean atenderAlerta(String idAlerta) {
-        // En lugar de borrar, actualizamos el estado para no perder el historial
         String sql = "UPDATE Detalle_Alerta SET Estado_DetAler = 'Atendida' WHERE ID_EncabAler_DetAler = ?";
         
         try (Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
@@ -112,9 +101,7 @@ public class AlertaDAO {
         }
     }
     
-     // ========================================================
-    // CONTADOR ALERTAS GEENERALES Y SOLO CRITICAS
-    // ========================================================
+
     public int contarAlertasPendientes() {
     int totalAlertas = 0;
     String sql = "SELECT COUNT(*) FROM Detalle_Alerta WHERE UPPER(Estado_DetAler) = 'PENDIENTE'";
