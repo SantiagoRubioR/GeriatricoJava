@@ -41,6 +41,38 @@ public class CtrlAdmin {
                 dlg.setVisible(true);
             }
         });
+        this.vista.btnfichaPaciente.addActionListener(new java.awt.event.ActionListener() {
+    @Override
+    public void actionPerformed(java.awt.event.ActionEvent e) {
+        // 1. Validamos selección
+        int fila = vista.tablaPacientes.getSelectedRow();
+        if (fila == -1) {
+            javax.swing.JOptionPane.showMessageDialog(null, "¡Seleccione un paciente!", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // 2. Capturamos el ID oculto de la primera columna (posición 0)
+        String idSeleccionado = vista.tablaPacientes.getValueAt(fila, 0).toString();
+
+        // 3. Instanciamos la vista (el panel)
+        com.mycompany.geriatrico1.vista.panel_principal_paciente panel = new com.mycompany.geriatrico1.vista.panel_principal_paciente();
+        
+        // =======================================================
+        // 4. ¡LA MAGIA DEL MVC QUE FALTABA! 
+        // Instanciamos el DAO y el Controlador de ese panel para que busque los datos.
+        // OJO: Cambia "PacienteDao" y "CtrlFichaPaciente" por los nombres reales que uses para ese panel.
+        com.mycompany.geriatrico1.controlador.CtrlFichaPaciente ctrl = new com.mycompany.geriatrico1.controlador.CtrlFichaPaciente(panel, idSeleccionado);
+
+        // 5. Mostramos la ventana flotante
+        javax.swing.JDialog dialog = new javax.swing.JDialog();
+        dialog.setTitle("Ficha del Paciente: " + idSeleccionado);
+        dialog.setModal(true);
+        dialog.getContentPane().add(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+    }
+});
     }
     
 

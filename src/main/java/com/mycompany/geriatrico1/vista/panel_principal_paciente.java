@@ -38,7 +38,6 @@ public class panel_principal_paciente extends javax.swing.JPanel {
         btnContactoEmergencia = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        btnGenerarAlert = new javax.swing.JButton();
         btnGenerarReporte = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -153,11 +152,6 @@ public class panel_principal_paciente extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(238, 242, 246));
 
-        btnGenerarAlert.setBackground(new java.awt.Color(204, 0, 0));
-        btnGenerarAlert.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnGenerarAlert.setText("GENERAR ALERTA");
-        btnGenerarAlert.addActionListener(this::btnGenerarAlertActionPerformed);
-
         btnGenerarReporte.setBackground(new java.awt.Color(0, 153, 0));
         btnGenerarReporte.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnGenerarReporte.setText("GENERAR REPORTE");
@@ -167,20 +161,16 @@ public class panel_principal_paciente extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(605, Short.MAX_VALUE)
+                .addContainerGap(811, Short.MAX_VALUE)
                 .addComponent(btnGenerarReporte)
-                .addGap(66, 66, 66)
-                .addComponent(btnGenerarAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+                .addGap(45, 45, 45))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGenerarReporte, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
-                    .addComponent(btnGenerarAlert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addComponent(btnGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_END);
@@ -398,16 +388,11 @@ public class panel_principal_paciente extends javax.swing.JPanel {
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGenerarAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarAlertActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGenerarAlertActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JScrollPane JScrollPane;
     public javax.swing.JButton btnContactoEmergencia;
     public javax.swing.JButton btnFinalizarTratamiento;
-    private javax.swing.JButton btnGenerarAlert;
     public javax.swing.JButton btnGenerarReporte;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;

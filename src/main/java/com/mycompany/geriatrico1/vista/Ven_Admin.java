@@ -459,6 +459,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         btnNuevoPaciente = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btnfichaPaciente = new javax.swing.JButton();
         panelReportes = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
@@ -834,29 +835,32 @@ public class Ven_Admin extends javax.swing.JFrame {
             }
         });
 
+        btnfichaPaciente.setText("Ver Ficha");
+
         javax.swing.GroupLayout panelPacientesLayout = new javax.swing.GroupLayout(panelPacientes);
         panelPacientes.setLayout(panelPacientesLayout);
         panelPacientesLayout.setHorizontalGroup(
             panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPacientesLayout.createSequentialGroup()
-                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(panelPacientesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnfichaPaciente)
+                        .addGap(18, 18, 18)
                         .addComponent(btnEditar)
                         .addGap(30, 30, 30)
                         .addComponent(jButton2))
-                    .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(panelPacientesLayout.createSequentialGroup()
-                            .addGap(53, 53, 53)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelPacientesLayout.createSequentialGroup()
-                            .addGap(27, 27, 27)
-                            .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(panelPacientesLayout.createSequentialGroup()
-                                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnNuevoPaciente))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPacientesLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPacientesLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelPacientesLayout.createSequentialGroup()
+                                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnNuevoPaciente)))))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         panelPacientesLayout.setVerticalGroup(
@@ -873,7 +877,8 @@ public class Ven_Admin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditar)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(btnfichaPaciente))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
@@ -1492,6 +1497,7 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevoPersonal;
     public javax.swing.JButton btnRegistrarPacienteRapido;
     private javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnfichaPaciente;
     private javax.swing.JComboBox<String> comboxConsulta;
     private javax.swing.JComboBox<String> comboxPeriodo;
     private javax.swing.JComboBox<String> comboxTipGrafica;
