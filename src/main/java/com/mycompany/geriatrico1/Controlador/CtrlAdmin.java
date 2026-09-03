@@ -25,7 +25,24 @@ public class CtrlAdmin {
         configurarFechaActual();
         
         cargarEstadisticasDashboard();
+        
+        this.vista.btnRegistrarPacienteRapido.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                // 1. Instanciamos la ventana y el DAO
+                com.mycompany.geriatrico1.vista.FichaNewPaciente dlg = new com.mycompany.geriatrico1.vista.FichaNewPaciente();
+                com.mycompany.geriatrico1.dao.PacienteDao dao = new com.mycompany.geriatrico1.dao.PacienteDao();
+                
+                // 2. Le pasamos el control al CtrlPaciente
+                com.mycompany.geriatrico1.controlador.CtrlPaciente ctrl = new com.mycompany.geriatrico1.controlador.CtrlPaciente(dlg, dao);
+                
+                // 3. Mostramos la ventana
+                dlg.setLocationRelativeTo(null); // Centrado en la pantalla
+                dlg.setVisible(true);
+            }
+        });
     }
+    
 
     public void cargarTablaPacientes() {
         
@@ -44,37 +61,76 @@ public class CtrlAdmin {
     }
     public void abrirEdicionPaciente() {
         int fila = vista.tablaPacientes.getSelectedRow();
-        
+
         if (fila == -1) {
             javax.swing.JOptionPane.showMessageDialog(vista, "Seleccione un paciente de la tabla para editar.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
-        // 1. Instanciamos la ventana
-        com.mycompany.geriatrico1.vista.FichaNewPaciente dlg = new com.mycompany.geriatrico1.vista.FichaNewPaciente();
 
-        // 2. ¡EL BLINDAJE! Traducimos la fila visual a la fila real de la memoria
+        // 1. Instanciamos la ventana
+        com.mycompany.geriatrico1.vista.FichaNewPaciente dip = new com.mycompany.geriatrico1.vista.FichaNewPaciente();
+
+        // 2. EL BLINDAJE: Traducimos la fila visual a la fila real de la memoria
         int filaModelo = vista.tablaPacientes.convertRowIndexToModel(fila);
 
-        // 3. Extraemos datos directo del MODELO (usando getModel(), donde la columna 0 sí existe)
+        // 3. Extraemos SOLO el ID desde el MODELO
         String idPac = vista.tablaPacientes.getModel().getValueAt(filaModelo, 0).toString();
-        dlg.txtCedula.setText(vista.tablaPacientes.getModel().getValueAt(filaModelo, 1).toString());
-        dlg.txtNombre.setText(vista.tablaPacientes.getModel().getValueAt(filaModelo, 2).toString());
-        dlg.txtApellido1.setText(vista.tablaPacientes.getModel().getValueAt(filaModelo, 3).toString());
 
-        // 4. Bloqueamos la cédula y preparamos el botón
-        dlg.txtCedula.setEditable(false);
-        dlg.btnGuardar.setText("Actualizar Paciente");
-        dlg.btnGuardar.setToolTipText(idPac); // Escondemos el ID para usarlo luego
+        // 4. SÚPER PRE-CARGA DESDE LA BASE DE DATOS (Evita el error character varying 15)
+        try {
+            java.sql.Connection con = com.mycompany.geriatrico1.conexion.Conexion.getConnection();
+            String sql = "SELECT p.cedula_perso, p.nombre_perso, p.apellido1_perso, p.apellido2_perso, " +
+                         "p.telefono_perso, p.correo_perso, p.direccion_perso, p.estado_civil_perso, p.genero_perso, " +
+                         "pac.grado_dependencia, pac.tipo_sandre_pac " +
+                         "FROM persona p INNER JOIN paciente pac ON p.cedula_perso = pac.cedula_perso_pac " +
+                         "WHERE pac.id_pac = ?";
+            java.sql.PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, idPac);
+            java.sql.ResultSet rs = ps.executeQuery();
 
-        // 5. Encendemos el controlador secundario y mostramos
-        com.mycompany.geriatrico1.dao.PacienteDao dao = new com.mycompany.geriatrico1.dao.PacienteDao(); // Puesto con ruta completa por si acaso
-        com.mycompany.geriatrico1.controlador.CtrlPaciente ctrlPac = new com.mycompany.geriatrico1.controlador.CtrlPaciente(dlg, dao);
-        dlg.setLocationRelativeTo(vista);
-        dlg.setVisible(true);
+            if (rs.next()) {
+                // Llenamos todos los TextFields
+                dip.txtCedula.setText(rs.getString("cedula_perso"));
+                dip.txtNombre.setText(rs.getString("nombre_perso"));
+                dip.txtApellido1.setText(rs.getString("apellido1_perso"));
+                dip.txtApellido2.setText(rs.getString("apellido2_perso"));
+                dip.txtTelef.setText(rs.getString("telefono_perso"));
+                dip.txtCorreo.setText(rs.getString("correo_perso"));
+                dip.txtDirecc.setText(rs.getString("direccion_perso"));
 
-        // 6. Al cerrarse la ventana de edición, recargamos la tabla automáticamente
-        cargarTablaPacientes();
-        ocultarColumna(vista.tablaPacientes, 0);
+                // Llenamos los Combos (Esto es lo que salva tu CRUD)
+                String estadoC = rs.getString("estado_civil_perso");
+                if (estadoC != null) dip.cmbEstadoCivil.setSelectedItem(estadoC);
+
+                String sangre = rs.getString("tipo_sandre_pac");
+                if (sangre != null) dip.cmbTipoSangre.setSelectedItem(sangre);
+
+                String grado = rs.getString("grado_dependencia");
+                if (grado != null) dip.cmbGradoDependencia.setSelectedItem(grado);
+
+                String genero = rs.getString("genero_perso");
+                if (genero != null) {
+                    if (genero.equalsIgnoreCase("M")) {
+                        dip.cmbGenero.setSelectedIndex(1);
+                    } else if (genero.equalsIgnoreCase("F")) {
+                        dip.cmbGenero.setSelectedIndex(2);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Error al pre-cargar datos del paciente: " + e.getMessage());
+        }
+
+        // 5. Bloqueamos la cédula y preparamos el botón
+        dip.txtCedula.setEditable(false);
+        dip.btnGuardar.setText("Actualizar Paciente");
+        //dip.(idPac); // Excedente o ID para usarlo luego
+
+        // 6. Encendemos el controlador secundario y mostramos
+        com.mycompany.geriatrico1.dao.PacienteDao daoSecundario = new com.mycompany.geriatrico1.dao.PacienteDao();
+        com.mycompany.geriatrico1.controlador.CtrlPaciente ctrlSecundario = new com.mycompany.geriatrico1.controlador.CtrlPaciente(dip, daoSecundario);
+        
+        dip.setVisible(true);
     }
     
     public void darDeBajaPaciente() {
@@ -197,22 +253,65 @@ public class CtrlAdmin {
         }
 
         com.mycompany.geriatrico1.vista.FichaNuevaCuenta dlg = new com.mycompany.geriatrico1.vista.FichaNuevaCuenta();
-        
-        String idEmp = vista.tablaEmpleados.getValueAt(fila, 0).toString();
-        dlg.txtCedula.setText(vista.tablaEmpleados.getValueAt(fila, 1).toString());
-        dlg.txtNombre.setText(vista.tablaEmpleados.getValueAt(fila, 2).toString());
-        dlg.txtApellido1.setText(vista.tablaEmpleados.getValueAt(fila, 3).toString());
-        // Ajusta los setItem de tus combobox según tus variables:
-        dlg.cmbRol.setSelectedItem(vista.tablaEmpleados.getValueAt(fila, 4).toString());
-        
-        dlg.txtCedula.setEditable(false); 
-        dlg.btnGuardarFicha.setText("Actualizar Cuenta"); 
-        dlg.btnGuardarFicha.setToolTipText(idEmp);
 
-        // Llama al controlador de Empleado (ajusta los nombres de tus clases)
+        // Extraemos el ID del empleado (Columna 0 según tu código)
+        String idEmp = vista.tablaEmpleados.getValueAt(fila, 0).toString();
+
+        // --- SÚPER PRE-CARGA DESDE LA BASE DE DATOS ---
+        try {
+            java.sql.Connection con = com.mycompany.geriatrico1.conexion.Conexion.getConnection();
+            String sql = "SELECT p.cedula_perso, p.nombre_perso, p.apellido1_perso, p.apellido2_perso, " +
+                         "p.telefono_perso, p.correo_perso, p.direccion_perso, p.estado_civil_perso, p.genero_perso, " +
+                         "e.rol_emp, e.tipo_contrato_emp " +
+                         "FROM persona p INNER JOIN empleado e ON p.cedula_perso = e.cedula_perso_emp " +
+                         "WHERE e.id_emp = ?";
+            
+            java.sql.PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, idEmp);
+            java.sql.ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                // Llenamos los TextFields
+                dlg.txtCedula.setText(rs.getString("cedula_perso"));
+                dlg.txtNombre.setText(rs.getString("nombre_perso"));
+                dlg.txtApellido1.setText(rs.getString("apellido1_perso"));
+                dlg.txtApellido2.setText(rs.getString("apellido2_perso"));
+                dlg.txtTelef.setText(rs.getString("telefono_perso"));
+                dlg.txtCorreo.setText(rs.getString("correo_perso"));
+                dlg.txtDirecc.setText(rs.getString("direccion_perso"));
+
+                // Llenamos los JComboBox para evitar el error de los 15 caracteres
+                String estadoC = rs.getString("estado_civil_perso");
+                if (estadoC != null) dlg.cmbEstCivCuenNue.setSelectedItem(estadoC);
+
+                String rol = rs.getString("rol_emp");
+                if (rol != null) dlg.cmbRol.setSelectedItem(rol);
+
+                String contrato = rs.getString("tipo_contrato_emp");
+                if (contrato != null) dlg.cmbContraMed.setSelectedItem(contrato);
+
+                String genero = rs.getString("genero_perso");
+                if (genero != null) {
+                    if (genero.equalsIgnoreCase("M")) {
+                        dlg.cmbGenero.setSelectedIndex(1);
+                    } else if (genero.equalsIgnoreCase("F")) {
+                        dlg.cmbGenero.setSelectedIndex(2);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Error al pre-cargar datos del empleado: " + e.getMessage());
+        }
+
+        // Configuración final de la ventana
+        dlg.txtCedula.setEditable(false);
+        dlg.btnGuardarFicha.setText("Actualizar Cuenta");
+        dlg.btnGuardarFicha.setToolTipText(idEmp); // Usas el tooltip para guardar el ID. ¡Es un buen truco!
+
+        // Llamamos al controlador
         com.mycompany.geriatrico1.dao.EmpleadoDAO dao = new com.mycompany.geriatrico1.dao.EmpleadoDAO();
         com.mycompany.geriatrico1.controlador.CtrlEmpleados ctrl = new com.mycompany.geriatrico1.controlador.CtrlEmpleados(dlg, dao);
-        
+
         dlg.setLocationRelativeTo(vista);
         dlg.setVisible(true);
 
@@ -267,6 +366,8 @@ public class CtrlAdmin {
         System.err.println("Error al cargar estadísticas en el dashboard: " + e.getMessage());
     }
 }
+    
+    
  }
     
 

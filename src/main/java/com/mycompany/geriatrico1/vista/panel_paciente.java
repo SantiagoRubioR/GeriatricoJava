@@ -39,14 +39,9 @@ public class panel_paciente extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         txtBuscaPaciAler = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        cbxGradoDepen = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
-        cbxGrupoEtario = new javax.swing.JComboBox<>();
         btnAgregarCuidado = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         btnGenerarAlerta = new javax.swing.JButton();
-        btnActualiEst = new javax.swing.JButton();
         btnVerFichaClini = new javax.swing.JButton();
         btnCargarPaciente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -139,16 +134,6 @@ public class panel_paciente extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/busqueda-de-lupa (1).png"))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel3.setText("Grado de Dependencia:");
-
-        cbxGradoDepen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "Independiente", "Dependencia leve", "Dependencia moderada" }));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel4.setText("Grupo Etario:");
-
-        cbxGrupoEtario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione uno...", "60 - 69 años", "70 - 79 años", "80 - 89 años", "90+ años" }));
-
         btnAgregarCuidado.setBackground(new java.awt.Color(0, 153, 153));
         btnAgregarCuidado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregarCuidado.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,13 +152,6 @@ public class panel_paciente extends javax.swing.JPanel {
         btnGenerarAlerta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGenerarAlerta.addActionListener(this::btnGenerarAlertaActionPerformed);
 
-        btnActualiEst.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnActualiEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repote_logo_tiny.png"))); // NOI18N
-        btnActualiEst.setText("<html><p>Actualizar<br>Estado</p>");
-        btnActualiEst.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 0), 1, true));
-        btnActualiEst.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnActualiEst.addActionListener(this::btnActualiEstActionPerformed);
-
         btnVerFichaClini.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnVerFichaClini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/file-and-folder.png"))); // NOI18N
         btnVerFichaClini.setText("<html><p>Ver Ficha<br>Residente</p>");
@@ -191,36 +169,23 @@ public class panel_paciente extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtBuscaPaciAler, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
+                        .addComponent(txtBuscaPaciAler, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 379, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cbxGrupoEtario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnCargarPaciente)
                         .addGap(18, 18, 18)
                         .addComponent(btnGenerarAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnActualiEst, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(btnVerFichaClini, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cbxGradoDepen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAgregarCuidado)))
+                    .addComponent(btnAgregarCuidado, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(12, 12, 12))
         );
         jPanel1Layout.setVerticalGroup(
@@ -229,35 +194,25 @@ public class panel_paciente extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtBuscaPaciAler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(cbxGradoDepen, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnAgregarCuidado))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                                        .addComponent(btnActualiEst)
-                                        .addComponent(btnVerFichaClini)
-                                        .addComponent(btnGenerarAlerta))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel4)
-                                        .addComponent(cbxGrupoEtario, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
-                                        .addComponent(btnCargarPaciente)))))
-                        .addContainerGap(12, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator1))))
+                        .addComponent(jSeparator1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(btnAgregarCuidado)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCargarPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                                .addComponent(btnVerFichaClini)
+                                .addComponent(btnGenerarAlerta)))
+                        .addContainerGap(12, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBuscaPaciAler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
@@ -289,10 +244,7 @@ public class panel_paciente extends javax.swing.JPanel {
 
     private void btnAgregarCuidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCuidadoActionPerformed
         // TODO add your handling code here:
-        Ficha_Alerta_Estado_FichaClinica v = new Ficha_Alerta_Estado_FichaClinica();
-        v.mostrarSoloPanel("cuidados");
-        v.setLocationRelativeTo(null);
-        v.setVisible(true);
+        //
     }//GEN-LAST:event_btnAgregarCuidadoActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -300,20 +252,8 @@ public class panel_paciente extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btnGenerarAlertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarAlertaActionPerformed
-        // TODO add your handling code here:
-        Ficha_Alerta_Estado_FichaClinica v = new Ficha_Alerta_Estado_FichaClinica();
-        v.mostrarSoloPanel("alerta");
-        v.setLocationRelativeTo(null);
-        v.setVisible(true);
+ //
     }//GEN-LAST:event_btnGenerarAlertaActionPerformed
-
-    private void btnActualiEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualiEstActionPerformed
-        // TODO add your handling code here:
-        Ficha_Alerta_Estado_FichaClinica v = new Ficha_Alerta_Estado_FichaClinica();
-        v.mostrarSoloPanel("estado");
-        v.setLocationRelativeTo(null);
-        v.setVisible(true);
-    }//GEN-LAST:event_btnActualiEstActionPerformed
 
     private void btnVerFichaCliniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerFichaCliniActionPerformed
         // TODO add your handling code here:
@@ -322,18 +262,13 @@ public class panel_paciente extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CrearCuidadoPanel;
-    public javax.swing.JButton btnActualiEst;
     public javax.swing.JButton btnAgregarCuidado;
     public javax.swing.JButton btnCargarPaciente;
     public javax.swing.JButton btnGenerarAlerta;
     public javax.swing.JButton btnVerFichaClini;
-    private javax.swing.JComboBox<String> cbxGradoDepen;
-    private javax.swing.JComboBox<String> cbxGrupoEtario;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -345,6 +280,6 @@ public class panel_paciente extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     public javax.swing.JTable tablaPacientes;
-    private javax.swing.JTextField txtBuscaPaciAler;
+    public javax.swing.JTextField txtBuscaPaciAler;
     // End of variables declaration//GEN-END:variables
 }

@@ -30,11 +30,12 @@ public class Ven_Admin extends javax.swing.JFrame {
      * Creates new form Ven_Admin
      */
     public Ven_Admin(String nombreUsuario) {
-        initComponents();      
+        initComponents();
         cargarConsultas();
         cargarPeriodos();
         cargarGraficas();
         configurarFechas();
+        
         panelSolicitudAcceso.setVisible(false);
         panelCuentas.setVisible(false);
         panelInicio.setVisible(true);
@@ -494,8 +495,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         lblSaludo = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        btnGeneTurnoRapi = new javax.swing.JButton();
+        btnRegistrarPacienteRapido = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
         btnCrearCuenta = new javax.swing.JButton();
 
@@ -662,7 +662,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         jPanel11.add(txtBusPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 196, -1));
 
         jLabel24.setText("Buscar: ");
-        jPanel11.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 14, -1, -1));
+        jPanel11.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         tablaEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -707,6 +707,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         });
         jButton1.addActionListener(this::jButton1ActionPerformed);
 
+        jButton3.setForeground(new java.awt.Color(255, 51, 51));
         jButton3.setText("Dar de Baja");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -735,7 +736,7 @@ public class Ven_Admin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuentasLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
                 .addComponent(jButton3)
                 .addGap(159, 159, 159))
         );
@@ -823,7 +824,9 @@ public class Ven_Admin extends javax.swing.JFrame {
                 btnEditarMouseClicked(evt);
             }
         });
+        btnEditar.addActionListener(this::btnEditarActionPerformed);
 
+        jButton2.setForeground(new java.awt.Color(255, 51, 51));
         jButton2.setText("Dar de Baja");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1050,7 +1053,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         lblFecha.setBackground(new java.awt.Color(245, 247, 250));
         lblFecha.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(102, 102, 102));
-        lblFecha.setText("Jueves, 14 de agosto de 2026");
+        lblFecha.setText("Jueves, 3 de septiembre de 2026");
 
         lblSaludo.setBackground(new java.awt.Color(245, 247, 250));
         lblSaludo.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
@@ -1092,18 +1095,13 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         jLabel28.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel28.setText("Programa un nuevo turno entre ");
-        panelInicio.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 460, -1, -1));
+        jLabel28.setText("Registra un nuevo paciente");
+        panelInicio.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, -1, -1));
 
-        jLabel33.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel33.setText("paciente y personal");
-        panelInicio.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, -1, -1));
-
-        btnGeneTurnoRapi.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 16)); // NOI18N
-        btnGeneTurnoRapi.setText("Generar turnos");
-        btnGeneTurnoRapi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        panelInicio.add(btnGeneTurnoRapi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 240, 100));
+        btnRegistrarPacienteRapido.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 16)); // NOI18N
+        btnRegistrarPacienteRapido.setText("Registrar Paciente");
+        btnRegistrarPacienteRapido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        panelInicio.add(btnRegistrarPacienteRapido, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 240, 100));
 
         jLabel35.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(102, 102, 102));
@@ -1126,14 +1124,14 @@ public class Ven_Admin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(panelSolicitudAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(632, Short.MAX_VALUE))
+                .addContainerGap(647, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1383,6 +1381,10 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         generarReporteYGrafica();
     }//GEN-LAST:event_comboxPeriodoActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarActionPerformed
     private void generarReporteYGrafica() {
 
         // 1. OBTENER CONSULTA
@@ -1486,9 +1488,9 @@ public class Ven_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearCuenta;
     private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnGeneTurnoRapi;
     private javax.swing.JButton btnNuevoPaciente;
     private javax.swing.JButton btnNuevoPersonal;
+    public javax.swing.JButton btnRegistrarPacienteRapido;
     private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> comboxConsulta;
     private javax.swing.JComboBox<String> comboxPeriodo;
@@ -1519,7 +1521,6 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1544,11 +1545,11 @@ public class Ven_Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblAlertas;
-    private javax.swing.JLabel lblCuentasPer;
-    private javax.swing.JLabel lblCuidados;
+    public javax.swing.JLabel lblAlertas;
+    public javax.swing.JLabel lblCuentasPer;
+    public javax.swing.JLabel lblCuidados;
     public javax.swing.JLabel lblFecha;
-    private javax.swing.JLabel lblPacientes;
+    public javax.swing.JLabel lblPacientes;
     public javax.swing.JLabel lblSaludo;
     public javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel pacientes;

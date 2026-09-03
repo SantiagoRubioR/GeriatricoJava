@@ -17,6 +17,8 @@ public class CtrlPaciente implements ActionListener {
     public CtrlPaciente(FichaNewPaciente vista, PacienteDao dao) {
         this.vista = vista;
         this.dao = dao;
+        activarAlertaRojaLongitud(vista.txtCedula, 10);
+        activarAlertaRojaLongitud(vista.txtTelef, 10);
         // Escuchamos el clic del botón GUARDAR
         this.vista.btnGuardar.addActionListener(this);
     }
@@ -27,6 +29,14 @@ public class CtrlPaciente implements ActionListener {
         if (e.getSource() == vista.btnGuardar) {
             
             if (vista.btnGuardar.getText().equalsIgnoreCase("Actualizar Paciente")) {
+                String estadoC = vista.cmbEstadoCivil.getSelectedItem().toString();
+                String sangre = vista.cmbTipoSangre.getSelectedItem().toString();
+                String grado = vista.cmbGradoDependencia.getSelectedItem().toString();
+        
+                if (estadoC.contains("Seleccione") || sangre.contains("Seleccione") || grado.contains("Seleccione")) {
+                javax.swing.JOptionPane.showMessageDialog(vista, "Por favor, seleccione valores válidos en Estado Civil, Tipo de Sangre y Grado de Dependencia antes de actualizar.");
+                return; 
+        }
                 try {
                     Persona residente = new Persona();
                     residente.setCedula(vista.txtCedula.getText().trim()); 
@@ -166,6 +176,19 @@ public class CtrlPaciente implements ActionListener {
                 JOptionPane.showMessageDialog(vista, "Ocurrió un error inesperado al procesar los datos.\nDetalle: " + ex.getMessage(), "Alerta de Sistema", JOptionPane.WARNING_MESSAGE);
             }
         }
+    }
+    private void activarAlertaRojaLongitud(javax.swing.JTextField campoTexto, int longitudExacta) {
+        campoTexto.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(java.awt.event.KeyEvent e) {
+                // Si lo que escriben no tiene exactamente la longitud pedida, se pinta rojo
+                if (campoTexto.getText().trim().length() != longitudExacta) {
+                    campoTexto.setForeground(java.awt.Color.RED);
+                } else {
+                    campoTexto.setForeground(java.awt.Color.BLACK); // Vuelve a la normalidad
+                }
+            }
+        });
     }
     
     

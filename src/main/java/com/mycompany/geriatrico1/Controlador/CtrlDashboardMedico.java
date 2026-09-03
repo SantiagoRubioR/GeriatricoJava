@@ -39,6 +39,20 @@ public class CtrlDashboardMedico implements ActionListener {
                 seleccionarPacienteParaConsulta();
             }
         });
+        javax.swing.table.TableRowSorter<javax.swing.table.TableModel> sorterMedico = new javax.swing.table.TableRowSorter<>(vista.tablaPacientesActivos.getModel());
+        vista.tablaPacientesActivos.setRowSorter(sorterMedico);
+
+        vista.txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(java.awt.event.KeyEvent e) {
+                String texto = vista.txtBuscar.getText().trim();
+                if (texto.isEmpty()) {
+                    sorterMedico.setRowFilter(null);
+                } else {
+                    sorterMedico.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + texto));
+                }
+            }
+        });
     }
     
     private void cargarTablaPacientesActivos() {

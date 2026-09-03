@@ -18,13 +18,65 @@ public class CtrlEmpleados implements ActionListener {
         this.vista = vista;
         this.dao = dao;
         this.vista.btnGuardarFicha.addActionListener(this);
+        
+        activarAlertaRojaLongitud(vista.txtCedula, 10);
+        activarAlertaRojaLongitud(vista.txtTelef, 10);
+
+        // 2. Formato Enfermeros: ENF-2026- seguido de 5 números
+        // CAMBIA "txtLicenciaEnfermeria" por tu variable real
+        if(vista.txtNumLicenEnfer != null){
+            activarAlertaRojaFormato(vista.txtNumLicenEnfer, "^ENF-2026-\\d{5}$");
+        }
+
+        // 3. Formato Médicos: REG-MED- seguido de 4 números
+        // CAMBIA "txtRegistroMedico" por tu variable real
+        if(vista.txtRegisProfMed != null){
+            activarAlertaRojaFormato(vista.txtRegisProfMed, "^REG-MED-\\d{4}$");
+        }
+        
+    }
+    
+    private void activarAlertaRojaLongitud(javax.swing.JTextField campoTexto, int longitudExacta) {
+        campoTexto.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(java.awt.event.KeyEvent e) {
+                if (campoTexto.getText().trim().length() != longitudExacta) {
+                    campoTexto.setForeground(java.awt.Color.RED);
+                } else {
+                    campoTexto.setForeground(java.awt.Color.BLACK);
+                }
+            }
+        });
     }
 
+    // 2. Método para los códigos locos de Daniela (Expresiones Regulares)
+    private void activarAlertaRojaFormato(javax.swing.JTextField campoTexto, String patronRegex) {
+        campoTexto.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(java.awt.event.KeyEvent e) {
+                // Si el texto NO cumple el patrón de Daniela, va en rojo
+                if (!campoTexto.getText().trim().matches(patronRegex)) {
+                    campoTexto.setForeground(java.awt.Color.RED);
+                } else {
+                    campoTexto.setForeground(java.awt.Color.BLACK);
+                }
+            }
+        });
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnGuardarFicha) {
             
             if (vista.btnGuardarFicha.getText().equalsIgnoreCase("Actualizar Cuenta")) {
+                String estadoC = vista.cmbEstCivCuenNue.getSelectedItem().toString();
+                String rol = vista.cmbRol.getSelectedItem().toString();
+                String contrato = vista.cmbContraMed.getSelectedItem().toString();
+
+                if (estadoC.contains("Seleccione") || rol.contains("Seleccione") || contrato.contains("Seleccione")) {
+                    javax.swing.JOptionPane.showMessageDialog(vista, "Por favor, seleccione valores válidos en Estado Civil, Rol y Tipo de Contrato.");
+            return; // Detiene la ejecución y salva a la BD
+        }
                 try {
                     Persona persona = new Persona();
                     persona.setCedula(vista.txtCedula.getText().trim()); 

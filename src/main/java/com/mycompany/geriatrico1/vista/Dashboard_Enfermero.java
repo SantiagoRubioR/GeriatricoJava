@@ -42,10 +42,7 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
         panel_paciente2 = new com.mycompany.geriatrico1.vista.panel_paciente();
         panel_inicio1 = new com.mycompany.geriatrico1.vista.panel_inicio();
         jPanel3 = new javax.swing.JPanel();
-        btnIniEnfer = new javax.swing.JButton();
         btnPaciEnfer = new javax.swing.JButton();
-        btnPendEnfer = new javax.swing.JButton();
-        btnReporEnfer = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,7 +68,7 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -107,33 +104,12 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 128, 128));
 
-        btnIniEnfer.setBackground(new java.awt.Color(24, 76, 74));
-        btnIniEnfer.setForeground(new java.awt.Color(255, 255, 255));
-        btnIniEnfer.setText("Inicio");
-        btnIniEnfer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnIniEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
-        btnIniEnfer.addActionListener(this::btnIniEnferActionPerformed);
-
         btnPaciEnfer.setBackground(new java.awt.Color(24, 76, 74));
         btnPaciEnfer.setForeground(new java.awt.Color(255, 255, 255));
         btnPaciEnfer.setText("Paciente");
         btnPaciEnfer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPaciEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
         btnPaciEnfer.addActionListener(this::btnPaciEnferActionPerformed);
-
-        btnPendEnfer.setBackground(new java.awt.Color(24, 76, 74));
-        btnPendEnfer.setForeground(new java.awt.Color(255, 255, 255));
-        btnPendEnfer.setText("(Pendiente)");
-        btnPendEnfer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPendEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
-        btnPendEnfer.addActionListener(this::btnPendEnferActionPerformed);
-
-        btnReporEnfer.setBackground(new java.awt.Color(24, 76, 74));
-        btnReporEnfer.setForeground(new java.awt.Color(255, 255, 255));
-        btnReporEnfer.setText("Reporte");
-        btnReporEnfer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnReporEnfer.setPreferredSize(new java.awt.Dimension(400, 150));
-        btnReporEnfer.addActionListener(this::btnReporEnferActionPerformed);
 
         jButton1.setBackground(new java.awt.Color(24, 76, 74));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -149,42 +125,26 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnReporEnfer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                            .addComponent(btnPendEnfer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btnPaciEnfer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btnIniEnfer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(btnPaciEnfer, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jButton1)))
+                        .addGap(89, 89, 89)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(btnIniEnfer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addGap(23, 23, 23)
                 .addComponent(btnPaciEnfer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(btnPendEnfer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(btnReporEnfer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(50, 50, 50))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 548, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.WEST);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnIniEnferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniEnferActionPerformed
-       panel_paciente2.setVisible(false);
-       panel_inicio1.setVisible(true);
-        seleccionarBoton( btnIniEnfer);
-    }//GEN-LAST:event_btnIniEnferActionPerformed
 
     private void btnPaciEnferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaciEnferActionPerformed
        panel_paciente2.setVisible(true);
@@ -193,7 +153,7 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPaciEnferActionPerformed
 
      public void seleccionarBoton(javax.swing.JButton botonseleccionado){
-        javax.swing.JButton[] botones={btnIniEnfer,btnPaciEnfer,btnPendEnfer, btnReporEnfer};
+        javax.swing.JButton[] botones={btnPaciEnfer};
         
         for(javax.swing.JButton btn:botones){
             if(btn==botonseleccionado){
@@ -208,15 +168,6 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
     
     
     
-    private void btnPendEnferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPendEnferActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPendEnferActionPerformed
-
-    private void btnReporEnferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporEnferActionPerformed
-        // TODO add your handling code here:
-        seleccionarBoton(btnReporEnfer);
-    }//GEN-LAST:event_btnReporEnferActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -231,10 +182,7 @@ public class Dashboard_Enfermero extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIniEnfer;
     private javax.swing.JButton btnPaciEnfer;
-    private javax.swing.JButton btnPendEnfer;
-    private javax.swing.JButton btnReporEnfer;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

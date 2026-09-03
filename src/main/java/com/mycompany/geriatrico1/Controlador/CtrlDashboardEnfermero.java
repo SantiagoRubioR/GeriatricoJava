@@ -16,9 +16,18 @@ public class CtrlDashboardEnfermero implements ActionListener {
     private panel_paciente vista;
     
     private String idEnfermeraActual;
+    
+    private javax.swing.table.TableRowSorter<javax.swing.table.TableModel> sorterPacientes;
 
     public CtrlDashboardEnfermero(panel_paciente vista, String cedulaUsuario) {
+        
         this.vista = vista;
+        vista.txtBuscaPaciAler.addKeyListener(new java.awt.event.KeyAdapter() {
+        @Override
+        public void keyReleased(java.awt.event.KeyEvent e) {
+            filtrarTablaPacientes();
+        }
+        });
         // 1. Convertimos la cédula del login en el ID de la enfermera
         com.mycompany.geriatrico1.dao.EmpleadoDAO empDao = new com.mycompany.geriatrico1.dao.EmpleadoDAO();
         this.idEnfermeraActual = empDao.obtenerIdEnfermeraPorCedula(cedulaUsuario);
@@ -42,6 +51,8 @@ public class CtrlDashboardEnfermero implements ActionListener {
         for (Object[] fila : daoPac.listarPacientes()) {
             modelo.addRow(fila);
         }
+        sorterPacientes = new javax.swing.table.TableRowSorter<>(modelo);
+        this.vista.tablaPacientes.setRowSorter(sorterPacientes);
     }
 
     @Override
@@ -146,7 +157,7 @@ public class CtrlDashboardEnfermero implements ActionListener {
 }
     
     private void abrirFichaClinica() {
-        int filaVisual = vista.tablaPacientes.getSelectedRow();
+        int filaVisual = this.vista.tablaPacientes.getSelectedRow();
         
         if (filaVisual == -1) {
             javax.swing.JOptionPane.showMessageDialog(vista, "Seleccione un paciente de la tabla.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
@@ -171,6 +182,21 @@ public class CtrlDashboardEnfermero implements ActionListener {
         dialogoEmergente.setVisible(true);
         
    
+    }
+    
+    private void filtrarTablaPacientes() {
+        // Capturamos lo que el enfermero escribe en el panel
+        String texto = vista.txtBuscaPaciAler.getText().trim();
+        
+        // Evitamos que explote si el sorter aún no está listo
+        if (sorterPacientes != null) {
+            if (texto.isEmpty()) {
+                sorterPacientes.setRowFilter(null); // Muestra todo
+            } else {
+                // Filtra ignorando mayúsculas/minúsculas en cualquier columna
+                sorterPacientes.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + texto));
+            }
+        }
     }
     
 }
