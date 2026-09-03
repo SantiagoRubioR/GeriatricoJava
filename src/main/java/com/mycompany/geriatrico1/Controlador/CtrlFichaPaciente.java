@@ -24,6 +24,7 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
         this.idPaciente = idPaciente;
         this.pacDao = new PacienteDao();
         this.vista.btnFinalizarTratamiento.addActionListener(this);
+        this.vista.btnGenerarReporte.addActionListener(this);
         
         // Ejecutamos la carga del perfil apenas nace el controlador
         cargarDatosPerfil();
@@ -237,5 +238,30 @@ public class CtrlFichaPaciente implements java.awt.event.ActionListener{
              }
          }
      }
+        
+        if (e.getSource() == vista.btnGenerarReporte) {
+        // 1. Obtenemos el texto estructurado del paciente actual usando su ID
+        String contenidoReporte = pacDao.obtenerTextoReporteGeneral(this.idPaciente);
+        
+        // 2. Creamos un área de texto temporal para la impresión
+        javax.swing.JTextArea areaImpresion = new javax.swing.JTextArea(contenidoReporte);
+        areaImpresion.setFont(new java.awt.Font("Monospaced", java.awt.Font.PLAIN, 12));
+        
+        try {
+            // 3. Encabezado y pie de página del reporte en PDF
+            java.text.MessageFormat header = new java.text.MessageFormat("KURY-CARE - Expediente Oficial");
+            java.text.MessageFormat footer = new java.text.MessageFormat("Pagina {0}");
+            
+            // 4. Lanzamos el asistente nativo de impresión a PDF
+            boolean impuesto = areaImpresion.print(header, footer);
+            
+            if (impuesto) {
+                javax.swing.JOptionPane.showMessageDialog(null, "¡Reporte general generado exitosamente!");
+            }
+            
+        } catch (java.awt.print.PrinterException ex) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Error al imprimir el reporte: " + ex.getMessage());
+        }
+    }
     }
 }

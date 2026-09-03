@@ -39,7 +39,7 @@ public class panel_principal_paciente extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnGenerarAlert = new javax.swing.JButton();
-        btnGenerarReport = new javax.swing.JButton();
+        btnGenerarReporte = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jInternalFrame1 = new javax.swing.JInternalFrame();
@@ -158,9 +158,9 @@ public class panel_principal_paciente extends javax.swing.JPanel {
         btnGenerarAlert.setText("GENERAR ALERTA");
         btnGenerarAlert.addActionListener(this::btnGenerarAlertActionPerformed);
 
-        btnGenerarReport.setBackground(new java.awt.Color(0, 153, 0));
-        btnGenerarReport.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnGenerarReport.setText("GENERAR REPORTE");
+        btnGenerarReporte.setBackground(new java.awt.Color(0, 153, 0));
+        btnGenerarReporte.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnGenerarReporte.setText("GENERAR REPORTE");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -168,7 +168,7 @@ public class panel_principal_paciente extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(605, Short.MAX_VALUE)
-                .addComponent(btnGenerarReport)
+                .addComponent(btnGenerarReporte)
                 .addGap(66, 66, 66)
                 .addComponent(btnGenerarAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
@@ -178,7 +178,7 @@ public class panel_principal_paciente extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGenerarReport, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                    .addComponent(btnGenerarReporte, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                     .addComponent(btnGenerarAlert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -408,7 +408,7 @@ public class panel_principal_paciente extends javax.swing.JPanel {
     public javax.swing.JButton btnContactoEmergencia;
     public javax.swing.JButton btnFinalizarTratamiento;
     private javax.swing.JButton btnGenerarAlert;
-    private javax.swing.JButton btnGenerarReport;
+    public javax.swing.JButton btnGenerarReporte;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JInternalFrame jInternalFrame3;

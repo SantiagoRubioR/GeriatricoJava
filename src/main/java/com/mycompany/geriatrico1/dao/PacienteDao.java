@@ -464,6 +464,46 @@ public class PacienteDao {
         }
         return lista;
     }
+        public String obtenerTextoReporteGeneral(String idPaciente) {
+        StringBuilder sb = new StringBuilder();
+        String sql = "SELECT p.nombre_perso, p.apellido1_perso, p.cedula_perso, p.estado_civil_perso, " +
+                     "pa.tipo_sandre_pac, pa.grado_dependencia, pa.fecha_ingreso_pac " +
+                     "FROM persona p " +
+                     "INNER JOIN paciente pa ON p.cedula_perso = pa.cedula_perso_pac " +
+                     "WHERE pa.id_pac = ?";
+        try {
+            java.sql.Connection con = Conexion.getConnection();
+            java.sql.PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, idPaciente);
+            java.sql.ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                sb.append("==================================================\n");
+                sb.append("      SISTEMA GESIATRICO KURU-CARE - REPORTE CLINICO\n");
+                sb.append("==================================================\n\n");
+                sb.append("Fecha de emision: ").append(java.time.LocalDate.now()).append("\n");
+                sb.append("ID Interno Paciente: ").append(idPaciente).append("\n\n");
+                sb.append("--------------------------------------------------\n");
+                sb.append("1. DATOS PERSONALES\n");
+                sb.append("--------------------------------------------------\n");
+                sb.append("Apellidos y Nombres: ").append(rs.getString("nombre_perso")).append(" ").append(rs.getString("apellido1_perso")).append("\n");
+                sb.append("Cedula de Identidad: ").append(rs.getString("cedula_perso")).append("\n");
+                sb.append("Estado Civil: ").append(rs.getString("estado_civil_perso")).append("\n");
+                sb.append("Fecha de Ingreso al Centro: ").append(rs.getString("fecha_ingreso_pac")).append("\n\n");
+                sb.append("--------------------------------------------------\n");
+                sb.append("2. PERFIL CLINICO BASE\n");
+                sb.append("--------------------------------------------------\n");
+                sb.append("Tipo de Sangre: ").append(rs.getString("tipo_sandre_pac")).append("\n");
+                sb.append("Grado de Dependencia: ").append(rs.getString("grado_dependencia")).append("\n\n");
+                sb.append("==================================================\n");
+                sb.append("   Fin del reporte general - Validado por sistema \n");
+                sb.append("==================================================\n");
+            }
+        } catch (Exception e) {
+            sb.append("Error al obtener datos para el reporte: ").append(e.getMessage());
+        }
+        return sb.toString();
+    }
 }   
     
     
