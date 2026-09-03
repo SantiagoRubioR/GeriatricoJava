@@ -25,13 +25,13 @@ public class FichaNewPaciente extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jPanel2);
         jPanel2.setPreferredSize(new java.awt.Dimension(950, 1300));
 
-        // 4. Configurar el ScrollPane y anclarlo al centro de la ventana
+        // Configura el ScrollPane y anclarlo al centro de la ventana
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.getVerticalScrollBar().setUnitIncrement(20);
         this.getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        // 5. Maximizar la ventana en pantalla completa sin romper el scroll
+        // Maximiza la ventana en pantalla completa sin romper el scroll
         java.awt.EventQueue.invokeLater(() -> {
             this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
             jScrollPane1.getVerticalScrollBar().setValue(0);

@@ -10,7 +10,6 @@ public class EncabezadoReceta {
     private String idEncabRec;
     private LocalDate fechaEncabRec;
     private LocalTime horaEncabRec;
-    // Relación 1 a N para Java:
     private List<DetalleReceta> listaDetallesReceta;
 
     public EncabezadoReceta() {

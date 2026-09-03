@@ -12,7 +12,7 @@ public class HistorialDAO {
         Connection con = null;
         try {
             con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
-            con.setAutoCommit(false); // Iniciamos transacción
+            con.setAutoCommit(false); 
 
             String sqlEncab = "INSERT INTO Encabezado_Historial_Clinico (ID_Pac_EncabHistoClin) " +
                               "VALUES (?) RETURNING ID_EncabHistoClin";
@@ -97,7 +97,7 @@ public class HistorialDAO {
         try {
             con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
             con.setAutoCommit(false); 
-
+            // Presion 
             String sqlPresion = "INSERT INTO Presion_Arterial (Presion_Sistolica_PresArt, Presion_Diastolica_PresArt) VALUES (?, ?) RETURNING ID_PresArt";
             PreparedStatement psPresion = con.prepareStatement(sqlPresion);
             psPresion.setDouble(1, presionSis);
@@ -105,16 +105,14 @@ public class HistorialDAO {
             ResultSet rsPresion = psPresion.executeQuery();
             String idPresionGenerado = "";
             if (rsPresion.next()) idPresionGenerado = rsPresion.getString(1);
-
-            // 2. Guardar Encabezado y atrapar su ID
+            // Encabezado historial clinico
             String sqlEncab = "INSERT INTO Encabezado_Historial_Clinico (ID_Pac_EncabHistoClin) VALUES (?) RETURNING ID_EncabHistoClin";
             PreparedStatement psEncab = con.prepareStatement(sqlEncab);
             psEncab.setString(1, idPaciente);
             ResultSet rsEncab = psEncab.executeQuery();
             String idEncabGenerado = "";
             if (rsEncab.next()) idEncabGenerado = rsEncab.getString(1);
-
-            // 3. Guardar el Detalle Clínico uniendo los IDs anteriores
+            // Detalle historial clinico
             String sqlDetalle = "INSERT INTO Detalle_Historial_Clinico (ID_EncabHistoClin_DetHisto, ID_Med_DetHisto, ID_PresArt_DetHisto, Diagnostico_DetHisto, Peso_DetHisto, Temperatura_DetHisto, Frecuencia_Cardiaca_DetHisto, Observaciones_DetHisto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement psDetalle = con.prepareStatement(sqlDetalle);
             psDetalle.setString(1, idEncabGenerado);
@@ -128,7 +126,6 @@ public class HistorialDAO {
             
             psDetalle.executeUpdate();
 
-            // Todo perfecto, guardamos en la base de datos
             con.commit();
             return true;
             

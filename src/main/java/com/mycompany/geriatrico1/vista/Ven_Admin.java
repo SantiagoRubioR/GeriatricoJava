@@ -1250,13 +1250,13 @@ public class Ven_Admin extends javax.swing.JFrame {
         
     com.mycompany.geriatrico1.vista.FichaNewPaciente ventanaRegistro = new com.mycompany.geriatrico1.vista.FichaNewPaciente();
 
-    // 2. Llamas a la base de datos (El Modelo)
+    // Llama a la base de datos (El Modelo)
     com.mycompany.geriatrico1.dao.PacienteDao daoPac = new com.mycompany.geriatrico1.dao.PacienteDao();
 
-    // 3. ¡EL CEREBRO! Conectas la ventana y la BD a través del Controlador
+    // Conectas la ventana y la BD a través del Controlador
     com.mycompany.geriatrico1.controlador.CtrlPaciente controlador = new com.mycompany.geriatrico1.controlador.CtrlPaciente(ventanaRegistro, daoPac);
 
-    // 4. Muestras la ventana en pantalla
+    // Muestras la ventana en pantalla
     ventanaRegistro.setVisible(true);
     }//GEN-LAST:event_btnNuevoPacienteActionPerformed
 
@@ -1265,8 +1265,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         dlg.btnGuardarFicha.setText("Guardar");
         
         com.mycompany.geriatrico1.dao.EmpleadoDAO dao = new com.mycompany.geriatrico1.dao.EmpleadoDAO();
-        CtrlEmpleados ctrl = new CtrlEmpleados(dlg, dao);        // TODO add your handling code here:
-        
+        CtrlEmpleados ctrl = new CtrlEmpleados(dlg, dao);
         
         dlg.setLocationRelativeTo(this);
          dlg.setVisible(true);
@@ -1392,11 +1391,11 @@ public class Ven_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarActionPerformed
     private void generarReporteYGrafica() {
 
-        // 1. OBTENER CONSULTA
+        // OBTIENE CONSULTA
         int tipoConsulta =
                comboxConsulta.getSelectedIndex() + 1;
 
-        // 2. OBTENER FECHAS
+        // OBTIENE FECHAS
         Date[] fechas =
                 obtenerFechas();
 
@@ -1407,7 +1406,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         Date fechaIni = fechas[0];
         Date fechaFin = fechas[1];
 
-        // 3. VALIDAR FECHAS
+        // VALIDA FECHAS
         if (!validarFechas(
                 fechaIni,
                 fechaFin)) {
@@ -1415,11 +1414,11 @@ public class Ven_Admin extends javax.swing.JFrame {
             return;
         }
 
-        // 4. OBTENER TIPO DE GRÁFICA
+        // OBTIENE TIPO DE GRÁFICA
         int tipoGrafica =
                 comboxTipGrafica.getSelectedIndex();
 
-        // 5. CONECTAR A POSTGRESQL Y EJECUTAR
+        // CONECTA A POSTGRESQL Y EJECUTA
         try {
 
             Connection cn =
@@ -1435,7 +1434,7 @@ public class Ven_Admin extends javax.swing.JFrame {
                         fechaFin
                     );
 
-            // 6. COMPROBAR RESULTADOS
+            // COMPRUEBA LOS RESULTADOS
             if (resultados.isEmpty()) {
 
                 JOptionPane.showMessageDialog(
@@ -1447,7 +1446,7 @@ public class Ven_Admin extends javax.swing.JFrame {
                 return;
             }
 
-            // 7. MOSTRAR GRÁFICA
+            // 7. MUESTRA LA GRÁFICA
             if (tipoGrafica == 0) {
 
                 generarGraficaBarras(

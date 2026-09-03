@@ -19,13 +19,13 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
  public FichaNuevaCuenta() {
         initComponents();
         
-        // 1. Evitar que bloquee o mate la ventana principal al cerrarse
+        // Evita que se bloquee la ventana principal al cerrarse
         this.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
         
-        // 2. Ocultar paneles secundarios
+        // Oculta paneles secundarios
         panelDinamico.setVisible(false);
         
-        // 3. Montar el scroll limpio
+        // Monta el scroll limpio
         this.getContentPane().removeAll();
         this.getContentPane().setLayout(new java.awt.BorderLayout());
         
@@ -38,7 +38,7 @@ public class FichaNuevaCuenta extends javax.swing.JFrame {
         
         this.getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
         
-        // 4. Centrar y fijar tamaño sin congelar
+        // Centra y fija el tamaño sin congelar
         this.setSize(1050, 750);
         this.setLocationRelativeTo(null);
         

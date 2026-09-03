@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
 
 public class HorarioDAO {
 
-    // Actualiza la enfermera para asignarle su ID de horario
     private static final String ASIGNAR_TURNO_ENFERMERA = 
         "UPDATE Enfermera SET ID_Hor_Enfer = ? WHERE ID_Enfer = ?";
 

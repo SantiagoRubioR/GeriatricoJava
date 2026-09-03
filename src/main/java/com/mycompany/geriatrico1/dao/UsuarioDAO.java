@@ -18,7 +18,6 @@ public class UsuarioDAO {
              "WHERE u.Nombre_User = ? AND u.Contrasena_User = ?";
     
     public String[] iniciarSesion(String usuarioCedula, String password) {
-        // Retorna un arreglo: [0] = Cargo, [1] = Estado , [2] = nombre
         String[] datosAcceso = new String[3];
 
         try (Connection con = new Conexion().getConnection();
@@ -32,13 +31,13 @@ public class UsuarioDAO {
                     datosAcceso[0] = rs.getString("Cargo_Emp");
                     datosAcceso[1] = rs.getString("Estado_Emp");
                     datosAcceso[2] = rs.getString("nombre_Perso") + " " + rs.getString("apellido1_Perso");
-                    return datosAcceso; // Credenciales correctas
+                    return datosAcceso; 
                 }
             }
         } catch (SQLException e) {
             System.err.println("Error en Login: " + e.getMessage());
         }
-        return null; // Error 
+        return null; 
     }
 
     

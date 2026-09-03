@@ -44,7 +44,7 @@ public class PacienteDao {
                  PreparedStatement psTutor = con.prepareStatement(INSERT_TUTOR);
                  PreparedStatement psPac = con.prepareStatement(INSERT_PACIENTE)) {
                 
-                // 1. Persona Residente
+                // Persona Residente
                 psPerResidente.setString(1, residente.getCedula());
                 psPerResidente.setString(2, residente.getNombre1());
                 psPerResidente.setString(3, residente.getApellido1());
@@ -57,7 +57,7 @@ public class PacienteDao {
                 psPerResidente.setString(10, residente.getEstadoCivil());
                 psPerResidente.executeUpdate();
                 
-                // 2. Persona Tutor
+                // Persona Tutor
                 psPerTutor.setString(1, tutor.getCedula());
                 psPerTutor.setString(2, tutor.getNombre1());
                 psPerTutor.setString(3, tutor.getApellido1());
@@ -82,7 +82,7 @@ public class PacienteDao {
                     }
                 }
                 
-                // 4. Registrar Paciente
+                // Registrar Paciente
                 psPac.setString(1, residente.getCedula());
                 psPac.setString(2, idTutorGenerado);
                 psPac.setString(3, datosPac.getTipoSangre());
@@ -130,12 +130,12 @@ public class PacienteDao {
         String sqlPaciente = "UPDATE PACIENTE SET Tipo_Sandre_Pac=?, Grado_Dependencia=? WHERE ID_Pac=?";
         
         try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection()) {
-            con.setAutoCommit(false); // Iniciamos transacción
+            con.setAutoCommit(false); 
             
             try (java.sql.PreparedStatement psPer = con.prepareStatement(sqlPersona);
                  java.sql.PreparedStatement psPac = con.prepareStatement(sqlPaciente)) {
                 
-                // Actualizar datos de Persona
+                // Se actualiza datos de Persona
                 psPer.setString(1, residente.getNombre1());
                 psPer.setString(2, residente.getApellido1());
                 psPer.setString(3, residente.getApellido2());
@@ -143,16 +143,16 @@ public class PacienteDao {
                 psPer.setString(5, residente.getDireccion());
                 psPer.setString(6, residente.getCorreo());
                 psPer.setString(7, residente.getEstadoCivil());
-                psPer.setString(8, residente.getCedula()); // El WHERE
+                psPer.setString(8, residente.getCedula()); 
                 psPer.executeUpdate();
                 
-                // Actualizar datos Clínicos del Paciente
+                // Se actualiza datos Clínicos del Paciente
                 psPac.setString(1, ficha.getTipoSangre());
                 psPac.setString(2, ficha.getGradoDependencia());
-                psPac.setString(3, ficha.getIdPaciente()); // El WHERE
+                psPac.setString(3, ficha.getIdPaciente());
                 psPac.executeUpdate();
                 
-                con.commit(); // Confirmamos transacción
+                con.commit();
                 return true;
                 
             } catch (java.sql.SQLException e) {
@@ -175,7 +175,7 @@ public class PacienteDao {
                 ps.setString(1, idPac);
                 int filasAfectadas = ps.executeUpdate();
 
-                return filasAfectadas > 0; // Retorna true si se actualizó correctamente
+                return filasAfectadas > 0; 
 
             } catch (java.sql.SQLException e) {
                 System.err.println("Error al dar de baja al paciente: " + e.getMessage());
@@ -185,7 +185,7 @@ public class PacienteDao {
     
     public int contarPacientesActivos() {
         int totalPacientes = 0;
-        // Cuenta las filas donde el estado sea ACTIVO
+ 
         String sql = "SELECT COUNT(*) FROM Paciente WHERE UPPER(estado_Pac) = 'ACTIVO'";
         
         try (java.sql.Connection con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
@@ -223,7 +223,6 @@ public class PacienteDao {
     
 
     public String[] obtenerContactoEmergencia(String idPaciente) {
-        // Arreglo para: [0]Residente, [1]NombreTutor, [2]Parentesco, [3]Telefono, [4]Correo, [5]Direccion
         String[] datos = new String[6];
         
         String sql = "SELECT p_pac.nombre_Perso || ' ' || p_pac.apellido1_Perso AS residente, " +
@@ -263,7 +262,7 @@ public class PacienteDao {
     public java.util.List<String[]> listarPacientesActivos() {
         java.util.List<String[]> lista = new java.util.ArrayList<>();
         
-        // Unimos Paciente y Persona para tener ID, Cédula y Nombre completo
+        // Unimos paciente y persona para tener ID, Cédula y nombre completo
         String sql = "SELECT p.ID_Pac, per.cedula_Perso, per.nombre_Perso || ' ' || per.apellido1_Perso AS NombreCompleto " +
                      "FROM Paciente p " +
                      "INNER JOIN Persona per ON p.Cedula_Perso_Pac = per.cedula_Perso " +
@@ -275,9 +274,9 @@ public class PacienteDao {
             
             while (rs.next()) {
                 String[] paciente = new String[3];
-                paciente[0] = rs.getString("ID_Pac");           // Oculto (o visible, según tu diseño)
-                paciente[1] = rs.getString("cedula_Perso");     // Cédula
-                paciente[2] = rs.getString("NombreCompleto");   // Nombre y Apellido
+                paciente[0] = rs.getString("ID_Pac");           
+                paciente[1] = rs.getString("cedula_Perso");     
+                paciente[2] = rs.getString("NombreCompleto");   
                 lista.add(paciente);
             }
         } catch (Exception e) {
@@ -291,7 +290,7 @@ public class PacienteDao {
              "FROM Persona p INNER JOIN Paciente pa ON p.cedula_perso = pa.cedula_perso_pac " +
              "WHERE pa.id_pac = ?";
         try {
-            Connection con = Conexion.getConnection(); // Ajusta según tu clase de conexión
+            Connection con = Conexion.getConnection(); 
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, idPaciente);
             ResultSet rs = ps.executeQuery();
@@ -309,11 +308,11 @@ public class PacienteDao {
     }
     public List<Object[]> obtenerEvolucionVital(String idPaciente) {
         List<Object[]> evolucion = new ArrayList<>();
-        // Añadimos la Hora a la consulta
+        // Añadimos la hora a la consulta
             String sql = "SELECT ehc.Fecha_EncabHistoClin, ehc.Hora_EncabHistoClin, dhc.peso_dethisto, dhc.frecuencia_cardiaca_dethisto " +
              "FROM Encabezado_Historial_Clinico ehc " +
              "INNER JOIN Detalle_Historial_Clinico dhc ON ehc.ID_EncabHistoClin = dhc.ID_EncabHistoClin_DetHisto " +
-             "WHERE ehc.ID_Pac_EncabHistoClin = ? " + // ¡Busca por ID!
+             "WHERE ehc.ID_Pac_EncabHistoClin = ? " + 
              "ORDER BY ehc.Fecha_EncabHistoClin ASC, ehc.Hora_EncabHistoClin ASC LIMIT 5";
         try {
             Connection con = Conexion.getConnection();
@@ -323,7 +322,7 @@ public class PacienteDao {
             
             while (rs.next()) {
                 Object[] registro = new Object[3];
-                // Unimos Fecha y Hora para que la etiqueta en la gráfica NUNCA se repita
+                // Unimos fecha y hora para que la etiqueta en la gráfica nunca se repita
                 registro[0] = rs.getString("Fecha_EncabHistoClin") + " " + rs.getString("Hora_EncabHistoClin").substring(0, 5); 
                 registro[1] = rs.getDouble("peso_dethisto");
                 registro[2] = rs.getDouble("frecuencia_cardiaca_dethisto");
@@ -337,14 +336,13 @@ public class PacienteDao {
     
         public List<Object[]> obtenerTratamientos(String idPaciente) {
             List<Object[]> lista = new ArrayList<>();
-            // Hacemos INNER JOIN para cruzar el paciente -> recibe_tratamiento -> detalle -> tipo
             String sql = "SELECT dt.id_dettra, tt.nombre_tipotra, dt.fecha_ini_dettra, dt.fecha_fin_dettra, dt.estado_dettra, dt.observaciones_dettra " +
                          "FROM recibe_tratamiento rt " +
                          "INNER JOIN encabezado_tratamiento et ON rt.id_encabtra_recitrata = et.id_encabtra " +
                          "INNER JOIN detalle_tratamiento dt ON et.id_encabtra = dt.id_encabtra_dettra " +
                          "INNER JOIN tipo_tratamiento tt ON dt.id_tipotra_dettra = tt.id_tipotra " +
                          "WHERE rt.id_pac_recitrata = ? " +
-                         "ORDER BY dt.estado_dettra ASC, dt.fecha_ini_dettra DESC"; // Los "En proceso" salen primero
+                         "ORDER BY dt.estado_dettra ASC, dt.fecha_ini_dettra DESC"; 
             try {
                 java.sql.Connection con = Conexion.getConnection();
                 java.sql.PreparedStatement ps = con.prepareStatement(sql);
@@ -353,7 +351,7 @@ public class PacienteDao {
 
                 while (rs.next()) {
                     Object[] fila = new Object[6];
-                    fila[0] = rs.getString("id_dettra"); // Ocultaremos esto en la tabla luego
+                    fila[0] = rs.getString("id_dettra"); 
                     fila[1] = rs.getString("nombre_tipotra");
                     fila[2] = rs.getString("fecha_ini_dettra");
                     fila[3] = rs.getString("fecha_fin_dettra");
@@ -367,7 +365,7 @@ public class PacienteDao {
             return lista;
         }
 
-        // 2. Método para que el enfermero de cumplimiento al tratamiento
+        // Método para que el enfermero de cumplimiento al tratamiento
         public boolean finalizarTratamiento(String idDetalleTra) {
             String sql = "UPDATE detalle_tratamiento SET estado_dettra = 'Completado' WHERE id_dettra = ?";
             try {
@@ -385,7 +383,6 @@ public class PacienteDao {
         public List<Object[]> obtenerHistorialCuidados(String idPaciente) {
         List<Object[]> lista = new ArrayList<>();
         
-        // Súper consulta cruzando 4 tablas para sacar el nombre real del enfermero
         String sql = "SELECT c.fecha_cui, c.hora_cui, " +
                      "p.nombre_perso || ' ' || p.apellido1_perso AS nombre_enfermero, " +
                      "c.tipo_cui, c.observaciones_cui " +
@@ -394,7 +391,7 @@ public class PacienteDao {
                      "INNER JOIN empleado emp ON enf.id_emp_enfer = emp.id_emp " +
                      "INNER JOIN persona p ON emp.cedula_perso_emp = p.cedula_perso " +
                      "WHERE c.id_pac_cui = ? " +
-                     "ORDER BY c.fecha_cui DESC, c.hora_cui DESC"; // Lo más reciente sale arriba
+                     "ORDER BY c.fecha_cui DESC, c.hora_cui DESC"; 
         try {
             java.sql.Connection con = Conexion.getConnection();
             java.sql.PreparedStatement ps = con.prepareStatement(sql);
@@ -405,7 +402,7 @@ public class PacienteDao {
                 Object[] fila = new Object[5];
                 fila[0] = rs.getString("fecha_cui");
                 
-                // Le quitamos los milisegundos a la hora para que se vea estético (ej. 14:30)
+                // Le quitamos los milisegundos
                 String hora = rs.getString("hora_cui");
                 fila[1] = (hora != null && hora.length() >= 5) ? hora.substring(0, 5) : hora; 
                 

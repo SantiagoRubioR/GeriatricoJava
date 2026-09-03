@@ -23,7 +23,7 @@ public class Dash_login extends javax.swing.JFrame {
         //Es para que se abra en pantalla completa
 this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
 
-        this.setLocationRelativeTo(null); // Centra la ventana
+        this.setLocationRelativeTo(null);
     
     // Inyectamos la lógica:
         UsuarioDAO dao = new UsuarioDAO();

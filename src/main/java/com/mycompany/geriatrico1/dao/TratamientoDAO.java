@@ -9,7 +9,7 @@ import java.util.List;
 public class TratamientoDAO {
 
     // ========================================================
-    // LLENAR COMBOBOXES
+    // Llenar comboBoxes
     // ========================================================
     public List<String> listarTiposTratamiento() {
         List<String> lista = new ArrayList<>();
@@ -44,7 +44,7 @@ public class TratamientoDAO {
     }
 
     // ========================================================
-    // MEGA-TRANSACCIÓN: TRATAMIENTO + RECETA
+    // Tratamiento y receta
     // ========================================================
    public boolean registrarTratamientoCompleto(
             String idPaciente, String idMedico, String idTipoTratamiento, 
@@ -56,7 +56,7 @@ public class TratamientoDAO {
             con = new com.mycompany.geriatrico1.conexion.Conexion().getConnection();
             con.setAutoCommit(false); 
 
-            // 1. ENCABEZADO TRATAMIENTO
+            // Encabezado tratamiento
             String sqlETR = "INSERT INTO Encabezado_Tratamiento (ID_Med_EncabTra) VALUES (?) RETURNING ID_EncabTra";
             PreparedStatement psETR = con.prepareStatement(sqlETR);
             psETR.setString(1, idMedico);
@@ -64,14 +64,14 @@ public class TratamientoDAO {
             if (!rsETR.next()) throw new Exception("Fallo al generar ID de Encabezado Tratamiento");
             String idETR = rsETR.getString(1);
 
-            // 2. ENCABEZADO RECETA (Forzamos la fecha para que JDBC no se confunda)
+            // Encabezado receta
             String sqlERE = "INSERT INTO Encabezado_Receta (Fecha_EncabRec) VALUES (CURRENT_DATE) RETURNING ID_EncabRec";
             PreparedStatement psERE = con.prepareStatement(sqlERE);
             ResultSet rsERE = psERE.executeQuery();
             if (!rsERE.next()) throw new Exception("Fallo al generar ID de Encabezado Receta");
             String idERE = rsERE.getString(1);
 
-            // 3. DETALLE RECETA 
+            // Detalle receta
             String sqlDRE = "INSERT INTO Detalle_Receta (ID_EncabRec_DetRec, ID_Medicam_DetRec, Cantidad_DetRec, Dosis_DetRec, Frecuencia_DetRec, Duracion_DetRec) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement psDRE = con.prepareStatement(sqlDRE);
             psDRE.setString(1, idERE);
@@ -82,7 +82,7 @@ public class TratamientoDAO {
             psDRE.setString(6, duracionReceta);
             psDRE.executeUpdate();
 
-            // 4. DETALLE TRATAMIENTO 
+            // Detalle tratamiento
             String sqlDTR = "INSERT INTO Detalle_Tratamiento (ID_EncabTra_DetTra, ID_EncabRec_DetTra, ID_TipoTra_DetTra, Fecha_ini_DetTra, Fecha_fin_DetTra, Estado_DetTra, Observaciones_DetTra) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement psDTR = con.prepareStatement(sqlDTR);
             psDTR.setString(1, idETR);
@@ -94,7 +94,7 @@ public class TratamientoDAO {
             psDTR.setString(7, observaciones);
             psDTR.executeUpdate();
 
-            // 5. RECIBE TRATAMIENTO
+            // Recibe tratamiento
             String sqlRTR = "INSERT INTO Recibe_Tratamiento (ID_Pac_ReciTrata, ID_EncabTra_ReciTrata, Estado_ReciTrata) VALUES (?, ?, ?)";
             PreparedStatement psRTR = con.prepareStatement(sqlRTR);
             psRTR.setString(1, idPaciente);

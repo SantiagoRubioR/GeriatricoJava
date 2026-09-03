@@ -244,7 +244,7 @@ public class panel_paciente extends javax.swing.JPanel {
 
     private void btnAgregarCuidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCuidadoActionPerformed
         // TODO add your handling code here:
-        //
+ 
     }//GEN-LAST:event_btnAgregarCuidadoActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -252,7 +252,7 @@ public class panel_paciente extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btnGenerarAlertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarAlertaActionPerformed
- //
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnGenerarAlertaActionPerformed
 
     private void btnVerFichaCliniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerFichaCliniActionPerformed

@@ -36,36 +36,33 @@ public class panel_inicio extends javax.swing.JPanel {
     com.mycompany.geriatrico1.dao.AlertaDAO alertaDao = new com.mycompany.geriatrico1.dao.AlertaDAO();
     int alertasCriticas = alertaDao.contarAlertasCriticasPendientes();
     
-        // Aquí el panel se habla a sí mismo sin rodeos
         lblAlertasCriticas.setText(String.valueOf(alertasCriticas));
     } catch (Exception e) {
         System.out.println("Error cargando alertas en inicio: " + e.getMessage());
 }
     }
     public void actualizarContadores() {
-    // 1. Actualizar Alertas Críticas
+    // Actualiza alertas críticas
     try {
         com.mycompany.geriatrico1.dao.AlertaDAO alertaDao = new com.mycompany.geriatrico1.dao.AlertaDAO();
         int totalCriticas = alertaDao.contarAlertasCriticasPendientes();
-        lblAlertasCriticas.setText(String.valueOf(totalCriticas)); // Cambia por el nombre real de tu JLabel
+        lblAlertasCriticas.setText(String.valueOf(totalCriticas)); 
     } catch (Exception e) {
         System.out.println("Error cargando alertas en inicio: " + e.getMessage());
     }
     
-    // 2. ¡Actualizar Cuidados Pendientes del Enfermero!
+    // 2. ¡Actualiza cuidados pendientes del enfermero
     try {
         com.mycompany.geriatrico1.dao.CuidadoDAO cuidadoDao = new com.mycompany.geriatrico1.dao.CuidadoDAO();
-        int totalCuidados = cuidadoDao.contarCuidadosPendientesEnfermero(); // O como hayas llamado al método en tu DAO
-        lblCuidadoPen.setText(String.valueOf(totalCuidados)); // Cambia por el nombre real de tu JLabel del cero
+        int totalCuidados = cuidadoDao.contarCuidadosPendientesEnfermero(); 
+        lblCuidadoPen.setText(String.valueOf(totalCuidados)); 
     } catch (Exception e) {
         System.out.println("Error cargando cuidados en inicio: " + e.getMessage());
     }
 }
     public void setDatosEnfermero(String nombreEnfermero) {
-    // 1. Colocamos el nombre en el label (Asegúrate de haberle puesto este nombre al label en tu vista Design)
     lblNombreEnfermero.setText(nombreEnfermero); 
     
-    // 2. Traemos su horario
     try {
         com.mycompany.geriatrico1.dao.HorarioDAO horarioDao = new com.mycompany.geriatrico1.dao.HorarioDAO();
         String[] datos = horarioDao.obtenerTurnoYHorarioEnfermero(nombreEnfermero);
