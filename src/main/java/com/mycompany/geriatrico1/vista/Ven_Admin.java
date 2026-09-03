@@ -637,7 +637,7 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         panelCuentas.setBackground(new java.awt.Color(245, 247, 250));
 
-        jPanel12.setBackground(new java.awt.Color(238, 242, 246));
+        jPanel12.setBackground(new java.awt.Color(245, 247, 250));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
@@ -649,6 +649,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel23.setText("Enfermeros/as y médicos con acceso al sistema ");
         jPanel12.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
+        jPanel11.setBackground(new java.awt.Color(245, 247, 250));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtBusPersonal.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
@@ -758,7 +759,7 @@ public class Ven_Admin extends javax.swing.JFrame {
 
         panelPacientes.setBackground(new java.awt.Color(245, 247, 250));
 
-        jPanel13.setBackground(new java.awt.Color(238, 242, 246));
+        jPanel13.setBackground(new java.awt.Color(245, 247, 250));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
@@ -770,6 +771,7 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel25.setText("Pacientes registrados en el sistema");
         jPanel13.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 290, -1));
 
+        jPanel16.setBackground(new java.awt.Color(245, 247, 250));
         jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtBuscarPaciente.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
@@ -872,7 +874,10 @@ public class Ven_Admin extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
+        panelReportes.setBackground(new java.awt.Color(245, 247, 250));
         panelReportes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel18.setBackground(new java.awt.Color(245, 247, 250));
 
         jLabel29.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
         jLabel29.setText("Reportes");
@@ -923,6 +928,8 @@ public class Ven_Admin extends javax.swing.JFrame {
         comboxPeriodo.addActionListener(this::comboxPeriodoActionPerformed);
         panelReportes.add(comboxPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 252, -1, -1));
 
+        panelPersonalizado.setBackground(new java.awt.Color(245, 247, 250));
+
         jLabel11.setText("Fecha incial: ");
 
         jLabel16.setText("Fecha final: ");
@@ -957,6 +964,8 @@ public class Ven_Admin extends javax.swing.JFrame {
         );
 
         panelReportes.add(panelPersonalizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 302, -1, -1));
+
+        panelGraficas.setBackground(new java.awt.Color(245, 247, 250));
 
         javax.swing.GroupLayout panelGraficasLayout = new javax.swing.GroupLayout(panelGraficas);
         panelGraficas.setLayout(panelGraficasLayout);
@@ -1036,12 +1045,14 @@ public class Ven_Admin extends javax.swing.JFrame {
         jLabel26.setText("Acciones rápidas");
         panelInicio.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
 
-        jPanel8.setBackground(new java.awt.Color(238, 242, 246));
+        jPanel8.setBackground(new java.awt.Color(245, 247, 250));
 
+        lblFecha.setBackground(new java.awt.Color(245, 247, 250));
         lblFecha.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(102, 102, 102));
         lblFecha.setText("Jueves, 14 de agosto de 2026");
 
+        lblSaludo.setBackground(new java.awt.Color(245, 247, 250));
         lblSaludo.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
         lblSaludo.setText("Hola, ");
 
