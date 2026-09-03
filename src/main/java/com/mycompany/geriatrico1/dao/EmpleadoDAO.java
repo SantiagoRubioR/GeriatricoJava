@@ -21,7 +21,7 @@ public class EmpleadoDAO {
         "INSERT INTO Usuario (ID_Emp_User, Contrasena_User) VALUES (?, ?)";
     
     private static final String INSERT_ADMIN = 
-        "INSERT INTO Administrador (ID_Emp_Admin, estado_admin) VALUES (?, 'ACTIVO')";
+        "INSERT INTO Administrador (ID_Emp_Admin) VALUES (?)";
         
     private static final String INSERT_MEDICO = 
         "INSERT INTO Medico (ID_Emp_Med, Registro_Profesiona_Med, Nivel_Formacion_Med, Especialidad_Med) VALUES (?, ?, ?, ?)";
